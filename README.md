@@ -1,10 +1,10 @@
-<img src="http://120.24.86.73:8080/logo.jpg" alt="Ten Inc. logo" title="Ten" align="right" height="128" width="128" />
+<img src="https://d3heg6bx5jbtwp.cloudfront.net/static/b807/site/img/cf_logo.png" alt="Ten Inc. logo" title="Ten" align="right" height="128" width="128" />
 
 
 # 微赛小视频 vipsai
 
 
 
-**Copyright(c) __Cyndi__. All rights reserved.**
+**Copyright(c) __DMCA__. All rights reserved.**
 
 
