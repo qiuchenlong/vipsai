@@ -1,12 +1,13 @@
-# OSX
+# OSX  mac系统下的多余文件
 *.DS_Store
 
-# Gradle files
+# Gradle files  gradle构建文件
 build/
 .gradle/
 */build/
+gradle/
 
-# IDEA
+# IDEA  idea产生的文件
 *.iml
 .idea/
 .idea/.name
