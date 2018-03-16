@@ -5,7 +5,7 @@
 build/
 .gradle/
 */build/
-gradle/
+gradle/wrapper/gradle-wrapper.properties
 
 # IDEA  idea产生的文件
 *.iml
