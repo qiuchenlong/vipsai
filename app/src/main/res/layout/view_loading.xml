@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x124"
+    android:layout_height="@dimen/x124"
+    android:background="@drawable/shape_loading"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/x10">
+
+    <ImageView
+        android:id="@+id/mouse"
+        android:layout_width="@dimen/x60"
+        android:layout_height="@dimen/x60"
+        android:layout_marginTop="@dimen/y10"
+        android:src="@mipmap/ico_loading"/>
+
+    <com.ten.education.widget.loading.GraduallyTextView
+        android:id="@+id/graduallyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="加载中 ..."
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/font14sp"/>
+
+</LinearLayout>

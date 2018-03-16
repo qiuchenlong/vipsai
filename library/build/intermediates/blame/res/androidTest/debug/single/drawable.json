@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/res/merged/androidTest/debug/drawable/selector_gird_item.xml",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/drawable/selector_gird_item.xml"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/res/merged/androidTest/debug/drawable/psw_input_area_bg.xml",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/drawable/psw_input_area_bg.xml"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/res/merged/androidTest/debug/drawable/img_psw_bg.xml",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/drawable/img_psw_bg.xml"
+    }
+]

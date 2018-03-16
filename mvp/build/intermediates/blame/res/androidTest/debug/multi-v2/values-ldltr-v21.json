@@ -1,0 +1,49 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/73b9da43a4ab8650078aa2d9546ae6ac/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/73b9da43a4ab8650078aa2d9546ae6ac/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/cynid/Desktop/androidprojects/vipsai/mvp/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/e2817c6c941af2e20dd700047a921977/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

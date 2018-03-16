@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--SwipeBackLayout-->
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference" />
+
+
+
+
+
+
+    <!--指示器的属性-->
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_radius" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_background" format="color|integer" />
+        <attr name="ci_selected_background" format="color|integer" />
+        <attr name="ci_gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="ci_mode">
+            <enum name="inside" value="0" />
+            <enum name="outside" value="1" />
+            <enum name="solo" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Titlebar">
+        <attr name="leftButtonText" format="string|reference"></attr>
+        <attr name="leftButtonTextColor" format="color|reference"></attr>
+        <attr name="leftButtonTextSize" format="dimension|reference"></attr>
+        <attr name="leftButtonImage" format="color|reference"></attr>
+        <attr name="leftButtonImageWidth" format="dimension|reference"></attr>
+        <attr name="leftButtonImageHeight" format="dimension|reference"></attr>
+
+        <attr name="titleText" format="string|reference"></attr>
+        <attr name="titleColor" format="color|reference"></attr>
+        <attr name="titleSize" format="dimension|reference"></attr>
+
+        <attr name="rightButtonText" format="string|reference"></attr>
+        <attr name="rightButtonTextColor" format="color|reference"></attr>
+        <attr name="rightButtonTextSize" format="dimension|reference"></attr>
+        <attr name="rightButtonImage" format="color|reference"></attr>
+        <attr name="rightButtonImageWidth" format="dimension|reference"></attr>
+        <attr name="rightButtonImageHeight" format="dimension|reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="aTitle" format="string" />
+        <attr name="aIcon" format="reference" />
+    </declare-styleable>
+
+
+
+
+    <!--Genius-Android-->
+    <!-- LoadingView -->
+    <attr name="gLoadingStyle" format="reference" />
+    <declare-styleable name="Loading">
+        <attr name="gBackgroundLineSize" format="dimension" />
+        <attr name="gForegroundLineSize" format="dimension" />
+        <attr name="gBackgroundColor" />
+        <attr name="gForegroundColor" format="reference|color" />
+        <attr name="gProgressStyle">
+            <enum name="circle" value="1" />
+            <enum name="line" value="2" />
+        </attr>
+        <attr name="gAutoRun" format="boolean" />
+        <attr name="gProgressFloat" format="float" />
+    </declare-styleable>
+
+    <attr name="AdjustTextView" format="reference" />
+    <declare-styleable name="AdjustTextView">
+        <attr name="oscMinTextSize" format="integer" />
+    </declare-styleable>
+
+</resources>

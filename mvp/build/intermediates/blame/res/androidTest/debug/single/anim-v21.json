@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/design-25.0.0.aar/4b4caa123ec46106ba11aa21f406bfd8/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/design-25.0.0.aar/4b4caa123ec46106ba11aa21f406bfd8/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/anim-v21/design_appbar_state_list_animator.xml",
+        "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/design-25.0.0.aar/4b4caa123ec46106ba11aa21f406bfd8/res/anim-v21/design_appbar_state_list_animator.xml"
+    }
+]

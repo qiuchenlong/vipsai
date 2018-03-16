@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4/ic_launcher.png",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/mipmap-xxhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4/ahn.png",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/mipmap-xxhdpi-v4/ahn.png"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4/default_nor_avatar.png",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/mipmap-xxhdpi-v4/default_nor_avatar.png"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4/keyboard_delete_img.png",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/mipmap-xxhdpi-v4/keyboard_delete_img.png"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4/keyboard_back_img.png",
+        "source": "/home/cynid/Desktop/androidprojects/YE_Android/library/build/intermediates/bundles/debug/res/mipmap-xxhdpi-v4/keyboard_back_img.png"
+    }
+]

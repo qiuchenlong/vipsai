@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:context="com.vs.vipsai.ui.nav.NavFragment">
+
+    <com.vs.vipsai.ui.nav.NavigationButton
+        android:id="@+id/nav_item_recommend"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+
+    <com.vs.vipsai.ui.nav.NavigationButton
+        android:id="@+id/nav_item_competition"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+
+    <ImageView
+        android:id="@+id/nav_item_tweet_pub"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:contentDescription="@null"
+        android:padding="2dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher_background"
+        android:visibility="gone"/>
+
+    <com.vs.vipsai.ui.nav.NavigationButton
+        android:id="@+id/nav_item_vote"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+
+    <com.vs.vipsai.ui.nav.NavigationButton
+        android:id="@+id/nav_item_past"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+
+    <com.vs.vipsai.ui.nav.NavigationButton
+        android:id="@+id/nav_item_me"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp" />
+</LinearLayout>

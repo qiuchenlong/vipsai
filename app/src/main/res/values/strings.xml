@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">微赛小视频</string>
+
+    <!--main_tab-->
+    <string name="main_tab_name_recommend">推荐</string>
+    <string name="main_tab_name_competition">参赛</string>
+    <string name="main_tab_name_vote">投票</string>
+    <string name="main_tab_name_past">往期</string>
+    <string name="main_tab_name_my">我的</string>
+
+    <!--network state-->
+    <string name="state_network_error">网络错误</string>
+    <string name="state_loading">正在加载…</string>
+    <string name="state_not_more">没有更多数据</string>
+    <string name="state_load_error">加载失败</string>
+    <string name="state_refreshing">正在刷新</string>
+    <string name="state_loading_error">数据加载中&#8230;</string>
+    <string name="state_submit">正在提交中&#8230;</string>
+
+    <!-- Error View -->
+    <string name="error_view_no_data">暂无内容</string>
+    <string name="error_view_loading">加载中…</string>
+    <string name="error_view_loading_friend">数据初始化中…</string>
+    <string name="error_view_loading_local_friend">获取附近的程序员中…</string>
+    <string name="error_view_load_error_click_to_refresh">内容加载失败\r\n点击重新加载</string>
+    <string name="error_view_network_error_click_to_refresh">没有可用的网络</string>
+    <string name="tip_network_error">没有可用的网络</string>
+
+
+    <!--footer_type-->
+    <string name="footer_type_loading">正在加载中…</string>
+    <string name="footer_type_error">加载失败</string>
+    <string name="footer_type_net_error">网络错误</string>
+    <string name="footer_type_not_more">没有更多数据</string>
+
+
+    <string name="gallery_save_file_not_have_external_storage_permission">没有外部存储权限!</string>
+    <string name="gallery_save_file_not_have_external_storage">没有外部存储!</string>
+    <string name="gallery_save_file_success">保存成功!</string>
+    <string name="gallery_save_file_failed">存储失败!</string>
+    <string name="image_select_opt_done">完成</string>
+    <string name="image_select_opt_preview">预览</string>
+
+
+    <!-- 个人信息-->
+    <string name="action_select">选择操作</string>
+    <string name="title_icon_null">图像不存在，上传失败</string>
+    <string name="title_update_fail_status">个人信息更新失败&#8230;</string>
+
+
+</resources>

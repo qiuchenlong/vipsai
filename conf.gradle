@@ -1,0 +1,84 @@
+ext {
+
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.2",
+
+            minSdkVersion    : 15,
+            targetSdkVersion : 26,
+
+            versionCode      : 100,
+            versionName      : '1.0.0',
+
+            VSupportSdk      : '25.0.0',
+            VRetrofitSdk     : "2.2.0",
+            VOkhttp          : "3.4.2",
+            VRxlifecycle     : "2.0.1"
+    ]
+    dependencies = [
+            "appcompat-v7"               : "com.android.support:appcompat-v7:${android["VSupportSdk"]}",
+            "support-compat"             : "com.android.support:support-compat:${android["VSupportSdk"]}",
+            "support-v4"                 : "com.android.support:support-v4:${android["VSupportSdk"]}",
+            "design"                     : "com.android.support:design:${android["VSupportSdk"]}",
+            "annotations"                : "com.android.support:support-annotations:${android["VSupportSdk"]}",
+            "recyclerview-v7"            : "com.android.support:recyclerview-v7:${android["VSupportSdk"]}",
+
+            "butterknife"                : "com.jakewharton:butterknife:8.6.0",
+            "butterknife-apt"            : "com.jakewharton:butterknife-compiler:8.6.0",
+            "eventbus"                   : "org.greenrobot:eventbus:3.0.0",
+            "glide"                      : "com.github.bumptech.glide:glide:3.7.0",
+            "picasso"                    : "com.squareup.picasso:picasso:2.5.2",
+            "xrecyclerview"              : "com.github.limedroid:ARecyclerView:v1.1.5",
+            "avi-loading"                : "com.wang.avi:library:1.0.2",
+
+            "gson"                       : "com.google.code.gson:gson:2.6.2",
+            "rxandroid"                  : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxjava"                     : "io.reactivex.rxjava2:rxjava:2.0.1",
+            "retrofit"                   : "com.squareup.retrofit2:retrofit:${android["VRetrofitSdk"]}",
+            "retrofit-converter-gson"    : "com.squareup.retrofit2:converter-gson:${android["VRetrofitSdk"]}",
+            "retrofit-adapter-rxjava"    : "com.squareup.retrofit2:adapter-rxjava2:${android["VRetrofitSdk"]}",
+            "okhttp3-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${android["VOkhttp"]}",
+            "okhttp3"                    : "com.squareup.okhttp3:okhttp:${android["VOkhttp"]}",
+            "rxlifecycle"                : "com.trello.rxlifecycle2:rxlifecycle:${android["VRxlifecycle"]}",
+            "rxlifecycle-android"        : "com.trello.rxlifecycle2:rxlifecycle-android:${android["VRxlifecycle"]}",
+            "rxlifecycle-components"     : "com.trello.rxlifecycle2:rxlifecycle-components:${android["VRxlifecycle"]}",
+            "rxpermissions"              : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar",
+
+            "canary-debug"               : "com.squareup.leakcanary:leakcanary-android:1.4-beta2",
+            "canary-release"             : "com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2",
+
+            //沉浸式状态栏
+            "systembartint"              : "com.readystatesoftware.systembartint:systembartint:1.0.4",
+
+            //图片轮播
+            "banner"                     : "com.youth.banner:banner:1.4.9",
+
+            //环信
+            "hyphenate"                  : "com.hyphenate:hyphenate-sdk-lite:3.3.0",
+
+            //google zxing 二维码生成与解析库
+//            "zxing"                      : "com.google.zxing:core:3.3.0",
+
+//            "player"                     : "fm.jiecao:jiecaovideoplayer:4.0_beta",
+
+            //剪裁
+            "crop"                       : "com.github.yalantis:ucrop:2.2.1-native",
+
+            //腾讯升级
+            "bugly"                      : "com.tencent.bugly:crashreport_upgrade:1.2.1",
+
+
+            //6.0权限申请
+//            "android-apt"                :"com.neenbedankt.gradle.plugins:android-apt:1.8",
+
+
+//            //facebook-share
+//            "facebook-share"             :"com.facebook.android:facebook-android-sdk:4.7.0",
+
+//            美恰IM
+            "meiqia"                     :"com.meiqia:meiqiasdk:3.4.3@aar"
+            
+
+    ]
+
+}

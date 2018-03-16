@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/73b9da43a4ab8650078aa2d9546ae6ac/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/home/cynid/Desktop/androidprojects/YE_Android/mvp/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/cynid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.0.0.aar/73b9da43a4ab8650078aa2d9546ae6ac/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]
