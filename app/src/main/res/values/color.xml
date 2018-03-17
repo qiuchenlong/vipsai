@@ -76,6 +76,19 @@
     <color name="tweet_indicator_text_color">#111111</color>
     <color name="tweet_indicator_text_color_error">#e35050</color>
 
+
+
+    <!--第三方登录-->
+    <color name="login_bg_color_wx_normal">#31b968</color>
+    <color name="login_bg_color_wx_pressed">#31c968</color>
+    <color name="login_bg_color_qq_normal">#5697cc</color>
+    <color name="login_bg_color_qq_pressed">#5697fc</color>
+    <color name="login_bg_color_wb_normal">#e35050</color>
+    <color name="login_bg_color_wb_pressed">#f35050</color>
+
+
+
+
     <!-- 新版登录模块-->
     <color name="login_line_color">#dededf</color>
     <color name="login_input_active">#31b968</color>

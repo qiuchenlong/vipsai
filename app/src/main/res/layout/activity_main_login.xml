@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/lay_login_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_three_login"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <include
+            android:id="@+id/ly_retrieve_bar"
+            layout="@layout/activity_main_login_navigation_bar" />
+
+        <ImageView
+            android:id="@+id/iv_login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:paddingTop="48dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:id="@+id/wx"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/login_wx_label_name"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_login_wx"
+                android:drawableLeft="@mipmap/ic_three_login_wx"
+                android:drawablePadding="10dp"
+                android:paddingLeft="128dp"
+                android:paddingRight="128dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/qq"
+                android:layout_marginBottom="12dp"
+                />
+            <Button
+                android:id="@+id/qq"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/login_qq_label_name"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_login_qq"
+                android:drawableLeft="@mipmap/ic_three_login_qq"
+                android:drawablePadding="10dp"
+                android:paddingLeft="128dp"
+                android:paddingRight="128dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/wb"
+                android:layout_marginBottom="12dp"
+                />
+            <Button
+                android:id="@+id/wb"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/login_wb_label_name"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_login_wb"
+                android:drawableLeft="@mipmap/ic_three_login_wb"
+                android:drawablePadding="10dp"
+                android:paddingLeft="128dp"
+                android:paddingRight="128dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/walk_around"
+                android:layout_marginBottom="12dp"
+                />
+
+            <TextView
+                android:id="@+id/walk_around"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_walk_around_label_name"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

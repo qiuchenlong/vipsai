@@ -12,7 +12,7 @@
     "order": 1,
     "subtype": 1,
     "token": "d6112fa662bc4bf21084670a857fbd20",
-    "type": 6
+    "type": 3
   },
   {
     "fixed": true,
@@ -23,7 +23,7 @@
     "order": 3,
     "subtype": 4,
     "token": "df985be3c5d5449f8dfb47e06e098ef9",
-    "type": 3
+    "type": 6
   },
   {
     "fixed": false,

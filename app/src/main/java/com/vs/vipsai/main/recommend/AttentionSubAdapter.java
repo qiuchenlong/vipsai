@@ -8,14 +8,18 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
 
@@ -52,7 +56,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
     }
 
     @Override
-    protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, SubBean item, int position) {
+    protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, SubBean item, final int position) {
         BlogViewHolder vh = (BlogViewHolder) holder;
 
         TextView title = vh.tv_title;
@@ -146,11 +150,21 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
 //        see.setText(String.valueOf(item.getStatistics().getView()));
 //        answer.setText(String.valueOf(item.getStatistics().getComment()));
+
+        vh.btn_pull.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimplexToast.show(AppContext.getContext(), "aaaaaaaaaa" + position);
+            }
+        });
+
+
     }
 
     private static class BlogViewHolder extends RecyclerView.ViewHolder {
         TextView tv_title, tv_description, tv_time, tv_comment_count, tv_view;
         LinearLayout ll_title;
+        Button btn_pull;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -160,6 +174,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             tv_comment_count = (TextView) itemView.findViewById(R.id.tv_info_comment);
             tv_view = (TextView) itemView.findViewById(R.id.tv_info_view);
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
+            btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
         }
     }
 

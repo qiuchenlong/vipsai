@@ -53,7 +53,56 @@
         </activity>
 
 
+        <activity
+            android:name="com.vs.vipsai.ui.activity.PubActivity"
+            android:label="发布选择"
+            android:screenOrientation="portrait"
+            android:theme="@style/PubTheme" />
 
+
+        <activity
+            android:name="com.vs.vipsai.tweet.activities.TweetPublishActivity"
+            android:label="弹一弹"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Publish"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+
+        <!--登录界面-->
+        <activity
+            android:name="com.vs.vipsai.account.activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="登录中心"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Account_Base.App.Theme.NoTitle"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+
+        <!--图片选择器界面-->
         <activity
             android:name="com.vs.vipsai.media.SelectImageActivity"
             android:configChanges="keyboardHidden|orientation"

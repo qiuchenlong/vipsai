@@ -2,6 +2,7 @@ package com.vs.vipsai.main.recommend;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.gson.reflect.TypeToken;
 import com.vs.vipsai.AppConfig;
@@ -112,6 +113,7 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
 //        mReadState.put(sub.getKey());
         mAdapter.updateItem(position);
     }
+
 
     @Override
     public void onRefreshing() {

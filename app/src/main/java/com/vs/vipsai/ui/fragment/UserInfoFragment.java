@@ -31,6 +31,7 @@ import com.androidkun.xtablayout.XTabLayout;
 import com.google.gson.reflect.TypeToken;
 import com.vs.vipsai.OnTabReselectListener;
 import com.vs.vipsai.R;
+import com.vs.vipsai.account.activity.LoginActivity;
 import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.base.fragments.BaseTitleFragment;
 import com.vs.vipsai.bean.News;
@@ -67,30 +68,30 @@ import butterknife.OnClick;
 public class UserInfoFragment extends BaseFragment implements View.OnClickListener,
          NoticeManager.NoticeNotify, OnTabReselectListener { //EasyPermissions.PermissionCallbacks,
 
-    @BindView(R.id.iv_logo_setting)
-    ImageView mIvLogoSetting;
-    @BindView(R.id.iv_logo_zxing)
-    ImageView mIvLogoZxing;
-    @BindView(R.id.user_info_head_container)
-    FrameLayout mFlUserInfoHeadContainer;
-
-    @BindView(R.id.iv_portrait)
-    PortraitView mPortrait;
-    @BindView(R.id.iv_gender)
-    ImageView mIvGander;
-    @BindView(R.id.user_info_icon_container)
-    FrameLayout mFlUserInfoIconContainer;
-
-    @BindView(R.id.tv_nick)
-    TextView mTvName;
-    @BindView(R.id.tv_avail_score)
-    TextView mTextAvailScore;
-    @BindView(R.id.tv_active_score)
-    TextView mTextActiveScore;
-    @BindView(R.id.user_view_solar_system)
-    SolarSystemView mSolarSystem;
-    @BindView(R.id.rl_show_my_info)
-    LinearLayout mRlShowInfo;
+//    @BindView(R.id.iv_logo_setting)
+//    ImageView mIvLogoSetting;
+//    @BindView(R.id.iv_logo_zxing)
+//    ImageView mIvLogoZxing;
+//    @BindView(R.id.user_info_head_container)
+//    FrameLayout mFlUserInfoHeadContainer;
+//
+//    @BindView(R.id.iv_portrait)
+//    PortraitView mPortrait;
+//    @BindView(R.id.iv_gender)
+//    ImageView mIvGander;
+//    @BindView(R.id.user_info_icon_container)
+//    FrameLayout mFlUserInfoIconContainer;
+//
+//    @BindView(R.id.tv_nick)
+//    TextView mTvName;
+//    @BindView(R.id.tv_avail_score)
+//    TextView mTextAvailScore;
+//    @BindView(R.id.tv_active_score)
+//    TextView mTextActiveScore;
+//    @BindView(R.id.user_view_solar_system)
+//    SolarSystemView mSolarSystem;
+//    @BindView(R.id.rl_show_my_info)
+//    LinearLayout mRlShowInfo;
 
 
 //    @BindView(R.id.about_line)
@@ -248,9 +249,9 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 //    }
 
     private void init() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.tmp_bg);
-        headLayout.setBackgroundDrawable(new BitmapDrawable(BlurUtil.fastblur(getContext(), bitmap, 180)));
-        collapsingToolbarLayout.setContentScrim(new BitmapDrawable(BlurUtil.fastblur(getContext(), bitmap, 180)));
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.tmp_bg);
+//        headLayout.setBackgroundDrawable(new BitmapDrawable(BlurUtil.fastblur(getContext(), bitmap, 180)));
+//        collapsingToolbarLayout.setContentScrim(new BitmapDrawable(BlurUtil.fastblur(getContext(), bitmap, 180)));
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -557,25 +558,25 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
      *
      */
     private void hideView() {
-        mPortrait.setImageResource(R.mipmap.widget_default_face);
-//        mTvName.setText(R.string.user_hint_login);
-        mTvName.setTextSize(16.0f);
-        mIvGander.setVisibility(View.INVISIBLE);
-        mTextActiveScore.setVisibility(View.INVISIBLE);
-        mTextAvailScore.setVisibility(View.INVISIBLE);
-//        mLayAboutCount.setVisibility(View.GONE);
-//        mAboutLine.setVisibility(View.GONE);
+//        mPortrait.setImageResource(R.mipmap.widget_default_face);
+////        mTvName.setText(R.string.user_hint_login);
+//        mTvName.setTextSize(16.0f);
+//        mIvGander.setVisibility(View.INVISIBLE);
+//        mTextActiveScore.setVisibility(View.INVISIBLE);
+//        mTextAvailScore.setVisibility(View.INVISIBLE);
+////        mLayAboutCount.setVisibility(View.GONE);
+////        mAboutLine.setVisibility(View.GONE);
     }
 
     /**
      * measureTitleBarHeight
      */
     private void measureTitleBarHeight() {
-        if (mRlShowInfo != null) {
-//            mRlShowInfo.setPadding(mRlShowInfo.getLeft(),
-//                    UiUtil.getStatusBarHeight(getContext()),
-//                    mRlShowInfo.getRight(), mRlShowInfo.getBottom());
-        }
+//        if (mRlShowInfo != null) {
+////            mRlShowInfo.setPadding(mRlShowInfo.getLeft(),
+////                    UiUtil.getStatusBarHeight(getContext()),
+////                    mRlShowInfo.getRight(), mRlShowInfo.getBottom());
+//        }
     }
 
 
@@ -587,8 +588,8 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     @SuppressWarnings("deprecation")
     @OnClick({
-            R.id.iv_logo_setting, R.id.iv_logo_zxing, R.id.iv_portrait,
-            R.id.user_view_solar_system,
+//            R.id.iv_logo_setting, R.id.iv_logo_zxing, R.id.iv_portrait,
+//            R.id.user_view_solar_system,
             R.id.fragment_main_user_home_portrait
     })
     @Override
@@ -668,37 +669,37 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
      */
     private void showAvatarOperation() {
 //        if (!AccountHelper.isLogin()) {
-//            LoginActivity.show(getActivity());
+            LoginActivity.show(getActivity());
 //        } else {
-            DialogHelper.getSelectDialog(getActivity(),
-                    getString(R.string.action_select),
-                    getResources().getStringArray(R.array.avatar_option), "取消",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            switch (i) {
-                                case 0:
-                                    SelectImageActivity.show(getContext(), new SelectOptions.Builder()
-                                            .setSelectCount(1)
-                                            .setHasCam(true)
-                                            .setCrop(700, 700)
-                                            .setCallback(new SelectOptions.Callback() {
-                                                @Override
-                                                public void doSelected(String[] images) {
-                                                    String path = images[0];
-                                                    uploadNewPhoto(new File(path));
-                                                }
-                                            }).build());
-                                    break;
-
-                                case 1:
-//                                    if (mUserInfo == null
-//                                            || TextUtils.isEmpty(mUserInfo.getPortrait())) return;
-//                                    UIHelper.showUserAvatar(getActivity(), mUserInfo.getPortrait());
-                                    break;
-                            }
-                        }
-                    }).show();
+//            DialogHelper.getSelectDialog(getActivity(),
+//                    getString(R.string.action_select),
+//                    getResources().getStringArray(R.array.avatar_option), "取消",
+//                    new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            switch (i) {
+//                                case 0:
+//                                    SelectImageActivity.show(getContext(), new SelectOptions.Builder()
+//                                            .setSelectCount(1)
+//                                            .setHasCam(true)
+//                                            .setCrop(700, 700)
+//                                            .setCallback(new SelectOptions.Callback() {
+//                                                @Override
+//                                                public void doSelected(String[] images) {
+//                                                    String path = images[0];
+//                                                    uploadNewPhoto(new File(path));
+//                                                }
+//                                            }).build());
+//                                    break;
+//
+//                                case 1:
+////                                    if (mUserInfo == null
+////                                            || TextUtils.isEmpty(mUserInfo.getPortrait())) return;
+////                                    UIHelper.showUserAvatar(getActivity(), mUserInfo.getPortrait());
+//                                    break;
+//                            }
+//                        }
+//                    }).show();
 //        }
     }
 

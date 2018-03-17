@@ -14,8 +14,9 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
         >
+
+        <!--android:background="?attr/selectableItemBackgroundBorderless"-->
 
         <!--android:background="@drawable/ic_material"-->
 
@@ -38,10 +39,26 @@
                 android:layout_margin="8dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="name"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"/>
+
+                    <Button
+                        android:id="@+id/btn_pull"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="pull btn"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
