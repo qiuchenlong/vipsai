@@ -379,6 +379,7 @@
                 >
 
                 <ImageView
+                    android:id="@+id/fragment_main_user_home_btn_setting"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
@@ -387,7 +388,8 @@
                     android:paddingBottom="8dp"
                     android:src="@mipmap/ic_set"
                     android:contentDescription="@null"
-                    android:visibility="visible"/>
+                    android:visibility="visible"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
 
                 <ImageView
                     android:layout_width="40dp"

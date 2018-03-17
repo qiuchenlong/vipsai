@@ -43,6 +43,7 @@ import com.vs.vipsai.notice.NoticeBean;
 import com.vs.vipsai.notice.NoticeManager;
 import com.vs.vipsai.util.BlurUtil;
 import com.vs.vipsai.util.DialogHelper;
+import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
 import com.vs.vipsai.widget.PortraitView;
 import com.vs.vipsai.widget.SolarSystemView;
@@ -590,7 +591,8 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     @OnClick({
 //            R.id.iv_logo_setting, R.id.iv_logo_zxing, R.id.iv_portrait,
 //            R.id.user_view_solar_system,
-            R.id.fragment_main_user_home_portrait
+            R.id.fragment_main_user_home_portrait,
+            R.id.fragment_main_user_home_btn_setting
     })
     @Override
     public void onClick(View v) {
@@ -602,6 +604,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 //查看头像 or 更换头像
                 showAvatarOperation();
                 break;
+            case R.id.fragment_main_user_home_btn_setting:
+                SimplexToast.show(getContext(), "Setting...");
+                break;
+
         }
 
 //        if (id == R.id.iv_logo_setting) {
