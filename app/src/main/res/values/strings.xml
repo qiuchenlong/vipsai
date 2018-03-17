@@ -52,6 +52,9 @@
 
 
 
+    <string name="loading">加载中…</string>
+    <string name="loading_no_more">已加载全部</string>
+
 
     <!--第三方登录-->
     <string name="login_wx_label_name">微信登录</string>
@@ -104,5 +107,48 @@
     <string name="tv_my_score">积分 0</string>
     <string name="zero">0</string>
 
+
+
+    <string name="event_type_outline">线下活动</string>
+
+
+    <!--actionbar_title-->
+    <string name="actionbar_title_setting">设置</string>
+    <string name="actionbar_title_about">关于我们</string>
+
+
+    <!--设置选项-->
+    <string name="set_options_social_platforms">社交平台</string>
+    <string name="set_options_location">定位</string>
+    <string name="set_options_timezone">时区</string>
+    <string name="set_options_signature">个性签名</string>
+    <string name="set_options_email_alert">邮件提醒</string>
+    <string name="set_options_payment_password">支付密码</string>
+    <string name="set_options_help">帮助中心</string>
+    <string name="set_options_about">关于我们</string>
+
+
+    <!--关于我们-->
+    <string name="vs_site">官网</string>
+    <string name="know_more">了解更多</string>
+    <string name="copyright">© 2018 channelfix.com All rights reserved.</string>
+
+
+    <!--分享-->
+    <string name="share_to">分享</string>
+    <string name="platform_sina">微博</string>
+    <string name="platform_wechat_circle">朋友圈</string>
+    <string name="platform_wechat">微信</string>
+    <string name="platform_qq">QQ</string>
+    <string name="platform_tweet">动弹</string>
+    <string name="platform_browser">浏览器</string>
+    <string name="platform_copy_link">复制链接</string>
+    <string name="platform_picture">长图分享</string>
+    <string name="platform_more_option">更多</string>
+    <string name="platform_download">保存图片</string>
+    <string name="platform_preview">预览</string>
+    <string name="share_title">开源中国分享</string>
+    <string name="commit">提交修改</string>
+    
 
 </resources>

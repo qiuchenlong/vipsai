@@ -44,6 +44,7 @@ import com.vs.vipsai.notice.NoticeManager;
 import com.vs.vipsai.util.BlurUtil;
 import com.vs.vipsai.util.DialogHelper;
 import com.vs.vipsai.util.SimplexToast;
+import com.vs.vipsai.util.UIHelper;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
 import com.vs.vipsai.widget.PortraitView;
 import com.vs.vipsai.widget.SolarSystemView;
@@ -606,6 +607,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.fragment_main_user_home_btn_setting:
                 SimplexToast.show(getContext(), "Setting...");
+                UIHelper.showSetting(getActivity());
                 break;
 
         }
