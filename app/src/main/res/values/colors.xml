@@ -110,4 +110,20 @@
     <color name="crop_image_text">#252525</color>
     <color name="crop_image_text_press">#131210</color>
     <!--<color name="transparent">#00ffffff</color>-->
+
+
+
+
+
+    <!--点击颜色-->
+    <color name="bgColor_alert_button_press">#EAEAEA</color>
+    <!--actionsheet模式的取消按钮背景颜色-->
+    <color name="bgColor_actionsheet_cancel_nor">#ffffff</color>
+
+    <!--窗口背景颜色-->
+    <color name="bgColor_alertview_alert">#f8f8f8</color>
+
+
+
+
 </resources>

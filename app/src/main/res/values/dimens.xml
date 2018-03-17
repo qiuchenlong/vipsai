@@ -82,4 +82,11 @@
     <dimen name="g_loading_minSize">28dp</dimen>
     <dimen name="g_loading_maxSize">40dp</dimen>
 
+
+
+
+    <!--圆角-->
+    <dimen name="radius_alertview">15px</dimen>
+
+
 </resources>

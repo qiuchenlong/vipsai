@@ -2,8 +2,13 @@ package com.vs.vipsai.main.recommend;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -11,20 +16,28 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.sina.weibo.sdk.utils.ImageUtils;
+import com.vs.mvp.kit.Kits;
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
+import com.vs.vipsai.widget.PortraitView;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
 
 /**
  * Author: cynid
@@ -164,6 +177,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             }
         });
 
+        vh.portraitView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popdialog = new PopupWindowDialog(mActivity, itemsOnClick);
+                //显示窗口
+                popdialog.showAtLocation(mActivity.findViewById(R.id.view_pager), Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0); // 设置layout在PopupWindow中显示的位置
+            }
+        });
 
     }
 
@@ -171,6 +192,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         TextView tv_title, tv_description, tv_time, tv_comment_count, tv_view;
         LinearLayout ll_title;
         Button btn_pull;
+        PortraitView portraitView;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -181,6 +203,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             tv_view = (TextView) itemView.findViewById(R.id.tv_info_view);
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
             btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
+            portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
         }
     }
 
@@ -207,5 +230,92 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             alertDialog = mShareDialogBuilder.create();
         alertDialog.show();
     }
+
+
+
+    private PopupWindowDialog popdialog;
+
+    // 为弹出窗口实现监听类
+    private android.view.View.OnClickListener itemsOnClick = new android.view.View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            popdialog.dismiss();
+
+            Intent intent;
+
+            switch (v.getId()) {
+                case R.id.btn_take_photo:
+
+////					if(Build.VERSION.CODENAME.equals("MNC")){ // 如果是6.0系统
+////						if(checkSelf)
+////					}else{
+////
+////					}
+//
+//
+////					Toast.makeText(getActivity(), "照相", Toast.LENGTH_SHORT).show();
+////					takePicturesWithFront();
+//
+//                    // 判断是否挂载了SD卡
+//                    String savePath = "";
+//                    String storageState = Environment.getExternalStorageState();
+//                    if (storageState.equals(Environment.MEDIA_MOUNTED)) {
+//                        savePath = Environment.getExternalStorageDirectory()
+//                                .getAbsolutePath() + "/Diyache/Camera/";
+//                        File savedir = new File(savePath);
+//                        if (!savedir.exists()) {
+//                            savedir.mkdirs();
+//                        }
+//                    }
+//
+//                    // 没有挂载SD卡，无法保存文件
+//                    if (StringUtils.isEmpty(savePath)) {
+////		                AppContext.showToastShort("无法保存照片，请检查SD卡是否挂载");
+//                        return;
+//                    }
+//
+//                    String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
+//                            .format(new Kits.Date());
+//                    String fileName = "dyc_" + timeStamp + ".jpg";// 照片命名
+//                    File out = new File(savePath, fileName);
+//                    Uri uri = Uri.fromFile(out);
+//
+//                    theLarge = savePath + fileName;// 该照片的绝对路径
+//
+//                    intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                    intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+//                    startActivityForResult(intent,
+//                            ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA);
+
+                    break;
+                case R.id.btn_pick_photo:
+//					Toast.makeText(getActivity(), "相册", Toast.LENGTH_SHORT).show();
+//					selectePhotos();
+
+
+//                    if (Build.VERSION.SDK_INT < 19) {
+//                        intent = new Intent();
+//                        intent.setAction(Intent.ACTION_GET_CONTENT);
+//                        intent.setType("image/*");
+//                        startActivityForResult(Intent.createChooser(intent, "选择图片"),
+//                                ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD);
+//                    } else {
+//                        intent = new Intent(Intent.ACTION_PICK,
+//                                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                        intent.setType("image/*");
+//                        startActivityForResult(Intent.createChooser(intent, "选择图片"),
+//                                ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD);
+//                    }
+
+                    break;
+                default:
+//					Toast.makeText(getActivity(), "取消", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+
+        }
+
+    };
 
 }
