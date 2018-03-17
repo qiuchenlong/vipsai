@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Author: cynid
@@ -117,6 +119,7 @@ public class ShareDialogBuilder extends AlertDialog.Builder implements
 
         if (window != null) {
             window.setGravity(Gravity.BOTTOM);
+            window.getDecorView().setPadding(0, 0, 0, 0); //消除边距, 可以解决dialog宽度无法满屏的问题
             WindowManager m = window.getWindowManager();
             Display d = m.getDefaultDisplay();
             WindowManager.LayoutParams p = window.getAttributes();
@@ -140,6 +143,13 @@ public class ShareDialogBuilder extends AlertDialog.Builder implements
             builder.setView(contentView);
             builder.setOnCancelListener(this);
             builder.setOnDismissListener(this);
+
+            contentView.findViewById(R.id.dialog_share_main_btn_cancel).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cancelLoading();
+                }
+            });
         }
         return builder;
     }
@@ -422,6 +432,7 @@ public class ShareDialogBuilder extends AlertDialog.Builder implements
             holder.mIvIcon.setImageResource(shareAction.iconId);
             holder.mTvName.setText(shareAction.nameId);
             holder.mIvIcon.setTag(holder);
+
         }
 
         @Override

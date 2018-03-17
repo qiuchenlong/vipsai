@@ -1,8 +1,10 @@
 package com.vs.vipsai.main.recommend;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -19,6 +21,7 @@ import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
@@ -35,10 +38,12 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
 //    private OSCApplication.ReadState mReadState;
 
-    public AttentionSubAdapter(Context context, int mode) {
+    public AttentionSubAdapter(Context context, int mode, Activity activity) {
         super(context, mode);
 //        mReadState = OSCApplication.getReadState("sub_list");
         setOnLoadingHeaderCallBack(this);
+
+        mActivity = activity;
     }
 
     @Override
@@ -155,6 +160,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             @Override
             public void onClick(View v) {
                 SimplexToast.show(AppContext.getContext(), "aaaaaaaaaa" + position);
+                showSharedDialog();
             }
         });
 
@@ -176,6 +182,30 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
             btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
         }
+    }
+
+
+    public static final String DEFAULT = "https://channelfix.com/";
+    private String mCurrentUrl = DEFAULT;
+
+    private ShareDialogBuilder mShareDialogBuilder;
+    private AlertDialog alertDialog;
+    private Activity mActivity;
+
+    /**
+     * 打开分享dialog
+     */
+    private void showSharedDialog() {
+        if (mShareDialogBuilder == null) {
+            mShareDialogBuilder = ShareDialogBuilder.with(mActivity)
+                    .title("title")
+                    .content("content")
+                    .url(mCurrentUrl)
+                    .build();
+        }
+        if (alertDialog == null)
+            alertDialog = mShareDialogBuilder.create();
+        alertDialog.show();
     }
 
 }

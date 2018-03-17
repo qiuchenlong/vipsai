@@ -140,7 +140,7 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
         if (mTab.getType() == News.TYPE_ATTENTION) {
             setItemDecoration();
             setRecyclerLinearLayoutStyle();
-            return new AttentionSubAdapter(getActivity(), mode);
+            return new AttentionSubAdapter(getActivity(), mode, getActivity());
         }
 //        else if (mTab.getType() == News.TYPE_EVENT)
 //            return new EventSubAdapter(this, mode);
