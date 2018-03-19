@@ -5,17 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,22 +18,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.sina.weibo.sdk.utils.ImageUtils;
-import com.vs.mvp.kit.Kits;
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.ui.PopupWindowDialog;
+import com.vs.vipsai.search.SearchActivity;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.PortraitView;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
 
 /**
  * Author: cynid
@@ -195,6 +186,17 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
                 AppContext.getInstance().startActivity(intent);
             }
         });
+
+
+        vh.tv_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppContext.getContext(), SearchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+            }
+        });
+
 
     }
 

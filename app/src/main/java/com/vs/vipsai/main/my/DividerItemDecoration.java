@@ -59,7 +59,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         itemView_topinterval = 50;
 
         // 赋值轴点圆的半径为20
-        circle_radius = 20;
+        circle_radius = 10;
 
         // 获取图标资源
         // mIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo);

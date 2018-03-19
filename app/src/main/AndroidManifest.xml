@@ -139,16 +139,22 @@
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|stateUnchanged"
-            android:theme="@style/PubTheme"/>
+            android:theme="@style/PubTheme" />
 
 
         <activity
             android:name="com.vs.vipsai.ui.activity.CityListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
-            android:windowSoftInputMode="adjustResize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name="com.vs.vipsai.search.SearchActivity"
+            android:label="搜索"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Search"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
     </application>
