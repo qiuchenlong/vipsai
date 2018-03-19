@@ -91,8 +91,6 @@ public class CityListActivity extends BackActivity implements SectionIndexer, So
 //    TextView headerTitle;
 
 
-//    @BindView(R.id.toolbar_title)
-//    TextView toolbar_title;
 
 
     // 百度地图api
@@ -130,7 +128,7 @@ public class CityListActivity extends BackActivity implements SectionIndexer, So
         SortGroupMemberAdapter.setEnterFragmentListener(this);
 
 
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
 //		mLocationClient = new LocationClient(getApplicationContext());     //声明LocationClient类
