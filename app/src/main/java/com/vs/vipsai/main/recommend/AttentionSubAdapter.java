@@ -31,6 +31,7 @@ import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
+import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
@@ -183,6 +184,15 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
                 popdialog = new PopupWindowDialog(mActivity, itemsOnClick);
                 //显示窗口
                 popdialog.showAtLocation(mActivity.findViewById(R.id.view_pager), Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0); // 设置layout在PopupWindow中显示的位置
+            }
+        });
+
+        vh.tv_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppContext.getContext(), PlayActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
             }
         });
 

@@ -205,4 +205,12 @@
     </style>
 
 
+
+    <!--video player-->
+    <style name="dialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
 </resources>
