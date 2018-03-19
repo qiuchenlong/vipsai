@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="wrap_content"
+    android:layout_margin="0.0dip"  
+    android:background="#3c3c3c" >  
+  
+    <LinearLayout
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent"  
+        android:layout_centerInParent="true"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:padding="5.0dip"
+        >
+  
+        <TextView  
+            android:id="@+id/activity_city_gridview_item_btn"  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:maxLines="1"  
+            android:text="hahah"
+            android:textSize="14.0sp"
+            android:textColor="#7c7c7c"
+            android:padding="10dp"
+            />
+
+        <!--android:background="@drawable/city_btn_normal_bg"-->
+
+    </LinearLayout>  
+  
+</RelativeLayout>  

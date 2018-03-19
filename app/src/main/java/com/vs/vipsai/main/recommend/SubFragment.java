@@ -1,11 +1,13 @@
 package com.vs.vipsai.main.recommend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.gson.reflect.TypeToken;
 import com.vs.vipsai.AppConfig;
+import com.vs.vipsai.AppContext;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.base.fragments.BaseGeneralRecyclerFragment;
@@ -19,6 +21,8 @@ import com.vs.vipsai.main.my.GameSubAdapter;
 import com.vs.vipsai.main.my.MeSubAdapter;
 import com.vs.vipsai.main.my.WinnerSubAdapter;
 import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
+import com.vs.vipsai.ui.activity.CityListActivity;
+import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 
@@ -77,6 +81,11 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
         switch (sub.getType()) { // type的值 由请求来的数据决定，目前为模拟数据
             case News.TYPE_ATTENTION:
                 SimplexToast.show(getContext(), "1" + position + sub.getBody());
+
+                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+
                 break;
             case News.TYPE_NEWEST:
                 SimplexToast.show(getContext(), "21" + sub.getBody());

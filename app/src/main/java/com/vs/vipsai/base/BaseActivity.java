@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -132,6 +133,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
     public void setActionBarTitle(String title) {
         if (TextUtils.isEmpty(title)) {
             title = getString(R.string.app_name);
+            title = "";
         }
         if (hasActionBar() && mActionBar != null) {
             mActionBar.setTitle(title);

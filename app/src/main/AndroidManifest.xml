@@ -142,6 +142,15 @@
             android:theme="@style/PubTheme"/>
 
 
+        <activity
+            android:name="com.vs.vipsai.ui.activity.CityListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"
+            >
+        </activity>
+
+
     </application>
 
 </manifest>
