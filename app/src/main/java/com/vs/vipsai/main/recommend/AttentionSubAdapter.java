@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.detail.general.BlogDetailActivity;
+import com.vs.vipsai.notify.activity.NotifyActicity;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.search.SearchActivity;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
@@ -195,6 +197,8 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
                 Intent intent = new Intent(AppContext.getContext(), SearchActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getInstance().startActivity(intent);
+
+//                SearchActivity.show(AppContext.getContext());
             }
         });
 
@@ -206,6 +210,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             }
         });
 
+        vh.imageView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                NotifyActicity.show(AppContext.getContext());
+            }
+        });
+
 
     }
 
@@ -214,6 +226,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         LinearLayout ll_title;
         Button btn_pull;
         PortraitView portraitView;
+        ImageView imageView;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -225,6 +238,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
             btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
             portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
+            imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
         }
     }
 

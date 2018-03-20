@@ -30,6 +30,10 @@ public class News extends PrimaryBean {
     public static final int TYPE_GAME = 23;
     public static final int TYPE_ALL = 24;
 
+    // detail
+    public static final int TYPE_MESSAGE = 31; //消息
+    public static final int TYPE_PRIVATE_MESSAGE = 32; //私信
+
 
     protected int commentCount;
     protected int type;

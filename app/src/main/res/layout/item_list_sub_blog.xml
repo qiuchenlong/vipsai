@@ -84,6 +84,7 @@
             tools:text="Large Text" />
 
         <ImageView
+            android:id="@+id/item_list_sub_me_imageview"
             android:layout_width="match_parent"
             android:layout_height="238dp"
             android:src="@mipmap/tmp_bg"

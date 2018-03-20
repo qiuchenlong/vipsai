@@ -46,6 +46,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Main" />
 
+
         <activity
             android:name="com.vs.vipsai.ui.activity.GuidePageActivity"
             android:theme="@style/SplashTheme">
@@ -162,6 +163,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name="com.vs.vipsai.notify.activity.NotifyActicity"
+            android:label="详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
 
 
     </application>

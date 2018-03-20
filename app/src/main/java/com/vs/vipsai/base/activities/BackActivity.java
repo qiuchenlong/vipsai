@@ -9,6 +9,8 @@ import com.vs.vipsai.R;
  * Author: cynid
  * Created on 3/15/18 5:33 PM
  * Description:
+ *
+ * 返回界面的基类
  */
 
 public abstract class BackActivity extends BaseActivity {
