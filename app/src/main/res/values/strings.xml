@@ -149,6 +149,9 @@
     <string name="platform_preview">预览</string>
     <string name="share_title">开源中国分享</string>
     <string name="commit">提交修改</string>
-    
+
+
+    <string name="identity_officialMember">identity_officialMember</string>
+
 
 </resources>

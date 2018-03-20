@@ -22,6 +22,7 @@ import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.detail.general.BlogDetailActivity;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.search.SearchActivity;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
@@ -194,6 +195,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
                 Intent intent = new Intent(AppContext.getContext(), SearchActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getInstance().startActivity(intent);
+            }
+        });
+
+
+        vh.tv_description.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BlogDetailActivity.show(AppContext.getContext(), 1);
             }
         });
 

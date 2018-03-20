@@ -156,6 +156,13 @@
             android:theme="@style/App.Theme.Search"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <activity
+            android:name="com.vs.vipsai.detail.general.BlogDetailActivity"
+            android:label="详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize" />
+
 
     </application>
 

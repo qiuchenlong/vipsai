@@ -89,4 +89,14 @@
         <attr name="oscMinTextSize" format="integer" />
     </declare-styleable>
 
+
+
+    <declare-styleable name="IdentityView">
+        <attr name="oscColor" format="color" />
+        <attr name="oscWipeOffBorder" format="boolean" />
+    </declare-styleable>
+
+
+
+
 </resources>
