@@ -1,7 +1,10 @@
 package com.vs.vipsai.notify.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -17,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.vs.vipsai.R;
@@ -27,12 +32,18 @@ import com.vs.vipsai.notify.NotifytSubFragment;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
+import com.vs.vipsai.widget.popupwindow.BlurPopupWindow;
+import com.vs.vipsai.widget.popupwindow.PopupListAdapter;
+import com.vs.vipsai.widget.popupwindow.PopupListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.vs.vipsai.widget.popupwindow.BlurPopupWindow.KEYWORD_LOCATION_CLICK;
+import static com.vs.vipsai.widget.popupwindow.BlurPopupWindow.KEYWORD_LOCATION_TOP;
 
 /**
  * Author: cynid
@@ -74,6 +85,10 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         AppCompatImageButton aib = (AppCompatImageButton) mToolbar.getChildAt(2);
         int mWith = aib.getDrawable().getMinimumWidth();
 
+        if (mWith > 48) { // simple slove problem
+            mWith = -mWith;
+        }
+
 
         Log.d("NotifyActivity", " " + TDevice.getScreenWidth());
         Log.d("NotifyActivity", " " + mToolbar.getWidth());
@@ -86,7 +101,7 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
 //        mLayoutTab.setLayoutParams();
 
         Toolbar.LayoutParams lp = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.WRAP_CONTENT);
-        lp.setMargins((int)TDevice.px2dp(TDevice.getScreenWidth()/2.0f + mWith*2 - lp.width/2), 0, 0, 0);
+        lp.setMargins((int)TDevice.px2dp(TDevice.getScreenWidth()/2.0f - mWith - lp.width/2), 0, 0, 0);
         mLayoutTab.setLayoutParams(lp);
 
 
@@ -183,6 +198,8 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
             }
         });
 
+
+        initPopupWindow(NotifyActicity.this);
     }
 
     public static void show(Context context) {
@@ -203,6 +220,10 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         switch (item.getItemId()) {
             case R.id.public_menu_shared:
                 SimplexToast.show(NotifyActicity.this, "add...");
+
+                View menuView = findViewById(R.id.public_menu_shared);
+                blurPopupWindow.displayPopupWindow(menuView);
+
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -227,4 +248,49 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
     protected int getContentView() {
         return R.layout.activity_notify_detail;
     }
+
+
+    private BlurPopupWindow blurPopupWindow;
+
+    private void initPopupWindow(Activity context) {
+        final List<String> list_popup = new ArrayList<>();
+        final PopupListView lv_popup = new PopupListView(context);
+
+        for (int i = 0; i < 3; i++) {
+            list_popup.add("popup_item_" + i);
+        }
+
+        lv_popup.setDivider(new ColorDrawable(Color.GRAY));
+        lv_popup.setDividerHeight(1);
+        lv_popup.setAdapter(new PopupListAdapter(context, list_popup));
+        lv_popup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(blurPopupWindow != null) {
+                    blurPopupWindow.dismissPopupWindow();
+                }
+            }
+        });
+
+
+
+//        ImageView iv_popup_top = new ImageView(context);
+//        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams
+//                .MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        iv_popup_top.setLayoutParams(params);
+        blurPopupWindow = new BlurPopupWindow(context, lv_popup);
+        blurPopupWindow.setOnPopupStateListener(new BlurPopupWindow.OnPopupStateListener() {
+            @Override
+            public void onDisplay(boolean isDisplay) {
+//                TitleBar.this.isDisplay = isDisplay;
+            }
+
+            @Override
+            public void onDismiss(boolean isDisplay) {
+//                TitleBar.this.isDisplay = isDisplay;
+//                dismissAnim();
+            }
+        });
+    }
+
 }
