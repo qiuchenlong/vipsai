@@ -14,6 +14,8 @@ import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -22,6 +24,7 @@ import com.vs.vipsai.base.activities.BackActivity;
 import com.vs.vipsai.bean.News;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.notify.NotifytSubFragment;
+import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
 
@@ -172,6 +175,14 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         mLayoutTab.setupWithViewPager(mViewPager);
         mLayoutTab.setSmoothScrollingEnabled(true);
 
+
+        mAcitionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return onOptionsItemSelected(item);
+            }
+        });
+
     }
 
     public static void show(Context context) {
@@ -182,8 +193,19 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.browser_menu , mAcitionMenuView.getMenu()); //将menu关联
-        return super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.public_menu_shared:
+                SimplexToast.show(NotifyActicity.this, "add...");
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
