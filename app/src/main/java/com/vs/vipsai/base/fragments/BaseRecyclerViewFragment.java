@@ -5,6 +5,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -22,6 +23,7 @@ import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.util.TLog;
 import com.vs.vipsai.widget.RecyclerRefreshLayout;
+import com.vs.vipsai.widget.swipemenu.SwipeItemLayout;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -134,6 +136,8 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
         });
 
 
+        // 添加滑动手势
+        mRecyclerView.addOnItemTouchListener(new SwipeItemLayout.OnSwipeItemTouchListener(getContext()));
 
 
         mRefreshLayout.setColorSchemeResources(
