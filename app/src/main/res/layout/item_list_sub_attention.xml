@@ -27,8 +27,8 @@
 
             <com.vs.vipsai.widget.PortraitView
                 android:id="@+id/iv_portrait"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@mipmap/tmp_head"
                 tools:src="@mipmap/tmp_head" />
 
@@ -45,15 +45,29 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/item_list_sub_attention_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="name"/>
+                        android:text="薛之谦"
+                        android:textSize="@dimen/text_size_16"
+                        android:textColor="@color/mark_text_color"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/item_list_sub_attention_name"
+                        android:layout_marginLeft="15dp"
+                        android:text="创办人"
+                        android:textSize="@dimen/text_size_12"
+                        android:textColor="#9D9D9D"/>
 
                     <Button
                         android:id="@+id/btn_pull"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="pull btn"
+                        android:layout_width="16dp"
+                        android:layout_height="8dp"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/ic_arrow_bottom_gray"
                         android:layout_alignParentRight="true"/>
 
                 </RelativeLayout>
@@ -63,7 +77,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="update time"/>
+                    android:text="1分钟前"
+                    android:textSize="@dimen/text_size_12"
+                    android:textColor="#9D9D9D"/>
 
             </LinearLayout>
 
@@ -73,20 +89,19 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
-            android:maxLines="2"
+            android:maxLines="3"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_title_color"
-            android:textSize="16sp"
-            tools:text="Large Text" />
+            android:textSize="@dimen/text_size_15"
+            android:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛"
+            tools:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛" />
 
         <ImageView
             android:id="@+id/item_list_sub_me_imageview"
             android:layout_width="match_parent"
-            android:layout_height="238dp"
+            android:layout_height="220dp"
             android:src="@mipmap/tmp_bg"
             android:scaleType="centerCrop"
             />
@@ -109,10 +124,12 @@
                 android:lineSpacingExtra="4dp"
                 android:maxLines="2"
                 android:minLines="1"
-                android:textColor="@color/text_desc_color"
-                android:textSize="13sp"
+                android:textColor="#333333"
+                android:textSize="@dimen/text_size_16"
                 android:layout_weight="8"
-                tools:text="New Text" />
+                android:text="王者之争"
+                android:textStyle="bold"
+                tools:text="王者之争" />
 
             <TextView
                 android:layout_width="0dp"
@@ -124,12 +141,12 @@
                 android:lineSpacingExtra="4dp"
                 android:maxLines="2"
                 android:minLines="1"
-                android:textColor="#CCFF0000"
-                android:textSize="13sp"
+                android:textColor="#FF0010"
+                android:textSize="@dimen/text_size_16"
                 android:layout_weight="2"
                 android:gravity="right"
                 android:text="$180.00"
-                tools:text="New Text" />
+                tools:text="$180.00" />
 
         </LinearLayout>
 
@@ -151,27 +168,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="5"
+                    android:layout_weight="2"
                     android:gravity="left"
                     android:lines="1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/text_secondary_color"
-                    android:textSize="12sp"
-                    android:text="2012-12-01 22:10"
-                    tools:text="2012-12-01 22:10" />
+                    android:textSize="@dimen/text_size_12"
+                    android:text="资格赛"
+                    tools:text="资格赛" />
 
                 <View
                     android:layout_gravity="end"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="#CCCCCC"/>
+                    android:background="#404040"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
+                    android:layout_weight="2"
                     android:gravity="center"
-                    android:text="menghua"/>
+                    android:text="萌娃"
+                    android:textColor="@color/mark_text_color"
+                    android:textSize="@dimen/text_size_12"/>
+
+                <View
+                    android:layout_gravity="end"
+                    android:layout_width="1dp"
+                    android:layout_weight="4"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"/>
 
             </LinearLayout>
 
@@ -180,18 +206,25 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:gravity="right"
-                android:text="match time"/>
+                android:textColor="#000000"
+                android:text="01D 22H 02M 29S"/>
 
 
             <!--<include layout="@layout/item_info_view_comment" />-->
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/list_divider_color"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="16dp">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -201,17 +234,17 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/tab_icon_me"
+                    android:src="@mipmap/ic_see_gray"
                     android:background="#00000000"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="16dp"
                     android:text="1,234"
-                    android:textSize="12sp"
-                    android:paddingLeft="2px"
+                    android:textSize="@dimen/text_size_12"
+                    android:paddingLeft="6px"
                     />
             </LinearLayout>
 
@@ -223,21 +256,22 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/tab_icon_me"
+                    android:src="@mipmap/ic_comment_gray"
                     android:background="#00000000"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="16dp"
-                    android:text="1,234"
-                    android:textSize="12sp"
-                    android:paddingLeft="2px"
+                    android:text="10"
+                    android:textSize="@dimen/text_size_12"
+                    android:paddingLeft="6px"
                     />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/item_list_sub_attention_share_layout"
                 android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:layout_weight="1"
@@ -245,29 +279,23 @@
                 android:gravity="center"
                 >
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/tab_icon_me"
+                    android:src="@mipmap/ic_share_gray"
                     android:background="#00000000"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="16dp"
-                    android:text="1,234"
-                    android:textSize="12sp"
-                    android:paddingLeft="2px"
-                    />
+
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="16dp"
-        android:background="@color/list_divider_color" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:background="@color/list_divider_color" />-->
 
     <!--android:layout_marginStart="16dp"-->
 

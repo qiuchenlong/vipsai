@@ -191,7 +191,8 @@
             android:paddingLeft="10dp"
             android:text="旋转镜像"
             android:textColor="@android:color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/change_rotate"
@@ -202,7 +203,8 @@
             android:paddingLeft="10dp"
             android:text="旋转画面"
             android:textColor="@android:color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/moreScale"
@@ -213,7 +215,8 @@
             android:paddingLeft="10dp"
             android:text="默认比例"
             android:textColor="@android:color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <RelativeLayout

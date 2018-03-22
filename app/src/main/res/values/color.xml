@@ -111,5 +111,9 @@
         <item>#ff9800</item>
         <item>#e91e63</item>
     </array>
+    
+    
+    <!--Comment Color Value-->
+    <color name="mark_text_color">#48AAFB</color>
 
 </resources>

@@ -65,7 +65,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        return new BlogViewHolder(mInflater.inflate(R.layout.item_list_sub_blog, parent, false));
+        return new BlogViewHolder(mInflater.inflate(R.layout.item_list_sub_attention, parent, false));
     }
 
     @Override
@@ -123,28 +123,28 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
 //        title.setText(spannable.append(item.getTitle()));
 
-        title.setText(item.getTitle());
+//        title.setText(item.getTitle());
 
 
         String body = item.getBody();
-        if (!TextUtils.isEmpty(body)) {
-            body = body.trim();
-            if (!TextUtils.isEmpty(body)) {
-                content.setText(body);
-                content.setVisibility(View.VISIBLE);
-            } else {
-                content.setVisibility(View.GONE);
-            }
-        } else {
-            content.setVisibility(View.INVISIBLE);
-        }
+//        if (!TextUtils.isEmpty(body)) {
+//            body = body.trim();
+//            if (!TextUtils.isEmpty(body)) {
+//                content.setText(body);
+//                content.setVisibility(View.VISIBLE);
+//            } else {
+//                content.setVisibility(View.GONE);
+//            }
+//        } else {
+//            content.setVisibility(View.INVISIBLE);
+//        }
 
 //        if (mReadState.already(item.getKey())) {
 //            title.setTextColor(TDevice.getColor(resources, R.color.text_desc_color));
 //            content.setTextColor(TDevice.getColor(resources, R.color.text_secondary_color));
 //        } else {
-            title.setTextColor(TDevice.getColor(resources, R.color.text_title_color));
-            content.setTextColor(TDevice.getColor(resources, R.color.text_desc_color));
+//            title.setTextColor(TDevice.getColor(resources, R.color.text_title_color));
+//            content.setTextColor(TDevice.getColor(resources, R.color.text_desc_color));
 //        }
 
 //        Author author = item.getAuthor();
@@ -167,17 +167,16 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         vh.btn_pull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimplexToast.show(AppContext.getContext(), "aaaaaaaaaa" + position);
-                showSharedDialog();
+                popdialog = new PopupWindowDialog(mActivity, itemsOnClick);
+                //显示窗口
+                popdialog.showAtLocation(mActivity.findViewById(R.id.view_pager), Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0); // 设置layout在PopupWindow中显示的位置
             }
         });
 
         vh.portraitView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                popdialog = new PopupWindowDialog(mActivity, itemsOnClick);
-                //显示窗口
-                popdialog.showAtLocation(mActivity.findViewById(R.id.view_pager), Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0); // 设置layout在PopupWindow中显示的位置
+
             }
         });
 
@@ -219,6 +218,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         });
 
 
+        vh.shareLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimplexToast.show(AppContext.getContext(), "position:" + position);
+                showSharedDialog();
+            }
+        });
+
     }
 
     private static class BlogViewHolder extends RecyclerView.ViewHolder {
@@ -227,6 +234,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         Button btn_pull;
         PortraitView portraitView;
         ImageView imageView;
+        LinearLayout shareLayout;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -239,6 +247,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
             portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
+            shareLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_attention_share_layout);
         }
     }
 
