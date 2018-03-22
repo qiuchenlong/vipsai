@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@color/white" />-->
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/layout_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--detail header-->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/layout_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:elevation="0dp">
+
+            <LinearLayout
+                android:id="@+id/layout_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_material"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:paddingBottom="16dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <View
+                    android:id="@+id/video_player"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@color/black"
+                    android:layout_centerInParent="true" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中国有嘻哈"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/activity_player_detail_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/activity_player_detail_divide_icon"
+                        android:layout_marginRight="15dp"
+                        android:text="$180.00"
+                        android:textColor="#FF0000"/>
+
+                    <View
+                        android:id="@+id/activity_player_detail_divide_icon"
+                        android:layout_width="1dp"
+                        android:layout_height="15dp"
+                        android:background="@color/gray"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/activity_player_detail_matchs_icon"
+                        />
+
+                    <ImageView
+                        android:id="@+id/activity_player_detail_matchs_icon"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_toLeftOf="@+id/activity_player_detail_matchs"
+                        android:layout_marginRight="5dp"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/tmp_bg"/>
+
+                    <TextView
+                        android:id="@+id/activity_player_detail_matchs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="30(100)"/>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="开放 ／ 音乐 ／ 439人观看"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="开始日期：2018.02.30"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="农业，插上互联网+的翅膀，让广元青川女孩儿王淑娟飞了起来。科米的故事可以说包罗一切热卖要素，从白宫阴谋到潜在的贪赃枉法，他的爆炸性故事令《白宫风云》、《纸牌屋》等大热剧集相形见绌。"/>
+
+            </LinearLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/lay_44"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

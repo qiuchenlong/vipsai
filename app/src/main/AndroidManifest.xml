@@ -165,10 +165,20 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity android:name="com.vs.vipsai.notify.activity.NotifyActicity"
-            android:label="详情"
+            android:label="通知"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
+
+
+        <activity android:name="com.vs.vipsai.ui.activity.PlayerDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="比赛详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+
 
 
     </application>

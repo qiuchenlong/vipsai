@@ -22,6 +22,7 @@ import com.vs.vipsai.main.my.MeSubAdapter;
 import com.vs.vipsai.main.my.WinnerSubAdapter;
 import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
 import com.vs.vipsai.ui.activity.CityListActivity;
+import com.vs.vipsai.ui.activity.PlayerDetailActivity;
 import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
@@ -82,9 +83,15 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             case News.TYPE_ATTENTION:
                 SimplexToast.show(getContext(), "1" + position + sub.getBody());
 
-                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
+//                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                AppContext.getInstance().startActivity(intent);
+
+
+                Intent intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getInstance().startActivity(intent);
+
 
                 break;
             case News.TYPE_NEWEST:
