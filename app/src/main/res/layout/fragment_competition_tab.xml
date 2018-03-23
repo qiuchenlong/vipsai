@@ -20,13 +20,13 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:src="@mipmap/ic_logo"
+                android:src="@mipmap/ic_pub_ad"
                 android:contentDescription="@null"
                 android:visibility="visible"/>
 
@@ -39,7 +39,7 @@
                 android:paddingBottom="8dp"
                 android:src="@mipmap/ic_launcher"
                 android:contentDescription="@null"
-                android:visibility="gone"/>
+                android:visibility="invisible"/>
 
             <ImageView
                 android:layout_width="40dp"
@@ -86,7 +86,8 @@
                 android:paddingBottom="8dp"
                 android:src="@mipmap/ic_join"
                 android:contentDescription="@null"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="invisible"/>
 
             <ImageView
                 android:id="@+id/recommend_tabfragment_btn_inbox"

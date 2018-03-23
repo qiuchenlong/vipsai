@@ -15,6 +15,7 @@ import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.bean.SubTab;
+import com.vs.vipsai.main.competition.OpenSubAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
 import com.vs.vipsai.main.my.GameSubAdapter;
 import com.vs.vipsai.main.my.MeSubAdapter;
@@ -167,6 +168,17 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             setRecyclerLinearLayoutStyle();
             return new PopularSubAdapter(getActivity(), mode);
         }
+
+        /**
+         * competition tab
+         */
+        else if (mTab.getType() == News.TYPE_OPEN) {
+            setItemDecoration();
+            setRecyclerLinearLayoutStyle();
+            return new OpenSubAdapter(getActivity(), mode, getActivity());
+        }
+
+
 
 
         /**

@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.ui.fragment.tab;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

@@ -27,7 +27,7 @@ public class PopularSubAdapter extends BaseRecyclerAdapter<SubBean> implements B
 //    private OSCApplication.ReadState mReadState;
     private SubTab mTab;
 
-    PopularSubAdapter(Context context, int mode) {
+    public PopularSubAdapter(Context context, int mode) {
         super(context, mode);
 //        mReadState = OSCApplication.getReadState("sub_list");
         setOnLoadingHeaderCallBack(this);

@@ -19,10 +19,9 @@ import com.vs.vipsai.notice.NoticeBean;
 import com.vs.vipsai.notice.NoticeManager;
 import com.vs.vipsai.ui.fragment.DefaultFragment;
 import com.vs.vipsai.ui.fragment.PastTabFragment;
-import com.vs.vipsai.ui.fragment.PastViewPagerFragment;
-import com.vs.vipsai.ui.fragment.RecommendTabFragment;
+import com.vs.vipsai.ui.fragment.tab.CompetitionTabFragment;
+import com.vs.vipsai.ui.fragment.tab.RecommendTabFragment;
 import com.vs.vipsai.ui.fragment.UserInfoFragment;
-import com.vs.vipsai.ui.fragment.VoteFragment;
 
 import java.util.List;
 
@@ -100,7 +99,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
 
         mNavCompetition.init(R.drawable.tab_icon_competition,
                 R.string.main_tab_name_competition,
-                DefaultFragment.class);
+                CompetitionTabFragment.class);
 
         mNavVote.init(R.drawable.tab_icon_vote,
                 R.string.main_tab_name_vote,

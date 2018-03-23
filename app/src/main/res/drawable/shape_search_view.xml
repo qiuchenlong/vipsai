@@ -5,6 +5,6 @@
 
     <stroke android:color="#C7C7CC" android:width="1px" android:dashWidth="0dp"/>
 
-    <solid android:color="#FFF" />
+    <solid android:color="#3EA6FB" />
 
 </shape>

@@ -20,6 +20,11 @@ public class News extends PrimaryBean {
 
     public static final int TYPE_POPULAR = 20; // 热门
 
+    // competition tab
+    public static final int TYPE_OPEN = 31;
+    public static final int TYPE_QUALIFYING = 32;
+
+    // vote tab
 
     // past tab
     public static final int TYPE_CHAMPIONWORK = 42;
