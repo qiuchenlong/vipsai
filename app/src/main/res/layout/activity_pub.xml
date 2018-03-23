@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_alpha_96"
+    android:background="@color/white_alpha_192"
     android:fitsSystemWindows="false"
     android:orientation="vertical"
     tools:ignore="HardcodedText">
@@ -54,7 +54,7 @@
             android:paddingRight="@dimen/lay_8"
             android:paddingTop="2dp"
             android:text="样板比赛"
-            android:textColor="@color/black"
+            android:textColor="#686868"
             android:textSize="@dimen/font_12" />
     </LinearLayout>
 
@@ -103,7 +103,7 @@
             android:paddingRight="@dimen/lay_8"
             android:paddingTop="2dp"
             android:text="私人比赛"
-            android:textColor="@color/black"
+            android:textColor="#686868"
             android:textSize="@dimen/font_12" />
     </LinearLayout>
 
@@ -152,7 +152,7 @@
             android:paddingRight="@dimen/lay_8"
             android:paddingTop="2dp"
             android:text="商家比赛"
-            android:textColor="@color/black"
+            android:textColor="#686868"
             android:textSize="@dimen/font_12" />
     </LinearLayout>
 

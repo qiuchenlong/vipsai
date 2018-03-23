@@ -42,7 +42,7 @@ public class TweetLikeUsersAdapter extends BaseRecyclerAdapter<TweetLike> {
 //        h.ivPortrait.setup(item.getAuthor());
 //        h.ivPortrait.setTag(R.id.iv_tag, item);
 //        h.ivPortrait.setOnClickListener(getOnPortraitClickListener());
-        h.tvName.setText(item.getAuthor().getName());
+        h.tvName.setText("陈赤赤"); //item.getAuthor().getName()
     }
 
     private View.OnClickListener getOnPortraitClickListener() {

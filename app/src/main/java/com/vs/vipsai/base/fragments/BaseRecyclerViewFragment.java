@@ -88,7 +88,7 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
      */
     public void setItemDecoration() {
         // set item decoration
-        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.lay_32);
+        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.lay_16);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(spacingInPixels));
     }
 
@@ -230,54 +230,54 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
                 log("HttpResponseHandler:onSuccess responseString:" + responseString);
                 // 模拟数据
-//                responseString = "{\n" +
-//                        "  code: 1,\n" +
-//                        "  message: \"SUCCESS\",\n" +
-//                        "  notice: {\n" +
-//                        "    newsCount: 35\n" +
-//                        "  },\n" +
-//                        "  result: {\n" +
-//                        "    items: [\n" +
-//                        "      {\n" +
-//                        "        \"fixed\": true,\n" +
-//                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"title\": \"热门\",\n" +
-//                        "        \"body\": \"hello world...\",\n" +
-//                        "        \"needLogin\": false,\n" +
-//                        "        \"isActived\": true,\n" +
-//                        "        \"order\": 3,\n" +
-//                        "        \"subtype\": 4,\n" +
-//                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"type\": 3\n" +
-//                        "      },\n" +
-//                        "      {\n" +
-//                        "        \"fixed\": true,\n" +
-//                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"title\": \"hot\",\n" +
-//                        "        \"body\": \"123\",\n" +
-//                        "        \"needLogin\": false,\n" +
-//                        "        \"isActived\": true,\n" +
-//                        "        \"order\": 3,\n" +
-//                        "        \"subtype\": 4,\n" +
-//                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"type\": 21\n" +
-//                        "      },\n" +
-//                        "      {\n" +
-//                        "        \"fixed\": true,\n" +
-//                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"title\": \"hot\",\n" +
-//                        "        \"body\": \"abc\",\n" +
-//                        "        \"needLogin\": false,\n" +
-//                        "        \"isActived\": true,\n" +
-//                        "        \"order\": 3,\n" +
-//                        "        \"subtype\": 4,\n" +
-//                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-//                        "        \"type\": 21\n" +
-//                        "      }\n" +
-//                        "    ]\n" +
-//                        "  },\n" +
-//                        "  time: \"2018-03-14 14:26:37\"\n" +
-//                        "}";
+                responseString = "{\n" +
+                        "  code: 1,\n" +
+                        "  message: \"SUCCESS\",\n" +
+                        "  notice: {\n" +
+                        "    newsCount: 35\n" +
+                        "  },\n" +
+                        "  result: {\n" +
+                        "    items: [\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"热门\",\n" +
+                        "        \"body\": \"hello world...\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 3\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"123\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 21\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"abc\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 21\n" +
+                        "      }\n" +
+                        "    ]\n" +
+                        "  },\n" +
+                        "  time: \"2018-03-14 14:26:37\"\n" +
+                        "}";
 
 
 

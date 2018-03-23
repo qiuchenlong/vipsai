@@ -22,15 +22,13 @@ import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.OnTabReselectListener;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.fragments.BaseFragment;
-import com.vs.vipsai.base.fragments.BaseTitleFragment;
 import com.vs.vipsai.bean.News;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.common.utils.StreamUtil;
-import com.vs.vipsai.main.recommend.SubFragment;
-import com.vs.vipsai.tweet.activities.TweetPublishActivity;
+import com.vs.vipsai.main.SubFragment;
+import com.vs.vipsai.notify.activity.NotifyActicity;
 import com.vs.vipsai.ui.activity.MainActivity;
 import com.vs.vipsai.ui.activity.PubActivity;
-import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
 import com.vs.vipsai.widget.TabPickerView;
@@ -391,12 +389,14 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
 
     @OnClick(R.id.recommend_tabfragment_btn_inbox)
     void onClickInBox(){
-        SimplexToast.show(getContext(), "inbox...");
+//        SimplexToast.show(getContext(), "inbox...");
+        NotifyActicity.show(AppContext.getContext(), 0);
     }
 
     @OnClick(R.id.recommend_tabfragment_btn_notification)
     void onClickNotification() {
-        SimplexToast.show(getContext(), "notification...");
+//        SimplexToast.show(getContext(), "notification...");
+        NotifyActicity.show(AppContext.getContext(), 1);
 
 //        if (mViewArrowDown.getRotation() != 0) {
 ////            mViewTabPicker.onTurnBack();

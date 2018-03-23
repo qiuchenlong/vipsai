@@ -24,7 +24,7 @@ import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.bean.News;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.common.utils.StreamUtil;
-import com.vs.vipsai.main.recommend.SubFragment;
+import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.ui.activity.MainActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;

@@ -10,7 +10,7 @@ import com.vs.vipsai.base.fragments.BaseGeneralListFragment;
 import com.vs.vipsai.base.fragments.BaseGeneralRecyclerFragment;
 import com.vs.vipsai.base.fragments.BaseViewPagerFragment;
 import com.vs.vipsai.bean.SubTab;
-import com.vs.vipsai.main.recommend.SubFragment;
+import com.vs.vipsai.main.SubFragment;
 
 /**
  * Author: cynid

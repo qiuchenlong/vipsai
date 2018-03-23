@@ -20,15 +20,15 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/ic_logo"
                 android:contentDescription="@null"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
 
             <ImageView
                 android:layout_width="40dp"
@@ -39,7 +39,7 @@
                 android:paddingBottom="8dp"
                 android:src="@mipmap/ic_launcher"
                 android:contentDescription="@null"
-                android:visibility="invisible"/>
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="40dp"

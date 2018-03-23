@@ -1,7 +1,7 @@
 package com.vs.vipsai.bean;
 
 import com.vs.vipsai.R;
-import com.vs.vipsai.main.recommend.SubFragment;
+import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.ui.fragment.AboutVSFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
 import com.vs.vipsai.ui.fragment.SettingsFragment;

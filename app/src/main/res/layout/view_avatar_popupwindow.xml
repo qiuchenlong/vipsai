@@ -25,7 +25,7 @@
             android:layout_marginRight="10dip"
             android:background="@drawable/bg_actionsheet_header"
             android:text="取消关注"
-            android:textColor="@color/light_blue_a100"/>
+            android:textColor="#42A7FA"/>
 
         <!--android:background="@drawable/popupwindow_btn"-->
 
@@ -42,7 +42,7 @@
             android:layout_marginRight="10dip"
             android:background="@drawable/bg_actionsheet_center"
             android:text="删除此条消息"
-            android:textColor="@color/light_blue_a100"/>
+            android:textColor="#42A7FA"/>
 
 
 
@@ -57,7 +57,7 @@
             android:layout_marginRight="10dip"
             android:background="@drawable/bg_actionsheet_bottom"
             android:text="举报"
-            android:textColor="@color/light_blue_a100"/>
+            android:textColor="#42A7FA"/>
 
 
 
@@ -73,7 +73,7 @@
             android:layout_marginRight="10dip"
             android:background="@drawable/bg_actionsheet_cancel"
             android:text="取消"
-            android:textColor="@color/light_blue_a100"/>
+            android:textColor="#42A7FA"/>
 
         <!--android:background="@drawable/popupwindow_btn"-->
 

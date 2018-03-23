@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/lay_16"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
@@ -20,6 +19,25 @@
 
         <!--android:background="@drawable/ic_material"-->
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="赞助商"
+                android:textSize="@dimen/text_size_11"
+                />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_login_3party_qq"
+                />
+        </RelativeLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="54dp"
@@ -27,8 +45,9 @@
 
             <com.vs.vipsai.widget.PortraitView
                 android:id="@+id/iv_portrait"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
                 android:src="@mipmap/tmp_head"
                 tools:src="@mipmap/tmp_head" />
 
@@ -36,7 +55,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -64,8 +85,8 @@
 
                     <Button
                         android:id="@+id/btn_pull"
-                        android:layout_width="16dp"
-                        android:layout_height="8dp"
+                        android:layout_width="12dp"
+                        android:layout_height="6dp"
                         android:layout_centerVertical="true"
                         android:background="@mipmap/ic_arrow_bottom_gray"
                         android:layout_alignParentRight="true"/>
@@ -94,14 +115,14 @@
             android:maxLines="3"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_title_color"
-            android:textSize="@dimen/text_size_15"
+            android:textSize="@dimen/text_size_14"
             android:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛"
             tools:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛" />
 
         <ImageView
             android:id="@+id/item_list_sub_me_imageview"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="200dp"
             android:src="@mipmap/tmp_bg"
             android:scaleType="centerCrop"
             />
@@ -172,7 +193,7 @@
                     android:gravity="left"
                     android:lines="1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/text_secondary_color"
+                    android:textColor="#9D9D9D"
                     android:textSize="@dimen/text_size_12"
                     android:text="资格赛"
                     tools:text="资格赛" />
@@ -187,7 +208,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
+                    android:gravity="right"
                     android:text="萌娃"
                     android:textColor="@color/mark_text_color"
                     android:textSize="@dimen/text_size_12"/>
@@ -219,7 +240,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/list_divider_color"/>
+            android:background="#EFEFEF"/>
 
         <LinearLayout
             android:layout_width="match_parent"

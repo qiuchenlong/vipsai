@@ -180,40 +180,41 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             }
         });
 
-        vh.tv_title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppContext.getContext(), PlayActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                AppContext.getInstance().startActivity(intent);
-            }
-        });
+//        vh.tv_title.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
 
         vh.tv_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AppContext.getContext(), SearchActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                AppContext.getInstance().startActivity(intent);
+//                Intent intent = new Intent(AppContext.getContext(), SearchActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                AppContext.getInstance().startActivity(intent);
 
 //                SearchActivity.show(AppContext.getContext());
             }
         });
 
 
-        vh.tv_description.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BlogDetailActivity.show(AppContext.getContext(), 1);
-            }
-        });
+//        vh.tv_description.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BlogDetailActivity.show(AppContext.getContext(), 1);
+//            }
+//        });
 
         vh.imageView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                NotifyActicity.show(AppContext.getContext());
+//                NotifyActicity.show(AppContext.getContext());
+                Intent intent = new Intent(AppContext.getContext(), PlayActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
             }
         });
 

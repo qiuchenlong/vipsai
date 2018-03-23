@@ -191,6 +191,11 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         mLayoutTab.setSmoothScrollingEnabled(true);
 
 
+        // set current index
+        int index = getIntent().getIntExtra("current_item", 0);
+        mViewPager.setCurrentItem(index);
+
+
         mAcitionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -202,11 +207,19 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         initPopupWindow(NotifyActicity.this);
     }
 
+    public static void show(Context context, int index) {
+        Intent intent = new Intent(context, NotifyActicity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("current_item", index);
+        context.startActivity(intent);
+    }
+
     public static void show(Context context) {
         Intent intent = new Intent(context, NotifyActicity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
