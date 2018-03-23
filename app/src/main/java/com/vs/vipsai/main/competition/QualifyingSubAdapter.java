@@ -10,10 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,7 +23,6 @@ import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.ui.videoplayer.PlayActivity;
-import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.widget.PortraitView;
 
@@ -34,14 +31,14 @@ import com.vs.vipsai.widget.PortraitView;
  * Created on 3/13/18 3:30 PM
  * Description:
  *
- * 开放栏目
+ * 资格赛栏目
  */
 
-public class OpenSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {
+public class QualifyingSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {
 
 //    private OSCApplication.ReadState mReadState;
 
-    public OpenSubAdapter(Context context, int mode, Activity activity) {
+    public QualifyingSubAdapter(Context context, int mode, Activity activity) {
         super(context, mode);
 //        mReadState = OSCApplication.getReadState("sub_list");
         setOnLoadingHeaderCallBack(this);
@@ -60,7 +57,7 @@ public class OpenSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
 
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        return new BlogViewHolder(mInflater.inflate(R.layout.item_list_sub_open, parent, false));
+        return new BlogViewHolder(mInflater.inflate(R.layout.item_list_sub_qualifying, parent, false));
     }
 
     @Override

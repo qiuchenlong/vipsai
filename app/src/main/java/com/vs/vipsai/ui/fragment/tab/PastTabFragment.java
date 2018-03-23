@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.ui.fragment.tab;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -109,7 +109,7 @@ public class PastTabFragment extends BaseFragment implements OnTabReselectListen
                         st.setHref("https://www.oschina.net/action/apiv2/sub_list?token=d6112fa662bc4bf21084670a857fbd20");
                         st.setSubtype(1);
                         st.setToken("d6112fa662bc4bf21084670a857fbd20"); // cache key
-//                        st.setType(News.TYPE_ATTENTION);
+                        st.setType(News.TYPE_PAST_WONDERFUL);
 
                         sts.add(st);
 

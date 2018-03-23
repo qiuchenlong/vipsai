@@ -16,11 +16,13 @@ import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.main.competition.OpenSubAdapter;
+import com.vs.vipsai.main.competition.QualifyingSubAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
 import com.vs.vipsai.main.my.GameSubAdapter;
 import com.vs.vipsai.main.my.MeSubAdapter;
 import com.vs.vipsai.main.my.WinnerSubAdapter;
 import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
+import com.vs.vipsai.main.past.PastWonderfulSubAdapter;
 import com.vs.vipsai.main.recommend.AttentionSubAdapter;
 import com.vs.vipsai.main.recommend.PopularSubAdapter;
 import com.vs.vipsai.ui.activity.PlayerDetailActivity;
@@ -177,6 +179,11 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             setRecyclerLinearLayoutStyle();
             return new OpenSubAdapter(getActivity(), mode, getActivity());
         }
+        else if (mTab.getType() == News.TYPE_QUALIFYING) {
+            setItemDecoration();
+            setRecyclerLinearLayoutStyle();
+            return new QualifyingSubAdapter(getActivity(), mode, getActivity());
+        }
 
 
 
@@ -184,11 +191,19 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
         /**
          * past tab
          */
+
+        else if (mTab.getType() == News.TYPE_PAST_WONDERFUL) {
+            setItemDecoration();
+            setRecyclerLinearLayoutStyle();
+            return new PastWonderfulSubAdapter(getActivity(), mode, getActivity());
+        }
         else if (mTab.getType() == News.TYPE_CHAMPIONWORK) {
             setRecyclerBackgroundColor(); // set bg color
             setRecyclerStaggeredGridLayoutStyle(2); // StaggeredGridLayout
             return new ChampionWorkSubAdapter(getActivity(), mode);
         }
+
+
 
 
         /**

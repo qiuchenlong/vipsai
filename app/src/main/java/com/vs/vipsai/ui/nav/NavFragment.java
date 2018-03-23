@@ -17,11 +17,11 @@ import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.common.widget.BorderShape;
 import com.vs.vipsai.notice.NoticeBean;
 import com.vs.vipsai.notice.NoticeManager;
-import com.vs.vipsai.ui.fragment.DefaultFragment;
-import com.vs.vipsai.ui.fragment.PastTabFragment;
+import com.vs.vipsai.ui.fragment.tab.PastTabFragment;
 import com.vs.vipsai.ui.fragment.tab.CompetitionTabFragment;
 import com.vs.vipsai.ui.fragment.tab.RecommendTabFragment;
 import com.vs.vipsai.ui.fragment.UserInfoFragment;
+import com.vs.vipsai.ui.fragment.tab.VoteTabFragment;
 
 import java.util.List;
 
@@ -103,7 +103,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
 
         mNavVote.init(R.drawable.tab_icon_vote,
                 R.string.main_tab_name_vote,
-                DefaultFragment.class);
+                VoteTabFragment.class);
 
         mNavPast.init(R.drawable.tab_icon_past,
                 R.string.main_tab_name_past,

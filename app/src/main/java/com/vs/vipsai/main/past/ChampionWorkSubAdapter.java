@@ -36,7 +36,7 @@ public class ChampionWorkSubAdapter extends BaseRecyclerAdapter<SubBean> impleme
     private void getRandomHeight(int count){//得到随机item的高度
         heights = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            heights.add((int)(500+Math.random()*800));
+            heights.add((int)(400+Math.random()*500));
         }
     }
 

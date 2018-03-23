@@ -25,9 +25,13 @@ public class News extends PrimaryBean {
     public static final int TYPE_QUALIFYING = 32;
 
     // vote tab
+    public static final int TYPE_KNOCKOUT = 52;
+
 
     // past tab
+    public static final int TYPE_PAST_WONDERFUL = 41;
     public static final int TYPE_CHAMPIONWORK = 42;
+
 
     // me tab
     public static final int TYPE_NEWEST = 21;
