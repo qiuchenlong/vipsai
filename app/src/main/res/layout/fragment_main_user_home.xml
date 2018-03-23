@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="#46a8ba"
+            app:contentScrim="#FFFFFF"
             app:expandedTitleMarginEnd="48dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -42,7 +42,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:padding="0dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal">
@@ -104,9 +103,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="谭松韵seven"
-                                android:textColor="#000000"
+                                android:textColor="#333333"
                                 android:textSize="16sp"
-                                android:textStyle="bold" />
+                                />
 
                             <ImageView
                                 android:layout_width="16dp"
@@ -123,7 +122,7 @@
                                 android:layout_toLeftOf="@+id/fragment_main_user_home_arrow_right"
                                 android:layout_marginRight="10dp"
                                 android:text="$18,000,00"
-                                android:textColor="#FF0000"
+                                android:textColor="#FF0313"
                                 android:textSize="16sp" />
 
                             <ImageView
@@ -169,9 +168,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Android开发工程师 @ 非著名程序员"
-                            android:textColor="#000000"
-                            android:textSize="13sp" />
+                            android:lines="2"
+                            android:ellipsize="end"
+                            android:text="扇贝单词、扇贝听力、扇贝口语、扇贝新闻、扇贝读书、扇贝炼句，六大应用让你在手机上就可以完成整个学习过程，有效地提升英语词汇及听说读写能力。扇贝，知道你在改变。"
+                            android:textColor="#323232"
+                            android:textSize="@dimen/text_size_12" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -179,8 +180,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal">
@@ -196,11 +196,11 @@
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@mipmap/ic_login_3party_wechat"
                             />
 
                         <View
-                            android:layout_width="10dp"
+                            android:layout_width="5dp"
                             android:layout_height="match_parent"
                             android:visibility="invisible"
                             />
@@ -208,27 +208,30 @@
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@mipmap/ic_login_3party_qq"
                             />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="32dp"
                         android:orientation="horizontal"
+                        android:gravity="top"
                         android:layout_marginLeft="20dp">
 
                         <Button
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="Create"/>
+                            android:layout_height="28dp"
+                            android:text="创建比赛"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/shape_search_view"/>
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
                             android:layout_marginLeft="15dp"
-                            android:src="@mipmap/ic_launcher"/>
+                            android:src="@mipmap/ic_login_3party_weibo"/>
 
                     </LinearLayout>
 
@@ -251,8 +254,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal"
@@ -269,18 +272,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="160"
-                            android:textColor="#000000"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#323232"
+                            android:textSize="13sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="关注"
-                            android:textColor="#CCCCCC"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#A8A8A8"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -294,18 +295,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12K"
-                            android:textColor="#000000"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#323232"
+                            android:textSize="13sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="粉丝"
-                            android:textColor="#CCCCCC"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#A8A8A8"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -319,18 +318,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20 / 50"
-                            android:textColor="#000000"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#323232"
+                            android:textSize="13sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="战绩"
-                            android:textColor="#CCCCCC"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#A8A8A8"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -344,18 +341,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="# 20"
-                            android:textColor="#000000"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#323232"
+                            android:textSize="13sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="排名"
-                            android:textColor="#CCCCCC"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textColor="#A8A8A8"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
 
@@ -479,24 +474,34 @@
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#F5F5F5"
+            />
+
+
         <!--android.support.design.widget.TabLayout-->
         <com.androidkun.xtablayout.XTabLayout
             android:id="@+id/toolbar_tab"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="38dp"
             android:layout_gravity="bottom"
             android:background="#ffffff"
             android:fillViewport="false"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            app:xTabIndicatorColor="#00BFFF"
-            app:xTabIndicatorHeight="4dp"
+            app:xTabIndicatorColor="#42A9FD"
+            app:xTabIndicatorHeight="1dp"
             app:xTabIndicatorWidth="12dp"
-            app:xTabSelectedTextColor="#00BFFF"
-            app:xTabTextColor="#CCCCCC"
-            app:xTabTextSize="15sp"
+            app:xTabSelectedTextColor="#42A9FD"
+            app:xTabTextColor="#A8A8A8"
+            app:xTabTextSize="13sp"
             app:xTabSelectedTextSize="14sp"
             >
+
+            <!--android:layout_height="?attr/actionBarSize"-->
 
             <!--app:layout_scrollFlags="scroll"-->
             <!--app:tabIndicatorColor="#0835f8"-->

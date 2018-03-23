@@ -5,7 +5,7 @@
     <style name="Base.App.Theme.Light" parent="@style/Theme.AppCompat.Light">
         <!--color primary-->
         <!--Toolbar导航栏的底色-->
-        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimary">@color/day_colorPrimaryDark</item>
         <!--day_colorPrimary-->
         <!--应用的主要暗色调 状态栏-->
         <item name="colorPrimaryDark">@color/color_4D000000</item>

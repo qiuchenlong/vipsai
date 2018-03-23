@@ -18,7 +18,16 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:contentDescription="@null"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_5"
+            android:text="@string/app_name"
+            android:textColor="?attr/textColor"
+            android:textSize="@dimen/text_size_16" />
 
         <TextView
             android:id="@+id/tv_version_name"
@@ -27,7 +36,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/space_5"
             android:textColor="?attr/textColor"
-            android:textSize="@dimen/text_size_16" />
+            android:textSize="@dimen/text_size_14" />
 
         <View
             style="@style/h_line"
@@ -71,17 +80,28 @@
             android:id="@+id/tv_oscsite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="10dp"
             android:text="@string/vs_site"
-            android:textColor="?android:textColorLink" />
+            android:textColor="#48AAFB"
+            android:textSize="@dimen/text_size_15"/>
+
+        <!--?android:textColorLink-->
+
+        <View
+            style="@style/v_line"/>
 
 
         <TextView
             android:id="@+id/tv_knowmore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="@string/know_more"
-            android:textColor="?android:textColorLink" />
+            android:textColor="#48AAFB"
+            android:textSize="@dimen/text_size_15"/>
+
+        <!--?android:textColorLink-->
+
     </LinearLayout>
 
 
@@ -91,6 +111,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:text="@string/copyright"
-        android:textColor="?attr/infoTextColor" />
+        android:textColor="?attr/infoTextColor"
+        android:textSize="@dimen/text_size_10"/>
 
 </LinearLayout>

@@ -1,7 +1,8 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.ui.fragment.tab;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -236,8 +237,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -headLayout.getHeight() / 2) {
                     collapsingToolbarLayout.setTitle("    谭松韵seven");
+//                    collapsingToolbarLayout.setCollapsedTitleTextColor(Color.argb(255, 255, 255, 255));//设置收缩后Toolbar上字体的颜色
                 } else {
                     collapsingToolbarLayout.setTitle(" ");
+//                    collapsingToolbarLayout.setExpandedTitleColor(Color.argb(255, 255, 255, 255));//设置还没收缩时状态下字体颜色
                 }
             }
         });

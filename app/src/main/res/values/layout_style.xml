@@ -29,6 +29,11 @@
         <item name="android:background">?attr/lineColor</item>
     </style>
     <!-- 纵向线条 -->
+    <style name="v_line">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?attr/lineColor</item>
+    </style>
 
     <style name="list_text_title" parent="@style/wrap_wrap">
         <item name="android:textColor">?attr/textColor</item>

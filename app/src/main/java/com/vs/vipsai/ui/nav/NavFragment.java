@@ -20,7 +20,7 @@ import com.vs.vipsai.notice.NoticeManager;
 import com.vs.vipsai.ui.fragment.tab.PastTabFragment;
 import com.vs.vipsai.ui.fragment.tab.CompetitionTabFragment;
 import com.vs.vipsai.ui.fragment.tab.RecommendTabFragment;
-import com.vs.vipsai.ui.fragment.UserInfoFragment;
+import com.vs.vipsai.ui.fragment.tab.UserInfoFragment;
 import com.vs.vipsai.ui.fragment.tab.VoteTabFragment;
 
 import java.util.List;
