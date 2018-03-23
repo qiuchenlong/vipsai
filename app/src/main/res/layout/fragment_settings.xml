@@ -19,15 +19,84 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
         <View
             style="@style/h_line"
             android:layout_marginTop="20dip"/>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <com.vs.vipsai.widget.PortraitView
+                android:id="@+id/fragment_setttings_header"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/tmp_head"
+                />
+
+            <!--android:text="@string/clean_cache"-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/fragment_setttings_header"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:text="曾小贤"
+                    android:textSize="@dimen/text_size_15"
+                    android:textColor="#3F3F3F"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:text="zxx@qq.com"
+                    android:textSize="@dimen/text_size_12"
+                    android:textColor="#999999"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_header_btn_detail"
+                android:src="@mipmap/ic_logo"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_header_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+        </RelativeLayout>
+
+
+        <View
+            style="@style/h_line"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:id="@+id/rl_clean_cache"
             style="@style/option_item_rl"
             android:background="@drawable/ic_material"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -56,7 +125,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone">
 
             <View
                 style="@style/h_line"
@@ -67,7 +137,8 @@
             android:id="@+id/rl_double_click_exit"
             style="@style/option_item_rl"
             android:background="@drawable/ic_material"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -85,16 +156,376 @@
                 style="@style/option_item_toggleButton"/>
         </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="社交平台"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <ImageView
+                android:id="@+id/fragment_setttings_platform_btn_wx"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_qq"
+                android:src="@mipmap/ic_logo"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_platform_btn_qq"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_detail"
+                android:src="@mipmap/ic_logo"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_platform_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定位"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_location_btn_detail"
+                android:text="中国厦门"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_location_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时区"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_time_zone_btn_detail"
+                android:text="北京时间(GMT - 8:00)"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_time_zone_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个性域名"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_domain_btn_detail"
+                android:text="http://www.baidu.com"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_domain_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="邮件提醒"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_setttings_email_btn_detail"
+                android:text="从不提醒"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_setttings_email_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
         <View style="@style/h_line"/>
+
+
+
+
+
 
         <View
             style="@style/h_line"
             android:layout_marginTop="20dip"/>
 
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付密码"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+
+            <ImageView
+                android:id="@+id/fragment_setttings_payfor_password_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <View style="@style/h_line"/>
+
+
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
+
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="帮助中心"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/about"-->
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_about"
+            style="@style/option_item_rl"
+            android:background="@drawable/ic_material">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:text="@string/set_options_about"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/about"-->
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+
+        </RelativeLayout>
+
+
+
+        <View style="@style/h_line"/>
+
+
+
+
+
+
+
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"
+            android:visibility="gone"/>
+
         <FrameLayout
             android:id="@+id/rl_feedback"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="@drawable/ic_material"
+            android:visibility="gone">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -110,43 +541,21 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="gone">
 
             <View
                 style="@style/h_line"
                 android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/rl_about"
-            style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
 
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="@string/set_options_about"
-                android:textColor="?attr/textColor"
-                android:textSize="@dimen/text_size_16"/>
-
-            <!--android:text="@string/about"-->
-
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
-
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
-        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/rl_check_version"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="@drawable/ic_material"
+            android:visibility="gone">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -159,17 +568,20 @@
 
         </FrameLayout>
 
-        <View style="@style/h_line"/>
+        <View style="@style/h_line"
+            android:visibility="gone"/>
 
         <View
             android:id="@+id/setting_line_top"
             style="@style/h_line"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
 
         <FrameLayout
             android:id="@+id/rl_cancel"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="@drawable/ic_material"
+            android:visibility="gone">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -184,7 +596,8 @@
 
         <View
             android:id="@+id/setting_line_bottom"
-            style="@style/h_line"/>
+            style="@style/h_line"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </ScrollView>
