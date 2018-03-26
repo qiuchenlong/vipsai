@@ -558,9 +558,20 @@ public class UIHelper {
      *
      * @param context
      */
-    public static void showPayForPassword(Context context) {
-        showSimpleBack(context, SimpleBackPage.PAYFOR_PASSWORD);
+    public static void showPaymentPassword(Context context) {
+        showSimpleBack(context, SimpleBackPage.PAYMENT_PASSWORD);
     }
+
+
+    /**
+     * 显示修改支付密码界面
+     *
+     * @param context
+     */
+    public static void showPaymentModifyPassword(Context context) {
+        showSimpleBack(context, SimpleBackPage.PAYMENT_MODIFY_PASSWORD);
+    }
+
 
 
     /**

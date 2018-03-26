@@ -193,7 +193,7 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
 
 
             case R.id.rl_pay_for_password:
-                UIHelper.showPayForPassword(getActivity());
+                UIHelper.showPaymentPassword(getActivity());
 //                PayForPasswordActivity.show(getActivity());
                 break;
             default:

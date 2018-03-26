@@ -117,6 +117,7 @@
     <string name="actionbar_title_about">关于我们</string>
 
 
+    <string name="actionbar_title_payment_password">支付密碼</string>
     <string name="actionbar_title_modify_payment_password">修改支付密碼</string>
 
 
