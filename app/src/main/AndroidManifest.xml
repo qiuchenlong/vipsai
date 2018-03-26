@@ -132,7 +132,10 @@
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
-            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!--android:windowSoftInputMode="stateHidden|stateUnchanged"-->
+
 
 
         <!--播放界面-->

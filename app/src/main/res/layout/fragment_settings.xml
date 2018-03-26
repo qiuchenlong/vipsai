@@ -400,7 +400,7 @@
             android:layout_marginTop="20dip"/>
 
         <RelativeLayout
-            android:id="@+id/rl_pay_for_password"
+            android:id="@+id/rl_payment_password"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 

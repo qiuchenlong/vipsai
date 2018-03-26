@@ -94,7 +94,7 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
         // view.findViewById(R.id.rl_exit).setOnClickListener(this);
         view.findViewById(R.id.rl_feedback).setOnClickListener(this);
 
-        view.findViewById(R.id.rl_pay_for_password).setOnClickListener(this);
+        view.findViewById(R.id.rl_payment_password).setOnClickListener(this);
 
 
         mCancel.setOnClickListener(this);
@@ -192,7 +192,7 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
                 break;
 
 
-            case R.id.rl_pay_for_password:
+            case R.id.rl_payment_password:
                 UIHelper.showPaymentPassword(getActivity());
 //                PayForPasswordActivity.show(getActivity());
                 break;

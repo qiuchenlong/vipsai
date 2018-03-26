@@ -572,6 +572,24 @@ public class UIHelper {
         showSimpleBack(context, SimpleBackPage.PAYMENT_MODIFY_PASSWORD);
     }
 
+    /**
+     * 显示忘记支付密码界面
+     *
+     * @param context
+     */
+    public static void showPaymentForgotPassword(Context context) {
+        showSimpleBack(context, SimpleBackPage.PAYMENT_FORGOT_FINGERPRINT);
+    }
+
+    /**
+     * 显示开启指纹支付界面
+     *
+     * @param context
+     */
+    public static void showPaymentOpenFingerprint(Context context) {
+        showSimpleBack(context, SimpleBackPage.PAYMENT_OPEN_FINGERPRINT);
+    }
+
 
 
     /**

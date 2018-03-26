@@ -4,8 +4,10 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.ui.fragment.AboutVSFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
+import com.vs.vipsai.ui.fragment.PaymentForgotPasswordFragment;
+import com.vs.vipsai.ui.fragment.PaymentOpenFingerprintFragment;
 import com.vs.vipsai.ui.fragment.PaymentPasswordFragment;
-import com.vs.vipsai.ui.fragment.PaymentmodifyPasswordFragment;
+import com.vs.vipsai.ui.fragment.PaymentModifyPasswordFragment;
 import com.vs.vipsai.ui.fragment.SettingsFragment;
 
 /**
@@ -30,7 +32,9 @@ public enum SimpleBackPage {
 
 
     PAYMENT_PASSWORD(18, R.string.actionbar_title_payment_password, PaymentPasswordFragment.class),
-    PAYMENT_MODIFY_PASSWORD(19, R.string.actionbar_title_modify_payment_password, PaymentmodifyPasswordFragment.class),
+    PAYMENT_MODIFY_PASSWORD(19, R.string.actionbar_title_modify_payment_password, PaymentModifyPasswordFragment.class),
+    PAYMENT_FORGOT_FINGERPRINT(20, R.string.actionbar_title_forgot_payment_password, PaymentForgotPasswordFragment.class),
+    PAYMENT_OPEN_FINGERPRINT(21, R.string.actionbar_title_open_fingerprint_payment, PaymentOpenFingerprintFragment.class),
 
 
 

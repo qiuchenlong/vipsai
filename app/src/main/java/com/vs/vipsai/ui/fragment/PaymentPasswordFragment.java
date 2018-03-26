@@ -39,16 +39,22 @@ public class PaymentPasswordFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_payment_password;
+        return R.layout.fragment_payment_password;
     }
 
 
-    @OnClick(R.id.rl_payment_modify_password)
+    @OnClick({R.id.rl_payment_modify_password, R.id.rl_payment_forgot_password, R.id.rl_payment_open_fingerprint})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_payment_modify_password:
                 UIHelper.showPaymentModifyPassword(getContext());
+                break;
+            case R.id.rl_payment_forgot_password:
+                UIHelper.showPaymentForgotPassword(getContext());
+                break;
+            case R.id.rl_payment_open_fingerprint:
+                UIHelper.showPaymentOpenFingerprint(getContext());
                 break;
             default:
                 break;

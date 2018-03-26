@@ -9,12 +9,12 @@ import com.vs.vipsai.base.fragments.BaseFragment;
  * Description:
  */
 
-public class PaymentmodifyPasswordFragment extends BaseFragment {
+public class PaymentOpenFingerprintFragment extends BaseFragment {
 
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_payment_modify_password;
+        return R.layout.fragment_payment_open_fingerpinrt;
     }
 }
