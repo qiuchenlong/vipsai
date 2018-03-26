@@ -131,6 +131,7 @@
             android:name="com.vs.vipsai.ui.SimpleBackActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
 
 

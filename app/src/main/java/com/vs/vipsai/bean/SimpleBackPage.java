@@ -4,6 +4,7 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.ui.fragment.AboutVSFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
+import com.vs.vipsai.ui.fragment.PaymentPasswordFragment;
 import com.vs.vipsai.ui.fragment.SettingsFragment;
 
 /**
@@ -26,7 +27,12 @@ public enum SimpleBackPage {
 
     ABOUT_OSC(17, R.string.actionbar_title_about, AboutVSFragment.class),
 
-//    EVENT_APPLY(22, R.string.actionbar_title_event_apply,
+
+    PAYFOR_PASSWORD(18, R.string.actionbar_title_modify_payment_password, PaymentPasswordFragment.class),
+
+
+
+    //    EVENT_APPLY(22, R.string.actionbar_title_event_apply,
 //            EventAppliesFragment.class),
 //
 //    SAME_CITY(23, R.string.actionbar_title_same_city, EventFragment.class),

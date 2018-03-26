@@ -78,7 +78,8 @@ public abstract class BaseListFragment <T> extends BaseFragment implements
     }
 
     @Override
-    protected void initData() {
+//    protected void initData() {
+    public void initData() {
         super.initData();
         //when open this fragment,read the obj
 

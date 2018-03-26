@@ -552,6 +552,17 @@ public class UIHelper {
         showSimpleBack(context, SimpleBackPage.ABOUT_OSC);
     }
 
+
+    /**
+     * 显示支付密码界面
+     *
+     * @param context
+     */
+    public static void showPayForPassword(Context context) {
+        showSimpleBack(context, SimpleBackPage.PAYFOR_PASSWORD);
+    }
+
+
     /**
      * 清除app缓存
      */

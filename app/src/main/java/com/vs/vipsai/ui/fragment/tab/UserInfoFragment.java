@@ -357,7 +357,8 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
 
     @Override
-    protected void initData() {
+    public void initData() {
+//    protected void initData() {
         super.initData();
         NoticeManager.bindNotify(this);
         requestUserCache();

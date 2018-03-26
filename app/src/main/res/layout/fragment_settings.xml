@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="?attr/layout_item_bg"
     android:orientation="vertical"
     android:scrollbars="none"
     >
 
-
-
-
+    <!--android:background="?attr/layout_item_bg"-->
 
 
     <LinearLayout
@@ -20,9 +17,9 @@
         android:orientation="vertical">
 
 
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"/>
+        <!--<View-->
+            <!--style="@style/h_line"-->
+            <!--android:layout_marginTop="20dip"/>-->
 
         <RelativeLayout
             style="@style/option_item_rl"
@@ -87,9 +84,9 @@
         </RelativeLayout>
 
 
-        <View
-            style="@style/h_line"
-            android:visibility="gone"/>
+        <!--<View-->
+            <!--style="@style/h_line"-->
+            <!--android:visibility="gone"/>-->
 
         <LinearLayout
             android:id="@+id/rl_clean_cache"
@@ -103,7 +100,6 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:text="clear cache"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_16"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -113,7 +109,6 @@
                 android:id="@+id/tv_cache_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/infoTextColor"
                 android:textSize="@dimen/text_size_14"
                 />
 
@@ -128,9 +123,9 @@
             android:background="@color/white"
             android:visibility="gone">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <LinearLayout
@@ -145,7 +140,6 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:text="double click exit"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_16"/>
 
             <!--android:text="@string/double_click_exit"-->
@@ -161,9 +155,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <RelativeLayout
@@ -175,7 +169,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="社交平台"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -216,9 +209,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <RelativeLayout
@@ -230,7 +223,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="定位"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -263,9 +255,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <RelativeLayout
@@ -277,7 +269,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="时区"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -310,9 +301,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <RelativeLayout
@@ -324,7 +315,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="个性域名"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -357,9 +347,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
         <RelativeLayout
@@ -371,7 +361,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="邮件提醒"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -399,18 +388,19 @@
 
         </RelativeLayout>
 
-        <View style="@style/h_line"/>
+        <!--<View style="@style/h_line"/>-->
 
 
 
 
 
 
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"/>
+        <!--<View-->
+            <!--style="@style/h_line"-->
+            <!--android:layout_marginTop="20dip"/>-->
 
         <RelativeLayout
+            android:id="@+id/rl_pay_for_password"
             style="@style/option_item_rl"
             android:background="@drawable/ic_material">
 
@@ -419,7 +409,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="支付密码"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -438,14 +427,14 @@
 
         </RelativeLayout>
 
-        <View style="@style/h_line"/>
+        <!--<View style="@style/h_line"/>-->
 
 
 
 
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"/>
+        <!--<View-->
+            <!--style="@style/h_line"-->
+            <!--android:layout_marginTop="20dip"/>-->
 
 
         <RelativeLayout
@@ -455,7 +444,6 @@
             <TextView
                 style="@style/option_item_text_parent"
                 android:text="帮助中心"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/about"-->
@@ -475,9 +463,9 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
 
@@ -489,7 +477,6 @@
             <TextView
                 style="@style/option_item_text_parent"
                 android:text="@string/set_options_about"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/about"-->
@@ -506,7 +493,7 @@
 
 
 
-        <View style="@style/h_line"/>
+        <!--<View style="@style/h_line"/>-->
 
 
 
@@ -516,10 +503,10 @@
 
 
 
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"
-            android:visibility="gone"/>
+        <!--<View-->
+            <!--style="@style/h_line"-->
+            <!--android:layout_marginTop="20dip"-->
+            <!--android:visibility="gone"/>-->
 
         <FrameLayout
             android:id="@+id/rl_feedback"
@@ -530,7 +517,6 @@
             <TextView
                 style="@style/option_item_text_parent"
                 android:text="feedback"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_16"/>
 
             <!--android:text="@string/feedback"-->
@@ -544,9 +530,9 @@
             android:background="@color/white"
             android:visibility="gone">
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
+            <!--<View-->
+                <!--style="@style/h_line"-->
+                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
         </FrameLayout>
 
 
@@ -560,7 +546,6 @@
             <TextView
                 style="@style/option_item_text_parent"
                 android:text="update"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_16"/>
 
             <!--android:text="@string/update"-->
@@ -568,14 +553,14 @@
 
         </FrameLayout>
 
-        <View style="@style/h_line"
-            android:visibility="gone"/>
+        <!--<View style="@style/h_line"-->
+            <!--android:visibility="gone"/>-->
 
-        <View
-            android:id="@+id/setting_line_top"
-            style="@style/h_line"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"/>
+        <!--<View-->
+            <!--android:id="@+id/setting_line_top"-->
+            <!--style="@style/h_line"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:visibility="gone"/>-->
 
         <FrameLayout
             android:id="@+id/rl_cancel"
@@ -586,7 +571,6 @@
             <TextView
                 style="@style/option_item_text_parent"
                 android:text="setting cancel"
-                android:textColor="?attr/textColor"
                 android:textSize="@dimen/text_size_16" />
 
             <!--android:text="@string/setting_cancel"-->
@@ -594,10 +578,10 @@
 
         </FrameLayout>
 
-        <View
-            android:id="@+id/setting_line_bottom"
-            style="@style/h_line"
-            android:visibility="gone"/>
+        <!--<View-->
+            <!--android:id="@+id/setting_line_bottom"-->
+            <!--style="@style/h_line"-->
+            <!--android:visibility="gone"/>-->
     </LinearLayout>
 
 </ScrollView>

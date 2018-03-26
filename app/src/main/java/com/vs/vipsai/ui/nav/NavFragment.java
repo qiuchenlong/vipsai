@@ -252,7 +252,8 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
+//    protected void initData() {
         super.initData();
         NoticeManager.bindNotify(this);
     }

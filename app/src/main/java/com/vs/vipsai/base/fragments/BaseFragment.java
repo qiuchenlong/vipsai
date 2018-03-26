@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.vs.vipsai.interf.BaseFragmentInterface;
 import com.vs.vipsai.util.ImageLoader;
 
 import java.io.Serializable;
@@ -27,7 +28,8 @@ import butterknife.ButterKnife;
  * Fragment基础类
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements
+        android.view.View.OnClickListener, BaseFragmentInterface {
 
     protected Context mContext;
     protected View mRoot;
@@ -101,7 +103,22 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    protected void initData() {
+//    protected void initData() {
+//
+//    }
+
+    @Override
+    public void initView(View view) {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 

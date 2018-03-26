@@ -99,7 +99,8 @@ public class BlogDetailFragment extends DetailFragment {
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
+//    protected void initData() {
         super.initData();
 //        CACHE_CATALOG = OSChinaApi.CATALOG_BLOG;
     }

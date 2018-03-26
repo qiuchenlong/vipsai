@@ -117,6 +117,10 @@
     <string name="actionbar_title_about">关于我们</string>
 
 
+    <string name="actionbar_title_modify_payment_password">修改支付密碼</string>
+
+
+
     <!--设置选项-->
     <string name="set_options_social_platforms">社交平台</string>
     <string name="set_options_location">定位</string>
@@ -126,6 +130,11 @@
     <string name="set_options_payment_password">支付密码</string>
     <string name="set_options_help">帮助中心</string>
     <string name="set_options_about">关于我们</string>
+
+
+    <!--支付密码-->
+    <string name="payment_password_input_old_password">请输入旧密码</string>
+
 
 
     <!--关于我们-->

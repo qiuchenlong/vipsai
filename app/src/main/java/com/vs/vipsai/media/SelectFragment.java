@@ -143,7 +143,8 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
     }
 
     @Override
-    protected void initData() {
+    public void initData() {
+//    protected void initData() {
         if(mOption == null){
             getActivity().finish();
             return;

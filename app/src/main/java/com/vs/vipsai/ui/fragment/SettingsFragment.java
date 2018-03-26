@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
-import com.vs.vipsai.base.BaseFragment;
+import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.bean.Version;
 import com.vs.vipsai.update.CheckUpdateManager;
 import com.vs.vipsai.util.DialogHelper;
@@ -52,10 +52,10 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
     FrameLayout mRlCheck_version;
     @BindView(R.id.tb_double_click_exit)
     ToggleButton mTbDoubleClickExit;
-    @BindView(R.id.setting_line_top)
-    View mSettingLineTop;
-    @BindView(R.id.setting_line_bottom)
-    View mSettingLineBottom;
+//    @BindView(R.id.setting_line_top)
+//    View mSettingLineTop;
+//    @BindView(R.id.setting_line_bottom)
+//    View mSettingLineBottom;
     @BindView(R.id.rl_cancel)
     FrameLayout mCancel;
 
@@ -70,6 +70,11 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
         initView(view);
         initData();
         return view;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_settings;
     }
 
     @Override
@@ -88,6 +93,10 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
         view.findViewById(R.id.rl_check_version).setOnClickListener(this);
         // view.findViewById(R.id.rl_exit).setOnClickListener(this);
         view.findViewById(R.id.rl_feedback).setOnClickListener(this);
+
+        view.findViewById(R.id.rl_pay_for_password).setOnClickListener(this);
+
+
         mCancel.setOnClickListener(this);
 
 //        SystemConfigView.show((ViewGroup) view.findViewById(R.id.lay_linear));
@@ -180,6 +189,12 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
 //                        mSettingLineBottom.setVisibility(View.INVISIBLE);
 //                    }
 //                });
+                break;
+
+
+            case R.id.rl_pay_for_password:
+                UIHelper.showPayForPassword(getActivity());
+//                PayForPasswordActivity.show(getActivity());
                 break;
             default:
                 break;

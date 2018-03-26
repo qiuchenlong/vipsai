@@ -12,9 +12,10 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.BaseFragment;
+import com.vs.vipsai.base.activities.BackActivity;
 import com.vs.vipsai.bean.SimpleBackPage;
 import com.vs.vipsai.emoji.OnSendClickListener;
-import com.vs.vipsai.base.BaseActivity;
+import com.vs.vipsai.base.activities.BaseActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -24,7 +25,7 @@ import java.lang.ref.WeakReference;
  * Description:
  */
 
-public class SimpleBackActivity extends BaseActivity implements OnSendClickListener {
+public class SimpleBackActivity extends BackActivity implements OnSendClickListener {
 
     public final static String BUNDLE_KEY_PAGE = "BUNDLE_KEY_PAGE";
     public final static String BUNDLE_KEY_ARGS = "BUNDLE_KEY_ARGS";
@@ -43,25 +44,25 @@ public class SimpleBackActivity extends BaseActivity implements OnSendClickListe
         super.startActivity(intent);
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_simple_fragment;
-    }
-
-    @Override
-    protected boolean hasBackButton() {
-        return true;
-    }
-
-    @Override
-    protected void init(Bundle savedInstanceState) {
-        super.init(savedInstanceState);
-        Intent intent = getIntent();
-        if (mPageValue == -1) {
-            mPageValue = intent.getIntExtra(BUNDLE_KEY_PAGE, 0);
-        }
-        initFromIntent(mPageValue, getIntent());
-    }
+//    @Override
+//    protected int getLayoutId() {
+//        return R.layout.activity_simple_fragment;
+//    }
+//
+//    @Override
+//    protected boolean hasBackButton() {
+//        return true;
+//    }
+//
+//    @Override
+//    protected void init(Bundle savedInstanceState) {
+//        super.init(savedInstanceState);
+//        Intent intent = getIntent();
+//        if (mPageValue == -1) {
+//            mPageValue = intent.getIntExtra(BUNDLE_KEY_PAGE, 0);
+//        }
+//        initFromIntent(mPageValue, getIntent());
+//    }
 
     protected void initFromIntent(int pageValue, Intent data) {
         if (data == null) {
@@ -72,7 +73,8 @@ public class SimpleBackActivity extends BaseActivity implements OnSendClickListe
             throw new IllegalArgumentException("can not find page by value:" + pageValue);
         }
 
-        setActionBarTitle(page.getTitle());
+//        setActionBarTitle(page.getTitle());
+        setTitle(page.getTitle());
 
         try {
             Fragment fragment = (Fragment) page.getClz().newInstance();
@@ -82,12 +84,17 @@ public class SimpleBackActivity extends BaseActivity implements OnSendClickListe
                 fragment.setArguments(args);
             }
 
-            FragmentTransaction trans = getSupportFragmentManager()
-                    .beginTransaction();
-            trans.replace(R.id.container, fragment, TAG);
-            trans.commitAllowingStateLoss();
+//            FragmentTransaction trans = getSupportFragmentManager()
+//                    .beginTransaction();
+//            trans.replace(R.id.container, fragment, TAG);
+//            trans.commitAllowingStateLoss();
 
-            mFragment = new WeakReference<>(fragment);
+//            mFragment = new WeakReference<>(fragment);
+
+
+//            mFragment = getDetailFragment();
+            addFragment(R.id.container, fragment);
+
         } catch (Exception e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
@@ -123,11 +130,28 @@ public class SimpleBackActivity extends BaseActivity implements OnSendClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    protected void initWidget() {
+        super.initWidget();
+        setSwipeBackEnable(true);
+
+        Intent intent = getIntent();
+        if (mPageValue == -1) {
+            mPageValue = intent.getIntExtra(BUNDLE_KEY_PAGE, 0);
+        }
+        initFromIntent(mPageValue, getIntent());
     }
 
+    //    @Override
+//    public void onClick(View v) {
+//    }
+//
+//    @Override
+//    public void initView() {
+//    }
+
     @Override
-    public void initView() {
+    protected int getContentView() {
+        return R.layout.activity_simple_fragment;
     }
 
     @Override
