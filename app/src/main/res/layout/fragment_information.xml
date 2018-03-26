@@ -22,57 +22,37 @@
             android:layout_marginTop="20dip"/>
 
         <RelativeLayout
-            android:id="@+id/fragment_setttings_information"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <com.vs.vipsai.widget.PortraitView
-                android:id="@+id/fragment_setttings_header"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/tmp_head"
-                />
+
 
             <!--android:text="@string/clean_cache"-->
 
-            <LinearLayout
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/fragment_setttings_header"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:ellipsize="end"
+                android:text="头像"
+                android:textSize="@dimen/text_size_15"
+                android:textColor="#3F3F3F"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lines="1"
-                    android:ellipsize="end"
-                    android:text="曾小贤"
-                    android:textSize="@dimen/text_size_15"
-                    android:textColor="#3F3F3F"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lines="1"
-                    android:ellipsize="end"
-                    android:text="zxx@qq.com"
-                    android:textSize="@dimen/text_size_12"
-                    android:textColor="#999999"/>
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+            <com.vs.vipsai.widget.PortraitView
+                android:id="@+id/fragment_setttings_header"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_header_btn_detail"
-                android:src="@mipmap/ic_tweet_select_picture_camera"/>
+                android:src="@mipmap/tmp_head"
+                />
+
 
             <ImageView
                 android:id="@+id/fragment_setttings_header_btn_detail"
@@ -84,72 +64,6 @@
 
         </RelativeLayout>
 
-
-        <!--<View-->
-            <!--style="@style/h_line"-->
-            <!--android:visibility="gone"/>-->
-
-        <LinearLayout
-            android:id="@+id/rl_clean_cache"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="clear cache"
-                android:textSize="@dimen/text_size_16"/>
-
-            <!--android:text="@string/clean_cache"-->
-
-
-            <TextView
-                android:id="@+id/tv_cache_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_14"
-                />
-
-            <!--tools:ignore="RelativeOverlap"-->
-            <!--tools:text="13M"-->
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:visibility="gone">
-
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
-        </FrameLayout>
-
-        <LinearLayout
-            android:id="@+id/rl_double_click_exit"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="double click exit"
-                android:textSize="@dimen/text_size_16"/>
-
-            <!--android:text="@string/double_click_exit"-->
-
-
-            <com.vs.vipsai.widget.togglebutton.ToggleButton
-                android:id="@+id/tb_double_click_exit"
-                style="@style/option_item_toggleButton"/>
-        </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -169,7 +83,7 @@
                 style="@style/option_item_text_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="社交平台"
+                android:text="自我介绍视频"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -183,14 +97,17 @@
                 android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_qq"
                 android:src="@mipmap/ic_login_3party_wechat"/>
 
-            <ImageView
+            <TextView
                 android:id="@+id/fragment_setttings_platform_btn_qq"
-                android:layout_width="16dp"
+                android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_detail"
-                android:src="@mipmap/ic_login_3party_qq"/>
+                android:text="上传"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="@color/mark_text_color"
+                />
 
             <ImageView
                 android:id="@+id/fragment_setttings_platform_btn_detail"
@@ -224,7 +141,7 @@
                 style="@style/option_item_text_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="定位"
+                android:text="邮箱"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -235,7 +152,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_location_btn_detail"
-                android:text="中国厦门"
+                android:text="888888@qq.com"
                 android:textSize="@dimen/text_size_14"
                 android:textColor="#999999"/>
 
@@ -271,7 +188,7 @@
                 style="@style/option_item_text_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="时区"
+                android:text="验证手机号"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -282,9 +199,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_time_zone_btn_detail"
-                android:text="北京时间(GMT - 8:00)"
+                android:text="去认证"
                 android:textSize="@dimen/text_size_14"
-                android:textColor="#999999"/>
+                android:textColor="@color/mark_text_color"/>
 
             <ImageView
                 android:id="@+id/fragment_setttings_time_zone_btn_detail"
@@ -299,15 +216,14 @@
 
         </RelativeLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
+        <View style="@style/h_line"/>
 
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
-        </FrameLayout>
+
+
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
+
 
         <RelativeLayout
             android:id="@+id/fragment_settings_domain"
@@ -318,7 +234,7 @@
                 style="@style/option_item_text_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="个性域名"
+                android:text="账号昵称"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -329,7 +245,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_domain_btn_detail"
-                android:text="http://www.baidu.com"
+                android:text="谦谦"
                 android:textSize="@dimen/text_size_14"
                 android:textColor="#999999"/>
 
@@ -357,6 +273,192 @@
         </FrameLayout>
 
         <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="真实姓名"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_information_real_name_btn_detail"
+                android:text="薛之谦"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_information_real_name_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_information_sex_btn_detail"
+                android:text="男"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_information_sex_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生日"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_information_birthday_btn_detail"
+                android:text="2000-01-01"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_information_birthday_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货地址"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_information_address_btn_detail"
+                android:text="福建省厦门市思明区嘉禾路23号"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_information_address_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
             android:id="@+id/fragment_settings_email_notify"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
@@ -365,7 +467,54 @@
                 style="@style/option_item_text_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="邮件提醒"
+                android:text="个性签名"
+                android:textSize="@dimen/text_size_14"/>
+
+            <!--android:text="@string/clean_cache"-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/fragment_information_signature_btn_detail"
+                android:text="世界和平"
+                android:textSize="@dimen/text_size_14"
+                android:textColor="#999999"/>
+
+            <ImageView
+                android:id="@+id/fragment_information_signature_btn_detail"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+            <!--tools:ignore="RelativeOverlap"-->
+            <!--tools:text="13M"-->
+
+        </RelativeLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            style="@style/option_item_rl"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                style="@style/option_item_text_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="实名认证"
                 android:textSize="@dimen/text_size_14"/>
 
             <!--android:text="@string/clean_cache"-->
@@ -376,7 +525,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_email_btn_detail"
-                android:text="从不提醒"
+                android:text="去认证"
                 android:textSize="@dimen/text_size_14"
                 android:textColor="#999999"/>
 
@@ -393,201 +542,11 @@
 
         </RelativeLayout>
 
-        <View style="@style/h_line"/>
-
-
-
-
-
-
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"/>
-
-        <RelativeLayout
-            android:id="@+id/rl_payment_password"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="支付密码"
-                android:textSize="@dimen/text_size_14"/>
-
-            <!--android:text="@string/clean_cache"-->
-
-
-            <ImageView
-                android:id="@+id/fragment_setttings_payfor_password_btn_detail"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_arrow_right"/>
-
-            <!--tools:ignore="RelativeOverlap"-->
-            <!--tools:text="13M"-->
-
-        </RelativeLayout>
 
         <View style="@style/h_line"/>
 
 
 
-
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"/>
-
-
-        <RelativeLayout
-            android:id="@+id/fragment_settings_help_option"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="帮助中心"
-                android:textSize="@dimen/text_size_14"/>
-
-            <!--android:text="@string/about"-->
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_arrow_right"/>
-
-
-        </RelativeLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
-
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
-        </FrameLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/rl_about"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="@string/set_options_about"
-                android:textSize="@dimen/text_size_14"/>
-
-            <!--android:text="@string/about"-->
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_arrow_right"/>
-
-
-        </RelativeLayout>
-
-
-
-        <View style="@style/h_line"/>
-
-
-
-
-
-
-
-
-
-        <View
-            style="@style/h_line"
-            android:layout_marginTop="20dip"
-            android:visibility="gone"/>
-
-        <FrameLayout
-            android:id="@+id/rl_feedback"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="feedback"
-                android:textSize="@dimen/text_size_16"/>
-
-            <!--android:text="@string/feedback"-->
-
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:visibility="gone">
-
-            <View
-                style="@style/h_line"
-                android:layout_marginLeft="@dimen/lay_14"/>
-        </FrameLayout>
-
-
-
-        <FrameLayout
-            android:id="@+id/rl_check_version"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="update"
-                android:textSize="@dimen/text_size_16"/>
-
-            <!--android:text="@string/update"-->
-
-
-        </FrameLayout>
-
-        <!--<View style="@style/h_line"-->
-            <!--android:visibility="gone"/>-->
-
-        <!--<View-->
-            <!--android:id="@+id/setting_line_top"-->
-            <!--style="@style/h_line"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:visibility="gone"/>-->
-
-        <FrameLayout
-            android:id="@+id/rl_cancel"
-            style="@style/option_item_rl"
-            android:background="?attr/selectableItemBackground"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/option_item_text_parent"
-                android:text="setting cancel"
-                android:textSize="@dimen/text_size_16" />
-
-            <!--android:text="@string/setting_cancel"-->
-
-
-        </FrameLayout>
-
-        <!--<View-->
-            <!--android:id="@+id/setting_line_bottom"-->
-            <!--style="@style/h_line"-->
-            <!--android:visibility="gone"/>-->
     </LinearLayout>
 
 </ScrollView>

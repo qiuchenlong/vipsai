@@ -543,6 +543,26 @@ public class UIHelper {
         showSimpleBack(context, SimpleBackPage.SETTING);
     }
 
+
+    /**
+     * 显示个人资料界面
+     *
+     * @param context
+     */
+    public static void showInformation(Context context) {
+        showSimpleBack(context, SimpleBackPage.INFORMATION);
+    }
+
+    /**
+     * 显示个性域名界面
+     *
+     * @param context
+     */
+    public static void showDomain(Context context) {
+        showSimpleBack(context, SimpleBackPage.DOMAIN);
+    }
+
+
     /**
      * 显示关于界面
      *

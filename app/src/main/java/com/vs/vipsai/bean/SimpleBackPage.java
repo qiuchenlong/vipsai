@@ -3,7 +3,9 @@ package com.vs.vipsai.bean;
 import com.vs.vipsai.R;
 import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.settings.about.AboutVSFragment;
+import com.vs.vipsai.settings.domain.DomainFragment;
 import com.vs.vipsai.settings.help.HelpCenterFragment;
+import com.vs.vipsai.settings.information.InformationFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
 import com.vs.vipsai.settings.payment.PaymentForgotPasswordFragment;
 import com.vs.vipsai.settings.payment.PaymentOpenFingerprintFragment;
@@ -31,6 +33,8 @@ public enum SimpleBackPage {
 
     ABOUT_OSC(17, R.string.actionbar_title_about, AboutVSFragment.class),
 
+    DOMAIN(16, R.string.actionbar_title_domain, DomainFragment.class),
+
 
     PAYMENT_PASSWORD(18, R.string.actionbar_title_payment_password, PaymentPasswordFragment.class),
     PAYMENT_MODIFY_PASSWORD(19, R.string.actionbar_title_modify_payment_password, PaymentModifyPasswordFragment.class),
@@ -39,6 +43,9 @@ public enum SimpleBackPage {
 
 
     HELP_CENTER(22, R.string.actionbar_title_help_center, HelpCenterFragment.class),
+
+    INFORMATION(23, R.string.actionbar_title_information, InformationFragment.class),
+
 
 
 

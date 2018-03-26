@@ -1,4 +1,4 @@
-package com.vs.vipsai.settings;
+package com.vs.vipsai.settings.information;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -53,29 +53,18 @@ import pub.devrel.easypermissions.EasyPermissions;
  * 系统设置界面
  */
 
-public class SettingsFragment extends BaseFragment implements EasyPermissions.PermissionCallbacks, CheckUpdateManager.RequestPermissions {
+public class InformationFragment extends BaseFragment implements EasyPermissions.PermissionCallbacks, CheckUpdateManager.RequestPermissions {
 
     private static final int RC_EXTERNAL_STORAGE = 0x04;//存储权限
 
-    @BindView(R.id.tv_cache_size)
-    TextView mTvCacheSize;
-    @BindView(R.id.rl_check_version)
-    FrameLayout mRlCheck_version;
-    @BindView(R.id.tb_double_click_exit)
-    ToggleButton mTbDoubleClickExit;
-//    @BindView(R.id.setting_line_top)
-//    View mSettingLineTop;
-//    @BindView(R.id.setting_line_bottom)
-//    View mSettingLineBottom;
-    @BindView(R.id.rl_cancel)
-    FrameLayout mCancel;
+
 
     private Version mVersion;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings, container,
+        View view = inflater.inflate(R.layout.fragment_information, container,
                 false);
         ButterKnife.bind(this, view);
         initView(view);
@@ -85,49 +74,49 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_settings;
+        return R.layout.fragment_information;
     }
 
     @Override
     public void initView(View view) {
 
-        mTbDoubleClickExit.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
-            @Override
-            public void onToggle(boolean on) {
-                AppContext.set(AppConfig.KEY_DOUBLE_CLICK_EXIT, on);
-            }
-        });
+//        mTbDoubleClickExit.setOnToggleChanged(new ToggleButton.OnToggleChanged() {
+//            @Override
+//            public void onToggle(boolean on) {
+//                AppContext.set(AppConfig.KEY_DOUBLE_CLICK_EXIT, on);
+//            }
+//        });
+//
+//        view.findViewById(R.id.rl_clean_cache).setOnClickListener(this);
+//        view.findViewById(R.id.rl_double_click_exit).setOnClickListener(this);
+//        view.findViewById(R.id.rl_about).setOnClickListener(this);
+//        view.findViewById(R.id.rl_check_version).setOnClickListener(this);
+//        // view.findViewById(R.id.rl_exit).setOnClickListener(this);
+//        view.findViewById(R.id.rl_feedback).setOnClickListener(this);
+//
+//
+//        view.findViewById(R.id.fragment_settings_location_option).setOnClickListener(this);
+//        view.findViewById(R.id.rl_payment_password).setOnClickListener(this);
+//        view.findViewById(R.id.fragment_settings_help_option).setOnClickListener(this);
+//        view.findViewById(R.id.fragment_settings_email_notify).setOnClickListener(this);
+//        view.findViewById(R.id.fragment_settings_time_zone).setOnClickListener(this);
+//        view.findViewById(R.id.fragment_settings_domain).setOnClickListener(this);
 
-        view.findViewById(R.id.rl_clean_cache).setOnClickListener(this);
-        view.findViewById(R.id.rl_double_click_exit).setOnClickListener(this);
-        view.findViewById(R.id.rl_about).setOnClickListener(this);
-        view.findViewById(R.id.rl_check_version).setOnClickListener(this);
-        // view.findViewById(R.id.rl_exit).setOnClickListener(this);
-        view.findViewById(R.id.rl_feedback).setOnClickListener(this);
 
 
-        view.findViewById(R.id.fragment_settings_location_option).setOnClickListener(this);
-        view.findViewById(R.id.rl_payment_password).setOnClickListener(this);
-        view.findViewById(R.id.fragment_settings_help_option).setOnClickListener(this);
-        view.findViewById(R.id.fragment_settings_email_notify).setOnClickListener(this);
-        view.findViewById(R.id.fragment_settings_time_zone).setOnClickListener(this);
-        view.findViewById(R.id.fragment_settings_domain).setOnClickListener(this);
-        view.findViewById(R.id.fragment_setttings_information).setOnClickListener(this);
-
-
-        mCancel.setOnClickListener(this);
+//        mCancel.setOnClickListener(this);
 
 //        SystemConfigView.show((ViewGroup) view.findViewById(R.id.lay_linear));
     }
 
     @Override
     public void initData() {
-        if (AppContext.get(AppConfig.KEY_DOUBLE_CLICK_EXIT, true)) {
-            mTbDoubleClickExit.setToggleOn();
-        } else {
-            mTbDoubleClickExit.setToggleOff();
-        }
-        calculateCacheSize();
+//        if (AppContext.get(AppConfig.KEY_DOUBLE_CLICK_EXIT, true)) {
+//            mTbDoubleClickExit.setToggleOn();
+//        } else {
+//            mTbDoubleClickExit.setToggleOff();
+//        }
+//        calculateCacheSize();
     }
 
     @Override
@@ -145,57 +134,53 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
 //        }
     }
 
-    /**
-     * 计算缓存的大小
-     */
-    private void calculateCacheSize() {
-        long fileSize = 0;
-        String cacheSize = "0KB";
-        File filesDir = getActivity().getFilesDir();
-        File cacheDir = getActivity().getCacheDir();
-
-        fileSize += FileUtil.getDirSize(filesDir);
-        fileSize += FileUtil.getDirSize(cacheDir);
-        // 2.2版本才有将应用缓存转移到sd卡的功能
-        if (AppContext.isMethodsCompat(android.os.Build.VERSION_CODES.FROYO)) {
-            File externalCacheDir = MethodsCompat
-                    .getExternalCacheDir(getActivity());
-            fileSize += FileUtil.getDirSize(externalCacheDir);
-        }
-        if (fileSize > 0)
-            cacheSize = FileUtil.formatFileSize(fileSize);
-        mTvCacheSize.setText(cacheSize);
-    }
+//    /**
+//     * 计算缓存的大小
+//     */
+//    private void calculateCacheSize() {
+//        long fileSize = 0;
+//        String cacheSize = "0KB";
+//        File filesDir = getActivity().getFilesDir();
+//        File cacheDir = getActivity().getCacheDir();
+//
+//        fileSize += FileUtil.getDirSize(filesDir);
+//        fileSize += FileUtil.getDirSize(cacheDir);
+//        // 2.2版本才有将应用缓存转移到sd卡的功能
+//        if (AppContext.isMethodsCompat(android.os.Build.VERSION_CODES.FROYO)) {
+//            File externalCacheDir = MethodsCompat
+//                    .getExternalCacheDir(getActivity());
+//            fileSize += FileUtil.getDirSize(externalCacheDir);
+//        }
+//        if (fileSize > 0)
+//            cacheSize = FileUtil.formatFileSize(fileSize);
+//        mTvCacheSize.setText(cacheSize);
+//    }
 
     @Override
     public void onClick(View v) {
         final int id = v.getId();
         switch (id) {
-            case R.id.fragment_setttings_information:
-                UIHelper.showInformation(getActivity());
-                break;
-
-            case R.id.rl_clean_cache:
-                onClickCleanCache();
-                break;
-            case R.id.rl_double_click_exit:
-                mTbDoubleClickExit.toggle();
-                break;
-            case R.id.rl_feedback:
+//            case R.id.rl_clean_cache:
+//                onClickCleanCache();
+//                break;
+//            case R.id.rl_double_click_exit:
+//                mTbDoubleClickExit.toggle();
+//                break;
+//            case R.id.rl_feedback:
                 //UIHelper.showSimpleBack(getActivity(), SimpleBackPage.FEED_BACK);
 //                if (!AccountHelper.isLogin()) {
 //                    LoginActivity.show(getContext());
 //                    return;
 //                }
 //                FeedBackActivity.show(getActivity());
-                break;
-            case R.id.rl_about:
-                UIHelper.showAboutOSC(getActivity());
-                break;
-            case R.id.rl_check_version:
-                onClickUpdate();
-                break;
-            case R.id.rl_cancel:
+//                break;
+//            case R.id.rl_about:
+//                UIHelper.showAboutOSC(getActivity());
+//                break;
+//            case R.id.rl_check_version:
+//                onClickUpdate();
+//                break;
+//            case R.id.rl_cancel:
 //                // 清理所有缓存
 //                UIHelper.clearAppCache(false);
 //                // 注销操作
@@ -211,7 +196,7 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
 //                        mSettingLineBottom.setVisibility(View.INVISIBLE);
 //                    }
 //                });
-                break;
+//                break;
 
 
             case R.id.fragment_settings_location_option:
@@ -383,7 +368,7 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 //                UIHelper.clearAppCache(true);
-                mTvCacheSize.setText("0KB");
+//                mTvCacheSize.setText("0KB");
             }
         }).show();
     }

@@ -116,6 +116,8 @@
     <string name="actionbar_title_setting">设置</string>
     <string name="actionbar_title_about">关于我们</string>
 
+    <string name="actionbar_title_domain">个性域名</string>
+
 
     <string name="actionbar_title_payment_password">支付密碼</string>
     <string name="actionbar_title_modify_payment_password">修改支付密碼</string>
@@ -124,6 +126,9 @@
 
 
     <string name="actionbar_title_help_center">帮助中心</string>
+
+    <string name="actionbar_title_information">个人资料</string>
+
 
 
 
