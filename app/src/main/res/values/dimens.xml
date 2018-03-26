@@ -103,4 +103,9 @@
     <dimen name="pickerview_textsize">20sp</dimen>
 
 
+
+
+    <dimen name="size_default_height">250dp</dimen>
+
+
 </resources>

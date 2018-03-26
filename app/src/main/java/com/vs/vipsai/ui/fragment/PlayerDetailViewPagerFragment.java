@@ -1,8 +1,10 @@
 package com.vs.vipsai.ui.fragment;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -43,12 +45,50 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
         mOperator = (TweetDetailContract.Operator) context;
     }
 
+
+    public void setTabLayout(int visibility) {
+        if (mTabLayout != null) {
+            mTabLayout.setVisibility(visibility);
+        }
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_player_view_pager, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mTabLayout = (TabLayout) view.findViewById(R.id.tab_nav);
+//        mTabLayout.setVisibility(View.GONE);
+
+
+        final int imageHeight = 250;
+
+//        mViewPager.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                int y = scrollY;
+//                if (y <= 0) {
+////                    headerLayout.setBackgroundColor(Color.argb((int) 0, 212, 58, 50));//AGB由相关工具获得，或者美工提供
+//                } else if (y > 0 && y <= imageHeight) {
+////                    float scale = (float) y / imageHeight;
+////                    float alpha = (255 * scale);
+//                    // 只是layout背景透明(仿知乎滑动效果)
+////                    headerLayout.setBackgroundColor(Color.argb((int) alpha, 212, 58, 50));
+//        //            backToTop.setVisibility(View.GONE);
+//
+//                    mTabLayout.setVisibility(View.GONE);
+//
+//                } else {
+////                    headerLayout.setBackgroundColor(Color.argb((int) 255, 212, 58, 50));
+//        //            backToTop.setVisibility(View.VISIBLE);
+//
+//                    mTabLayout.setVisibility(View.VISIBLE);
+//
+//                }
+//            }
+//        });
+
         return view;
     }
 

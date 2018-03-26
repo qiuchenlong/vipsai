@@ -1,5 +1,6 @@
 package com.vs.vipsai.ui.activity;
 
+import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +15,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.reflect.TypeToken;
@@ -27,8 +30,10 @@ import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.Tweet;
+import com.vs.vipsai.behavior.CommentBar;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
+import com.vs.vipsai.widget.ObservableScrollView;
 //import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
 
 import butterknife.BindView;
@@ -58,6 +63,27 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     @BindView(R.id.layout_container)
     LinearLayout headLayout;
 
+
+//    @BindView(R.id.layout_main_header_header)
+//    RelativeLayout detail_header_layout;
+    @BindView(R.id.layoutHeader)
+    RelativeLayout detail_header_layout;
+    @BindView(R.id.layout_btn_back)
+    RelativeLayout btnBack;
+    @BindView(R.id.layout_btn_detail)
+    RelativeLayout btnDetail;
+    @BindView(R.id.layout_header_title)
+    TextView headerTitle;
+
+
+    // 带有滚动监听的scrollview
+//    @BindView(R.id.activity_car_detail_observable_scrollview)
+//    ObservableScrollView scrollView;
+
+
+    private int imageHeight;
+
+
     private Tweet tweet;
 
 
@@ -65,7 +91,7 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     private TweetDetailContract.IAgencyView mAgencyViewImp;
 
 
-//    private CommentBar mDelegation;
+    private CommentBar mDelegation;
 
     PlayerDetailViewPagerFragment mPagerFrag;
 
@@ -172,6 +198,27 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 //        mToolbar.setTitle("比赛详情");
 //        setSupportActionBar(mToolbar);
 
+        imageHeight = 220;
+
+
+//        headerLayout.setVisibility(View.INVISIBLE);
+
+        detail_header_layout.setBackgroundResource(R.color.transparent);
+        headerTitle.setVisibility(View.GONE);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+
+//        scrollView.setScrollViewListener(PlayerDetailActivity.this);
+
+
+
 
         mCoordinatorLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -184,51 +231,59 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset <= -headLayout.getHeight() / 2) {
+                if (verticalOffset <= -headLayout.getHeight()) {
 //                    collapsingToolbarLayout.setTitle("    谭松韵seven");
+//                    headerLayout.setVisibility(View.VISIBLE);
+                    mPagerFrag.setTabLayout(View.VISIBLE);
+                    detail_header_layout.setBackgroundResource(R.color.gray);
+                    headerTitle.setVisibility(View.VISIBLE);
                 } else {
 //                    collapsingToolbarLayout.setTitle(" ");
+//                    headerLayout.setVisibility(View.INVISIBLE);
+                    mPagerFrag.setTabLayout(View.INVISIBLE);
+                    detail_header_layout.setBackgroundResource(R.color.transparent);
+                    headerTitle.setVisibility(View.GONE);
                 }
             }
         });
 
 
-//        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
-//
-//        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
+        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
+
+        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
 //                    handleKeyDel();
-//                }
-//                return false;
-//            }
-//        });
-//
-//        mDelegation.hideShare();
-//        mDelegation.hideFav();
-//
-//        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+                }
+                return false;
+            }
+        });
+
+        mDelegation.hideShare();
+        mDelegation.hideFav();
+
+        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                if (AccountHelper.isLogin()) {
 //                    UserSelectFriendsActivity.show(TweetDetailActivity.this, mDelegation.getBottomSheet().getEditText());
 //                } else
 //                    LoginActivity.show(TweetDetailActivity.this);
-//            }
-//        });
-//
+            }
+        });
+
 //        mDelegation.getBottomSheet().getEditText().setOnKeyArrivedListener(new OnKeyArrivedListenerAdapterV2(this));
-//        mDelegation.getBottomSheet().showEmoji();
-//        mDelegation.getBottomSheet().hideSyncAction();
-//        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
-//                if (TextUtils.isEmpty(content)) {
+        mDelegation.getBottomSheet().showEmoji();
+        mDelegation.getBottomSheet().hideSyncAction();
+        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
+                if (TextUtils.isEmpty(content)) {
 //                    Toast.makeText(TweetDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                    return;
+                }
 //                if (!AccountHelper.isLogin()) {
 //                    UIHelper.showLoginActivity(TweetDetailActivity.this);
 //                    return;
@@ -236,8 +291,8 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 //                if (replies.size() > 0)
 //                    content = mDelegation.getBottomSheet().getEditText().getHint() + ": " + content;
 //                OSChinaApi.pubTweetComment(tweet.getId(), content, 0, publishCommentHandler);
-//            }
-//        });
+            }
+        });
 
 
 
@@ -350,4 +405,21 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
         Log.d("aaa", "ddd");
         return super.onTouchEvent(event);
     }
+
+//    @Override
+//    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
+//        Log.d("aaa", "" + x + "," + "y");
+//        if (y <= 0) {
+//            headerLayout.setBackgroundColor(Color.argb((int) 0, 212, 58, 50));//AGB由相关工具获得，或者美工提供
+//        } else if (y > 0 && y <= imageHeight) {
+//            float scale = (float) y / imageHeight;
+//            float alpha = (255 * scale);
+//            // 只是layout背景透明(仿知乎滑动效果)
+//            headerLayout.setBackgroundColor(Color.argb((int) alpha, 212, 58, 50));
+////            backToTop.setVisibility(View.GONE);
+//        } else {
+//            headerLayout.setBackgroundColor(Color.argb((int) 255, 212, 58, 50));
+////            backToTop.setVisibility(View.VISIBLE);
+//        }
+//    }
 }

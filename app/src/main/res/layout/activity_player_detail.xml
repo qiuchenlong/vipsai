@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,6 +14,10 @@
         <!--android:layout_height="?attr/actionBarSize"-->
         <!--android:background="@color/white" />-->
 
+
+
+
+
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/layout_coordinator"
         android:layout_width="match_parent"
@@ -27,16 +31,18 @@
             android:background="@color/white"
             app:elevation="0dp">
 
+            <!--android:background="@drawable/ic_material"-->
+
+
             <LinearLayout
                 android:id="@+id/layout_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_material"
+                android:background="@color/white"
                 android:clickable="true"
                 android:descendantFocusability="blocksDescendants"
                 android:focusable="true"
                 android:orientation="vertical"
-                android:paddingBottom="16dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <View
@@ -124,20 +130,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:text="农业，插上互联网+的翅膀，让广元青川女孩儿王淑娟飞了起来。科米的故事可以说包罗一切热卖要素，从白宫阴谋到潜在的贪赃枉法，他的爆炸性故事令《白宫风云》、《纸牌屋》等大热剧集相形见绌。"/>
+                    android:lines="3"
+                    android:ellipsize="end"
+                    android:text="农业，插上互联网+的翅膀，让广元青川女孩儿王淑娟飞了起来。科米的故事可以说包罗一切热卖要素，从白宫阴谋到潜在的贪赃枉法，他的爆炸性故事令《白宫风云》、《纸牌屋》等大热剧集相形见绌。"
+                    android:textSize="@dimen/text_size_12"
+                    />
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_search_view"
+                    android:text="上传作品"
+                    android:textSize="@dimen/font15sp"
+                    android:textColor="#FFFFFF"/>
+
 
             </LinearLayout>
 
         </android.support.design.widget.AppBarLayout>
 
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="@dimen/lay_44"
             android:background="@color/white"
+            android:focusable="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </android.support.v4.widget.NestedScrollView>
 
     </android.support.design.widget.CoordinatorLayout>
 
-</LinearLayout>
+
+
+
+    <include
+        android:id="@+id/layoutHeader"
+        layout="@layout/layout_detail_header" />
+
+
+</RelativeLayout>
