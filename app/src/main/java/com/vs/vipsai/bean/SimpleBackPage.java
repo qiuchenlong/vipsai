@@ -2,13 +2,14 @@ package com.vs.vipsai.bean;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.main.SubFragment;
-import com.vs.vipsai.ui.fragment.AboutVSFragment;
+import com.vs.vipsai.settings.about.AboutVSFragment;
+import com.vs.vipsai.settings.help.HelpCenterFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
-import com.vs.vipsai.ui.fragment.PaymentForgotPasswordFragment;
-import com.vs.vipsai.ui.fragment.PaymentOpenFingerprintFragment;
-import com.vs.vipsai.ui.fragment.PaymentPasswordFragment;
-import com.vs.vipsai.ui.fragment.PaymentModifyPasswordFragment;
-import com.vs.vipsai.ui.fragment.SettingsFragment;
+import com.vs.vipsai.settings.payment.PaymentForgotPasswordFragment;
+import com.vs.vipsai.settings.payment.PaymentOpenFingerprintFragment;
+import com.vs.vipsai.settings.payment.PaymentPasswordFragment;
+import com.vs.vipsai.settings.payment.PaymentModifyPasswordFragment;
+import com.vs.vipsai.settings.SettingsFragment;
 
 /**
  * Author: cynid
@@ -35,6 +36,10 @@ public enum SimpleBackPage {
     PAYMENT_MODIFY_PASSWORD(19, R.string.actionbar_title_modify_payment_password, PaymentModifyPasswordFragment.class),
     PAYMENT_FORGOT_FINGERPRINT(20, R.string.actionbar_title_forgot_payment_password, PaymentForgotPasswordFragment.class),
     PAYMENT_OPEN_FINGERPRINT(21, R.string.actionbar_title_open_fingerprint_payment, PaymentOpenFingerprintFragment.class),
+
+
+    HELP_CENTER(22, R.string.actionbar_title_help_center, HelpCenterFragment.class),
+
 
 
 

@@ -123,6 +123,10 @@
     <string name="actionbar_title_open_fingerprint_payment">开启指纹支付</string>
 
 
+    <string name="actionbar_title_help_center">帮助中心</string>
+
+
+
 
     <!--设置选项-->
     <string name="set_options_social_platforms">社交平台</string>
@@ -166,6 +170,12 @@
 
 
     <string name="identity_officialMember">identity_officialMember</string>
+
+
+
+
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
 
 
 </resources>

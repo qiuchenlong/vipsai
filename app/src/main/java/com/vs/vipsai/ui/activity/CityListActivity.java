@@ -1,6 +1,7 @@
 package com.vs.vipsai.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -91,6 +92,11 @@ public class CityListActivity extends BackActivity implements SectionIndexer, So
 //    TextView headerTitle;
 
 
+    public static void show(Context context) {
+        Intent intent = new Intent(context, CityListActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
 
 
     // 百度地图api
@@ -121,6 +127,8 @@ public class CityListActivity extends BackActivity implements SectionIndexer, So
 //        setContentView(R.layout.activity_city_list);
 
         ButterKnife.bind(this);
+
+        setSwipeBackEnable(true);
 
         initViews();
         initEvent();

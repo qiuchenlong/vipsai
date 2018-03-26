@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.settings.about;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

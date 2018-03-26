@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.settings.payment;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.fragments.BaseFragment;
@@ -9,12 +9,12 @@ import com.vs.vipsai.base.fragments.BaseFragment;
  * Description:
  */
 
-public class PaymentForgotPasswordFragment extends BaseFragment {
+public class PaymentModifyPasswordFragment extends BaseFragment {
 
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_payment_forgot_password;
+        return R.layout.fragment_payment_modify_password;
     }
 }

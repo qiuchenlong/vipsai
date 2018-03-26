@@ -553,6 +553,16 @@ public class UIHelper {
     }
 
 
+
+    /**
+     * 显示帮助中心界面
+     *
+     * @param context
+     */
+    public static void showHelpCenter(Context context) {
+        showSimpleBack(context, SimpleBackPage.HELP_CENTER);
+    }
+
     /**
      * 显示支付密码界面
      *

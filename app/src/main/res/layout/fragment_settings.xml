@@ -215,6 +215,7 @@
         </FrameLayout>
 
         <RelativeLayout
+            android:id="@+id/fragment_settings_location_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -261,6 +262,7 @@
         </FrameLayout>
 
         <RelativeLayout
+            android:id="@+id/fragment_settings_time_zone"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -353,6 +355,7 @@
         </FrameLayout>
 
         <RelativeLayout
+            android:id="@+id/fragment_settings_email_notify"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -438,6 +441,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/fragment_settings_help_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
