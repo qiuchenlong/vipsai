@@ -91,12 +91,13 @@
     <style name="option_item_rl">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/ic_material</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:padding">@dimen/space_12</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    <!--<item name="android:background">@drawable/ic_material</item>-->
 
     <style name="option_item_img">
         <item name="android:layout_width">20dp</item>

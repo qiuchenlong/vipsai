@@ -17,13 +17,13 @@
         android:orientation="vertical">
 
 
-        <!--<View-->
-            <!--style="@style/h_line"-->
-            <!--android:layout_marginTop="20dip"/>-->
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
@@ -71,7 +71,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_header_btn_detail"
-                android:src="@mipmap/ic_logo"/>
+                android:src="@mipmap/ic_tweet_select_picture_camera"/>
 
             <ImageView
                 android:id="@+id/fragment_setttings_header_btn_detail"
@@ -91,7 +91,7 @@
         <LinearLayout
             android:id="@+id/rl_clean_cache"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -131,7 +131,7 @@
         <LinearLayout
             android:id="@+id/rl_double_click_exit"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -155,14 +155,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -180,7 +180,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_qq"
-                android:src="@mipmap/ic_logo"/>
+                android:src="@mipmap/ic_login_3party_wechat"/>
 
             <ImageView
                 android:id="@+id/fragment_setttings_platform_btn_qq"
@@ -189,7 +189,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_detail"
-                android:src="@mipmap/ic_logo"/>
+                android:src="@mipmap/ic_login_3party_qq"/>
 
             <ImageView
                 android:id="@+id/fragment_setttings_platform_btn_detail"
@@ -209,14 +209,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -255,14 +255,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -301,14 +301,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -347,14 +347,14 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -388,21 +388,21 @@
 
         </RelativeLayout>
 
-        <!--<View style="@style/h_line"/>-->
+        <View style="@style/h_line"/>
 
 
 
 
 
 
-        <!--<View-->
-            <!--style="@style/h_line"-->
-            <!--android:layout_marginTop="20dip"/>-->
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
 
         <RelativeLayout
             android:id="@+id/rl_pay_for_password"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -427,19 +427,19 @@
 
         </RelativeLayout>
 
-        <!--<View style="@style/h_line"/>-->
+        <View style="@style/h_line"/>
 
 
 
 
-        <!--<View-->
-            <!--style="@style/h_line"-->
-            <!--android:layout_marginTop="20dip"/>-->
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"/>
 
 
         <RelativeLayout
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -463,16 +463,16 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
 
         <RelativeLayout
             android:id="@+id/rl_about"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material">
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 style="@style/option_item_text_parent"
@@ -493,7 +493,7 @@
 
 
 
-        <!--<View style="@style/h_line"/>-->
+        <View style="@style/h_line"/>
 
 
 
@@ -503,15 +503,15 @@
 
 
 
-        <!--<View-->
-            <!--style="@style/h_line"-->
-            <!--android:layout_marginTop="20dip"-->
-            <!--android:visibility="gone"/>-->
+        <View
+            style="@style/h_line"
+            android:layout_marginTop="20dip"
+            android:visibility="gone"/>
 
         <FrameLayout
             android:id="@+id/rl_feedback"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:visibility="gone">
 
             <TextView
@@ -530,9 +530,9 @@
             android:background="@color/white"
             android:visibility="gone">
 
-            <!--<View-->
-                <!--style="@style/h_line"-->
-                <!--android:layout_marginLeft="@dimen/lay_14"/>-->
+            <View
+                style="@style/h_line"
+                android:layout_marginLeft="@dimen/lay_14"/>
         </FrameLayout>
 
 
@@ -540,7 +540,7 @@
         <FrameLayout
             android:id="@+id/rl_check_version"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:visibility="gone">
 
             <TextView
@@ -565,7 +565,7 @@
         <FrameLayout
             android:id="@+id/rl_cancel"
             style="@style/option_item_rl"
-            android:background="@drawable/ic_material"
+            android:background="?attr/selectableItemBackground"
             android:visibility="gone">
 
             <TextView
