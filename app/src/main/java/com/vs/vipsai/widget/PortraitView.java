@@ -18,6 +18,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.vs.vipsai.R;
+import com.vs.vipsai.bean.Author;
 
 /**
  * Author: cynid
@@ -28,7 +29,7 @@ import com.vs.vipsai.R;
 public class PortraitView extends CircleImageView {
 
     private static final String TAG = PortraitView.class.getSimpleName();
-//    private Author author;
+    private Author author;
 
     public PortraitView(Context context) {
         super(context);
@@ -65,13 +66,13 @@ public class PortraitView extends CircleImageView {
 //        }
 //    }
 
-//    public void setup(Author author) {
-//        if (author == null)
-//            return;
-//
-//        this.author = author;
-//        load(author.getName(), author.getPortrait());
-//    }
+    public void setup(Author author) {
+        if (author == null)
+            return;
+
+        this.author = author;
+        load(author.getName(), author.getPortrait());
+    }
 
     public void setup(final long id, final String name, String path) {
         if (id == 0 && TextUtils.isEmpty(name) && TextUtils.isEmpty(path)) {

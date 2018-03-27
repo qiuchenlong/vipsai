@@ -506,7 +506,8 @@ public class UIHelper {
             return;
         }
 //        String url = AvatarView.getLargeAvatar(avatarUrl);
-//        ImageGalleryActivity.show(context, url);
+        String url = avatarUrl;
+        ImageGalleryActivity.show(context, url);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.vs.vipsai.ui.fragment.tab;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.MediaStore;
@@ -14,17 +15,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.androidkun.xtablayout.XTabLayout;
 import com.vs.vipsai.OnTabReselectListener;
 import com.vs.vipsai.R;
 import com.vs.vipsai.account.activity.LoginActivity;
 import com.vs.vipsai.base.fragments.BaseFragment;
+import com.vs.vipsai.bean.Author;
 import com.vs.vipsai.bean.News;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.main.SubFragment;
+import com.vs.vipsai.media.SelectImageActivity;
+import com.vs.vipsai.media.config.SelectOptions;
 import com.vs.vipsai.notice.NoticeBean;
 import com.vs.vipsai.notice.NoticeManager;
+import com.vs.vipsai.util.DialogHelper;
+import com.vs.vipsai.util.ImageUtils;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.UIHelper;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
@@ -36,6 +43,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Author: cynid
@@ -46,7 +54,7 @@ import butterknife.OnClick;
  */
 
 public class UserInfoFragment extends BaseFragment implements View.OnClickListener,
-         NoticeManager.NoticeNotify, OnTabReselectListener { //EasyPermissions.PermissionCallbacks,
+        EasyPermissions.PermissionCallbacks, NoticeManager.NoticeNotify, OnTabReselectListener {
 
 //    @BindView(R.id.iv_logo_setting)
 //    ImageView mIvLogoSetting;
@@ -374,6 +382,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 //        } else {
 //            hideView();
 //        }
+
+        Author author = new Author();
+        author.setPortrait("https://wx2.sinaimg.cn/large/65a92dc9gy1fmyyhjn6krj20go0m8aco.jpg");
+        portraitView.setup(author);
     }
 
     /**
@@ -658,37 +670,38 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
      */
     private void showAvatarOperation() {
 //        if (!AccountHelper.isLogin()) {
-            LoginActivity.show(getActivity());
+//            LoginActivity.show(getActivity());
 //        } else {
-//            DialogHelper.getSelectDialog(getActivity(),
-//                    getString(R.string.action_select),
-//                    getResources().getStringArray(R.array.avatar_option), "取消",
-//                    new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            switch (i) {
-//                                case 0:
-//                                    SelectImageActivity.show(getContext(), new SelectOptions.Builder()
-//                                            .setSelectCount(1)
-//                                            .setHasCam(true)
-//                                            .setCrop(700, 700)
-//                                            .setCallback(new SelectOptions.Callback() {
-//                                                @Override
-//                                                public void doSelected(String[] images) {
-//                                                    String path = images[0];
-//                                                    uploadNewPhoto(new File(path));
-//                                                }
-//                                            }).build());
-//                                    break;
-//
-//                                case 1:
-////                                    if (mUserInfo == null
-////                                            || TextUtils.isEmpty(mUserInfo.getPortrait())) return;
-////                                    UIHelper.showUserAvatar(getActivity(), mUserInfo.getPortrait());
-//                                    break;
-//                            }
-//                        }
-//                    }).show();
+            DialogHelper.getSelectDialog(getActivity(),
+                    getString(R.string.action_select),
+                    getResources().getStringArray(R.array.avatar_option), "取消",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            switch (i) {
+                                case 0:
+                                    SelectImageActivity.show(getContext(), new SelectOptions.Builder()
+                                            .setSelectCount(1)
+                                            .setHasCam(true)
+                                            .setCrop(700, 700)
+                                            .setCallback(new SelectOptions.Callback() {
+                                                @Override
+                                                public void doSelected(String[] images) {
+                                                    String path = images[0];
+                                                    uploadNewPhoto(new File(path));
+                                                }
+                                            }).build());
+                                    break;
+
+                                case 1:
+//                                    if (mUserInfo == null
+//                                            || TextUtils.isEmpty(mUserInfo.getPortrait())) return;
+//                                    UIHelper.showUserAvatar(getActivity(), mUserInfo.getPortrait());
+                                    UIHelper.showUserAvatar(getActivity(), "https://wx2.sinaimg.cn/large/65a92dc9gy1fmyyhjn6krj20go0m8aco.jpg");
+                                    break;
+                            }
+                        }
+                    }).show();
 //        }
     }
 
@@ -697,14 +710,14 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
      */
     private void startTakePhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(intent,
-//                ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA);
+        startActivityForResult(intent,
+                ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA);
     }
 
     public ProgressDialog showWaitDialog(int messageId) {
         String message = getResources().getString(messageId);
         if (mDialog == null) {
-//            mDialog = DialogHelper.getProgressDialog(getActivity(), message);
+            mDialog = DialogHelper.getProgressDialog(getActivity(), message);
         }
 
         mDialog.setMessage(message);
@@ -728,18 +741,18 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
 
     }
 
-//    @Override
+    @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
         try {
             startTakePhoto();
         } catch (Exception e) {
-//            Toast.makeText(this.getContext(), R.string.permissions_camera_error, Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getContext(), R.string.permissions_camera_error, Toast.LENGTH_LONG).show();
         }
     }
 
-//    @Override
+    @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-//        Toast.makeText(this.getContext(), R.string.permissions_camera_error, Toast.LENGTH_LONG).show();
+        Toast.makeText(this.getContext(), R.string.permissions_camera_error, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -747,7 +760,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
             , @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-//        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
     @Override

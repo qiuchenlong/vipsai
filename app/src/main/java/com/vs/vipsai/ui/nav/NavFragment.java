@@ -113,6 +113,9 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
                 R.string.main_tab_name_my,
                 UserInfoFragment.class);
 
+        // 假装设置一个小红点
+        mNavMe.showRedDot(2);
+
 
     }
 

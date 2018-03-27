@@ -15,12 +15,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="45dp"
             android:background="#FFFFFF"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -31,7 +31,7 @@
                 android:visibility="visible"/>
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -42,7 +42,7 @@
                 android:visibility="invisible"/>
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -78,7 +78,7 @@
 
             <ImageView
                 android:id="@+id/recommend_tabfragment_btn_join"
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -91,7 +91,7 @@
 
             <ImageView
                 android:id="@+id/recommend_tabfragment_btn_inbox"
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -103,7 +103,7 @@
 
             <ImageView
                 android:id="@+id/recommend_tabfragment_btn_notification"
-                android:layout_width="40dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
