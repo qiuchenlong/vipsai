@@ -3,16 +3,13 @@ package com.vs.vipsai.ui.fragment;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 
-import com.google.android.exoplayer2.Player;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppOperator;
-import com.vs.vipsai.R;
-import com.vs.vipsai.adapter.PlayerCommentAdapter;
+import com.vs.vipsai.adapter.PlayerBonusAdapter;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.base.fragments.BaseRecyclerViewFragment;
@@ -32,18 +29,18 @@ import cz.msebera.android.httpclient.Header;
  * Created on 3/21/18 5:45 PM
  * Description:
  *
- * 评论
+ * 奖金
  */
 
-public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerComment>
+public class ListPlayerBonusFragment extends BaseRecyclerViewFragment<PlayerComment>
         implements TweetDetailContract.ICmnView, BaseRecyclerAdapter.OnItemLongClickListener { //PlayerComment
 
     private TweetDetailContract.Operator mOperator;
     private TweetDetailContract.IAgencyView mAgencyView;
     private int mDeleteIndex = 0;
 
-    public static ListPlayerCommentFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
-        ListPlayerCommentFragment fragment = new ListPlayerCommentFragment();
+    public static ListPlayerBonusFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
+        ListPlayerBonusFragment fragment = new ListPlayerBonusFragment();
         fragment.mOperator = operator;
         fragment.mAgencyView = mAgencyView;
         return fragment;
@@ -71,7 +68,7 @@ public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerCo
 
     @Override
     protected BaseRecyclerAdapter<PlayerComment> getRecyclerAdapter() { //PlayerComment
-        PlayerCommentAdapter adapter = new PlayerCommentAdapter(getContext());
+        PlayerBonusAdapter adapter = new PlayerBonusAdapter(getContext());
         adapter.setOnItemClickListener(this);
         adapter.setOnItemLongClickListener(this);
         return adapter;

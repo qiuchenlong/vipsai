@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vs.vipsai.R;
@@ -22,17 +23,17 @@ import butterknife.ButterKnife;
  * Description:
  */
 
-public class TweetLikeUsersAdapter extends BaseRecyclerAdapter<TweetLike> {
+public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
 
     private View.OnClickListener onPortraitClickListener;
 
-    public TweetLikeUsersAdapter(Context context) {
+    public PlayerDetailAdapter(Context context) {
         super(context, ONLY_FOOTER);
     }
 
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        return new LikeUsersHolderView(LayoutInflater.from(mContext).inflate(R.layout.list_cell_tweet_like_user, parent, false));
+        return new LikeUsersHolderView(LayoutInflater.from(mContext).inflate(R.layout.list_item_player_detail, parent, false));
     }
 
     @Override
@@ -42,7 +43,20 @@ public class TweetLikeUsersAdapter extends BaseRecyclerAdapter<TweetLike> {
 //        h.ivPortrait.setup(item.getAuthor());
 //        h.ivPortrait.setTag(R.id.iv_tag, item);
 //        h.ivPortrait.setOnClickListener(getOnPortraitClickListener());
-        h.tvName.setText("陈赤赤"); //item.getAuthor().getName()
+         //item.getAuthor().getName()
+
+
+        if (position == 0) {
+            h.headerLayout.setVisibility(View.VISIBLE);
+            h.timeLineLayout.setVisibility(View.GONE);
+        } else {
+            h.headerLayout.setVisibility(View.GONE);
+            h.timeLineLayout.setVisibility(View.VISIBLE);
+
+            h.tvName.setText("陈赤赤");
+        }
+
+
     }
 
     private View.OnClickListener getOnPortraitClickListener() {
@@ -62,12 +76,19 @@ public class TweetLikeUsersAdapter extends BaseRecyclerAdapter<TweetLike> {
     }
 
     public static final class LikeUsersHolderView extends RecyclerView.ViewHolder {
-        @BindView(R.id.identityView)
-        IdentityView identityView;
+//        @BindView(R.id.identityView)
+//        IdentityView identityView;
 //        @BindView(R.id.iv_avatar)
 //        PortraitView ivPortrait;
-        @BindView(R.id.tv_name)
+        @BindView(R.id.item_list_sub_me_time)
         TextView tvName;
+
+        @BindView(R.id.list_item_player_detail_header_layout)
+        LinearLayout headerLayout;
+        @BindView(R.id.list_item_player_detail_time_line_layout)
+        LinearLayout timeLineLayout;
+
+
 
         public LikeUsersHolderView(View view) {
             super(view);

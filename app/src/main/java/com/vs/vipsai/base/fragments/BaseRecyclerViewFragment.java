@@ -5,20 +5,19 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.R;
+import com.vs.vipsai.adapter.PlayerBonusAdapter;
 import com.vs.vipsai.adapter.PlayerCommentAdapter;
-import com.vs.vipsai.adapter.TweetLikeUsersAdapter;
+import com.vs.vipsai.adapter.PlayerDetailAdapter;
 import com.vs.vipsai.base.adapter.BaseGeneralRecyclerAdapter;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
-import com.vs.vipsai.bean.TweetLike;
 import com.vs.vipsai.main.my.DividerItemDecoration;
 import com.vs.vipsai.ui.empty.EmptyLayout;
 import com.vs.vipsai.util.CacheManager;
@@ -132,7 +131,9 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
 
 
         // 手动 判断 泛型
-        if (mAdapter instanceof TweetLikeUsersAdapter || mAdapter instanceof PlayerCommentAdapter) {
+        if (mAdapter instanceof PlayerDetailAdapter ||
+                mAdapter instanceof PlayerCommentAdapter ||
+                mAdapter instanceof PlayerBonusAdapter) {
             mRecyclerView.setLayoutManager(getLayoutManager());
         }
 

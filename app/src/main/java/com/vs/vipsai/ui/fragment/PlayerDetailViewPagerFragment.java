@@ -1,10 +1,8 @@
 package com.vs.vipsai.ui.fragment;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PlayerComment;
-import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 
 /**
@@ -52,6 +49,12 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
         }
     }
 
+    public void setTabLayoutBackgroundColor(int color) {
+        if (mTabLayout != null) {
+            mTabLayout.setBackgroundColor(color);
+        }
+    }
+
 
     @Nullable
     @Override
@@ -59,35 +62,6 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
         View view = inflater.inflate(R.layout.fragment_player_view_pager, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mTabLayout = (TabLayout) view.findViewById(R.id.tab_nav);
-//        mTabLayout.setVisibility(View.GONE);
-
-
-        final int imageHeight = 250;
-
-//        mViewPager.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//                int y = scrollY;
-//                if (y <= 0) {
-////                    headerLayout.setBackgroundColor(Color.argb((int) 0, 212, 58, 50));//AGB由相关工具获得，或者美工提供
-//                } else if (y > 0 && y <= imageHeight) {
-////                    float scale = (float) y / imageHeight;
-////                    float alpha = (255 * scale);
-//                    // 只是layout背景透明(仿知乎滑动效果)
-////                    headerLayout.setBackgroundColor(Color.argb((int) alpha, 212, 58, 50));
-//        //            backToTop.setVisibility(View.GONE);
-//
-//                    mTabLayout.setVisibility(View.GONE);
-//
-//                } else {
-////                    headerLayout.setBackgroundColor(Color.argb((int) 255, 212, 58, 50));
-//        //            backToTop.setVisibility(View.VISIBLE);
-//
-//                    mTabLayout.setVisibility(View.VISIBLE);
-//
-//                }
-//            }
-//        });
 
         return view;
     }
@@ -97,27 +71,32 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
         super.onViewCreated(view, savedInstanceState);
 
         if (mAdapter == null) {
-            final ListTweetLikeUsersFragment mCmnFrag;
-            mThumbupViewImp = mCmnFrag = ListTweetLikeUsersFragment.instantiate(mOperator, this); //mOperator, this   mThumbupViewImp =
+            final ListPlayerDetailFragment mCmnFrag;
+            mCmnFrag = ListPlayerDetailFragment.instantiate(); //mOperator, this   mThumbupViewImp =
 
             final ListPlayerCommentFragment mThumbupFrag;
             mCmnViewImp = mThumbupFrag = ListPlayerCommentFragment.instantiate(mOperator, this); //mOperator, this   mCmnViewImp =
 
-            final ListPlayerCommentFragment mThumbupFrag2;
-            mCmnViewImp = mThumbupFrag2 = ListPlayerCommentFragment.instantiate(mOperator, this); //mOperator, this   mCmnViewImp =
+            final ListPlayerBonusFragment bonusFragment;
+            mCmnViewImp = bonusFragment = ListPlayerBonusFragment.instantiate(mOperator, this); //mOperator, this   mCmnViewImp =
 
             mViewPager.setAdapter(mAdapter = new FragmentStatePagerAdapter(getChildFragmentManager()) {
+                /**
+                 * @param position
+                 * @return
+                 */
                 @Override
                 public android.support.v4.app.Fragment getItem(int position) {
                     switch (position) {
                         case 0:
-                            return mCmnFrag;
-
-                        case 1:
+                            // 评论
                             return mThumbupFrag;
-
+                        case 1:
+                            // 详情
+                            return mCmnFrag;
                         case 2:
-                            return mThumbupFrag2;
+                            // 奖金
+                            return bonusFragment;
 
                     }
                     return null;
@@ -142,7 +121,7 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
                 }
             });
             mTabLayout.setupWithViewPager(mViewPager);
-            mViewPager.setCurrentItem(1);
+            mViewPager.setCurrentItem(0);
         } else {
             mViewPager.setAdapter(mAdapter);
         }
@@ -173,14 +152,14 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
     public void resetLikeCount(int count) {
         mOperator.getTweetDetail().setLikeCount(count);
         TabLayout.Tab tab = mTabLayout.getTabAt(0);
-        if (tab != null) tab.setText(String.format("赞(%s)", count));
+        if (tab != null) tab.setText(String.format("评论(%s)", count));
     }
 
     @Override
     public void resetCmnCount(int count) {
         mOperator.getTweetDetail().setCommentCount(count);
         TabLayout.Tab tab = mTabLayout.getTabAt(1);
-        if (tab != null) tab.setText(String.format("评论(%s)", count));
+        if (tab != null) tab.setText(String.format("详情(%s)", count));
     }
 
     public TweetDetailContract.ICmnView getCommentViewHandler() {

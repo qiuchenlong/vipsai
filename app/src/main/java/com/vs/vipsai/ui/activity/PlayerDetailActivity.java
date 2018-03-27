@@ -199,6 +199,7 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
 
         detail_header_layout.setBackgroundResource(R.color.transparent);
+//        mPagerFrag.setTabLayout(View.INVISIBLE);
         headerTitle.setVisibility(View.GONE);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -213,14 +214,22 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset <= -headLayout.getHeight()) {
+                if (verticalOffset <= -headLayout.getHeight() / 2) {
                     mPagerFrag.setTabLayout(View.VISIBLE);
-                    detail_header_layout.setBackgroundResource(R.color.gray);
+//                    detail_header_layout.setBackgroundResource(R.color.gray);
                     headerTitle.setVisibility(View.VISIBLE);
+
+
                 } else {
-                    mPagerFrag.setTabLayout(View.INVISIBLE);
-                    detail_header_layout.setBackgroundResource(R.color.transparent);
+//                    mPagerFrag.setTabLayout(View.INVISIBLE);
+//                    detail_header_layout.setBackgroundResource(R.color.transparent);
                     headerTitle.setVisibility(View.GONE);
+
+                    float scale = (float) verticalOffset / (-headLayout.getHeight() / 2);
+                    float alpha = (255 * scale);
+                    int color = Color.argb((int) alpha, 33, 33, 33); //212, 58, 50
+                    detail_header_layout.setBackgroundColor(color);
+//                    mPagerFrag.setTabLayoutBackgroundColor(color);
                 }
             }
         });
@@ -248,55 +257,56 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
 
 
-        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
-
-        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
-//                    handleKeyDel();
-                }
-                return false;
-            }
-        });
-
-        mDelegation.hideShare();
-        mDelegation.hideFav();
-
-        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                if (AccountHelper.isLogin()) {
-//                    UserSelectFriendsActivity.show(TweetDetailActivity.this, mDelegation.getBottomSheet().getEditText());
-//                } else
-//                    LoginActivity.show(TweetDetailActivity.this);
-            }
-        });
-
-//        mDelegation.getBottomSheet().getEditText().setOnKeyArrivedListener(new OnKeyArrivedListenerAdapterV2(this));
-        mDelegation.getBottomSheet().showEmoji();
-        mDelegation.getBottomSheet().hideSyncAction();
-        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
-
-                Toast.makeText(PlayerDetailActivity.this, "--->" + content, Toast.LENGTH_SHORT).show();
-                mDelegation.getBottomSheet().dismiss();
-
-                if (TextUtils.isEmpty(content)) {
-                    Toast.makeText(PlayerDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-//                if (!AccountHelper.isLogin()) {
-//                    UIHelper.showLoginActivity(TweetDetailActivity.this);
+//        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
+//
+//        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
+////                    handleKeyDel();
+//                }
+//                return false;
+//            }
+//        });
+//
+//        mDelegation.hideShare();
+//        mDelegation.hideFav();
+//
+//        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                if (AccountHelper.isLogin()) {
+////                    UserSelectFriendsActivity.show(TweetDetailActivity.this, mDelegation.getBottomSheet().getEditText());
+////                } else
+////                    LoginActivity.show(TweetDetailActivity.this);
+//            }
+//        });
+//
+////        mDelegation.getBottomSheet().getEditText().setOnKeyArrivedListener(new OnKeyArrivedListenerAdapterV2(this));
+//        mDelegation.getBottomSheet().showEmoji();
+//        mDelegation.getBottomSheet().hideSyncAction();
+//        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
+//
+//                Toast.makeText(PlayerDetailActivity.this, "--->" + content, Toast.LENGTH_SHORT).show();
+//                mDelegation.getBottomSheet().dismiss();
+//
+//                if (TextUtils.isEmpty(content)) {
+//                    Toast.makeText(PlayerDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-//                if (replies.size() > 0)
-//                    content = mDelegation.getBottomSheet().getEditText().getHint() + ": " + content;
-//                OSChinaApi.pubTweetComment(tweet.getId(), content, 0, publishCommentHandler);
-            }
-        });
+////                if (!AccountHelper.isLogin()) {
+////                    UIHelper.showLoginActivity(TweetDetailActivity.this);
+////                    return;
+////                }
+////                if (replies.size() > 0)
+////                    content = mDelegation.getBottomSheet().getEditText().getHint() + ": " + content;
+////                OSChinaApi.pubTweetComment(tweet.getId(), content, 0, publishCommentHandler);
+//            }
+//        });
+
 
 
 
