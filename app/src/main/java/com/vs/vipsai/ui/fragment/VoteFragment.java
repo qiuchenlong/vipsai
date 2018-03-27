@@ -90,7 +90,7 @@ public class VoteFragment extends BaseTitleFragment implements View.OnClickListe
 ////
 ////                SubTab.Banner banner = tab.new Banner();
 ////                banner.setCatalog(3);
-////                banner.setHref("https://121.29.18.27/action/apiv2/banner?catalog=3");
+////                banner.setHref("https://www.oschina.net/action/apiv2/banner?catalog=3");
 ////                tab.setBanner(banner);
 ////
 ////                tab.setName("线下活动");

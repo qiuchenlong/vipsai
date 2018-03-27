@@ -51,8 +51,8 @@ import cz.msebera.android.httpclient.protocol.HttpContext;
 @SuppressWarnings("WeakerAccess")
 public class ApiHttpClient {
 
-    public final static String HOST = "121.29.18.27";
-    public static String API_URL = "https://121.29.18.27/%s";
+    public final static String HOST = "www.oschina.net";
+    public static String API_URL = "https://www.oschina.net/%s";
 
     static class ApiAsyncHttpClient extends AsyncHttpClient {
         @Override
