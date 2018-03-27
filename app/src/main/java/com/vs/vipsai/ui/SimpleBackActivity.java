@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -16,6 +18,8 @@ import com.vs.vipsai.base.activities.BackActivity;
 import com.vs.vipsai.bean.SimpleBackPage;
 import com.vs.vipsai.emoji.OnSendClickListener;
 import com.vs.vipsai.base.activities.BaseActivity;
+import com.vs.vipsai.settings.SettingsFragment;
+import com.vs.vipsai.util.SimplexToast;
 
 import java.lang.ref.WeakReference;
 
@@ -44,25 +48,6 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
         super.startActivity(intent);
     }
 
-//    @Override
-//    protected int getLayoutId() {
-//        return R.layout.activity_simple_fragment;
-//    }
-//
-//    @Override
-//    protected boolean hasBackButton() {
-//        return true;
-//    }
-//
-//    @Override
-//    protected void init(Bundle savedInstanceState) {
-//        super.init(savedInstanceState);
-//        Intent intent = getIntent();
-//        if (mPageValue == -1) {
-//            mPageValue = intent.getIntExtra(BUNDLE_KEY_PAGE, 0);
-//        }
-//        initFromIntent(mPageValue, getIntent());
-//    }
 
     protected void initFromIntent(int pageValue, Intent data) {
         if (data == null) {
@@ -73,7 +58,6 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
             throw new IllegalArgumentException("can not find page by value:" + pageValue);
         }
 
-//        setActionBarTitle(page.getTitle());
         setTitle(page.getTitle());
 
         try {
@@ -84,15 +68,6 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
                 fragment.setArguments(args);
             }
 
-//            FragmentTransaction trans = getSupportFragmentManager()
-//                    .beginTransaction();
-//            trans.replace(R.id.container, fragment, TAG);
-//            trans.commitAllowingStateLoss();
-
-//            mFragment = new WeakReference<>(fragment);
-
-
-//            mFragment = getDetailFragment();
             addFragment(R.id.container, fragment);
 
         } catch (Exception e) {
@@ -141,14 +116,6 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
         initFromIntent(mPageValue, getIntent());
     }
 
-    //    @Override
-//    public void onClick(View v) {
-//    }
-//
-//    @Override
-//    public void initView() {
-//    }
-
     @Override
     protected int getContentView() {
         return R.layout.activity_simple_fragment;
@@ -156,6 +123,13 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
 
     @Override
     public void initData() {
+//        if (menu == null) return;
+//        // 向Activity菜单添加5个菜单项，菜单项的id从10开始
+//        for (int i = 10; i <15; i++)
+//        {
+//            int id = menuItemId++;
+//            menu.add(1, id, id, "菜单" + i);
+//        }
     }
 
     @Override
@@ -167,4 +141,24 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
     public void onClickFlagButton() {
     }
 
+
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+////        Log.d("SimpleBackActivity", "" + this.mFragment);
+////        if (this.mFragment.getClass().equals(SettingsFragment.class)) {
+////            SimplexToast.show(SimpleBackActivity.this, "hello...");
+////        }
+//        getMenuInflater().inflate(R.menu.browser_menu, menu);
+//        return true;
+////        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.browser_menu, menu);
+//        return true;
+////        return super.onPrepareOptionsMenu(menu);
+//    }
 }

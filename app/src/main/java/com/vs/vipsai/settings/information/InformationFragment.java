@@ -13,6 +13,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +62,12 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
 
 
     private Version mVersion;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true); //添加菜单不调用该方法是没有用的
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -478,5 +486,9 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
         popupWindow.showAtLocation(((ViewGroup) ((Activity) context).findViewById(android.R.id.content)).getChildAt(0), Gravity.CENTER, 0, 0);
     }
 
-
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.browser_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }
