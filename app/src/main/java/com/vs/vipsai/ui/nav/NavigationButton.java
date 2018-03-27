@@ -18,6 +18,8 @@ import com.vs.vipsai.R;
  * Author: cynid
  * Created on 3/12/18 4:28 PM
  * Description:
+ *
+ * 定制化导航栏按钮
  */
 
 public class NavigationButton extends FrameLayout {

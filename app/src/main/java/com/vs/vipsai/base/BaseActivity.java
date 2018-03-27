@@ -22,6 +22,8 @@ import butterknife.ButterKnife;
  * Author: cynid
  * Created on 3/17/18 11:06 AM
  * Description:
+ *
+ * 尽量不要继承这个BaseActivity
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements

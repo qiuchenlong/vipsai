@@ -17,6 +17,8 @@ import com.vs.vipsai.ui.dialog.DialogControl;
  * Author: cynid
  * Created on 3/17/18 10:51 AM
  * Description:
+ *
+ * 尽量不要继承这个BaseFragment
  */
 
 public class BaseFragment extends Fragment implements

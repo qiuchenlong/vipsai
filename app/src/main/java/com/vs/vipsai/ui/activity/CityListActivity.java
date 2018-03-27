@@ -45,6 +45,8 @@ import butterknife.ButterKnife;
  * Author: cynid
  * Created on 3/19/18 11:13 AM
  * Description:
+ *
+ * 城市列表页面
  */
 
 public class CityListActivity extends BackActivity implements SectionIndexer, SortGroupMemberAdapter.GridViewOnItemClickListener {

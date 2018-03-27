@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -486,9 +487,33 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
         popupWindow.showAtLocation(((ViewGroup) ((Activity) context).findViewById(android.R.id.content)).getChildAt(0), Gravity.CENTER, 0, 0);
     }
 
+
+    /**
+     * 创建菜单
+     *
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.browser_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    /**
+     * 菜单按钮点击事件
+     *
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.public_menu_shared:
+                SimplexToast.show(getContext(), "public_menu_shared");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

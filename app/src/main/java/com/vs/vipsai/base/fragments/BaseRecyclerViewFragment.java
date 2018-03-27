@@ -39,6 +39,8 @@ import cz.msebera.android.httpclient.Header;
  * Author: cynid
  * Created on 3/13/18 1:52 PM
  * Description:
+ *
+ * RecyclerViewFragment的基类，定义通用的数据请求流程
  */
 
 public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implements

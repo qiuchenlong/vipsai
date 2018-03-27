@@ -14,6 +14,8 @@ import com.vs.vipsai.widget.loading.LoadingView;
  * Author: cynid
  * Created on 3/12/18 10:26 AM
  * Description:
+ *
+ * mvp的BaseActivity，较少使用
  */
 
 public abstract class BaseActivity<P extends IPresent> extends XActivity<P> {

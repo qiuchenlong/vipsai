@@ -12,6 +12,8 @@ import com.vs.vipsai.constants.Constants;
  * Author: cynid
  * Created on 3/12/18 11:00 AM
  * Description:
+ *
+ * 闪屏页面
  */
 
 public class SplashActivity extends XActivity {

@@ -35,6 +35,8 @@ import java.lang.reflect.Type;
  * Author: cynid
  * Created on 3/13/18 2:46 PM
  * Description:
+ *
+ * 栏目管理器
  */
 
 public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {

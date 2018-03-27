@@ -33,6 +33,8 @@ import butterknife.OnLongClick;
  * Author: cynid
  * Created on 3/12/18 4:23 PM
  * Description:
+ *
+ * 导航栏控件
  */
 
 public class NavFragment extends BaseFragment implements View.OnClickListener, NoticeManager.NoticeNotify,View.OnLongClickListener {
@@ -76,22 +78,6 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
                 lineDrawable
         });
         root.setBackgroundDrawable(layerDrawable);
-
-//        mNavNews.init(R.drawable.tab_icon_new,
-//                R.string.main_tab_name_news,
-//                DynamicTabFragment.class);
-//
-//        mNavTweet.init(R.drawable.tab_icon_tweet,
-//                R.string.main_tab_name_tweet,
-//                TweetViewPagerFragment.class);
-//
-//        mNavExplore.init(R.drawable.tab_icon_explore,
-//                R.string.main_tab_name_explore,
-//                ExploreFragment.class);
-//
-//        mNavMe.init(R.drawable.tab_icon_me,
-//                R.string.main_tab_name_my,
-//                UserInfoFragment.class);
 
         mNavRecommend.init(R.drawable.tab_icon_recommend,
                 R.string.main_tab_name_recommend,
@@ -256,7 +242,6 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
 
     @Override
     public void initData() {
-//    protected void initData() {
         super.initData();
         NoticeManager.bindNotify(this);
     }

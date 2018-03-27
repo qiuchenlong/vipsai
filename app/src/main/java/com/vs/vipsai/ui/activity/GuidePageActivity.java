@@ -24,6 +24,8 @@ import butterknife.ButterKnife;
  * Author: cynid
  * Created on 3/12/18 1:49 PM
  * Description:
+ *
+ * 引导页面
  */
 
 public class GuidePageActivity extends BaseActivity {

@@ -15,6 +15,8 @@ import butterknife.ButterKnife;
  * Author: cynid
  * Created on 3/15/18 5:34 PM
  * Description:
+ *
+ * Activity的基类
  */
 
 public abstract class BaseActivity extends SwipeBackActivity {
