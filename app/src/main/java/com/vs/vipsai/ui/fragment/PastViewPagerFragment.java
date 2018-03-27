@@ -52,7 +52,7 @@ public class PastViewPagerFragment extends BaseViewPagerFragment implements OnTa
         tab.setFixed(false);
         tab.setName("每日乱弹");
         tab.setNeedLogin(false);
-        tab.setHref("https://www.oschina.net/action/apiv2/sub_list?token=263ee86f538884e70ee1ee50aed759b6");
+        tab.setHref("https://121.29.18.27/action/apiv2/sub_list?token=263ee86f538884e70ee1ee50aed759b6");
         tab.setSubtype(5);
         tab.setToken("263ee86f538884e70ee1ee50aed759b6");
 

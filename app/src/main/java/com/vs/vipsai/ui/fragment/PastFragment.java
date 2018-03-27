@@ -264,7 +264,7 @@ public class PastFragment extends BaseGeneralRecyclerFragment<Tweet> implements 
 //                                            new DialogInterface.OnClickListener() {
 //                                                @Override
 //                                                public void onClick(DialogInterface dialogInterface, int i) {
-//                                                    OSChinaApi.deleteTweet(tweet.getId(), new DeleteHandler(position));
+//                                                    VSApi.deleteTweet(tweet.getId(), new DeleteHandler(position));
 //                                                }
 //                                            }).show();
 //                                    break;
@@ -273,7 +273,7 @@ public class PastFragment extends BaseGeneralRecyclerFragment<Tweet> implements 
 //                                String content = null;
 //                                About.Share share;
 //                                if (tweet.getAbout() == null) {
-//                                    share = About.buildShare(tweet.getId(), OSChinaApi.CATALOG_TWEET);
+//                                    share = About.buildShare(tweet.getId(), VSApi.CATALOG_TWEET);
 //                                    share.title = tweet.getAuthor().getName();
 //                                    share.content = tweet.getContent();
 //                                } else {
@@ -313,21 +313,21 @@ public class PastFragment extends BaseGeneralRecyclerFragment<Tweet> implements 
 //            case CATALOG_NEW:
 //                //注册草稿箱查询操作
 //                TweetPublishService.startActionSearchFailed(AppContext.context());
-//                OSChinaApi.getTweetList(null, null, 1, 1, pageToken, mHandler);
+//                VSApi.getTweetList(null, null, 1, 1, pageToken, mHandler);
 //                break;
 //            case CATALOG_HOT:
-//                OSChinaApi.getTweetList(null, null, 1, 2, pageToken, mHandler);
+//                VSApi.getTweetList(null, null, 1, 2, pageToken, mHandler);
 //                break;
 //            case CATALOG_SOMEONE:
 //            case CATALOG_MYSELF:
 //                if (mUserId <= 0) break;
-//                OSChinaApi.getTweetList(mUserId, null, null, 1, pageToken, mHandler);
+//                VSApi.getTweetList(mUserId, null, null, 1, pageToken, mHandler);
 //                break;
 //            case CATALOG_FRIENDS:
-//                OSChinaApi.getTweetList(null, null, 2, 1, pageToken, mHandler);
+//                VSApi.getTweetList(null, null, 2, 1, pageToken, mHandler);
 //                break;
 //            case CATALOG_TAG:
-//                OSChinaApi.getTweetList(null, tag, null, 1, pageToken, mHandler);
+//                VSApi.getTweetList(null, tag, null, 1, pageToken, mHandler);
 //                break;
         }
     }

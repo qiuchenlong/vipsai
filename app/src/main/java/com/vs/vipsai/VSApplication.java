@@ -6,6 +6,8 @@ import com.vs.vipsai.api.ApiHttpClient;
  * Author: cynid
  * Created on 3/13/18 3:22 PM
  * Description:
+ *
+ * 在 manifset 中实际注册类
  */
 
 public class VSApplication extends AppContext {

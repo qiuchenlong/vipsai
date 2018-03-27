@@ -55,7 +55,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         }
 
         Fragment fragment = getItem(position);
-        TLog.i("oschina", "Adding fragment item #" + position + ": f=" + fragment);
+        TLog.i("vsdsai", "Adding fragment item #" + position + ": f=" + fragment);
         fragment.setMenuVisibility(false);
         fragment.setUserVisibleHint(false);
         mCurTransaction.add(container.getId(), fragment,
@@ -70,7 +70,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         if (mCurTransaction == null) {
             mCurTransaction = mFragmentManager.beginTransaction();
         }
-        TLog.i("oschina", "Removing fragment #" + position + ": f=" + fragment
+        TLog.i("vsdsai", "Removing fragment #" + position + ": f=" + fragment
                 + " v=" + fragment.getView());
         mCurTransaction.remove(fragment);
     }

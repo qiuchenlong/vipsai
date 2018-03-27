@@ -25,7 +25,7 @@
         tools:ignore="KeyboardInaccessibleWidget,RtlHardcoded"
         tools:visibility="visible" />
 
-    <net.oschina.common.widget.Loading
+    <com.vs.vipsai.widget.Loading
         android:id="@+id/loading"
         android:layout_width="@dimen/size_32"
         android:layout_height="@dimen/size_32"

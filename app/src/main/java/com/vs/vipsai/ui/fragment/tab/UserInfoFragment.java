@@ -477,7 +477,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
      */
     private void sendRequestData() {
 //        if (TDevice.hasInternet() && AccountHelper.isLogin())
-//            OSChinaApi.getUserInfo(requestUserInfoHandler);
+//            VSApi.getUserInfo(requestUserInfoHandler);
     }
 
     /**
@@ -723,7 +723,7 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         } else {
             mIsUploadIcon = true;
             this.mCacheFile = file;
-//            OSChinaApi.updateUserIcon(file, requestUserInfoHandler);
+//            VSApi.updateUserIcon(file, requestUserInfoHandler);
         }
 
     }
