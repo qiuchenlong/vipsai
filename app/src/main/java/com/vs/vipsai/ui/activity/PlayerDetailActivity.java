@@ -33,8 +33,13 @@ import com.vs.vipsai.bean.Tweet;
 import com.vs.vipsai.behavior.CommentBar;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
+import com.vs.vipsai.ui.videoplayer.SampleVideo;
+import com.vs.vipsai.ui.videoplayer.SwitchVideoModel;
 import com.vs.vipsai.widget.ObservableScrollView;
 //import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import cz.msebera.android.httpclient.Header;
@@ -64,8 +69,6 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     LinearLayout headLayout;
 
 
-//    @BindView(R.id.layout_main_header_header)
-//    RelativeLayout detail_header_layout;
     @BindView(R.id.layoutHeader)
     RelativeLayout detail_header_layout;
     @BindView(R.id.layout_btn_back)
@@ -74,14 +77,6 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     RelativeLayout btnDetail;
     @BindView(R.id.layout_header_title)
     TextView headerTitle;
-
-
-    // 带有滚动监听的scrollview
-//    @BindView(R.id.activity_car_detail_observable_scrollview)
-//    ObservableScrollView scrollView;
-
-
-    private int imageHeight;
 
 
     private Tweet tweet;
@@ -94,6 +89,11 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     private CommentBar mDelegation;
 
     PlayerDetailViewPagerFragment mPagerFrag;
+
+
+
+    @BindView(R.id.video_player)
+    SampleVideo videoPlayer;
 
 
     @Override
@@ -195,13 +195,8 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     @Override
     protected void initWidget() {
         setSwipeBackEnable(true);
-//        mToolbar.setTitle("比赛详情");
-//        setSupportActionBar(mToolbar);
-
-        imageHeight = 220;
 
 
-//        headerLayout.setVisibility(View.INVISIBLE);
 
         detail_header_layout.setBackgroundResource(R.color.transparent);
         headerTitle.setVisibility(View.GONE);
@@ -215,37 +210,42 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
 
 
-//        scrollView.setScrollViewListener(PlayerDetailActivity.this);
-
-
-
-
-        mCoordinatorLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Log.d("aaa", "dddLin");
-                return false;
-            }
-        });
-
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -headLayout.getHeight()) {
-//                    collapsingToolbarLayout.setTitle("    谭松韵seven");
-//                    headerLayout.setVisibility(View.VISIBLE);
                     mPagerFrag.setTabLayout(View.VISIBLE);
                     detail_header_layout.setBackgroundResource(R.color.gray);
                     headerTitle.setVisibility(View.VISIBLE);
                 } else {
-//                    collapsingToolbarLayout.setTitle(" ");
-//                    headerLayout.setVisibility(View.INVISIBLE);
                     mPagerFrag.setTabLayout(View.INVISIBLE);
                     detail_header_layout.setBackgroundResource(R.color.transparent);
                     headerTitle.setVisibility(View.GONE);
                 }
             }
         });
+
+
+
+        String source1 = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        String name = "普通";
+        SwitchVideoModel switchVideoModel = new SwitchVideoModel(name, source1);
+
+        String source2 = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        String name2 = "清晰";
+        SwitchVideoModel switchVideoModel2 = new SwitchVideoModel(name2, source2);
+
+        List<SwitchVideoModel> list = new ArrayList<>();
+        list.add(switchVideoModel);
+        list.add(switchVideoModel2);
+
+        videoPlayer.setUp(list, true, "");
+
+        videoPlayer.getBackButton().setVisibility(View.GONE);
+
+
+
+
 
 
         mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
@@ -336,7 +336,7 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
     @Override
     public void onScroll() {
-        Log.d("aaa", "ddd");
+
     }
 
     private void setupDetailView() {
@@ -404,26 +404,5 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     }
 
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.d("aaa", "ddd");
-        return super.onTouchEvent(event);
-    }
 
-//    @Override
-//    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
-//        Log.d("aaa", "" + x + "," + "y");
-//        if (y <= 0) {
-//            headerLayout.setBackgroundColor(Color.argb((int) 0, 212, 58, 50));//AGB由相关工具获得，或者美工提供
-//        } else if (y > 0 && y <= imageHeight) {
-//            float scale = (float) y / imageHeight;
-//            float alpha = (255 * scale);
-//            // 只是layout背景透明(仿知乎滑动效果)
-//            headerLayout.setBackgroundColor(Color.argb((int) alpha, 212, 58, 50));
-////            backToTop.setVisibility(View.GONE);
-//        } else {
-//            headerLayout.setBackgroundColor(Color.argb((int) 255, 212, 58, 50));
-////            backToTop.setVisibility(View.VISIBLE);
-//        }
-//    }
 }
