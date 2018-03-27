@@ -280,8 +280,12 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
             @Override
             public void onClick(View v) {
                 String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
+
+                Toast.makeText(PlayerDetailActivity.this, "--->" + content, Toast.LENGTH_SHORT).show();
+                mDelegation.getBottomSheet().dismiss();
+
                 if (TextUtils.isEmpty(content)) {
-//                    Toast.makeText(TweetDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PlayerDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
                     return;
                 }
 //                if (!AccountHelper.isLogin()) {
