@@ -18,7 +18,10 @@ import com.vs.vipsai.base.adapter.BaseGeneralRecyclerAdapter;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
+import com.vs.vipsai.main.my.AllSubAdapter;
 import com.vs.vipsai.main.my.DividerItemDecoration;
+import com.vs.vipsai.main.my.WinnerSubAdapter;
+import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
 import com.vs.vipsai.ui.empty.EmptyLayout;
 import com.vs.vipsai.util.CacheManager;
 import com.vs.vipsai.util.SimplexToast;
@@ -131,9 +134,19 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
 
 
         // 手动 判断 泛型
-        if (mAdapter instanceof PlayerDetailAdapter ||
-                mAdapter instanceof PlayerCommentAdapter ||
-                mAdapter instanceof PlayerBonusAdapter) {
+//        if (mAdapter instanceof PlayerDetailAdapter ||
+//                mAdapter instanceof PlayerCommentAdapter ||
+//                mAdapter instanceof PlayerBonusAdapter) {
+
+//        }
+
+        // 默认线性布局
+        if (mAdapter instanceof ChampionWorkSubAdapter) {
+            setRecyclerStaggeredGridLayoutStyle(2);
+        } else if (mAdapter instanceof WinnerSubAdapter ||
+            mAdapter instanceof AllSubAdapter) {
+            setRecyclerStaggeredGridLayoutStyle(3);
+        } else {
             mRecyclerView.setLayoutManager(getLayoutManager());
         }
 

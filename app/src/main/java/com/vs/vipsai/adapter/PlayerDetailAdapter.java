@@ -25,10 +25,12 @@ import butterknife.ButterKnife;
 
 public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
 
+    private static final int TYPE_TOP = 0x0000;
+    private static final int TYPE_NORMAL= 0x0001;
     private View.OnClickListener onPortraitClickListener;
 
     public PlayerDetailAdapter(Context context) {
-        super(context, ONLY_FOOTER);
+        super(context, NEITHER);
     }
 
     @Override
@@ -53,10 +55,31 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
             h.headerLayout.setVisibility(View.GONE);
             h.timeLineLayout.setVisibility(View.VISIBLE);
 
-            h.tvName.setText("陈赤赤");
+//            h.tvName.setText("陈赤赤");
+            h.tvName.setText(position + "  " + item.getPubDate());
         }
 
 
+        if (getItemViewType(position) == TYPE_TOP) {
+            // 第一行头的竖线不显示
+            h.tvTopLine.setVisibility(View.INVISIBLE);
+            // 字体颜色加深
+            h.tvDot.setBackgroundResource(R.drawable.timeline_dot_first);
+        } else if (getItemViewType(position) == TYPE_NORMAL) {
+            h.tvTopLine.setVisibility(View.VISIBLE);
+            h.tvDot.setBackgroundResource(R.drawable.timeline_dot_normal);
+        }
+
+    }
+
+
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 1) {
+            return TYPE_TOP;
+        }
+        return TYPE_NORMAL;
     }
 
     private View.OnClickListener getOnPortraitClickListener() {
@@ -80,7 +103,7 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
 //        IdentityView identityView;
 //        @BindView(R.id.iv_avatar)
 //        PortraitView ivPortrait;
-        @BindView(R.id.item_list_sub_me_time)
+        @BindView(R.id.tvAcceptStation)
         TextView tvName;
 
         @BindView(R.id.list_item_player_detail_header_layout)
@@ -88,6 +111,10 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
         @BindView(R.id.list_item_player_detail_time_line_layout)
         LinearLayout timeLineLayout;
 
+        @BindView(R.id.tvTopLine)
+        TextView tvTopLine;
+        @BindView(R.id.tvDot)
+        TextView tvDot;
 
 
         public LikeUsersHolderView(View view) {
