@@ -6,12 +6,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
+import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +45,7 @@ import com.vs.vipsai.widget.togglebutton.ToggleButton;
 import com.vs.vipsai.widget.wheel.WheelView;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -496,8 +502,34 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
      */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.browser_menu, menu);
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equalsIgnoreCase("MenuBuilder")) {
+                try {
+                    Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    method.setAccessible(true);
+                    method.invoke(menu, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        inflater.inflate(R.menu.save_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem itemSave = menu.findItem(R.id.public_menu_shared);
+        itemSave.setTitle(Html.fromHtml("<font color='#666666'>保存</font>"));
+//        if (TextUtils.isEmpty(etMobile.getText())) {
+//            itemSubmit.setEnabled(false);
+//            itemSubmit.setTitle(Html.fromHtml("<font color='#666666'>完成</font>"));
+//        } else {
+//            itemSubmit.setEnabled(true);
+//            itemSubmit.setTitle(Html.fromHtml("<font color='#5CC31F'>完成</font>"));
+//        }
+
+        super.onPrepareOptionsMenu(menu);
     }
 
     /**
