@@ -7,9 +7,12 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ImageSpan;
 import android.view.Gravity;
 import android.view.View;
@@ -33,6 +36,10 @@ import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.PortraitView;
+
+import org.w3c.dom.Text;
+
+import butterknife.BindView;
 
 /**
  * Author: cynid
@@ -123,7 +130,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
 //        title.setText(spannable.append(item.getTitle()));
 
-//        title.setText(item.getTitle());
+        title.setText(Html.fromHtml("<font color='#48AAFB'>DOTA2国际邀请赛</font>（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛 <font color='#48AAFB'>#Android</font> <font color='#48AAFB'>@IOS</font>"));
 
 
         String body = item.getBody();
@@ -157,6 +164,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             vh.tv_time.setText(StringUtils.formatSomeAgo(item.getPubDate()));
 
             vh.tv_time.setText("2012-12-01 22:10");
+
+            String looptimeStr = "01D 22H 02M 29S";
+            Spannable looptimeSpa = new SpannableStringBuilder(looptimeStr);
+        looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("D"), looptimeStr.indexOf("D") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("H"), looptimeStr.indexOf("H") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("M"), looptimeStr.indexOf("M") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("S"), looptimeStr.indexOf("S") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            vh.loopTime.setText(looptimeSpa);
 
 //        }
 
@@ -237,6 +252,8 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         ImageView imageView;
         LinearLayout shareLayout;
 
+        TextView loopTime;
+
         BlogViewHolder(View itemView) {
             super(itemView);
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
@@ -249,6 +266,8 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
             shareLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_attention_share_layout);
+
+            loopTime = (TextView) itemView.findViewById(R.id.item_list_sub_attention_loop_time);
         }
     }
 
