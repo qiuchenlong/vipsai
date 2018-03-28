@@ -599,7 +599,6 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 showAvatarOperation();
                 break;
             case R.id.fragment_main_user_home_btn_setting:
-                SimplexToast.show(getContext(), "Setting...");
                 UIHelper.showSetting(getActivity());
                 break;
 

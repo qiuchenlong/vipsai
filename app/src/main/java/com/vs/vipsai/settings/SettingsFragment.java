@@ -22,10 +22,12 @@ import android.widget.TextView;
 
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppContext;
+import com.vs.vipsai.BaseApplication;
 import com.vs.vipsai.R;
 import com.vs.vipsai.adapter.ArrayWheelAdapter;
 import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.bean.Version;
+import com.vs.vipsai.constants.Constants;
 import com.vs.vipsai.ui.activity.CityListActivity;
 import com.vs.vipsai.update.CheckUpdateManager;
 import com.vs.vipsai.util.DialogHelper;
@@ -71,6 +73,16 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
     FrameLayout mCancel;
 
     private Version mVersion;
+
+
+
+
+    @BindView(R.id.fragment_settings_time_zone_label)
+    TextView timeZoneLabel;
+    @BindView(R.id.fragment_settings_email_notify_label)
+    TextView emailNotifyLabel;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -132,6 +144,11 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
             mTbDoubleClickExit.setToggleOff();
         }
         calculateCacheSize();
+
+
+
+        getLocalTimeZone();
+        getLocalEmailNotify();
     }
 
     @Override
@@ -306,7 +323,15 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
     }
 
 
+    public void getLocalTimeZone() {
+        String timeZoneStr = BaseApplication.get(Constants.SETTING_TIME_ZONE, "北京时间(GMT - 8:00)");
+        timeZoneLabel.setText(timeZoneStr);
+    }
 
+    public void getLocalEmailNotify() {
+        String emailNotifyStr = BaseApplication.get(Constants.SETTING_EMAINL_NOTIFY, "从不提醒");
+        emailNotifyLabel.setText(emailNotifyStr);
+    }
 
 
     // 单项选择
@@ -387,7 +412,10 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
         alertBottomWheelOption(getContext(), mList, new OnWheelViewClick() {
             @Override
             public void onClick(View view, int postion) {
-                SimplexToast.show(getContext(), "slect on: " + mList.get(postion));
+//                SimplexToast.show(getContext(), "slect on: " + mList.get(postion));
+                String emailNotifyStr = mList.get(postion);
+                BaseApplication.set(Constants.SETTING_EMAINL_NOTIFY, emailNotifyStr);
+                emailNotifyLabel.setText(emailNotifyStr);
             }
         });
     }
@@ -507,7 +535,10 @@ public class SettingsFragment extends BaseFragment implements EasyPermissions.Pe
         alertBottomWheelOption(getContext(), mList2, new OnWheelViewClick() {
             @Override
             public void onClick(View view, int postion) {
-                SimplexToast.show(getContext(), "slect on: " + mList2.get(postion));
+//                SimplexToast.show(getContext(), "slect on: " + mList2.get(postion));
+                String timeZoneStr = mList2.get(postion);
+                BaseApplication.set(Constants.SETTING_TIME_ZONE, timeZoneStr);
+                timeZoneLabel.setText(timeZoneStr);
             }
         });
     }

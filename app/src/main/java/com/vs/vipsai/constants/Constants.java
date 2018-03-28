@@ -39,4 +39,10 @@ public class Constants {
     // 腾讯升级
     public static final String BUGLY_APP_ID="4df71c9992";
 
+
+
+    // Settings
+    public static final String SETTING_TIME_ZONE = "setting_time_zone";
+    public static final String SETTING_EMAINL_NOTIFY = "setting_email_notify";
+
 }

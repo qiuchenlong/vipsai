@@ -283,6 +283,7 @@
             <!--android:text="@string/clean_cache"-->
 
             <TextView
+                android:id="@+id/fragment_settings_time_zone_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -377,6 +378,7 @@
             <!--android:text="@string/clean_cache"-->
 
             <TextView
+                android:id="@+id/fragment_settings_email_notify_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
