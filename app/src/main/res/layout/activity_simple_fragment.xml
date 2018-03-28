@@ -13,7 +13,32 @@
         app:popupTheme="@style/ToolbarPopupTheme"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        tools:ignore="UnusedAttribute" />
+
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:paddingEnd="0dp"
+        app:paddingStart="0dp"
+        app:titleMarginStart="0dp"
+
+        app:layout_collapseMode="pin"
+
+        tools:ignore="UnusedAttribute" >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="title"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textSize="18sp"
+            android:layout_marginRight="?attr/actionBarSize"
+            />
+
+    </android.support.v7.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/container"

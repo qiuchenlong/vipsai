@@ -555,6 +555,15 @@ public class UIHelper {
     }
 
     /**
+     * 显示社交平台界面
+     *
+     * @param context
+     */
+    public static void showSocialPlatform(Context context) {
+        showSimpleBack(context, SimpleBackPage.SOCIAL_PLATFORM);
+    }
+
+    /**
      * 显示个性域名界面
      *
      * @param context

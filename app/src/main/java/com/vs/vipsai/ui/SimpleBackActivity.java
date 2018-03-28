@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Layout;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.BaseFragment;
@@ -19,6 +23,7 @@ import com.vs.vipsai.bean.SimpleBackPage;
 import com.vs.vipsai.emoji.OnSendClickListener;
 import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.settings.SettingsFragment;
+import com.vs.vipsai.settings.information.InformationFragment;
 import com.vs.vipsai.util.SimplexToast;
 
 import java.lang.ref.WeakReference;
@@ -59,9 +64,20 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
         }
 
         setTitle(page.getTitle());
+        TextView title = (TextView) findViewById(R.id.toolbar_title);
+        title.setText(page.getTitle());
+
+
 
         try {
             Fragment fragment = (Fragment) page.getClz().newInstance();
+
+            // 如果fragment是个人资料, 设置margin都为0
+            if (fragment instanceof InformationFragment) {
+                Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.WRAP_CONTENT);
+                layoutParams.setMargins(0, 0, 0, 0);
+                title.setLayoutParams(layoutParams);
+            }
 
             Bundle args = data.getBundleExtra(BUNDLE_KEY_ARGS);
             if (args != null) {

@@ -22,7 +22,7 @@
             android:layout_marginTop="20dip"/>
 
         <RelativeLayout
-            android:id="@+id/fragment_setttings_information"
+            android:id="@+id/fragment_settings_information_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground"
             android:orientation="horizontal"
@@ -162,6 +162,7 @@
         </FrameLayout>
 
         <RelativeLayout
+            android:id="@+id/fragment_settings_social_platforms_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -263,7 +264,7 @@
         </FrameLayout>
 
         <RelativeLayout
-            android:id="@+id/fragment_settings_time_zone"
+            android:id="@+id/fragment_settings_time_zone_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -310,7 +311,7 @@
         </FrameLayout>
 
         <RelativeLayout
-            android:id="@+id/fragment_settings_domain"
+            android:id="@+id/fragment_settings_domain_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -357,7 +358,7 @@
         </FrameLayout>
 
         <RelativeLayout
-            android:id="@+id/fragment_settings_email_notify"
+            android:id="@+id/fragment_settings_email_notify_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -405,7 +406,7 @@
             android:layout_marginTop="20dip"/>
 
         <RelativeLayout
-            android:id="@+id/rl_payment_password"
+            android:id="@+id/fragment_settings_payment_password_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 
@@ -461,7 +462,7 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_arrow_right"/>
 
-
+wei
         </RelativeLayout>
 
         <FrameLayout
@@ -476,7 +477,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_about"
+            android:id="@+id/fragment_settings_about_option"
             style="@style/option_item_rl"
             android:background="?attr/selectableItemBackground">
 

@@ -6,6 +6,7 @@ import com.vs.vipsai.settings.about.AboutVSFragment;
 import com.vs.vipsai.settings.domain.DomainFragment;
 import com.vs.vipsai.settings.help.HelpCenterFragment;
 import com.vs.vipsai.settings.information.InformationFragment;
+import com.vs.vipsai.settings.social.SocialPlatformFragment;
 import com.vs.vipsai.ui.fragment.BrowserFragment;
 import com.vs.vipsai.settings.payment.PaymentForgotPasswordFragment;
 import com.vs.vipsai.settings.payment.PaymentOpenFingerprintFragment;
@@ -45,6 +46,8 @@ public enum SimpleBackPage {
     HELP_CENTER(22, R.string.actionbar_title_help_center, HelpCenterFragment.class),
 
     INFORMATION(23, R.string.actionbar_title_information, InformationFragment.class),
+
+    SOCIAL_PLATFORM(24, R.string.actionbar_title_social_platforms, SocialPlatformFragment.class),
 
 
 

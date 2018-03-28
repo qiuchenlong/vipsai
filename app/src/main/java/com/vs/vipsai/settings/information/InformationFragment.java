@@ -59,7 +59,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * Created on 3/17/18 10:37 AM
  * Description:
  *
- * 系统设置界面
+ * 界面
  */
 
 public class InformationFragment extends BaseFragment implements EasyPermissions.PermissionCallbacks, CheckUpdateManager.RequestPermissions {
@@ -226,142 +226,7 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
                 UIHelper.showHelpCenter(getActivity());
                 break;
 
-            case R.id.rl_payment_password:
-                UIHelper.showPaymentPassword(getActivity());
-//                PayForPasswordActivity.show(getActivity());
-                break;
 
-            case R.id.fragment_settings_email_notify:
-                final ArrayList<String> mList = new ArrayList<String>();
-                // 单项选择
-                mList.add("从不提醒");
-                mList.add("每日一次提醒");
-                mList.add("全部提醒");
-
-
-                alertBottomWheelOption(getContext(), mList, new OnWheelViewClick() {
-                    @Override
-                    public void onClick(View view, int postion) {
-                        SimplexToast.show(getContext(), "slect on: " + mList.get(postion));
-                    }
-                });
-                break;
-
-            case R.id.fragment_settings_time_zone:
-                final ArrayList<String> mList2 = new ArrayList<String>();
-
-                String[] array = new String[]{
-                        "(UTC-12:00)国际日期变更线西",
-                        "(UTC-11:00)萨摩亚群岛",
-                        "(UTC-11:00)协调世界时-11",
-                        "(UTC-10:00)夏威夷",
-                        "(UTC-09:00)阿拉斯加 ",
-                        "(UTC-08:00)太平洋时间 (美国和加拿大)",
-                        "(UTC-08:00)下加利福尼亚州 ",
-                        "(UTC-07:00)奇瓦瓦、拉巴斯、马萨特兰",
-                        "(UTC-07:00)山地时间 (美国和加拿大)",
-                        "(UTC-07:00)亚利桑那 ",
-                        "(UTC-06:00)瓜达拉哈拉、墨西哥城、蒙特雷",
-                        "(UTC-06:00)萨斯喀彻温 ",
-                        "(UTC-06:00)中部时间 (美国和加拿大)",
-                        "(UTC-06:00)中美洲 ",
-                        "(UTC-05:00)波哥大、利马、基多",
-                        "(UTC-05:00)东部时间 (美国和加拿大)",
-                        "(UTC-05:00)印第安那州(东部)",
-                        "(UTC-04:30)加拉加斯 ",
-                        "(UTC-04:00)大西洋时间(加拿大)",
-                        "(UTC-04:00)库亚巴 ",
-                        "(UTC-04:00)乔治敦、拉巴斯、马瑙斯、圣胡安",
-                        "(UTC-04:00)圣地亚哥",
-                        "(UTC-04:00)亚松森",
-                        "(UTC-03:30)纽芬兰",
-                        "(UTC-03:00)巴西利亚",
-                        "(UTC-03:00)布宜诺斯艾利斯",
-                        "(UTC-03:00)格陵兰",
-                        "(UTC-03:00)卡宴、福塔雷萨",
-                        "(UTC-03:00)蒙得维的亚",
-                        "(UTC-02:00)协调世界时-02",
-                        "(UTC-02:00)中大西洋",
-                        "(UTC-01:00)佛得角群岛",
-                        "(UTC-01:00)亚速尔群岛 ",
-                        "(UTC)都柏林、爱丁堡、里斯本、伦敦",
-                        "(UTC)卡萨布兰卡 ",
-                        "(UTC)蒙罗维亚、雷克雅未克",
-                        "(UTC)协调世界时 ",
-                        "(UTC+01:00)阿姆斯特丹、柏林、伯尔尼、罗马、斯德哥尔摩、维也纳",
-                        "(UTC+01:00)贝尔格莱德、布拉迪斯拉发、布达佩斯、卢布尔雅那、布拉格",
-                        "(UTC+01:00)布鲁塞尔、哥本哈根、马德里、巴黎",
-                        "(UTC+01:00)萨拉热窝、斯科普里、华沙、萨格勒布",
-                        "(UTC+01:00)温得和克",
-                        "(UTC+01:00)中非西部",
-                        "(UTC+02:00)安曼",
-                        "(UTC+02:00)贝鲁特",
-                        "(UTC+02:00)大马士革 ",
-                        "(UTC+02:00)哈拉雷、比勒陀利亚 ",
-                        "(UTC+02:00)赫尔辛基、基辅、里加、索非亚、塔林、维尔纽斯",
-                        "(UTC+02:00)开罗",
-                        "(UTC+02:00)明斯克 ",
-                        "(UTC+02:00)雅典、布加勒斯特、伊斯坦布尔",
-                        "(UTC+02:00)耶路撒冷",
-                        "(UTC+03:00)巴格达",
-                        "(UTC+03:00)科威特、利雅得 ",
-                        "(UTC+03:00)莫斯科、圣彼得堡、伏尔加格勒",
-                        "(UTC+03:00)内罗毕",
-                        "(UTC+03:30)德黑兰 ",
-                        "(UTC+04:00)阿布扎比、马斯喀特",
-                        "(UTC+04:00)埃里温",
-                        "(UTC+04:00)巴库",
-                        "(UTC+04:00)第比利斯",
-                        "(UTC+04:00)路易港",
-                        "(UTC+04:30)喀布尔",
-                        "(UTC+05:00)塔什干",
-                        "(UTC+05:00)叶卡捷琳堡",
-                        "(UTC+05:00)伊斯兰堡、卡拉奇 ",
-                        "(UTC+05:30)钦奈、加尔各答、孟买、新德里",
-                        "(UTC+05:30)斯里加亚渥登普拉",
-                        "(UTC+05:45)加德满都",
-                        "(UTC+06:00)阿斯塔纳",
-                        "(UTC+06:00)达卡",
-                        "(UTC+06:00)新西伯利亚",
-                        "(UTC+06:30)仰光 ",
-                        "(UTC+07:00)克拉斯诺亚尔斯克",
-                        "(UTC+07:00)曼谷、河内、雅加达 ",
-                        "(UTC+08:00)北京、重庆、香港特别行政区、乌鲁木齐",
-                        "(UTC+08:00)吉隆坡、新加坡",
-                        "(UTC+08:00)珀斯",
-                        "(UTC+08:00)台北",
-                        "(UTC+08:00)乌兰巴托",
-                        "(UTC+08:00)伊尔库茨克",
-                        "(UTC+09:00)大阪、札幌、东京",
-                        "(UTC+09:00)首尔",
-                        "(UTC+09:00)雅库茨克",
-                        "(UTC+09:30)阿德莱德",
-                        "(UTC+09:30)达尔文",
-                        "(UTC+10:00)布里斯班",
-                        "(UTC+10:00)符拉迪沃斯托克",
-                        "(UTC+10:00)关岛、莫尔兹比港",
-                        "(UTC+10:00)霍巴特 ",
-                        "(UTC+10:00)堪培拉、墨尔本、悉尼",
-                        "(UTC+11:00)马加丹 ",
-                        "(UTC+11:00)所罗门群岛、新喀里多尼亚",
-                        "(UTC+12:00)奥克兰、惠灵顿",
-                        "(UTC+12:00)斐济 ",
-                        "(UTC+12:00)协调世界时+12",
-                        "(UTC+13:00)努库阿洛法"
-                };
-
-                // 单项选择
-                for (String s : array) {
-                    mList2.add(s);
-                }
-
-                alertBottomWheelOption(getContext(), mList2, new OnWheelViewClick() {
-                    @Override
-                    public void onClick(View view, int postion) {
-                        SimplexToast.show(getContext(), "slect on: " + mList2.get(postion));
-                    }
-                });
-                break;
 
 
             default:

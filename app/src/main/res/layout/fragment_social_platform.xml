@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/layout_item_bg"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_payment_modify_password"
+        style="@style/option_item_rl"
+        android:background="?attr/selectableItemBackground">
+
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_ic_wechat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/ic_login_3party_wechat"/>
+
+        <TextView
+            style="@style/option_item_text_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/fragment_social_platform_ic_wechat"
+            android:layout_marginLeft="5dp"
+            android:text="微信"
+            android:textSize="@dimen/text_size_14"/>
+
+        <!--android:text="@string/clean_cache"-->
+
+
+        <TextView
+            style="@style/option_item_text_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_social_platform_wechat_btn_detail"
+            android:layout_marginLeft="5dp"
+            android:text="xls0911"
+            android:textSize="@dimen/text_size_14"/>
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_wechat_btn_detail"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_arrow_right"/>
+
+
+    </RelativeLayout>
+
+    <View style="@style/h_line"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_payment_forgot_password"
+        style="@style/option_item_rl"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_ic_qq"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/ic_login_3party_qq"/>
+
+        <TextView
+            style="@style/option_item_text_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/fragment_social_platform_ic_qq"
+            android:layout_marginLeft="5dp"
+            android:text="QQ"
+            android:textSize="@dimen/text_size_14"/>
+
+        <TextView
+            style="@style/option_item_text_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_social_platform_qq_btn_detail"
+            android:layout_marginLeft="5dp"
+            android:text="12345678"
+            android:textSize="@dimen/text_size_14"/>
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_qq_btn_detail"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_arrow_right"/>
+
+
+    </RelativeLayout>
+
+    <View style="@style/h_line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="未添加"/>
+
+
+    <View style="@style/h_line"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_payment_open_fingerprint"
+        style="@style/option_item_rl"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_ic_weibo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/ic_login_3party_weibo"/>
+
+        <TextView
+            style="@style/option_item_text_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/fragment_social_platform_ic_weibo"
+            android:layout_marginLeft="5dp"
+            android:text="微博"
+            android:textSize="@dimen/text_size_14"/>
+
+        <!--android:text="@string/clean_cache"-->
+
+
+        <ImageView
+            android:id="@+id/fragment_social_platform_weibo_btn_detail"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_arrow_right"/>
+
+
+    </RelativeLayout>
+
+    <View style="@style/h_line"/>
+
+
+</LinearLayout>
