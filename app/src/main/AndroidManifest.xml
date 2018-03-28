@@ -157,6 +157,8 @@
 
         <activity
             android:name="com.vs.vipsai.ui.activity.CityListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="城市列表"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize" />

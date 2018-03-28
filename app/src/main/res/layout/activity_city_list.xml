@@ -30,7 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="选择定位"/>
+            android:text="选择定位"
+            android:textColor="#333333"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textSize="18sp"/>
     </android.support.v7.widget.Toolbar>
     
     
