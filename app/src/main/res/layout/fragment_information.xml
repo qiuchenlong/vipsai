@@ -90,12 +90,12 @@
 
             <ImageView
                 android:id="@+id/fragment_setttings_platform_btn_wx"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="4dp"
                 android:layout_toLeftOf="@+id/fragment_setttings_platform_btn_qq"
-                android:src="@mipmap/ic_login_3party_wechat"/>
+                android:src="@drawable/ic_red_dot"/>
 
             <TextView
                 android:id="@+id/fragment_setttings_platform_btn_qq"
@@ -478,6 +478,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/fragment_information_signature_btn_detail"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:ellipsize="end"
                 android:text="世界和平"
                 android:textSize="@dimen/text_size_14"
                 android:textColor="#999999"/>
@@ -519,7 +522,18 @@
 
             <!--android:text="@string/clean_cache"-->
 
+
+            <ImageView
+                android:id="@+id/fragment_information_signature_red_dot"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@+id/fragment_information_signature_text"
+                android:src="@drawable/ic_red_dot"/>
+
             <TextView
+                android:id="@+id/fragment_information_signature_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -527,7 +541,7 @@
                 android:layout_toLeftOf="@+id/fragment_setttings_email_btn_detail"
                 android:text="去认证"
                 android:textSize="@dimen/text_size_14"
-                android:textColor="#999999"/>
+                android:textColor="@color/mark_text_color"/>
 
             <ImageView
                 android:id="@+id/fragment_setttings_email_btn_detail"

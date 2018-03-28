@@ -520,7 +520,7 @@ public class InformationFragment extends BaseFragment implements EasyPermissions
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem itemSave = menu.findItem(R.id.public_menu_shared);
-        itemSave.setTitle(Html.fromHtml("<font color='#666666'>保存</font>"));
+        itemSave.setTitle(Html.fromHtml("<font color='#48AAFB'>保存</font>"));
 //        if (TextUtils.isEmpty(etMobile.getText())) {
 //            itemSubmit.setEnabled(false);
 //            itemSubmit.setTitle(Html.fromHtml("<font color='#666666'>完成</font>"));
