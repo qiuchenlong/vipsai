@@ -222,6 +222,8 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //            }
 //        });
 
+        vh.imageView.setImageResource(R.mipmap.image_no_102);
+
         vh.imageView.setOnClickListener(new View.OnClickListener() {
 
             @Override

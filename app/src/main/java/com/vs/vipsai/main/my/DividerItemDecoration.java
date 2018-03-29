@@ -9,10 +9,14 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.vs.vipsai.util.TDevice;
+
 /**
  * Author: cynid
  * Created on 3/15/18 11:46 AM
  * Description:
+ *
+ * 绘制时间轴
  */
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
@@ -40,7 +44,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
         // 轴点画笔(红色)
         mPaint = new Paint();
-        mPaint.setColor(Color.GRAY);
+        mPaint.setColor(Color.argb(255, 221, 221, 221)); // #DDDDDD
 
         // 左边时间文本画笔(蓝色)
         // 此处设置了两只分别设置 时分 & 年月
@@ -52,13 +56,13 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         mPaint2.setColor(Color.BLUE);
 
 
-        // 赋值ItemView的左偏移长度为200
-        itemView_leftinterval = 100;
+        // 赋值ItemView的左偏移长度
+        itemView_leftinterval = (int)TDevice.dp2px(32); // 32dp
 
-        // 赋值ItemView的上偏移长度为50
-        itemView_topinterval = 50;
+        // 赋值ItemView的上偏移长度
+        itemView_topinterval = (int)TDevice.dp2px(12); // 32dp
 
-        // 赋值轴点圆的半径为20
+        // 赋值轴点圆的半径
         circle_radius = 10;
 
         // 获取图标资源
@@ -96,8 +100,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
              * 绘制轴点
              */
             // 轴点 = 圆 = 圆心(x,y)
-            float centerx = child.getLeft() - itemView_leftinterval / 3;
-            float centery = child.getTop() + (itemView_topinterval + circle_radius) / 2; // + (itemView_topinterval + child.getHeight()) / 2;
+            float centerx = child.getLeft() - itemView_leftinterval / 2.0f;
+            float centery = child.getTop() + circle_radius * 2.0f ; // + (itemView_topinterval + child.getHeight()) / 2;
             // 绘制轴点圆
             c.drawCircle(centerx, centery, circle_radius, mPaint);
             // 通过Canvas绘制角标
@@ -115,7 +119,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             float upLine_bottom_y = centery - circle_radius;
 
             //绘制上半部轴线
-//            c.drawLine(upLine_up_x, upLine_up_y, upLine_bottom_x, upLine_bottom_y, mPaint);
+            c.drawLine(upLine_up_x, upLine_up_y, upLine_bottom_x, upLine_bottom_y, mPaint);
 
             /**
              * 绘制下半轴线
@@ -129,7 +133,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             float bottomLine_bottom_y = child.getBottom();
 
             //绘制下半部轴线
-//            c.drawLine(bottomLine_up_x, bottom_up_y, bottomLine_bottom_x, bottomLine_bottom_y, mPaint);
+            c.drawLine(bottomLine_up_x, bottom_up_y, bottomLine_bottom_x, bottomLine_bottom_y, mPaint);
 
 
             /**

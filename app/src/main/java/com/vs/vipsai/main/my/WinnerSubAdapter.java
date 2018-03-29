@@ -10,11 +10,15 @@ import android.widget.TextView;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.util.ImageUtils;
+import com.vs.vipsai.util.TDevice;
 
 /**
  * Author: cynid
  * Created on 3/15/18 11:43 AM
  * Description:
+ *
+ * 获奖卡片
  */
 
 public class WinnerSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {
@@ -34,7 +38,7 @@ public class WinnerSubAdapter extends BaseRecyclerAdapter<SubBean> implements Ba
     protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, SubBean item, int position) {
 
         ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
-        params.height = 512;//把随机的高度赋予item布局
+        params.height = (int)TDevice.dp2px(210);//把高度赋予item布局
         holder.itemView.setLayoutParams(params);//把params设置给item布局
 
 
@@ -42,7 +46,17 @@ public class WinnerSubAdapter extends BaseRecyclerAdapter<SubBean> implements Ba
 
 //        vh.tv_time.setText("2018.02.01");
 //        vh.tv_title.setText("go go go ...");
-        vh.iv_winner.setImageResource(R.mipmap.tmp_bg);
+
+        if (position == 0) {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_15, 100, 100));
+            vh.tv_money.setText("奖金:$1,000");
+        }else if (position == 1) {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_5, 100, 100));
+            vh.tv_money.setText("奖金:$500");
+        } else {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_9, 100, 100));
+            vh.tv_money.setText("奖金:$100");
+        }
 
 
 //        BlogViewHolder vh = (BlogViewHolder) holder;
@@ -70,10 +84,12 @@ public class WinnerSubAdapter extends BaseRecyclerAdapter<SubBean> implements Ba
 
     private static class MeViewHolder extends RecyclerView.ViewHolder {
         ImageView iv_winner;
+        TextView tv_money;
 
         MeViewHolder(View itemView) {
             super(itemView);
             iv_winner = (ImageView) itemView.findViewById(R.id.item_list_sub_me_of_winner_imageview);
+            tv_money = (TextView) itemView.findViewById(R.id.item_list_sub_me_of_winner_money);
         }
     }
 

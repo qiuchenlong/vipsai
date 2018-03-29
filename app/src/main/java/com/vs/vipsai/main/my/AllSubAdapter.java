@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.util.ImageUtils;
+import com.vs.vipsai.util.TDevice;
 
 /**
  * Author: cynid
@@ -33,7 +35,7 @@ public class AllSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseR
     protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, SubBean item, int position) {
 
         ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
-        params.height = 512;//把随机的高度赋予item布局
+        params.height = (int) TDevice.dp2px(210);//把随机的高度赋予item布局
         holder.itemView.setLayoutParams(params);//把params设置给item布局
 
 
@@ -41,8 +43,14 @@ public class AllSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseR
 
 //        vh.tv_time.setText("2018.02.01");
 //        vh.tv_title.setText("go go go ...");
-        vh.iv_winner.setImageResource(R.mipmap.tmp_bg);
 
+        if (position == 0) {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_10, 100, 100));
+        }else if (position == 1) {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_7, 100, 100));
+        } else {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_6, 100, 100));
+        }
 
 //        BlogViewHolder vh = (BlogViewHolder) holder;
 //        vh.tv_time.setText("2012-12-01 22:10");

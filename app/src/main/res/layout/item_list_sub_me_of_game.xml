@@ -12,14 +12,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/tmp_bg"/>
+        android:src="@mipmap/image_no_12"/>
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="20dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="6dp"
+        android:text="进行中"
+        android:textSize="12dp"
+        android:textColor="#FFFFFF"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="火影忍者新时代第50集"
+            android:textSize="@dimen/font24sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="原创 / 高清 / 147人观看"
+            android:textSize="@dimen/font15sp"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
 
 
 </FrameLayout>

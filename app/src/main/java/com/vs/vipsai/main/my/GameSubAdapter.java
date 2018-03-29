@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.util.ImageUtils;
 
 /**
  * Author: cynid
@@ -41,7 +42,14 @@ public class GameSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
 
 //        vh.tv_time.setText("2018.02.01");
 //        vh.tv_title.setText("go go go ...");
-        vh.iv_winner.setImageResource(R.mipmap.tmp_bg);
+
+        if (position == 0) {
+            vh.iv_winner.setImageResource(R.mipmap.image_no_100);
+        }else if (position == 1) {
+            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_5, 100, 100));
+        } else {
+            vh.iv_winner.setImageResource(R.mipmap.image_no_102);
+        }
 
 
 //        BlogViewHolder vh = (BlogViewHolder) holder;
