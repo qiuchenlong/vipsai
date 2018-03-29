@@ -116,15 +116,8 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/recycleview_title_style"
             android:layout_marginBottom="8dp"
-            android:gravity="center_vertical"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/text_title_color"
-            android:textSize="@dimen/text_size_14"
             android:text=""
             tools:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛" />
 

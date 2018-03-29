@@ -17,7 +17,12 @@ import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
+import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.widget.PortraitView;
+import com.vs.vipsai.widget.swipemenu.SwipeItemLayout;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Author: cynid
@@ -50,8 +55,8 @@ public class PrivateMessageSubAdapter extends BaseRecyclerAdapter<SubBean> imple
     }
 
     @Override
-    protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, SubBean item, final int position) {
-        PrivateMessageSubAdapter.MessageViewHolder vh = (PrivateMessageSubAdapter.MessageViewHolder) holder;
+    protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, final SubBean item, final int position) {
+        final PrivateMessageSubAdapter.MessageViewHolder vh = (PrivateMessageSubAdapter.MessageViewHolder) holder;
 
 //        TextView title = vh.tv_title;
 //        TextView content = vh.tv_description;
@@ -200,17 +205,55 @@ public class PrivateMessageSubAdapter extends BaseRecyclerAdapter<SubBean> imple
 //        });
 
 
+        vh.mark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vh.swipeItemLayout.close();
+            }
+        });
+
+        vh.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(item);
+                vh.swipeItemLayout.close();
+            }
+        });
+
     }
 
-    private static class MessageViewHolder extends RecyclerView.ViewHolder {
+//    @Override
+//    public void onItemClick(int position, long itemId) {
+//        SimplexToast.show(mContext, "position" + position);
+//    }
+
+
+//    OnItemClickListener
+
+
+
+    public static class MessageViewHolder extends RecyclerView.ViewHolder {
         TextView tv_title, tv_description, tv_time, tv_comment_count, tv_view;
         LinearLayout ll_title;
         Button btn_pull;
         PortraitView portraitView;
         ImageView imageView;
 
+
+        @BindView(R.id.item_list_sub_private_message_swipeitem_layout)
+        SwipeItemLayout swipeItemLayout;
+        @BindView(R.id.btn_mark)
+        Button mark;
+        @BindView(R.id.btn_delete)
+        Button delete;
+
+
+
         MessageViewHolder(View itemView) {
             super(itemView);
+
+            ButterKnife.bind(this, itemView);
+
 //            tv_title = (TextView) itemView.findViewById(R.id.tv_title);
 //            tv_description = (TextView) itemView.findViewById(R.id.tv_description);
 //            tv_time = (TextView) itemView.findViewById(R.id.tv_time);
