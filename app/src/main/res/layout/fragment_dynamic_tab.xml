@@ -21,11 +21,13 @@
 
             <ImageView
                 android:layout_width="76dp"
-                android:layout_height="match_parent"
+                android:layout_height="48dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
+                android:scaleType="center"
+                android:layout_gravity="center"
                 android:src="@mipmap/ic_logo"
                 android:contentDescription="@null"
                 android:visibility="visible"/>
@@ -100,17 +102,40 @@
                 android:contentDescription="@null"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
 
-            <ImageView
-                android:id="@+id/recommend_tabfragment_btn_notification"
+            <FrameLayout
                 android:layout_width="38dp"
                 android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_notification"
-                android:contentDescription="@null"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                >
+                <ImageView
+                    android:id="@+id/recommend_tabfragment_btn_notification"
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:src="@mipmap/ic_notification"
+                    android:contentDescription="@null"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+                <TextView
+                    android:id="@+id/nav_tv_dot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/ic_red_dot"
+                    android:ellipsize="none"
+                    android:gravity="center"
+                    android:minWidth="14dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:singleLine="true"
+                    android:textColor="@color/color_white"
+                    android:textSize="10sp"
+                    android:visibility="visible"/>
+            </FrameLayout>
+
         </LinearLayout>
 
         <View

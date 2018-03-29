@@ -20,13 +20,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/fragment_competition_tab_btn_search"
                 android:layout_width="38dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:src="@mipmap/ic_pub_ad"
+                android:src="@mipmap/ic_search_gray"
                 android:contentDescription="@null"
                 android:visibility="visible"/>
 

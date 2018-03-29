@@ -30,8 +30,8 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/tmp_head"
-                tools:src="@mipmap/tmp_head" />
+                android:src="@mipmap/image_no_8"
+                tools:src="@mipmap/image_no_8" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -102,13 +102,27 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/item_list_sub_me_imageview"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@mipmap/tmp_bg"
-            android:scaleType="centerCrop"
-            />
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/item_list_sub_me_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/image_no_3"
+                android:scaleType="centerCrop"
+                />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_play_btn"/>
+
+        </FrameLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,7 +171,7 @@
                 android:layout_height="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_share_gray"
+                android:src="@mipmap/ic_share_blue"
                 android:background="#00000000"
                 />
 
@@ -184,8 +198,9 @@
                     android:layout_weight="2"
                     android:gravity="left"
                     android:lines="1"
+                    android:ellipsize="end"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#9D9D9D"
+                    android:textColor="#333333"
                     android:textSize="@dimen/text_size_12"
                     android:text="资格赛"
                     tools:text="资格赛" />
@@ -203,6 +218,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="right"
+                    android:lines="1"
+                    android:ellipsize="end"
                     android:text="萌娃"
                     android:textColor="@color/mark_text_color"
                     android:textSize="@dimen/text_size_12"/>
@@ -249,17 +266,17 @@
                 <com.vs.vipsai.widget.PortraitView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@mipmap/tmp_head"/>
+                    android:src="@mipmap/image_no_1"/>
 
                 <com.vs.vipsai.widget.PortraitView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/image_no_2"/>
 
                 <com.vs.vipsai.widget.PortraitView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@mipmap/tmp_head"/>
+                    android:src="@mipmap/image_no_3"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,7 +300,7 @@
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_video_black"/>
 
                 <TextView
                     android:layout_width="wrap_content"

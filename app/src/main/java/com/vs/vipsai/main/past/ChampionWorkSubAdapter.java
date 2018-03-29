@@ -60,7 +60,14 @@ public class ChampionWorkSubAdapter extends BaseRecyclerAdapter<SubBean> impleme
 
 //        vh.tv_time.setText("2018.02.01");
 //        vh.tv_title.setText("go go go ...");
-        vh.iv_winner.setImageResource(R.mipmap.tmp_bg);
+
+        if (position == 0) {
+            vh.iv_winner.setImageResource(R.mipmap.image_no_100);
+        } else if (position == 0) {
+            vh.iv_winner.setImageResource(R.mipmap.image_no_101);
+        } else {
+            vh.iv_winner.setImageResource(R.mipmap.image_no_102);
+        }
 
 
 //        BlogViewHolder vh = (BlogViewHolder) holder;

@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.vs.vipsai.AppContext;
@@ -222,7 +223,13 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //            }
 //        });
 
-        vh.imageView.setImageResource(R.mipmap.image_no_102);
+        if (position == 0) {
+            vh.imageView.setImageResource(R.mipmap.image_no_102);
+        } else if (position == 0) {
+            vh.imageView.setImageResource(R.mipmap.image_no_103);
+        } else {
+            vh.imageView.setImageResource(R.mipmap.image_no_101);
+        }
 
         vh.imageView.setOnClickListener(new View.OnClickListener() {
 
@@ -249,7 +256,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
     private static class BlogViewHolder extends RecyclerView.ViewHolder {
         TextView tv_title, tv_description, tv_time, tv_comment_count, tv_view;
         LinearLayout ll_title;
-        Button btn_pull;
+        RelativeLayout btn_pull;
         PortraitView portraitView;
         ImageView imageView;
         LinearLayout shareLayout;
@@ -264,7 +271,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             tv_comment_count = (TextView) itemView.findViewById(R.id.tv_info_comment);
             tv_view = (TextView) itemView.findViewById(R.id.tv_info_view);
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
-            btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
+            btn_pull = (RelativeLayout) itemView.findViewById(R.id.btn_pull);
             portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
             shareLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_attention_share_layout);

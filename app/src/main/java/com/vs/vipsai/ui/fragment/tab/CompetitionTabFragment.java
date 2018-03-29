@@ -26,6 +26,7 @@ import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.common.utils.StreamUtil;
 import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.notify.activity.NotifyActicity;
+import com.vs.vipsai.search.SearchActivity;
 import com.vs.vipsai.ui.activity.MainActivity;
 import com.vs.vipsai.ui.activity.PubActivity;
 import com.vs.vipsai.util.TDevice;
@@ -379,6 +380,12 @@ public class CompetitionTabFragment extends BaseFragment implements OnTabReselec
 ////        return R.string.main_tab_name_news;
 //        return R.string.app_name;
 //    }
+
+
+    @OnClick(R.id.fragment_competition_tab_btn_search)
+    void OnClickSearch() {
+        SearchActivity.show(getContext());
+    }
 
 
     @OnClick(R.id.recommend_tabfragment_btn_join)
