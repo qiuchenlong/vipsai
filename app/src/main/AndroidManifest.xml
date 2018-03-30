@@ -190,7 +190,12 @@
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
 
-
+        <activity android:name="com.vs.vipsai.publish.activitys.PubTemplateActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/actionbar_title_subject"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Main"
+            android:windowSoftInputMode="adjustResize"/>
 
 
     </application>
