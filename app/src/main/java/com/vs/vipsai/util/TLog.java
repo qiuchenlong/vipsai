@@ -41,4 +41,7 @@ public class TLog {
         if (DEBUG && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(log)) Log.i(tag, log);
     }
 
+    public static void w(String tag, String log) {
+        if (DEBUG && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(log)) Log.w(tag, log);
+    }
 }

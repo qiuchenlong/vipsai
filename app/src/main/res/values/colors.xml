@@ -135,6 +135,10 @@
     <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
     <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
 
+    <!--按钮点击遮罩颜色-->
+    <color name="press_mask">#33000000</color>
 
+    <!--tab 指示器颜色-->
+    <color name="tab_indicator">@color/color_ff4990e2</color>
 
 </resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="UnusedAttribute"
+        app:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        android:paddingRight="@dimen/padding_12"
+        android:background="@drawable/bg_frame_bottom_white">
+
+        <TextView
+            android:id="@+id/tv_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:lines="1"
+            android:ellipsize="end"
+            android:theme="?attr/titleTextAppearance"/>
+
+        <TextView
+            android:id="@+id/tv_menu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_8"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_normal"
+            android:paddingVertical="@dimen/padding_4"
+            android:background="@drawable/round_blue_selector"
+            android:visibility="gone"/>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider"
+        android:background="?attr/dividerHorizontal"/>-->
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"/>
+
+</merge>

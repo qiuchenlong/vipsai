@@ -1,11 +1,20 @@
 package com.vs.vipsai.bean;
 
+import android.content.Context;
 import android.text.TextUtils;
 
+import com.google.gson.reflect.TypeToken;
+import com.vs.vipsai.AppContext;
+import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.api.ApiHttpClient;
+import com.vs.vipsai.common.utils.StreamUtil;
 import com.vs.vipsai.util.TLog;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: cynid
@@ -188,4 +197,22 @@ public class SubTab implements Serializable {
                 '}';
     }
 
+    /**
+     * 读取asset配置
+     * @param context
+     * @param file
+     * @return
+     */
+    public static List<SubTab> fromAsset(Context context, String file) {
+        InputStreamReader reader = null;
+        try {
+            reader = new InputStreamReader(context.getAssets().open(file), "UTF-8");
+            return AppOperator.getGson().<ArrayList<SubTab>>fromJson(reader, new TypeToken<ArrayList<SubTab>>() {}.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            StreamUtil.close(reader);
+        }
+        return null;
+    }
 }

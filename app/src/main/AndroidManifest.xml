@@ -22,7 +22,7 @@
     <application
         android:name="com.vs.vipsai.VSApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/icon_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -157,8 +157,6 @@
 
         <activity
             android:name="com.vs.vipsai.ui.activity.CityListActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:label="城市列表"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize" />

@@ -51,7 +51,6 @@
     <string name="progress_submit">正在提交…</string>
 
 
-
     <string name="loading">加载中…</string>
     <string name="loading_no_more">已加载全部</string>
 
@@ -61,7 +60,6 @@
     <string name="login_qq_label_name">QQ 登录</string>
     <string name="login_wb_label_name">微博登录</string>
     <string name="login_walk_around_label_name">随便逛逛 >></string>
-
 
 
     <!--登录专用-->
@@ -94,8 +92,8 @@
     <string name="reset_pwd_submit">确认</string>
     <string name="request_error_hint">网络请求失败,请重试&#8230;</string>
     <string name="login_success_hint">登录成功</string>
-    <string name="send_sms_code_success_hint">已成功发送验证码</string>
     <string name="reset_success_hint">密码重置成功</string>
+    <string name="send_sms_code_success_hint">已成功发送验证码</string>
     <string name="register_success_hint">注册成功</string>
     <string name="share_hint">抱歉,您未安装该应用,不能分享&#8230;</string>
     <string name="login_hint">抱歉,您未安装该应用,不能登录&#8230;</string>
@@ -106,7 +104,6 @@
     <string name="message_username_null">用户名未填写！！！</string>
     <string name="tv_my_score">积分 0</string>
     <string name="zero">0</string>
-
 
 
     <string name="event_type_outline">线下活动</string>
@@ -128,11 +125,10 @@
     <string name="actionbar_title_help_center">帮助中心</string>
 
     <string name="actionbar_title_information">个人资料</string>
+
+    <string name="actionbar_title_subject">选择主题</string>
+
     <string name="actionbar_title_social_platforms">社交平台</string>
-
-
-
-
 
     <!--设置选项-->
     <string name="set_options_social_platforms">社交平台</string>
@@ -149,7 +145,6 @@
     <string name="payment_password_input_old_password">请输入旧密码</string>
     <string name="payment_password_input_authenticate_password">请输入认证手机号码以获取验证码</string>
     <string name="payment_password_input_payment_password">请输入支付密码</string>
-
 
 
     <!--关于我们-->
@@ -176,8 +171,6 @@
 
 
     <string name="identity_officialMember">identity_officialMember</string>
-
-
 
 
     <string name="pickerview_cancel">取消</string>
