@@ -39,6 +39,8 @@ import com.vs.vipsai.widget.PortraitView;
  * Author: cynid
  * Created on 3/20/18 4:47 PM
  * Description:
+ *
+ * 消息卡片
  */
 
 public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {

@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vs.vipsai.R;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Author: cynid
@@ -19,9 +21,9 @@ import java.util.List;
 public class PopupListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<String> list;
+    private List<Map<String, Object>> list;
 
-    public PopupListAdapter(Context context, List<String> list) {
+    public PopupListAdapter(Context context, List<Map<String, Object>> list) {
         this.context = context;
         this.list = list;
     }
@@ -47,13 +49,16 @@ public class PopupListAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.popup_list_item, null);
         }
         ViewHolder holder = ViewHolder.getHolder(convertView);
-        holder.tv_popup_item.setText(list.get(position));
+        holder.im_popup_item.setImageResource((Integer) list.get(position).get("image"));
+        holder.tv_popup_item.setText(list.get(position).get("title").toString());
         return convertView;
     }
 
     public static class ViewHolder{
+        ImageView im_popup_item;
         TextView tv_popup_item;
         private ViewHolder(View convertView){
+            im_popup_item = (ImageView) convertView.findViewById(R.id.iv_popup_item);
             tv_popup_item = (TextView) convertView.findViewById(R.id.tv_popup_item);
         }
 

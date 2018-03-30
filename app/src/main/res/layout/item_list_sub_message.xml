@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/lay_16"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
+        style="@style/notify_item_layout"
         >
 
         <!--android:background="?attr/selectableItemBackgroundBorderless"-->
@@ -22,21 +19,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.vs.vipsai.widget.PortraitView
                 android:id="@+id/iv_portrait"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:src="@mipmap/tmp_head"
-                tools:src="@mipmap/tmp_head" />
+                style="@style/notify_portraitview_style"
+                android:src="@mipmap/image_no_9"
+                tools:src="@mipmap/image_no_9" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="7"
-                android:layout_margin="8dp"
+                android:layout_weight="8"
+                android:layout_marginLeft="8dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -46,15 +42,12 @@
 
                     <TextView
                         android:id="@+id/item_list_sub_message_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/notify_title_style"
                         android:text="薛之谦"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/notify_sub_title_style"
                         android:text="关注了你"
-                        android:textColor="@color/gray"
                         android:layout_marginLeft="5dp"/>
 
 
@@ -63,11 +56,9 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/notify_time_style"
                     android:text="5 分钟前"
-                    android:textColor="@color/gray"
-                    android:textSize="12dp"/>
+                    />
 
 
 
@@ -79,7 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:gravity="right">
+                android:gravity="right|center_vertical">
 
                 <ImageView
                     android:src="@mipmap/tmp_bg"
@@ -111,18 +102,17 @@
             android:orientation="horizontal">
 
             <View
-                android:layout_width="54dp"
+                android:layout_width="36dp"
                 android:layout_height="1dp"
                 android:src="@mipmap/tmp_head"
                 tools:src="@mipmap/tmp_head"
                 android:visibility="invisible"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/notify_message_style"
                 android:layout_marginLeft="8dp"
                 android:text="恭喜您！您的作品【我的熊样】在比赛中获得第1名，赢得奖金￥500，00"
-                android:textSize="12dp"/>
+                />
         </LinearLayout>
 
 
@@ -134,6 +124,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
+        android:layout_marginTop="@dimen/lay_8"
         android:layout_marginLeft="16dp"
         android:background="@color/list_divider_color" />
 

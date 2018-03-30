@@ -28,6 +28,8 @@ import butterknife.ButterKnife;
  * Author: cynid
  * Created on 3/20/18 4:47 PM
  * Description:
+ *
+ * 私信卡片
  */
 
 public class PrivateMessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {

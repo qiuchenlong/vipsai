@@ -37,7 +37,9 @@ import com.vs.vipsai.widget.popupwindow.PopupListAdapter;
 import com.vs.vipsai.widget.popupwindow.PopupListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +51,8 @@ import static com.vs.vipsai.widget.popupwindow.BlurPopupWindow.KEYWORD_LOCATION_
  * Author: cynid
  * Created on 3/20/18 10:10 AM
  * Description:
+ *
+ * 消息 私信 界面
  */
 
 public class NotifyActicity extends BackActivity implements ViewPager.OnPageChangeListener {
@@ -57,8 +61,8 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
     Toolbar mToolbar;
     @BindView(R.id.tabs)
     TabLayout mLayoutTab;
-    @BindView(R.id.actionMV)
-    ActionMenuView mAcitionMenuView;
+//    @BindView(R.id.actionMV)
+//    ActionMenuView mAcitionMenuView;
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
 
@@ -82,27 +86,24 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         // index 1 : actionmenuview            right
         // index 2 : appcompatimagebutton      left
 
-        AppCompatImageButton aib = (AppCompatImageButton) mToolbar.getChildAt(2);
-        int mWith = aib.getDrawable().getMinimumWidth();
+//        AppCompatImageButton aib = (AppCompatImageButton) mToolbar.getChildAt(2);
+//        int mWith = aib.getDrawable().getMinimumWidth();
+//
+//        if (mWith > 48) { // simple slove problem
+//            mWith = -mWith;
+//        }
+//
+//
+//        Log.d("NotifyActivity", " " + TDevice.getScreenWidth());
+//        Log.d("NotifyActivity", " " + mToolbar.getWidth());
+//        Log.d("NotifyActivity", " " + aib.getDrawable().getMinimumWidth());
+//        Log.d("NotifyActivity", " " + mToolbar.getMeasuredWidth());
+//        Log.d("NotifyActivity", " " + mToolbar.getContentInsetEndWithActions());
 
-        if (mWith > 48) { // simple slove problem
-            mWith = -mWith;
-        }
 
-
-        Log.d("NotifyActivity", " " + TDevice.getScreenWidth());
-        Log.d("NotifyActivity", " " + mToolbar.getWidth());
-        Log.d("NotifyActivity", " " + aib.getDrawable().getMinimumWidth());
-        Log.d("NotifyActivity", " " + mToolbar.getMeasuredWidth());
-        Log.d("NotifyActivity", " " + mToolbar.getContentInsetEndWithActions());
-//        ViewGroup.LayoutParams lp = mLayoutTab.getLayoutParams();
-//        lp.ma
-//        mLayoutTab.setLayoutParams();
-//        mLayoutTab.setLayoutParams();
-
-        Toolbar.LayoutParams lp = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.WRAP_CONTENT);
-        lp.setMargins((int)TDevice.px2dp(TDevice.getScreenWidth()/2.0f - mWith - lp.width/2), 0, 0, 0);
-        mLayoutTab.setLayoutParams(lp);
+//        Toolbar.LayoutParams lp = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.WRAP_CONTENT);
+//        lp.setMargins((int)TDevice.px2dp(TDevice.getScreenWidth()/2.0f - mWith - lp.width/2), 0, 0, 0);
+//        mLayoutTab.setLayoutParams(lp);
 
 
 
@@ -196,12 +197,12 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         mViewPager.setCurrentItem(index);
 
 
-        mAcitionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return onOptionsItemSelected(item);
-            }
-        });
+//        mAcitionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                return onOptionsItemSelected(item);
+//            }
+//        });
 
 
         initPopupWindow(NotifyActicity.this);
@@ -224,17 +225,16 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.browser_menu , mAcitionMenuView.getMenu()); //将menu关联
+        getMenuInflater().inflate(R.menu.notify_add_menu , menu); //将menu关联 mAcitionMenuView.getMenu()
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.public_menu_shared:
-                SimplexToast.show(NotifyActicity.this, "add...");
+            case R.id.public_menu_add:
 
-                View menuView = findViewById(R.id.public_menu_shared);
+                View menuView = findViewById(R.id.public_menu_add);
                 blurPopupWindow.displayPopupWindow(menuView);
 
                 break;
@@ -266,12 +266,21 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
     private BlurPopupWindow blurPopupWindow;
 
     private void initPopupWindow(Activity context) {
-        final List<String> list_popup = new ArrayList<>();
+        final List<Map<String, Object>> list_popup = new ArrayList<>();
         final PopupListView lv_popup = new PopupListView(context);
 
-        for (int i = 0; i < 3; i++) {
-            list_popup.add("popup_item_" + i);
+
+        String[] titles = new String[]{"发私信", "广告信息", "黑名单", "已删除"};
+        int[] images = new int[]{R.mipmap.ic_trash_gray, R.mipmap.ic_ad_gray, R.mipmap.ic_blacklist_gray, R.mipmap.ic_trash_gray};
+
+
+        for (int i=0; i<titles.length; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("title", titles[i]);
+            map.put("image", images[i]);
+            list_popup.add(map);
         }
+
 
         lv_popup.setDivider(new ColorDrawable(Color.GRAY));
         lv_popup.setDividerHeight(1);

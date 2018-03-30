@@ -241,4 +241,64 @@
     </style>
 
 
+
+    <!--notify activity style-->
+
+    <style name="notify_item_layout">
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="notify_portraitview_style">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="notify_title_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+
+    <style name="notify_sub_title_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#989898</item>
+    </style>
+
+    <style name="notify_time_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#C4C4C4</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="notify_red_dot_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">10+</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/ic_red_dot</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="notify_message_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+
+
 </resources>

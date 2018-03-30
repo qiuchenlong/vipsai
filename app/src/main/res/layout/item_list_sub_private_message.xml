@@ -26,10 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/lay_16"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
+        style="@style/notify_item_layout"
         >
 
         <!--android:background="?attr/selectableItemBackgroundBorderless"-->
@@ -38,21 +35,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.vs.vipsai.widget.PortraitView
                 android:id="@+id/iv_portrait"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:src="@mipmap/tmp_head"
-                tools:src="@mipmap/tmp_head" />
+                style="@style/notify_portraitview_style"
+                android:src="@mipmap/image_no_7"
+                tools:src="@mipmap/image_no_7" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:layout_margin="8dp"
+                android:layout_marginLeft="8dp"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -62,16 +58,13 @@
 
                     <TextView
                         android:id="@+id/item_list_sub_message_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/notify_title_style"
                         android:text="薛之谦"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/notify_time_style"
                         android:text="6:41 pm"
-                        android:textColor="@color/gray"
-                        android:layout_alignParentRight="true"/>
+                        />
 
 
                 </RelativeLayout>
@@ -80,21 +73,15 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="薛之谦, hello world"
-                        android:textColor="@color/gray"/>
+                        style="@style/notify_sub_title_style"
+                        android:text="薛之谦, hello world"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10+"
-                        android:textColor="@color/white"
-                        android:background="@drawable/ic_red_dot"
-                        android:layout_alignParentRight="true"/>
+                        style="@style/notify_red_dot_style"/>
 
 
                 </RelativeLayout>
@@ -105,6 +92,13 @@
 
         </LinearLayout>
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/lay_8"
+            android:layout_marginLeft="16dp"
+            android:background="@color/list_divider_color" />
 
     </LinearLayout>
 
