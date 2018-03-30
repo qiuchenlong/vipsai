@@ -16,40 +16,27 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="#FFFFFF"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
 
-            <ImageView
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@null"
-                android:visibility="invisible"/>
+            <FrameLayout
+                android:id="@+id/fragment_competition_tab_btn_search"
+                style="@style/main_toolbar_fl_style">
+                <ImageView
+                    style="@style/main_toolbar_icon_style"
+                    android:src="@mipmap/ic_search_gray"
+                    />
+            </FrameLayout>
 
-            <ImageView
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@null"
-                android:visibility="invisible"/>
 
-            <ImageView
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@null"
-                android:visibility="gone"/>
+            <FrameLayout
+                style="@style/main_toolbar_fl_style">
+            </FrameLayout>
+
+
+
+
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -74,42 +61,42 @@
             </FrameLayout>
 
 
-            <ImageView
+            <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_join"
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_join"
-                android:contentDescription="@null"
-                android:visibility="gone"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                style="@style/main_toolbar_fl_style"
+                android:visibility="gone">
 
-            <ImageView
+                <ImageView
+                    style="@style/main_toolbar_icon_style"
+                    android:src="@mipmap/ic_join"
+                    />
+
+            </FrameLayout>
+
+
+            <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_inbox"
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_inbox"
-                android:contentDescription="@null"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                style="@style/main_toolbar_fl_style">
 
-            <ImageView
+                <ImageView
+                    style="@style/main_toolbar_icon_style"
+                    android:src="@mipmap/ic_inbox"
+                    />
+
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_notification"
-                android:layout_width="38dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:src="@mipmap/ic_notification"
-                android:contentDescription="@null"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                style="@style/main_toolbar_fl_style"
+                >
+                <ImageView
+                    style="@style/main_toolbar_icon_style"
+                    android:src="@mipmap/ic_notification"
+                    />
+                <TextView
+                    style="@style/main_toolbar_red_dot_style"
+                    />
+            </FrameLayout>
         </LinearLayout>
 
         <View

@@ -13,7 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.google.gson.reflect.TypeToken;
@@ -60,7 +60,7 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
     @BindView(R.id.recommend_tabfragment_btn_notification)
-    ImageView mViewArrowDown;
+    FrameLayout mViewArrowDown;
 
     private MainActivity activity;
     private Fragment mCurFragment;
@@ -83,7 +83,7 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_dynamic_tab;
+        return R.layout.fragment_recommend_tab;
     }
 
     public static TabPickerView.TabPickerDataManager initTabPickerManager() {
@@ -362,7 +362,7 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
         // 在所有子控件的中间显示分割线（还可能只显示顶部、尾部和不显示分割线）
         mLinearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         // 设置分割线的距离本身（LinearLayout）的内间距
-        mLinearLayout.setDividerPadding(20);
+        mLinearLayout.setDividerPadding((int) TDevice.dp2px(16));
         // 设置分割线的样式
         mLinearLayout.setDividerDrawable(ContextCompat.getDrawable(getContext(), R.drawable.divider_vertical));
 

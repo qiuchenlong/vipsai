@@ -19,27 +19,35 @@
             android:background="#FFFFFF"
             android:orientation="horizontal"
             android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            >
+            android:paddingRight="8dp">
 
 
             <FrameLayout
-                android:id="@+id/fragment_competition_tab_btn_search"
                 style="@style/main_toolbar_fl_style">
                 <ImageView
                     style="@style/main_toolbar_icon_style"
-                    android:src="@mipmap/ic_search_gray"
+                    android:src="@mipmap/ic_logo"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_width="match_parent"
                     />
             </FrameLayout>
+
+            <!--<ImageView-->
+                <!--android:layout_width="76dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:scaleType="center"-->
+                <!--android:layout_gravity="left|center_vertical"-->
+                <!--android:src="@mipmap/ic_logo"-->
+                <!--android:contentDescription="@null"-->
+                <!--android:visibility="visible"/>-->
 
 
             <FrameLayout
                 style="@style/main_toolbar_fl_style">
             </FrameLayout>
-
-
-
-
+            <FrameLayout
+                style="@style/main_toolbar_fl_style">
+            </FrameLayout>
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -67,18 +75,15 @@
 
             <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_join"
-                style="@style/main_toolbar_fl_style"
-                android:visibility="gone">
+                style="@style/main_toolbar_fl_style">
 
                 <ImageView
                     style="@style/main_toolbar_icon_style"
                     android:src="@mipmap/ic_join"
                     />
-                <TextView
-                    style="@style/main_toolbar_red_dot_style"
-                    />
 
             </FrameLayout>
+
 
             <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_inbox"
@@ -88,11 +93,10 @@
                     style="@style/main_toolbar_icon_style"
                     android:src="@mipmap/ic_inbox"
                     />
-                <TextView
-                    style="@style/main_toolbar_red_dot_style"
-                    />
 
             </FrameLayout>
+
+
 
             <FrameLayout
                 android:id="@+id/recommend_tabfragment_btn_notification"
@@ -106,6 +110,7 @@
                     style="@style/main_toolbar_red_dot_style"
                     />
             </FrameLayout>
+
         </LinearLayout>
 
         <View

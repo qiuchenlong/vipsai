@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -61,7 +62,7 @@ public class VoteTabFragment extends BaseFragment implements OnTabReselectListen
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
     @BindView(R.id.recommend_tabfragment_btn_notification)
-    ImageView mViewArrowDown;
+    FrameLayout mViewArrowDown;
 
     private MainActivity activity;
     private Fragment mCurFragment;
@@ -363,7 +364,7 @@ public class VoteTabFragment extends BaseFragment implements OnTabReselectListen
         // 在所有子控件的中间显示分割线（还可能只显示顶部、尾部和不显示分割线）
         mLinearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         // 设置分割线的距离本身（LinearLayout）的内间距
-        mLinearLayout.setDividerPadding(20);
+        mLinearLayout.setDividerPadding((int) TDevice.dp2px(16));
         // 设置分割线的样式
         mLinearLayout.setDividerDrawable(ContextCompat.getDrawable(getContext(), R.drawable.divider_vertical));
 

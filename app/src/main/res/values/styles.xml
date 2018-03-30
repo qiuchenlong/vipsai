@@ -242,6 +242,38 @@
 
 
 
+    <!--main toolbar style-->
+
+    <style name="main_toolbar_fl_style">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="main_toolbar_icon_style">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="main_toolbar_red_dot_style">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">8dp</item>
+        <item name="android:layout_gravity">top|center</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:background">@drawable/ic_red_dot</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+
+
+
     <!--notify activity style-->
 
     <style name="notify_item_layout">

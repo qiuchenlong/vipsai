@@ -93,6 +93,7 @@
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="8dp"
+                            android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:background="@mipmap/ic_arrow_bottom_gray"
                             />
