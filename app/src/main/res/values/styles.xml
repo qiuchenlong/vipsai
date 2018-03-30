@@ -213,6 +213,15 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="tab_style">
+        <item name="tabMode">scrollable</item>
+        <item name="tabGravity">center</item>
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabSelectedTextColor">@color/pickerview_timebtn_nor</item>
+        <item name="tabTextColor">?attr/textColor</item>
+        <item name="tabIndicatorHeight">1dp</item>
+        <item name="tabMaxWidth">0dp</item>
+    </style>
 
 
     <style name="recycleview_title_style">

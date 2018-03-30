@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.media.Util;
+import com.vs.vipsai.publish.activitys.PubTemplateActivity;
 import com.vs.vipsai.util.SimplexToast;
 
 import butterknife.BindView;
@@ -90,7 +91,9 @@ public class PubActivity extends BaseActivity implements View.OnClickListener {
 //                }
 //                WriteActivity.show(this);
 //                dismiss();
-                SimplexToast.show(PubActivity.this, "sample");
+//                SimplexToast.show(PubActivity.this, "sample");
+                PubTemplateActivity.open(v.getContext());
+
                 break;
             case R.id.activity_pub_layout_private:
 //                if(!AccountHelper.isLogin()){
