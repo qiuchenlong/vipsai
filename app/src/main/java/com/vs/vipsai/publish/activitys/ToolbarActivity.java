@@ -14,6 +14,7 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.base.activities.BaseActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * * Author: chends
@@ -25,9 +26,9 @@ import butterknife.BindView;
 public class ToolbarActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
-    protected Toolbar mToolbar;
+    protected Toolbar toolbar;
 
-    @BindView(R.id.container)
+    @BindView(R.id.toolbar_container)
     protected FrameLayout container;
 
     @BindView(R.id.tv_center_title)
@@ -39,10 +40,11 @@ public class ToolbarActivity extends BaseActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_toolbar);
+        ButterKnife.bind(this);
         if(layoutResID != 0) {
-            getLayoutInflater().inflate(layoutResID, (ViewGroup) findViewById(R.id.container), true);
+            getLayoutInflater().inflate(layoutResID, (ViewGroup) findViewById(R.id.toolbar_container), true);
         }else {
-            bindContent((ViewGroup)findViewById(R.id.container));
+            bindContent((ViewGroup)findViewById(R.id.toolbar_container));
         }
 
     }
@@ -50,7 +52,7 @@ public class ToolbarActivity extends BaseActivity {
     @Override
     protected void initWidget() {
         super.initWidget();
-        setSupportActionBar(mToolbar);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -65,7 +67,7 @@ public class ToolbarActivity extends BaseActivity {
     @Override
     public void setTitle(int titleId) {
         mCenterTitle.setText(titleId);
-        mToolbar.setTitle("");
+        toolbar.setTitle("");
     }
 
     protected void setMenuButton(int textRes) {
@@ -84,7 +86,19 @@ public class ToolbarActivity extends BaseActivity {
     @Override
     public void setTitle(CharSequence title) {
         mCenterTitle.setText(title);
-        mToolbar.setTitle("");
+        toolbar.setTitle("");
+    }
+
+    /**
+     * 显示toolbar 左边标题， 传0时不显示
+     * @param str
+     */
+    protected void showToolbarTitle(int str) {
+        if(str == 0) {
+            toolbar.setTitle("");
+        }else {
+            toolbar.setTitle(str);
+        }
     }
 
     @Override
