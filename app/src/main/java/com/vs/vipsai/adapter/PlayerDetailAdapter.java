@@ -1,7 +1,10 @@
 package com.vs.vipsai.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,10 @@ import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.TweetLike;
 import com.vs.vipsai.util.UIHelper;
 import com.vs.vipsai.widget.IdentityView;
+import com.vs.vipsai.widget.xchart.CircleChart;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,8 +36,24 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
     private static final int TYPE_NORMAL= 0x0001;
     private View.OnClickListener onPortraitClickListener;
 
+    List<Integer> datas = null;
+    int[] paintColor;
+    String[] pieString;
+    String[] pieRangeString;
+
     public PlayerDetailAdapter(Context context) {
         super(context, NEITHER);
+
+        datas = new ArrayList<Integer>();
+        datas.add(51);
+        datas.add(49);
+        // 画笔颜色的数组
+        paintColor = new int[]{Color.argb(255, 00, 211, 222),
+                                Color.argb(255, 252, 106, 106)};
+        //饼状图的文字描述
+        pieString = new String[]{"不及格", "良好", "优秀"};
+        //设置的范围描述
+        pieRangeString = new String[]{"<60", "60-80", ">80"};
     }
 
     @Override
@@ -51,6 +74,12 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
         if (position == 0) {
             h.headerLayout.setVisibility(View.VISIBLE);
             h.timeLineLayout.setVisibility(View.GONE);
+
+
+
+
+            h.circleChart.setData(datas, paintColor, pieString, pieRangeString);
+
         } else {
             h.headerLayout.setVisibility(View.GONE);
             h.timeLineLayout.setVisibility(View.VISIBLE);
@@ -115,6 +144,9 @@ public class PlayerDetailAdapter extends BaseRecyclerAdapter<TweetLike> {
         TextView tvTopLine;
         @BindView(R.id.tvDot)
         TextView tvDot;
+
+        @BindView(R.id.list_item_player_detail_circlechart)
+        CircleChart circleChart;
 
 
         public LikeUsersHolderView(View view) {

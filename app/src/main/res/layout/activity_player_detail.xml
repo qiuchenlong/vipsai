@@ -92,7 +92,7 @@
                         android:layout_toLeftOf="@+id/activity_player_detail_matchs"
                         android:layout_marginRight="5dp"
                         android:layout_centerVertical="true"
-                        android:src="@mipmap/tmp_bg"/>
+                        android:src="@mipmap/ic_video_black"/>
 
                     <TextView
                         android:id="@+id/activity_player_detail_matchs"
@@ -132,6 +132,7 @@
                     android:layout_margin="15dp"
                     android:lines="3"
                     android:ellipsize="end"
+                    android:lineSpacingExtra="5dp"
                     android:text="农业，插上互联网+的翅膀，让广元青川女孩儿王淑娟飞了起来。科米的故事可以说包罗一切热卖要素，从白宫阴谋到潜在的贪赃枉法，他的爆炸性故事令《白宫风云》、《纸牌屋》等大热剧集相形见绌。"
                     android:textSize="@dimen/text_size_12"
                     />

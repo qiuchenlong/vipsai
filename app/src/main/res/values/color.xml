@@ -115,5 +115,11 @@
     
     <!--Comment Color Value-->
     <color name="mark_text_color">#48AAFB</color>
+    
+    
+    <!--Chart Color Value-->
+    <color name="quality_score_color">#00D3DE</color>
+    <color name="people_score_color">#FC6A6A</color>
+
 
 </resources>
