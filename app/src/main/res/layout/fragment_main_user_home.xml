@@ -227,6 +227,7 @@
                         android:layout_marginLeft="20dp">
 
                         <Button
+                            android:id="@+id/fragment_main_user_home_btn_create_competition"
                             android:layout_width="wrap_content"
                             android:layout_height="28dp"
                             android:text="创建比赛"
@@ -422,7 +423,7 @@
 
 
                 <FrameLayout
-                    android:id="@+id/recommend_tabfragment_btn_inbox"
+                    android:id="@+id/fragment_main_user_home_btn_inbox"
                     style="@style/main_toolbar_fl_style">
 
                     <ImageView
@@ -433,7 +434,7 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:id="@+id/recommend_tabfragment_btn_notification"
+                    android:id="@+id/fragment_main_user_home_btn_notification"
                     style="@style/main_toolbar_fl_style"
                     >
                     <ImageView

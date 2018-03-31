@@ -10,6 +10,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="none"
+    android:background="@color/white"
     >
 
     <!--android:background="?attr/layout_item_bg"-->

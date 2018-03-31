@@ -14,10 +14,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.androidkun.xtablayout.XTabLayout;
+import com.vs.vipsai.AppContext;
 import com.vs.vipsai.OnTabReselectListener;
 import com.vs.vipsai.R;
 import com.vs.vipsai.account.activity.LoginActivity;
@@ -30,6 +32,8 @@ import com.vs.vipsai.media.SelectImageActivity;
 import com.vs.vipsai.media.config.SelectOptions;
 import com.vs.vipsai.notice.NoticeBean;
 import com.vs.vipsai.notice.NoticeManager;
+import com.vs.vipsai.notify.activity.NotifyActicity;
+import com.vs.vipsai.ui.activity.PubActivity;
 import com.vs.vipsai.util.DialogHelper;
 import com.vs.vipsai.util.ImageUtils;
 import com.vs.vipsai.util.SimplexToast;
@@ -42,6 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -780,6 +785,23 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onTabReselect() {
         sendRequestData();
+    }
+
+
+
+    @OnClick(R.id.fragment_main_user_home_btn_create_competition)
+    void onClickJoin(){
+        PubActivity.show(getContext());
+    }
+
+    @OnClick(R.id.fragment_main_user_home_btn_inbox)
+    void onClickInBox(){
+        NotifyActicity.show(AppContext.getContext(), 0);
+    }
+
+    @OnClick(R.id.fragment_main_user_home_btn_notification)
+    void onClickNotification() {
+        NotifyActicity.show(AppContext.getContext(), 1);
     }
 
 }
