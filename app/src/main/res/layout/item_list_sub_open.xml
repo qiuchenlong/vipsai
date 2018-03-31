@@ -324,7 +324,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
-                    android:background="@drawable/shape_search_view"
+                    android:background="@drawable/shape_btn_view_blue"
                     android:text="上传作品"
                     android:textColor="#FFFFFF"
                     />

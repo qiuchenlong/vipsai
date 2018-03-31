@@ -87,7 +87,7 @@
                     android:textSize="@dimen/text_size_12"
                     android:textColor="#FFFFFF"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/shape_search_view"
+                    android:background="@drawable/shape_btn_view_blue"
                     />
 
             </RelativeLayout>

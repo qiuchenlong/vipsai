@@ -231,7 +231,7 @@
                             android:layout_height="28dp"
                             android:text="创建比赛"
                             android:textColor="#FFFFFF"
-                            android:background="@drawable/shape_search_view"/>
+                            android:background="@drawable/shape_btn_view_blue"/>
 
                         <ImageView
                             android:layout_width="28dp"

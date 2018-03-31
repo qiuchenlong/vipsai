@@ -26,7 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/shape_search_view"
+                android:background="@drawable/shape_search_view_white"
                 app:iconifiedByDefault="false"
                 app:queryBackground="@color/transparent"
                 app:queryHint="关键字" />

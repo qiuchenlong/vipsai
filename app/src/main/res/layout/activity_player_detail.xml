@@ -144,7 +144,7 @@
                     android:paddingLeft="25dp"
                     android:paddingRight="25dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/shape_search_view"
+                    android:background="@drawable/shape_btn_view_blue"
                     android:text="上传作品"
                     android:textSize="@dimen/font15sp"
                     android:textColor="#FFFFFF"/>
