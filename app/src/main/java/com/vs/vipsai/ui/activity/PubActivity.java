@@ -92,7 +92,7 @@ public class PubActivity extends BaseActivity implements View.OnClickListener {
 //                WriteActivity.show(this);
 //                dismiss();
 //                SimplexToast.show(PubActivity.this, "sample");
-                PubTemplateActivity.open(v.getContext());
+                PubTemplateActivity.open(v.getContext(), null);
 
                 break;
             case R.id.activity_pub_layout_private:

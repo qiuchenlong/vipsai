@@ -179,5 +179,6 @@
 
     <string name="permissions_camera_error">相机无法完成初始化,请正确授权。</string>
 
+    <string name="pre_step">上一步</string>
 
 </resources>
