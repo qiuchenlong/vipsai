@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.AwardBean;
+import com.vs.vipsai.widget.GlidImageView;
 
 /**
  * * Author: chends
@@ -17,6 +18,8 @@ import com.vs.vipsai.bean.AwardBean;
  *  奖项列表项数据模型
  */
 public class VMAwardItem extends AwardBean{
+
+    public int iconPlaceHolder = R.mipmap.icon_logo;
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
     private Context mAppContext;
@@ -64,4 +67,8 @@ public class VMAwardItem extends AwardBean{
         view.setSelected(selected);
     }
 
+    @BindingAdapter({"bindImage","placeHolder"})
+    public static void bindImageView(GlidImageView view, String url, int placeHolder) {
+        view.setImageUrl(url, placeHolder);
+    }
 }
