@@ -213,6 +213,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <!--TabLayout 样式-->
     <style name="tab_style">
         <item name="tabMode">scrollable</item>
         <item name="tabGravity">center</item>
@@ -331,6 +332,22 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <!--勾选框样式-->
+    <style name="imageview_checkbox">
+        <item name="android:layout_width">@dimen/check_box_size</item>
+        <item name="android:layout_height">@dimen/check_box_size</item>
+        <item name="android:src">@drawable/cb_select_image_check_selector</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:contentDescription">""</item>
+    </style>
 
+    <!--标题栏文字样式-->
+    <style name="title_textAppearance">
+        <item name="android:textSize">@dimen/font_big</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
 
 </resources>

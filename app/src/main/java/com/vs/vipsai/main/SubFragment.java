@@ -25,6 +25,7 @@ import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
 import com.vs.vipsai.main.past.PastWonderfulSubAdapter;
 import com.vs.vipsai.main.recommend.AttentionSubAdapter;
 import com.vs.vipsai.main.recommend.PopularSubAdapter;
+import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.ui.activity.PlayerDetailActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
@@ -83,6 +84,15 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
         SubBean sub = mAdapter.getItem(position);
         if (sub == null)
             return;
+
+        if(mTab.getType() == News.TYPE_PUBLISH_SUBJECT) {
+            TournamentCollector c = TournamentCollector.get();
+            if(c != null) {
+                c.setSubjectId(sub.getId());
+            }
+            return;
+        }
+
         switch (sub.getType()) { // type的值 由请求来的数据决定，目前为模拟数据
             case News.TYPE_ATTENTION:
                 SimplexToast.show(getContext(), "position:" + position);
@@ -231,6 +241,12 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             setRecyclerBackgroundColor(); // set bg color
             setRecyclerStaggeredGridLayoutStyle(3); // StaggeredGridLayout
             return new AllSubAdapter(getActivity(), mode);
+        }
+
+        else if(mTab.getType() == News.TYPE_PUBLISH_SUBJECT) {
+            setRecyclerBackgroundColor(); // set bg color
+            setRecyclerLinearLayoutStyle(); // linearlayout
+            return new GameSubAdapter(getActivity(), mode);
         }
 
         return new PopularSubAdapter(getActivity(), mode);

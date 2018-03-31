@@ -41,6 +41,24 @@ public class TournamentCollector {
         }
     }
 
+    public void setSubjectId(long id) {
+        if(mTournament != null) {
+            mTournament.setSubjectId(id);
+        }
+    }
+
+    public void removeAwardId(long id) {
+        if(mTournament != null) {
+            mTournament.removeAwardId(id);
+        }
+    }
+
+    public void appendAwardId(long id) {
+        if(mTournament != null) {
+            mTournament.appendAwardId(id);
+        }
+    }
+
     private TournamentCollector(TournamentBean tournament){
         mTournament = tournament;
     }

@@ -120,12 +120,6 @@ public class PubTemplateActivity extends ToolbarActivity {
         addFragment(container.getId(), fragment);
     }
 
-//    @Override
-//    protected void initWidget() {
-//        super.initWidget();
-//        setMenuButton(R.string.retrieve_pwd_step_hint);
-//    }
-
     @Override
     protected void onMenuBtnClick(View view) {
         move2Step(Math.min(mStep + 1, STEP_LAST));

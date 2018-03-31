@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="VMAwardItem"
+            type="com.vs.vipsai.publish.viewmodels.VMAwardItem" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_12"
+        android:background="@drawable/bg_frame_green_selector"
+        app:selected="@{VMAwardItem.selected.get()}">
+
+        <!--标题-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/title_textAppearance"
+                android:text="@{VMAwardItem.title}"/>
+
+            <ImageView
+                style="@style/imageview_checkbox"
+                android:layout_weight="0"
+                app:selected="@{VMAwardItem.selected.get()}"/>
+
+        </LinearLayout>
+
+        <!--奖项类型-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_weight="0"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_ad_gray"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_4"
+                android:layout_weight="1"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/font_normal"
+                android:text="@{VMAwardItem.getAwardTypeStr()}"/>
+        </LinearLayout>
+
+        <!--描述-->
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/font_normal"
+            android:text="@{VMAwardItem.description}"/>
+
+        <!--图片-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_8"
+            android:visibility="@{VMAwardItem.getIconSize() == 0 ? View.GONE : View.VISIBLE}"
+            android:background="@drawable/bg_frame_top_white">
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                app:imageUrl="@{VMAwardItem.getIconUrl(0)}"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:layout_marginLeft="@dimen/padding_8"
+                android:layout_marginRight="@dimen/padding_4"
+                app:imageUrl="@{VMAwardItem.getIconUrl(1)}"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:layout_marginLeft="@dimen/padding_4"
+                android:layout_marginRight="@dimen/padding_4"
+                app:imageUrl="@{VMAwardItem.getIconUrl(2)}"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:layout_marginLeft="@dimen/padding_4"
+                app:imageUrl="@{VMAwardItem.getIconUrl(3)}"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

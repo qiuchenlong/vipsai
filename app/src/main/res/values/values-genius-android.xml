@@ -360,5 +360,4 @@
     <dimen name="size_92">92dp</dimen>
     <dimen name="size_96">96dp</dimen>
 
-    <dimen name="font_normal">12dp</dimen>
 </resources>

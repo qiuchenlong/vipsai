@@ -4,14 +4,17 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.TextHttpResponseHandler;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppContext;
+import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.api.remote.VSApi;
@@ -34,12 +37,19 @@ import com.vs.vipsai.main.past.ChampionWorkSubAdapter;
 import com.vs.vipsai.main.past.PastWonderfulSubAdapter;
 import com.vs.vipsai.main.recommend.AttentionSubAdapter;
 import com.vs.vipsai.main.recommend.PopularSubAdapter;
+import com.vs.vipsai.publish.TournamentCollector;
+import com.vs.vipsai.publish.adapters.AwardListAdapter;
+import com.vs.vipsai.publish.recyclerview.PaddingItemDecoration;
+import com.vs.vipsai.publish.recyclerview.VHDatabinding;
+import com.vs.vipsai.publish.viewmodels.VMAwardItem;
 import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
 import com.vs.vipsai.ui.activity.PlayerDetailActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 
 import java.lang.reflect.Type;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * * Author: chends
@@ -59,89 +69,80 @@ public class PubTemplatePickAward extends BaseGeneralRecyclerFragment<AwardBean>
 
     @Override
     public void initData() {
-//        mReadState = OSCApplication.getReadState("sub_list");
-//        if (mTab.getBanner() != null) {
-//            mHeaderView = mTab.getBanner().getCatalog() == SubTab.BANNER_CATEGORY_NEWS ?
-//                    new NewsHeaderView(mContext, getImgLoader(), mTab.getBanner().getHref(), mTab.getToken() + "banner" + mTab.getType()) :
-//                    new EventHeaderView(mContext, getImgLoader(), mTab.getBanner().getHref(), mTab.getToken() + "banner" + mTab.getType());
-//        }
         super.initData();
-//        mAdapter.setHeaderView(mHeaderView);
+
+        //测试
+        mHandler = new TextHttpResponseHandler() {
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                onRequestError();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+
+                try {
+                    ResultBean<PageBean<AwardBean>> resultBean = AppOperator.createGson().fromJson(AwardBean.getTestData(), getType());
+                    if (resultBean != null && resultBean.isSuccess() && resultBean.getResult().getItems() != null) {
+                        setListData(resultBean);
+                        onRequestSuccess(resultBean.getCode());
+                    } else {
+                        if (resultBean.getCode() == ResultBean.RESULT_TOKEN_ERROR) {
+                            SimplexToast.show(getActivity(), resultBean.getMessage());
+                        }
+                        mAdapter.setState(BaseRecyclerAdapter.STATE_NO_MORE, true);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    onFailure(statusCode, headers, responseString, e);
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                onRequestFinish();
+            }
+
+            @Override
+            public void onCancel() {
+                super.onCancel();
+                onRequestFinish();
+            }
+        };
+
         mAdapter.setSystemTime(AppConfig.getAppConfig(getActivity()).get("system_time"));
-//        if (mAdapter instanceof PopularSubAdapter) {
-//            ((PopularSubAdapter) mAdapter).setTab(mTab);
-//        }
     }
 
     @Override
     public void onItemClick(int position, long itemId) {
-        if(!TDevice.hasWebView(mContext))
-            return;
-        AwardBean sub = mAdapter.getItem(position);
-        if (sub == null)
-            return;
-//        switch (sub.getType()) { // type的值 由请求来的数据决定，目前为模拟数据
-//            case News.TYPE_ATTENTION:
-//                SimplexToast.show(getContext(), "position:" + position);
-//
-////                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
-////                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-////                AppContext.getInstance().startActivity(intent);
-//
-//
-//                Intent intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                AppContext.getInstance().startActivity(intent);
-//
-//
-//                break;
-//            case News.TYPE_NEWEST:
-//                SimplexToast.show(getContext(), "21" + sub.getBody());
-//                break;
-////            case News.TYPE_SOFTWARE:
-////                //SoftwareDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.SoftwareDetailActivity.show(mContext, sub);
-////                break;
-////            case News.TYPE_QUESTION:
-////                //QuestionDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.QuestionDetailActivity.show(mContext, sub);
-////                break;
-////            case News.TYPE_ATTENTION:
-////                //BlogDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.BlogDetailActivity.show(mContext, sub);
-////                break;
-////            case News.TYPE_TRANSLATE:
-////                //TranslateDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.NewsDetailActivity.show(mContext, sub);
-////                break;
-////            case News.TYPE_EVENT:
-////                //EventDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.EventDetailActivity.show(mContext, sub);
-////                break;
-////            case News.TYPE_NEWS:
-////                //NewsDetailActivity.show(mContext, sub.getId());
-////                net.oschina.app.improve.detail.general.NewsDetailActivity.show(mContext, sub);
-////                break;
-////            default:
-////                UIHelper.showUrlRedirect(mContext, sub.getHref());
-////                break;
-//        }
 
-//        mReadState.put(sub.getKey());
-        mAdapter.updateItem(position);
+        VHDatabinding<VMAwardItem> holder = (VHDatabinding)mRecyclerView.findViewHolderForAdapterPosition(position);
+        VMAwardItem model = holder.getModel();
+        if(model != null) {
+            model.selected.set(!model.selected.get());
+        }
+
+        TournamentCollector c = TournamentCollector.get();
+        if(c != null) {
+            if(model.selected.get()) {
+                c.appendAwardId(model.getId());
+            }else {
+                c.removeAwardId(model.getId());
+            }
+        }
     }
 
 
     @Override
     public void onRefreshing() {
         super.onRefreshing();
-//        if (mHeaderView != null)
-//            mHeaderView.requestBanner();
     }
 
     @Override
     protected void requestData() {
-//        VSApi.getSubscription(mTab.getHref(), isRefreshing ? null : mBean.getNextPageToken(), mHandler);
+        VSApi.getSubscription("https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9", isRefreshing ? null : mBean.getNextPageToken(), mHandler);
     }
 
     @Override
@@ -152,88 +153,9 @@ public class PubTemplatePickAward extends BaseGeneralRecyclerFragment<AwardBean>
 
     @Override
     protected BaseRecyclerAdapter<AwardBean> getRecyclerAdapter() {
-////        int mode = mHeaderView != null ? BaseRecyclerAdapter.BOTH_HEADER_FOOTER : BaseRecyclerAdapter.ONLY_FOOTER;
-//        int mode = BaseRecyclerAdapter.ONLY_FOOTER;
-//        if (mTab.getType() == News.TYPE_ATTENTION) {
-//            setItemDecoration();
-//            setRecyclerLinearLayoutStyle();
-//            return new AttentionSubAdapter(getActivity(), mode, getActivity());
-//        }
-////        else if (mTab.getType() == News.TYPE_EVENT)
-////            return new EventSubAdapter(this, mode);
-////        else if (mTab.getType() == News.TYPE_QUESTION)
-////            return new QuestionSubAdapter(this, mode);
-//
-//        else if (mTab.getType() == News.TYPE_POPULAR) {
-//            setItemDecoration();
-//            setRecyclerLinearLayoutStyle();
-//            return new PopularSubAdapter(getActivity(), mode);
-//        }
-//
-//        /**
-//         * competition tab
-//         */
-//        else if (mTab.getType() == News.TYPE_OPEN) {
-//            setItemDecoration();
-//            setRecyclerLinearLayoutStyle();
-//            return new OpenSubAdapter(getActivity(), mode, getActivity());
-//        }
-//        else if (mTab.getType() == News.TYPE_QUALIFYING) {
-//            setItemDecoration();
-//            setRecyclerLinearLayoutStyle();
-//            return new QualifyingSubAdapter(getActivity(), mode, getActivity());
-//        }
-//
-//
-//
-//
-//        /**
-//         * past tab
-//         */
-//
-//        else if (mTab.getType() == News.TYPE_PAST_WONDERFUL) {
-//            setItemDecoration();
-//            setRecyclerLinearLayoutStyle();
-//            return new PastWonderfulSubAdapter(getActivity(), mode, getActivity());
-//        }
-//        else if (mTab.getType() == News.TYPE_CHAMPIONWORK) {
-//            setRecyclerBackgroundColor(); // set bg color
-//            setRecyclerStaggeredGridLayoutStyle(2); // StaggeredGridLayout
-//            return new ChampionWorkSubAdapter(getActivity(), mode);
-//        }
-//
-//
-//
-//
-//        /**
-//         * my tab
-//         */
-//        else if (mTab.getType() == News.TYPE_NEWEST) {
-//            setaddItemDecorationOfMySelf(); // time line
-//            setRecyclerBackgroundColor(); // set bg color
-//            setRecyclerLinearLayoutStyle(); // linearlayout
-//            return new MeSubAdapter(getActivity(), mode);
-//        }
-//        else if (mTab.getType() == News.TYPE_WINNER) {
-//            setRecyclerBackgroundColor(); // set bg color
-//            setRecyclerStaggeredGridLayoutStyle(3); // StaggeredGridLayout
-//            return new WinnerSubAdapter(getActivity(), mode);
-//        }
-//        else if (mTab.getType() == News.TYPE_GAME) {
-//            setRecyclerBackgroundColor(); // set bg color
-//            setRecyclerLinearLayoutStyle(); // linearlayout
-//            return new GameSubAdapter(getActivity(), mode);
-//        }
-//        else if (mTab.getType() == News.TYPE_ALL) {
-//            setRecyclerBackgroundColor(); // set bg color
-//            setRecyclerStaggeredGridLayoutStyle(3); // StaggeredGridLayout
-//            return new AllSubAdapter(getActivity(), mode);
-//        }
-//
-//        return new PopularSubAdapter(getActivity(), mode);
-////        return new BlogSubAdapter(getActivity(), mode);
-
-        return null;
+        int padding = getContext().getResources().getDimensionPixelSize(R.dimen.padding_12);
+        mRecyclerView.addItemDecoration(new PaddingItemDecoration(padding, padding, padding, padding));
+        return new AwardListAdapter(getContext(), BaseRecyclerAdapter.ONLY_FOOTER);
     }
 
     @Override

@@ -181,4 +181,8 @@
 
     <string name="pre_step">上一步</string>
 
+    <!--奖项选项-->
+    <string name="cash">现金</string>
+    <string name="present">礼品</string>
+
 </resources>
