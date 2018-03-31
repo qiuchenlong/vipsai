@@ -36,6 +36,7 @@ import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
+import com.vs.vipsai.util.TextUtil;
 import com.vs.vipsai.widget.PortraitView;
 
 import org.w3c.dom.Text;
@@ -131,7 +132,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
 //        title.setText(spannable.append(item.getTitle()));
 
-        title.setText(Html.fromHtml("<font color='#48AAFB'>DOTA2国际邀请赛</font>（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛 <font color='#48AAFB'>#Android</font> <font color='#48AAFB'>@IOS</font>"));
+        title.setText(TextUtil.tf_keyword("#Android# @IOS #Nodejs 腾讯QQ，8亿人在用的即时通讯软件，你不仅可以在各类通讯终端上通过QQ聊天交友，还能进行免费的视频、语音通话，或者随时随地收发重要文件。欢迎访问QQ官方网站，下载体验最新版QQ，了解QQ最新功能。 "));
 
 
         String body = item.getBody();
