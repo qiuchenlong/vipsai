@@ -13,6 +13,8 @@ import com.vs.vipsai.settings.payment.PaymentOpenFingerprintFragment;
 import com.vs.vipsai.settings.payment.PaymentPasswordFragment;
 import com.vs.vipsai.settings.payment.PaymentModifyPasswordFragment;
 import com.vs.vipsai.settings.SettingsFragment;
+import com.vs.vipsai.ui.fragment.RankingFragment;
+import com.vs.vipsai.ui.fragment.RankingRuleFragment;
 
 /**
  * Author: cynid
@@ -49,6 +51,10 @@ public enum SimpleBackPage {
 
     SOCIAL_PLATFORM(24, R.string.actionbar_title_social_platforms, SocialPlatformFragment.class),
 
+
+
+    RANKING(51, R.string.actionbar_title_ranking, RankingFragment.class),
+    RANKING_RULE(52, R.string.actionbar_title_ranking_rule, RankingRuleFragment.class),
 
 
 

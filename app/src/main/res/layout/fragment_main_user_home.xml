@@ -338,6 +338,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fragment_main_user_home_btn_ranking"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

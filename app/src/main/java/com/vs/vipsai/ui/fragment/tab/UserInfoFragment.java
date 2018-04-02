@@ -804,4 +804,10 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         NotifyActicity.show(AppContext.getContext(), 1);
     }
 
+
+    @OnClick(R.id.fragment_main_user_home_btn_ranking)
+    void onClickRanking() {
+        UIHelper.showRankingFingerprint(getContext());
+    }
+
 }

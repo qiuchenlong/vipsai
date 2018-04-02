@@ -42,6 +42,8 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
     protected WeakReference<Fragment> mFragment;
     protected int mPageValue = -1;
 
+    private TextView title;
+
     @Override
     public void startActivity(Intent intent) {
         View view = getCurrentFocus();
@@ -64,7 +66,7 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
         }
 
         setTitle(page.getTitle());
-        TextView title = (TextView) findViewById(R.id.toolbar_title);
+        title = (TextView) findViewById(R.id.toolbar_title);
         title.setText(page.getTitle());
 
 
@@ -92,6 +94,30 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
                     "generate fragment error. by value:" + pageValue);
         }
     }
+
+
+    /**
+     * 设置标题居中显示
+     *
+     * @param fragment
+     */
+    public void setTitleCenter(Fragment fragment) {
+        Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(Toolbar.LayoutParams.MATCH_PARENT, Toolbar.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 0, 0, 0);
+        title.setLayoutParams(layoutParams);
+    }
+
+
+    /**
+     * 设置标题颜色
+     *
+     * @param color
+     */
+    public void setTitleColorByColorId(int color) {
+        title.setTextColor(color);
+    }
+
+
 
     @Override
     public void onBackPressed() {

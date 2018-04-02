@@ -633,6 +633,27 @@ public class UIHelper {
 
 
     /**
+     * 显示排行榜界面
+     *
+     * @param context
+     */
+    public static void showRankingFingerprint(Context context) {
+        showSimpleBack(context, SimpleBackPage.RANKING);
+    }
+
+
+    /**
+     * 显示排行榜规则界面
+     *
+     * @param context
+     */
+    public static void showRankingRuleFingerprint(Context context) {
+        showSimpleBack(context, SimpleBackPage.RANKING_RULE);
+    }
+
+
+
+    /**
      * 清除app缓存
      */
     public static void clearAppCache(boolean showToast) {

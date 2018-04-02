@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="排行榜规则"
+        android:textColor="#333333"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="1.本服务条款及其下的服务受中华人民共和国法律管辖，并按之解释。
+
+2.用户使用本服务的行为若有任何违反国家法律法规或侵犯任何第三方合法权益的情形，视我科技有权直接删除该等违反规定的信息，并可以暂停或终止向该用户提供服务。
+若用户利用本服务从事任何违法或侵权行为，由用户自行承担全部责任，视我科技不承担任何法律责任及连带责任。因此给视我科技或任何第三方造成任何损失的，用户应负责全额赔偿。
+用户在此特别声明并承诺，用户已充分注意本服务协议内免除或限制视我科技责任的条款，用户完全知晓和理解该等条款的规定并同意接受。
+"
+        android:textSize="@dimen/font12sp"
+        />
+
+</LinearLayout>
