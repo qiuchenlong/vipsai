@@ -21,23 +21,21 @@ import com.vs.vipsai.util.ImageLoader;
  */
 public class GlidImageView extends android.support.v7.widget.AppCompatImageView {
 
-    private int mPlaceHolder;
+    private RequestManager mGlide;
 
     public GlidImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mGlide = Glide.with(getContext());
     }
 
-    public void setImageUrl(String url) {
+    public void setImageUrl(String url, int placeHolder) {
         if(TextUtils.isEmpty(url)) {
             setVisibility(View.INVISIBLE);
             return;
         }else {
             setVisibility(View.VISIBLE);
         }
-        ImageLoader.loadImage(Glide.with(getContext()), this, url);
-    }
 
-    public void setPlaceHolder(int res) {
-        mPlaceHolder = res;
+        ImageLoader.loadImage(mGlide, this, url, placeHolder);
     }
 }

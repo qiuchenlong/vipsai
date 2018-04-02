@@ -87,33 +87,44 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                app:imageUrl="@{VMAwardItem.getIconUrl(0)}"/>
+                app:bindImage="@{VMAwardItem.getIconUrl(0)}"
+                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
 
             <com.vs.vipsai.widget.FitHeightImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                android:layout_marginLeft="@dimen/padding_8"
-                android:layout_marginRight="@dimen/padding_4"
-                app:imageUrl="@{VMAwardItem.getIconUrl(1)}"/>
+                app:bindImage="@{VMAwardItem.getIconUrl(1)}"
+                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
 
             <com.vs.vipsai.widget.FitHeightImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                android:layout_marginLeft="@dimen/padding_4"
-                android:layout_marginRight="@dimen/padding_4"
-                app:imageUrl="@{VMAwardItem.getIconUrl(2)}"/>
+                app:bindImage="@{VMAwardItem.getIconUrl(2)}"
+                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
 
             <com.vs.vipsai.widget.FitHeightImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                android:layout_marginLeft="@dimen/padding_4"
-                app:imageUrl="@{VMAwardItem.getIconUrl(3)}"/>
+                app:bindImage="@{VMAwardItem.getIconUrl(3)}"
+                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
 
         </LinearLayout>
 

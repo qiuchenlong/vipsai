@@ -24,27 +24,6 @@ public class PubTemplatePickParticipant extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        if (mRoot != null) {
-//            ViewGroup parent = (ViewGroup) mRoot.getParent();
-//            if (parent != null)
-//                parent.removeView(mRoot);
-//        } else {
-//
-//            ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.vm_tab_fragment,
-//                                                container, false);
-//            binding.setVariable(BR.VMTabFragment, new VMPublishPickSubject(getChildFragmentManager(), binding.getRoot()));
-//            mRoot = binding.getRoot();
-//
-//            // Do something
-//            onBindViewBefore(mRoot);
-//            // Get savedInstanceState
-//            if (savedInstanceState != null)
-//                onRestartInstance(savedInstanceState);
-//            // Init
-//            initWidget(mRoot);
-//            initData();
-//        }
-//        return mRoot;
         TextView result = new TextView(container.getContext());
         result.setText("Pick Participant");
         return result;
