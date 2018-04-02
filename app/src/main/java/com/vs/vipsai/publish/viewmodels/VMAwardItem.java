@@ -19,7 +19,7 @@ import com.vs.vipsai.widget.GlidImageView;
  */
 public class VMAwardItem extends AwardBean{
 
-    public int iconPlaceHolder = R.mipmap.icon_logo;
+    public int iconPlaceHolder = R.mipmap.ic_default_image;
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
     private Context mAppContext;
@@ -67,8 +67,4 @@ public class VMAwardItem extends AwardBean{
         view.setSelected(selected);
     }
 
-    @BindingAdapter({"bindImage","placeHolder"})
-    public static void bindImageView(GlidImageView view, String url, int placeHolder) {
-        view.setImageUrl(url, placeHolder);
-    }
 }

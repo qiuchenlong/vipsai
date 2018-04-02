@@ -8,20 +8,31 @@ import android.view.ViewGroup.LayoutParams;
 
 public class FitHeightImageView extends GlidImageView {
 
+    private float mRatio = 1;
+
     public FitHeightImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        setScaleType(ScaleType.FIT_XY);
+//        setScaleType(ScaleType.FIT_XY);
     }
 
     @Override
-    public void setLayoutParams(LayoutParams params) {
-        params.width = LayoutParams.MATCH_PARENT;
-        super.setLayoutParams(params);
+    public void setImageDrawable(@Nullable Drawable drawable) {
+        super.setImageDrawable(drawable);
+        if(drawable != null) {
+            mRatio = drawable.getIntrinsicWidth() * 1f / drawable.getIntrinsicHeight();
+        }
     }
+
+//    @Override
+//    public void setLayoutParams(LayoutParams params) {
+//        params.width = LayoutParams.MATCH_PARENT;
+//        super.setLayoutParams(params);
+//    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(getMeasuredWidth(),  getMeasuredWidth());
+        int height = (int)(getMeasuredWidth() / mRatio);
+        setMeasuredDimension(getMeasuredWidth(),  height);
     }
 }

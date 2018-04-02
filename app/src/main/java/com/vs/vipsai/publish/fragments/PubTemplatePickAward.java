@@ -60,13 +60,6 @@ import cz.msebera.android.httpclient.Header;
  */
 public class PubTemplatePickAward extends BaseGeneralRecyclerFragment<AwardBean> {
 
-//    @Override
-//    protected void initBundle(Bundle bundle) {
-//        super.initBundle(bundle);
-//        mTab = (SubTab) bundle.getSerializable("sub_tab");
-//        CACHE_NAME = mTab.getToken();
-//    }
-
     @Override
     public void initData() {
         super.initData();
@@ -134,11 +127,6 @@ public class PubTemplatePickAward extends BaseGeneralRecyclerFragment<AwardBean>
         }
     }
 
-
-    @Override
-    public void onRefreshing() {
-        super.onRefreshing();
-    }
 
     @Override
     protected void requestData() {

@@ -185,4 +185,9 @@
     <string name="cash">现金</string>
     <string name="present">礼品</string>
 
+    <string name="search">搜索</string>
+
+    <string name="please_input">请输入%1$s</string>
+    <string name="min_length_hint">不少于%1$s个字</string>
+    <string name="format_error">%1$s格式错误</string>
 </resources>

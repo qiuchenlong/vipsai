@@ -608,4 +608,64 @@ public class StringUtils {
                 : String.format("%skm 以内", distance / 1000);
     }
 
+    /**
+     * 数字、字母、下划线组合
+     * @param src
+     * @return
+     */
+    public static boolean isNumText(String src) {
+        boolean result = false;
+        if(!TextUtils.isEmpty(src)) {
+            String expre = "^(?!_)(?!.*?_$)[a-zA-Z0-9_]+$";
+            Pattern p = Pattern.compile(expre);
+            result = p.matcher(src).matches();
+        }
+        return result;
+    }
+
+    /**
+     * 只包含汉字
+     * @param src
+     * @return
+     */
+    public static boolean onlyChinese(String src) {
+        if(src != null) {
+            Pattern p = Pattern.compile("^[\\u4e00-\\u9fa5]+$");
+            Matcher m = p.matcher(src);
+            if (m.find()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isPhoneNum(String src) {
+        boolean result = false;
+        if(!TextUtils.isEmpty(src)) {
+            Pattern p = Pattern.compile("^[1][3,4,5,7,8][0-9]{9}$"); // 验证手机号
+            Matcher m = p.matcher(src);
+            return m.matches();
+        }
+        return result;
+    }
+
+    /**
+     * 是否是指定长度的数字、字母、汉字、下划线组合
+     * @param minLength
+     * @param maxLength
+     * @return
+     */
+    public static boolean isNumTextSimplified(String src, int minLength, int maxLength) {
+        boolean result = false;
+
+        if(!TextUtils.isEmpty(src)) {
+            String expre  = "^(?!_)(?!.*?_$)[a-zA-Z0-9_\\u4e00-\\u9fa5]+$";
+            if(minLength > 0 && maxLength >= minLength) {
+                expre  = "^[\\u4E00-\\u9FA5\\uF900-\\uFA2D\\w]{" + minLength + "," + maxLength + "}$";
+            }
+            Pattern p = Pattern.compile(expre);
+            result = p.matcher(src).matches();
+        }
+        return result;
+    }
 }

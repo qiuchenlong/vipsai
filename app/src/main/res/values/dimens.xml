@@ -120,10 +120,15 @@
     <dimen name="tab_height">36dp</dimen>
 
     <dimen name="check_box_size">@dimen/size_20</dimen>
-    <dimen name="list_image_size">68dp</dimen>
+    <dimen name="list_image_size">38dp</dimen>
+
+    <dimen name="image_size_normal">24dp</dimen>
+    <dimen name="image_size_small">18dp</dimen>
 
     <dimen name="font_normal">12dp</dimen>
     <dimen name="font_big">14dp</dimen>
     <dimen name="font_small">10dp</dimen>
+
+    <dimen name="bar_height">48dp</dimen>
 
 </resources>
