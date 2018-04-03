@@ -198,6 +198,14 @@
             android:windowSoftInputMode="adjustResize"/>
 
 
+        <activity android:name="com.vs.vipsai.balance.activity.AccountBalanceActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="帐户金额"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+
 
 
 

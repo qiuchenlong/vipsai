@@ -41,6 +41,11 @@ public class BlurPopupWindow {
      * 点击处弹出popupWindow关键字
      */
     public static final int KEYWORD_LOCATION_CLICK = 2;
+    /**
+     * 点击处 最左边位置 弹出popupWindow关键字
+     */
+    public static final int KEYWORD_LOCATION_CLICK_LEFT = 3;
+
     private Activity activity;
     private WindowManager.LayoutParams params;
     private boolean isDisplay;
@@ -89,12 +94,15 @@ public class BlurPopupWindow {
         switch (keyword) {
             case KEYWORD_LOCATION_CLICK:
                 view.setPadding(5, 10, 5, 0);//由于.9图片有部分是透明，往下padding 10个pix，左右padding 5个pix为了美观
-                view.setBackgroundResource(R.drawable.popup_bg);
+//                view.setBackgroundResource(R.drawable.popup_bg);
                 break;
             case KEYWORD_LOCATION_TOP:
                 ImageView imageView = (ImageView) view;
                 imageView.setScaleType(ImageView.ScaleType.FIT_START);
 //                imageView.setImageDrawable(activity.getResources().getDrawable(R.mipmap.popup_top_bg));
+                break;
+            case KEYWORD_LOCATION_CLICK_LEFT:
+                view.setPadding(5, 0, 5, 0);
                 break;
             default:
                 break;
@@ -200,6 +208,12 @@ public class BlurPopupWindow {
                         x = 0;
                         y = 0;
                         break;
+                    case KEYWORD_LOCATION_CLICK_LEFT:
+                        //得到该view相对于屏幕的坐标
+                        locationView.getLocationOnScreen(point);
+                        x = 0;
+                        y = point[1] + locationView.getHeight();
+                        break;
                     default:
                         break;
                 }
@@ -300,6 +314,13 @@ public class BlurPopupWindow {
                         view.setPivotX(0);
                         view.setPivotY(0);
                         view.setScaleY(value);
+                        break;
+                    case KEYWORD_LOCATION_CLICK_LEFT:
+                        view.setPivotX(0);
+                        view.setPivotY(0);
+                        view.setScaleX(value);
+                        view.setScaleY(value);
+                        view.setAlpha(value);
                         break;
                     default:
                         break;

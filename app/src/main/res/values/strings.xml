@@ -137,6 +137,12 @@
     <string name="actionbar_title_ranking_rule">规则</string>
 
 
+
+    <string name="actionbar_title_balance_detail">详情</string>
+    <string name="actionbar_title_balance_withdraw_money">取现</string>
+
+
+
     <!--设置选项-->
     <string name="set_options_social_platforms">社交平台</string>
     <string name="set_options_location">定位</string>

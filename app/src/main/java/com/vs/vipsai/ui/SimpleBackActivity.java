@@ -25,6 +25,7 @@ import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.settings.SettingsFragment;
 import com.vs.vipsai.settings.information.InformationFragment;
 import com.vs.vipsai.util.SimplexToast;
+import com.vs.vipsai.widget.FragmentPagerAdapter;
 
 import java.lang.ref.WeakReference;
 
@@ -43,6 +44,11 @@ public class SimpleBackActivity extends BackActivity implements OnSendClickListe
     protected int mPageValue = -1;
 
     private TextView title;
+
+
+    private Fragment mCurFragment;
+    private FragmentPagerAdapter mAdapter;
+
 
     @Override
     public void startActivity(Intent intent) {

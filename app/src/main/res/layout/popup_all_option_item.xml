@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vs.vipsai.balance.LineLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="18dp"
+    android:paddingRight="36dp"
+    android:gravity="left|center_vertical">
+
+    <!--<com.vs.vipsai.balance.LineLayout-->
+        <!--android:id="@+id/popup_all_option_item_linelayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_popup_item"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="38dp"-->
+            <!--android:gravity="center"-->
+            <!--android:lines="1"-->
+            <!--android:layout_marginLeft="6dp"-->
+            <!--android:text="popup_item_"-->
+            <!--android:textColor="#333333"-->
+            <!--android:textSize="12sp"-->
+            <!--android:background="@drawable/shape_search_view_white"-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:paddingRight="15dp"-->
+            <!--android:layout_centerInParent="true"/>-->
+
+
+
+    <!--</com.vs.vipsai.balance.LineLayout>-->
+
+
+</com.vs.vipsai.balance.LineLayout>

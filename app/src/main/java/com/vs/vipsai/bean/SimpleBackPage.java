@@ -1,6 +1,8 @@
 package com.vs.vipsai.bean;
 
 import com.vs.vipsai.R;
+import com.vs.vipsai.balance.fragment.BalanceDetailFragment;
+import com.vs.vipsai.balance.fragment.BalanceWithDrawMoneyFragment;
 import com.vs.vipsai.main.SubFragment;
 import com.vs.vipsai.settings.about.AboutVSFragment;
 import com.vs.vipsai.settings.domain.DomainFragment;
@@ -55,6 +57,15 @@ public enum SimpleBackPage {
 
     RANKING(51, R.string.actionbar_title_ranking, RankingFragment.class),
     RANKING_RULE(52, R.string.actionbar_title_ranking_rule, RankingRuleFragment.class),
+
+
+
+
+
+
+
+    BALANCE_DETAIL(91, R.string.actionbar_title_balance_detail, BalanceDetailFragment.class),
+    BALANCE_WITHDRAWMONEY(92, R.string.actionbar_title_balance_withdraw_money, BalanceWithDrawMoneyFragment.class),
 
 
 

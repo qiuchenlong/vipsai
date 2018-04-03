@@ -294,6 +294,8 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
             }
         });
 
+        lv_popup.setBackgroundResource(R.drawable.popup_bg);
+
 
 
 //        ImageView iv_popup_top = new ImageView(context);
