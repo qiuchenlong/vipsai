@@ -2,26 +2,18 @@ package com.vs.vipsai.publish.activitys;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingComponent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.TournamentBean;
 import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.publish.fragments.PubTemplatePickAward;
 import com.vs.vipsai.publish.fragments.PubTemplatePickCover;
-import com.vs.vipsai.publish.fragments.PubTemplatePickParticipant;
+import com.vs.vipsai.publish.fragments.UserListFragment;
 import com.vs.vipsai.publish.fragments.PubTemplatePickSubject;
-import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
-import com.vs.vipsai.publish.viewmodels.VMTabFragment;
-import com.vs.vipsai.util.SimplexToast;
 
 /**
  * * Author: chends
@@ -96,7 +88,7 @@ public class PubTemplateActivity extends ToolbarActivity {
             case STEP_PICK_PARTICIPANT:
 
                 if (fragment == null) {
-                    fragment = new PubTemplatePickParticipant();
+                    fragment = new UserListFragment();
                     mFragments[nextStep] = fragment;
                 }
 

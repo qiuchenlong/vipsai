@@ -1,6 +1,7 @@
 package com.vs.vipsai.widget;
 
 import android.content.Context;
+import android.databinding.BindingAdapter;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.vs.library.widget.RoundImageView;
 import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.util.ImageLoader;
 
@@ -19,7 +21,7 @@ import com.vs.vipsai.util.ImageLoader;
  *
  *  封装glid的ImageView
  */
-public class GlidImageView extends android.support.v7.widget.AppCompatImageView {
+public class GlidImageView extends RoundImageView {
 
     private RequestManager mGlide;
 
@@ -37,5 +39,10 @@ public class GlidImageView extends android.support.v7.widget.AppCompatImageView 
         }
 
         ImageLoader.loadImage(mGlide, this, url, placeHolder);
+    }
+
+    @BindingAdapter({"bindImage","placeHolder"})
+    public static void bindImageView(GlidImageView view, String url, int placeHolder) {
+        view.setImageUrl(url, placeHolder);
     }
 }

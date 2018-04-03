@@ -1,6 +1,7 @@
 package com.vs.vipsai;
 
 import com.vs.vipsai.api.ApiHttpClient;
+import com.vs.vipsai.util.PinYin;
 
 /**
  * Author: cynid
@@ -22,5 +23,9 @@ public class VSApplication extends AppContext {
 
         // 初始化网络请求
         ApiHttpClient.init(this);
+
+        //初始化拼音组件,用于用户列表分组
+        PinYin.init(this);
+        PinYin.validate();
     }
 }
