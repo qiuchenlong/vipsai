@@ -126,4 +126,19 @@
 
 
 
+
+    <!--payment password edit-->
+    <declare-styleable name="PasswordEditText">
+        <attr name="passwordNumber" format="integer"/>
+        <attr name="passwordRadius" format="dimension" />
+        <attr name="passwordColor" format="color" />
+        <attr name="divisionLineColor" format="color" />
+        <attr name="divisionLineSize" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="bgSize" format="dimension" />
+        <attr name="bgCorner" format="dimension"/>
+    </declare-styleable>
+
+
+
 </resources>

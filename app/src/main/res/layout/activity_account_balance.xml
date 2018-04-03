@@ -41,18 +41,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="right|center_vertical"
-                android:background="?attr/selectableItemBackground"
                 >
 
                 <TextView
                     android:id="@+id/activity_account_balacne_label_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:gravity="center"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
                     android:text="menu"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp"
+                    android:background="?attr/selectableItemBackground"
+                    />
             </FrameLayout>
 
 

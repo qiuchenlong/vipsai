@@ -23,6 +23,7 @@ import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.ui.empty.EmptyLayout;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
+import com.vs.vipsai.util.UIHelper;
 import com.vs.vipsai.widget.popupwindow.BlurPopupWindow;
 import com.vs.vipsai.widget.popupwindow.PopupListView;
 
@@ -56,6 +57,11 @@ public class AccountBalanceFragment extends AccountBalanceBaseFragment {
 
 
     protected BalanceSubAdapter mAdapter;
+
+
+
+
+
 
 
     public static AccountBalanceFragment newInstance(Context context, SubTab subTab) {
@@ -332,6 +338,23 @@ public class AccountBalanceFragment extends AccountBalanceBaseFragment {
             }
         });
     }
+
+
+
+
+
+    @OnClick(R.id.fragment_account_balance_withdraw_money)
+    void onClickWithDrawMoney() {
+        UIHelper.showBalanceWithDrawMoney(mContext);
+    }
+
+
+    @OnClick(R.id.fragment_account_balance_buy_coin)
+    void onClickBuyCoin() {
+
+    }
+
+
 
 
 }

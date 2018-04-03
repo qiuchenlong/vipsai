@@ -641,6 +641,20 @@ public class UIHelper {
         showSimpleBack(context, SimpleBackPage.RANKING);
     }
 
+    /**
+     * 显示排行榜规则界面
+     *
+     * @param context
+     */
+    public static void showRankingRuleFingerprint(Context context) {
+        showSimpleBack(context, SimpleBackPage.RANKING_RULE);
+    }
+
+
+
+
+
+
 
     /**
      * 显示余额详情界面
@@ -652,22 +666,16 @@ public class UIHelper {
     }
 
 
-
-
-
-
-
-
-
-
     /**
-     * 显示排行榜规则界面
+     * 显示余额详情界面
      *
      * @param context
      */
-    public static void showRankingRuleFingerprint(Context context) {
-        showSimpleBack(context, SimpleBackPage.RANKING_RULE);
+    public static void showBalanceWithDrawMoney(Context context) {
+        showSimpleBack(context, SimpleBackPage.BALANCE_WITHDRAWMONEY);
     }
+
+
 
 
 

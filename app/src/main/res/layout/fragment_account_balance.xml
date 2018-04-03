@@ -208,6 +208,8 @@
         android:id="@+id/fragment_account_balance_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginRight="-8dp"
         android:layout_marginBottom="54dp">
 
     </android.support.v7.widget.RecyclerView>
@@ -217,15 +219,23 @@
 
     </LinearLayout>
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="54dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:orientation="horizontal"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom"
+        >
 
         <LinearLayout
+            android:id="@+id/fragment_account_balance_withdraw_money"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -234,15 +244,18 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="取现"
                 android:textColor="@color/mark_text_color"
+                android:background="?attr/selectableItemBackground"
                 />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/fragment_account_balance_buy_coin"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -251,10 +264,12 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="购买微币"
                 android:textColor="@color/white"
+                android:background="?attr/selectableItemBackground"
                 />
 
         </LinearLayout>
