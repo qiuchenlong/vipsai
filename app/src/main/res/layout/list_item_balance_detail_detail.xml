@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/fill_wrap"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/list_item_player_detail_time_line_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        >
+
+        <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+
+        <RelativeLayout
+            android:id="@+id/rlTimeline"
+            android:layout_width="32dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTopLine"
+                android:layout_width="2dp"
+                android:layout_height="12dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/mark_text_color" />
+
+            <TextView
+                android:id="@+id/tvDot"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/tvTopLine"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/timeline_dot_blue"/>
+
+
+
+            <TextView
+                android:id="@+id/tvBottomLine"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tvDot"
+                android:layout_centerHorizontal="true"
+                android:background="@color/mark_text_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlCenter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="6dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/list_item_balance_detail_detail_action_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提出取现"
+                android:textColor="@color/mark_text_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/list_item_balance_detail_detail_bank_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_item_balance_detail_detail_action_name"
+                android:layout_marginTop="2dp"
+                android:text="工商银行 (6334)"
+                android:textColor="#999"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/list_item_balance_detail_detail_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_item_balance_detail_detail_bank_card"
+                android:layout_marginTop="2dp"
+                android:text="12-20 16:25"
+                android:textColor="#999"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+

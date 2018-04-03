@@ -1,9 +1,9 @@
 package com.vs.vipsai.ui.fragment.tab;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -22,7 +21,7 @@ import com.androidkun.xtablayout.XTabLayout;
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.OnTabReselectListener;
 import com.vs.vipsai.R;
-import com.vs.vipsai.account.activity.LoginActivity;
+import com.vs.vipsai.balance.activity.AccountBalanceActivity;
 import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.bean.Author;
 import com.vs.vipsai.bean.News;
@@ -36,7 +35,6 @@ import com.vs.vipsai.notify.activity.NotifyActicity;
 import com.vs.vipsai.ui.activity.PubActivity;
 import com.vs.vipsai.util.DialogHelper;
 import com.vs.vipsai.util.ImageUtils;
-import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.UIHelper;
 import com.vs.vipsai.widget.FragmentPagerAdapter;
 import com.vs.vipsai.widget.PortraitView;
@@ -46,7 +44,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -808,6 +805,14 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
     @OnClick(R.id.fragment_main_user_home_btn_ranking)
     void onClickRanking() {
         UIHelper.showRankingFingerprint(getContext());
+    }
+
+    @OnClick(R.id.fragment_main_user_home_money)
+    void onClickMoney() {
+        Context context = getContext();
+        Intent intent = new Intent(context, AccountBalanceActivity.class);
+//        intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
+        context.startActivity(intent);
     }
 
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_list_sub_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        style="@style/notify_item_layout"
+        >
+
+        <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+
+        <!--android:background="@drawable/ic_material"-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="在线购物选项。"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@id/item_list_sub_balance_btn_detail"
+                android:text="- $1,200,000"
+                android:textColor="#FF0030"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@id/item_list_sub_balance_btn_detail"
+                android:text="2018.1.2"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                />
+
+            <ImageView
+                android:id="@+id/item_list_sub_balance_btn_detail"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_arrow_right"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/lay_8"
+        android:layout_marginLeft="16dp"
+        android:background="@color/list_divider_color" />
+
+    <!--android:layout_marginStart="16dp"-->
+
+
+</LinearLayout>

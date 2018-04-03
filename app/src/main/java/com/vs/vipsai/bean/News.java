@@ -43,6 +43,14 @@ public class News extends PrimaryBean {
     public static final int TYPE_MESSAGE = 31; //消息
     public static final int TYPE_PRIVATE_MESSAGE = 32; //私信
 
+
+
+    // account balance
+    public static final int TYPE_ACCOUNT_BALANCE = 91;
+    public static final int TYPE_VASH_COIN = 92;
+
+
+
     //样板比赛创建
     public static final int TYPE_PUBLISH_SUBJECT = 33; //选择主题
 

@@ -350,4 +350,16 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+
+
+
+    <!--Theme.AppCompat.Light.DarkActionBar-->
+    <!--?attr/actionBarSize-->
+    <!--<style name="ActionBar_Menu" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:layout_width">30dp</item>-->
+        <!--<item name="android:textSize">8sp</item>-->
+        <!--<item name="android:textColor">#CCCCCC</item>-->
+    <!--</style>-->
+
+
 </resources>
