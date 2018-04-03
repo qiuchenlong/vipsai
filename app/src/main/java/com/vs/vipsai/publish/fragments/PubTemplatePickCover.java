@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.fragments.BaseFragment;
+import com.vs.vipsai.publish.viewmodels.VMPickCover;
 import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
 
 /**
@@ -22,32 +23,31 @@ import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
  */
 public class PubTemplatePickCover extends BaseFragment {
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        if (mRoot != null) {
-//            ViewGroup parent = (ViewGroup) mRoot.getParent();
-//            if (parent != null)
-//                parent.removeView(mRoot);
-//        } else {
-//
-//            ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.vm_tab_fragment,
-//                                                container, false);
-//            binding.setVariable(BR.VMTabFragment, new VMPublishPickSubject(getChildFragmentManager(), binding.getRoot()));
-//            mRoot = binding.getRoot();
-//
-//            // Do something
-//            onBindViewBefore(mRoot);
-//            // Get savedInstanceState
-//            if (savedInstanceState != null)
-//                onRestartInstance(savedInstanceState);
-//            // Init
-//            initWidget(mRoot);
-//            initData();
-//        }
-//        return mRoot;
-        TextView result = new TextView(container.getContext());
-        result.setText("Pick cover");
-        return result;
+        if (mRoot != null) {
+            ViewGroup parent = (ViewGroup) mRoot.getParent();
+            if (parent != null)
+                parent.removeView(mRoot);
+        } else {
+
+            ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.fragment_publish_pick_cover,
+                                                container, false);
+            binding.setVariable(BR.VMPickCover, new VMPickCover());
+            mRoot = binding.getRoot();
+
+            // Do something
+            onBindViewBefore(mRoot);
+            // Get savedInstanceState
+            if (savedInstanceState != null)
+                onRestartInstance(savedInstanceState);
+            // Init
+            initWidget(mRoot);
+            initData();
+        }
+        return mRoot;
     }
 
     @Override

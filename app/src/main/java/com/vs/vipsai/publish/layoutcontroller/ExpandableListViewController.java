@@ -1,5 +1,6 @@
 package com.vs.vipsai.publish.layoutcontroller;
 
+import android.content.Context;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -15,9 +16,11 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sina.weibo.sdk.register.mobile.LetterIndexBar;
 import com.vs.vipsai.R;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
+import com.vs.vipsai.widget.LetterIndexView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public class ExpandableListViewController<T extends ExpandableListViewController
 
     private ViewGroup mRoot;
     private ExpandableListView mExpandableListView;
+    protected LetterIndexView mLetterIndex;
 
     /**点击group是否可以收缩或展开*/
     private boolean mExpandable = true;
@@ -48,7 +52,7 @@ public class ExpandableListViewController<T extends ExpandableListViewController
 
     private ExpandableListViewController(ViewGroup layout) {
         mRoot = layout;
-        init();
+        init(layout.getContext());
     }
 
     public View attachTo(ViewGroup parent, boolean attach) {
@@ -58,7 +62,7 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         }
 
         mRoot = (ViewGroup)LayoutInflater.from(parent.getContext()).inflate(R.layout.expandable_list_view, parent, false);
-        init();
+        init(mRoot.getContext());
 
         if(attach) {
             parent.addView(mRoot);
@@ -67,7 +71,7 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         return mRoot;
     }
 
-    private void init() {
+    protected void init(Context context) {
         mExpandableListView = (ExpandableListView)mRoot.findViewById(R.id.expandable_list_view);
         mExpandableListView.setAdapter(this);
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -76,7 +80,18 @@ public class ExpandableListViewController<T extends ExpandableListViewController
                 return mExpandable;
             }
         });
+        mLetterIndex = (LetterIndexView)mRoot.findViewById(R.id.letter_index);
+        mLetterIndex.setIndexChangeListener(mOnIndexChangeListener);
+        mLetterIndex.setFontSize(14);
     }
+
+    private LetterIndexView.OnIndexChangeListener mOnIndexChangeListener = new LetterIndexView.OnIndexChangeListener() {
+        @Override
+        public void onIndexChange(int index) {
+            mExpandableListView.setSelectedGroup(index);
+//            Toast.makeText(mRoot.getContext(), "index:" + index, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     public void setData(List<T> datas, boolean expandAll) {
         mGroups.clear();

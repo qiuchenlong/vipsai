@@ -197,4 +197,36 @@
     <string name="please_input">请输入%1$s</string>
     <string name="min_length_hint">不少于%1$s个字</string>
     <string name="format_error">%1$s格式错误</string>
+
+    <string name="select_cover">更改封面</string>
+    <string name="available_cover">可选封面</string>
+    <string name="local_cover">+使用本地图片</string>
+    <string name="game_rule_title">比赛规则</string>
+    <string name="game_rule"><Data><![CDATA[
+    &lt; font color="#000000"&gt; &lt; b&gt; ChannelFix Universal Terms of Use Agreement&lt; /b&gt; &lt; /font&gt; ChannelFix.com is a social-media platform to conduct vote-based online video tournaments. For purposes of this AGREEMENT, ChannelFix.com may also be referred to as ChannelFix, this website, the site, site, the Company or website.
+
+By using ChannelFix.com, you agree to these conditions. Please read them carefully.
+
+USER refers to all users of the Service, including users who are also contributors of Content, Viewers, Uploaders, Bloggers, Submitters, Posters, and all other Website Visitors of ChannelFix. “Content” includes the text, software, scripts, graphics, photos, sounds, music, videos, audiovisual combinations, interactive features and other materials anyone may view on, access through or contribute to the Service.
+
+    USE OF THE SITE. ACCEPTANCE OF THE TERMS AND CONDITIONS herein set forth is necessary in order to use the service. The moment USERS gain access to the site, CHANNELFIX presumes that USER has read, understood and agrees to the Site’s Terms and Conditions and Privacy Policy, which is incorporated by reference into this AGREEMENT.
+
+    CHANNELFIX is constantly innovating for it to provide the best experience for its users. Thus, USER acknowledges that the form and nature of CHANNELFIX service and consequent thereto its TERMS and CONDITIONS may also change from time to time. Thus, any use of this SITE by USER after any amendments or modifications to these Terms and Conditions shall constitute acceptance of the most current version of these Terms and Conditions. Thus, USER must look at the TERMS regularly to check for changes. If USER does NOT AGREE to the Modified Terms and Conditions, USER must stop using the service. However, continued use of the Service after the posting of the Modified Terms and Conditions may constitute as acceptance on Modified Terms and Conditions.
+
+    AGREEMENT IS A LEGALLY BINDING DOCUMENT. This AGREEMENT is a legally binding agreement between USER and CHANNELFIX in relation to USER’s use of the Service. It is important that USER takes the time to read this AGREEMENT carefully and abide hereto.
+
+    CHANNELFIX ACCOUNT. In order to access some features of the Website or other elements of the Service, USER will have to create a ChannelFix account. When creating an account, USER must provide accurate and complete information. It is important that USER must keep his or her ChannelFix account password secure and confidential.
+
+    By creating an account, USER can upload content, participate in the tournaments, express ones view, vote, blog and contribute to the content through text, graphics, sounds, music, photos, videos, audiovisual combination, interactive features and other materials analogous thereto.
+
+    USER understands that videos uploaded in the SITE are public in nature for other USERS to vote for a tournament winner.
+
+    USER must notify CHANNELFIX immediately of any breach of security or unauthorized use of one’s CHANNELFIX account or that the USER’s account has been compromised or has been accessed by a third party.
+
+    USER agrees that he or she will be solely responsible to CHANNELFIX, and to any other person or entity for all activity that occurs under ones ChannelFix account regardless of whether the use of the account is authorized or unauthorized by the USER.
+
+    GENERAL USE OF THE SERVICE PERMISSIONS AND RESTRICTIONS ON USE.
+    ]]></Data></string>
+
+    <string name="confirm_rule">我已阅读、理解并同意本合约所载条款</string>
 </resources>

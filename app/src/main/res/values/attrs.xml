@@ -124,6 +124,4 @@
         <attr name="classic_contentViewHeight" format="dimension|reference"/>
     </declare-styleable>
 
-
-
 </resources>
