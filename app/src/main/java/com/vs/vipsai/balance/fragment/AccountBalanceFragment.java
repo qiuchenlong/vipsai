@@ -123,7 +123,6 @@ public class AccountBalanceFragment extends AccountBalanceBaseFragment {
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (canLoad() && mCanLoadMore) {
                     loadData();
-                    SimplexToast.show(getContext(), "loadData()...");
                 }
             }
         });
