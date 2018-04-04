@@ -1,5 +1,6 @@
 package com.vs.vipsai.publish.layoutcontroller;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.bean.User;
 import com.vs.vipsai.publish.viewmodels.VMUser;
 import com.vs.vipsai.util.PinYin;
+import com.vs.vipsai.util.TDevice;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +31,27 @@ import java.util.List;
 public class UserProfileListController extends ExpandableListViewController<UserProfileListController.UserProfile>{
 
     private boolean mPicking;
+
+    private boolean[] mLetterIndexMark;
+
+    @Override
+    protected void init(Context context) {
+        super.init(context);
+        mLetterIndex.setTextColor(TDevice.getColor(context.getResources(), R.color.gray));
+    }
+
+    @Override
+    public void setData(List<UserProfile> datas, boolean expandAll) {
+        mLetterIndex.setIndexLetter(null);
+        if(datas != null) {
+            String[] indexMark = new String[datas.size()];
+            for(int i = 0; i < indexMark.length; i++) {
+                indexMark[i] = datas.get(i).getPinyin();
+            }
+            mLetterIndex.setIndexLetter(indexMark);
+        }
+        super.setData(datas, expandAll);
+    }
 
     public void setPicking(boolean picking) {
         mPicking = picking;

@@ -31,7 +31,7 @@
                 android:visibility="@{user.picking.get().booleanValue() ? View.VISIBLE : View.GONE}"
                 android:layout_weight="0"
                 android:layout_marginRight="@dimen/padding_12"
-                android:onClick="@{user.onClick}"/>
+                android:onClick="@{user::onClick}"/>
 
             <com.vs.vipsai.widget.GlidImageView
                 android:layout_width="@dimen/list_image_size"

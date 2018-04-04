@@ -124,9 +124,6 @@
         <attr name="classic_contentViewHeight" format="dimension|reference"/>
     </declare-styleable>
 
-
-
-
     <!--payment password edit-->
     <declare-styleable name="PasswordEditText">
         <attr name="passwordNumber" format="integer"/>
@@ -138,7 +135,5 @@
         <attr name="bgSize" format="dimension" />
         <attr name="bgCorner" format="dimension"/>
     </declare-styleable>
-
-
 
 </resources>

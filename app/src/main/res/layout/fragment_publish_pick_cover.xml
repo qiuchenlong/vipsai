@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.method.ScrollingMovementMethod" />
+
+        <variable
+            name="VMPickCover"
+            type="com.vs.vipsai.publish.viewmodels.VMPickCover" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+           <!--更改封面-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_12"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:text="@string/select_cover"/>
+
+                <com.vs.vipsai.widget.FitHeightImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_8"
+                    app:bindImage="@{VMPickCover.cover}"
+                    app:placeHolder="@{VMPickCover.placeHolder}"/>
+
+                <!--可选封面-->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/padding_8">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/color_ececec"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="@dimen/padding_8"
+                        android:background="@color/white"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/font_small"
+                        android:text="@string/available_cover"/>
+
+                </FrameLayout>
+
+                <GridView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    android:cacheColorHint="@color/transparent"
+                    android:numColumns="4"
+                    android:horizontalSpacing="@dimen/padding_8"
+                    android:verticalSpacing="@dimen/padding_8"/>
+
+                <!--本地图片-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/padding_8"
+                    android:textSize="@dimen/font_small"
+                    android:layerType="software"
+                    android:gravity="center"
+                    android:text="@string/local_cover"
+                    android:background="@drawable/bg_frame_dot_selector"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_12"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingBottom="@dimen/padding_8"
+                    android:text="@string/game_rule_title"
+                    android:background="@drawable/bg_frame_bottom_white"/>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="156dp"
+                    android:nestedScrollingEnabled="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_normal"
+                        android:paddingVertical="@dimen/padding_8"
+                        android:text="@string/game_rule"
+                        android:background="@drawable/bg_frame_bottom_white"/>
+
+                </ScrollView>
+
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/padding_12"
+                    android:textSize="@dimen/font_normal"
+                    android:textColor="@color/gray"
+                    android:text="@string/confirm_rule"/>
+
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/padding_12"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/padding_12"
+                        android:text="@string/confirm_rule"/>
+
+                    &lt;!&ndash;<ImageView
+                        style="@style/imageview_checkbox" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/padding_8"
+                        android:textSize="@dimen/font_normal"
+                        android:text="@string/confirm_rule"/>&ndash;&gt;
+
+                </LinearLayout>-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
+

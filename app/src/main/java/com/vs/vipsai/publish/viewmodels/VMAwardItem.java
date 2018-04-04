@@ -63,8 +63,8 @@ public class VMAwardItem extends AwardBean{
     }
 
     @BindingAdapter("selected")
-    public static void bindCheckbox(View view, boolean selected) {
-        view.setSelected(selected);
+    public static void bindCheckbox(View view, ObservableField<Boolean> selected) {
+        view.setSelected(selected.get());
     }
 
 }

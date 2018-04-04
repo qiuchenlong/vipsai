@@ -125,9 +125,9 @@
     <dimen name="image_size_normal">24dp</dimen>
     <dimen name="image_size_small">18dp</dimen>
 
-    <dimen name="font_normal">12dp</dimen>
+    <dimen name="font_normal">13dp</dimen>
     <dimen name="font_big">14dp</dimen>
-    <dimen name="font_small">10dp</dimen>
+    <dimen name="font_small">12dp</dimen>
 
     <dimen name="bar_height">48dp</dimen>
 
