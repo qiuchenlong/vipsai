@@ -1,25 +1,12 @@
 package com.vs.vipsai.publish.layoutcontroller;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.TypedValue;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.sina.weibo.sdk.register.mobile.LetterIndexBar;
 import com.vs.vipsai.R;
-import com.vs.vipsai.util.StringUtils;
-import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.LetterIndexView;
 
 import java.util.ArrayList;
@@ -33,54 +20,29 @@ import java.util.List;
  *  绑定布局R.layout.expandable_list_view
  *  ExpandableListView控制器
  */
-public class ExpandableListViewController<T extends ExpandableListViewController.ItemData> extends BaseExpandableListAdapter {
+public class ExpandableListViewController<T extends ExpandableListViewController.ItemData> extends ArrayDataController<T> {
 
-    private ViewGroup mRoot;
     private ExpandableListView mExpandableListView;
     protected LetterIndexView mLetterIndex;
 
     /**点击group是否可以收缩或展开*/
     private boolean mExpandable = true;
 
-    private List<T> mGroups = new ArrayList<>();
-
-    public static ExpandableListViewController wrapper(ViewGroup layout) {
-        return new ExpandableListViewController(layout);
-    }
-
-    public ExpandableListViewController() {}
-
-    private ExpandableListViewController(ViewGroup layout) {
-        mRoot = layout;
-        init(layout.getContext());
-    }
-
-    public View attachTo(ViewGroup parent, boolean attach) {
-
-        if(mRoot != null && mRoot.getParent() != null) {
-            ((ViewGroup)mRoot.getParent()).removeView(mRoot);
-        }
-
-        mRoot = (ViewGroup)LayoutInflater.from(parent.getContext()).inflate(R.layout.expandable_list_view, parent, false);
-        init(mRoot.getContext());
-
-        if(attach) {
-            parent.addView(mRoot);
-        }
-
-        return mRoot;
+    @Override
+    protected int getLayoutId() {
+        return R.layout.expandable_list_view;
     }
 
     protected void init(Context context) {
-        mExpandableListView = (ExpandableListView)mRoot.findViewById(R.id.expandable_list_view);
-        mExpandableListView.setAdapter(this);
+        mExpandableListView = findViewById(R.id.expandable_list_view);
+        mExpandableListView.setAdapter(mAdapter);
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 return mExpandable;
             }
         });
-        mLetterIndex = (LetterIndexView)mRoot.findViewById(R.id.letter_index);
+        mLetterIndex = findViewById(R.id.letter_index);
         mLetterIndex.setIndexChangeListener(mOnIndexChangeListener);
         mLetterIndex.setFontSize(14);
     }
@@ -93,20 +55,25 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         }
     };
 
+    /**
+     * 可以运行在非主线程
+     * @param datas
+     * @param expandAll
+     */
     public void setData(List<T> datas, boolean expandAll) {
-        mGroups.clear();
         if(datas != null) {
             if(expandAll) {
                 for(int i = 0; i < datas.size(); i++) {
-                    mGroups.add(datas.get(i));
+                    appendData(datas.get(i), false);
                     mExpandableListView.expandGroup(i);
                 }
             }else {
-                mGroups.addAll(datas);
+                setData(datas);
             }
         }
 
-        notifyDataSetChanged();
+        mAdapter.notifyDataSetChanged();
+
     }
 
     /**
@@ -117,57 +84,75 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         mExpandable = value;
     }
 
-    @Override
-    public int getGroupCount() {
-        return mGroups.size();
-    }
+    private BaseExpandableListAdapter mAdapter = new BaseExpandableListAdapter() {
+        @Override
+        public int getGroupCount() {
+            return getDataSize();
+        }
 
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        ItemData group = (ItemData)getGroup(groupPosition);
-        return group.getChildCount();
-    }
+        @Override
+        public int getChildrenCount(int groupPosition) {
+            ItemData group = (ItemData)getGroup(groupPosition);
+            return group.getChildCount();
+        }
 
-    @Override
-    public ItemData getGroup(int groupPosition) {
-        return groupPosition >= 0 && groupPosition < mGroups.size() ?
-                mGroups.get(groupPosition) : null;
-    }
+        @Override
+        public ItemData getGroup(int groupPosition) {
+            return getData(groupPosition);
+        }
 
-    @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        ItemData group = getGroup(groupPosition);
-        return group == null ? null : group.getChild(childPosition);
-    }
+        @Override
+        public Object getChild(int groupPosition, int childPosition) {
+            ItemData group = getGroup(groupPosition);
+            return group == null ? null : group.getChild(childPosition);
+        }
 
-    @Override
-    public long getGroupId(int groupPosition) {
-        return groupPosition;
-    }
+        @Override
+        public long getGroupId(int groupPosition) {
+            return groupPosition;
+        }
 
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
+        @Override
+        public long getChildId(int groupPosition, int childPosition) {
+            return childPosition;
+        }
 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
+        @Override
+        public boolean hasStableIds() {
+            return false;
+        }
 
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        @Override
+        public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+            ItemData group = getGroup(groupPosition);
+            if(group != null) {
+                return onGetGroupView((T)getGroup(groupPosition), isExpanded, convertView, parent);
+            }
+
+            return null;
+        }
+
+        @Override
+        public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+            Object child = getChild(groupPosition, childPosition);
+            if(child != null) {
+                return onGetChildView(child, childPosition, isLastChild, convertView, parent);
+            }
+            return null;
+        }
+
+        @Override
+        public boolean isChildSelectable(int groupPosition, int childPosition) {
+            return true;
+        }
+    };
+
+    protected View onGetGroupView(T group, boolean isExpanded, View convertView, ViewGroup parent) {
         return null;
     }
 
-    @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    protected View onGetChildView(Object child, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         return null;
-    }
-
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
     }
 
     public static class ItemData<childT> {

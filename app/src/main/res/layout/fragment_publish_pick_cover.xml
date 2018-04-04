@@ -14,6 +14,7 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
         android:scrollbars="none">
 
         <LinearLayout
@@ -67,20 +68,23 @@
 
                 </FrameLayout>
 
-                <GridView
+                <com.vs.library.widget.NestGridView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="true"
                     android:cacheColorHint="@color/transparent"
+                    android:stretchMode="columnWidth"
                     android:numColumns="4"
                     android:horizontalSpacing="@dimen/padding_8"
-                    android:verticalSpacing="@dimen/padding_8"/>
+                    android:verticalSpacing="@dimen/padding_8"
+                    app:bindModel="@{VMPickCover}"
+                    android:background="@color/red_50"/>
 
                 <!--本地图片-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/padding_8"
+                    android:layout_marginTop="@dimen/padding_8"
                     android:textSize="@dimen/font_small"
                     android:layerType="software"
                     android:gravity="center"

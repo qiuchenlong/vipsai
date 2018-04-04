@@ -66,7 +66,7 @@ public class PubTemplateActivity extends ToolbarActivity {
      * 跳下一步
      * @param nextStep
      */
-    private void move2Step(int nextStep) {
+    private synchronized void move2Step(int nextStep) {
         Fragment fragment = mFragments[nextStep];
         switch (nextStep) {
             case STEP_PICK_SUBJECT:

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="VMImageItem"
+            type="com.vs.vipsai.publish.viewmodels.VMImageItem" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_select_transp_selector"
+        app:selectedState="@{VMImageItem.selected}"
+        android:padding="@dimen/divider">
+
+        <com.vs.vipsai.widget.FitHeightImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:bindImage="@{VMImageItem.url}"
+            app:placeHolder="@{VMImageItem.placeHolder}"/>
+
+        <ImageView
+            style="@style/imageview_checkbox_small"
+            app:selectedState="@{VMImageItem.selected}"
+            android:layout_gravity="right|top"
+            android:layout_marginTop="@dimen/padding_8"
+            android:layout_marginRight="@dimen/padding_8"
+            android:visibility="@{VMImageItem.selected.get() ? View.VISIBLE : View.GONE}"/>
+
+    </FrameLayout>
+</layout>
+

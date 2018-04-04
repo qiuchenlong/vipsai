@@ -15,7 +15,7 @@ import com.vs.vipsai.widget.GlidImageView;
  * Created on 3/28/18 5:33 PM
  * Description:
  *
- *  奖项列表项数据模型
+ *  奖项列表项数据模型，绑定R.layout.list_item_award_cash
  */
 public class VMAwardItem extends AwardBean{
 
@@ -60,11 +60,6 @@ public class VMAwardItem extends AwardBean{
         }
 
         return "";
-    }
-
-    @BindingAdapter("selected")
-    public static void bindCheckbox(View view, ObservableField<Boolean> selected) {
-        view.setSelected(selected.get());
     }
 
 }

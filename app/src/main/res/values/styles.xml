@@ -341,6 +341,12 @@
         <item name="android:contentDescription">""</item>
     </style>
 
+    <!--勾选框样式-->
+    <style name="imageview_checkbox_small" parent="imageview_checkbox">
+        <item name="android:layout_width">@dimen/check_box_size_small</item>
+        <item name="android:layout_height">@dimen/check_box_size_small</item>
+    </style>
+
     <!--标题栏文字样式-->
     <style name="title_textAppearance">
         <item name="android:textSize">@dimen/font_big</item>

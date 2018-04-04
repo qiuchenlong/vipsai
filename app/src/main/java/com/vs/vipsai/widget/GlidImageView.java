@@ -25,12 +25,17 @@ public class GlidImageView extends RoundImageView {
 
     private RequestManager mGlide;
 
+    public GlidImageView(Context context) {
+        super(context);
+        mGlide = Glide.with(getContext());
+    }
+
     public GlidImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mGlide = Glide.with(getContext());
     }
 
-    public void setImageUrl(String url, int placeHolder) {
+    public void setImageUrl(final String url, final int placeHolder) {
         if(TextUtils.isEmpty(url)) {
             setVisibility(View.INVISIBLE);
             return;
@@ -38,7 +43,8 @@ public class GlidImageView extends RoundImageView {
             setVisibility(View.VISIBLE);
         }
 
-        ImageLoader.loadImage(mGlide, this, url, placeHolder);
+        ImageLoader.loadImage(mGlide, GlidImageView.this, url, placeHolder);
+
     }
 
     @BindingAdapter({"bindImage","placeHolder"})

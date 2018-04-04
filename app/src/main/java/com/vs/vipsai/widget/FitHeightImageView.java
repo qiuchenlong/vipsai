@@ -10,29 +10,30 @@ public class FitHeightImageView extends GlidImageView {
 
     private float mRatio = 1;
 
+    public FitHeightImageView(Context context) {
+        super(context);
+    }
+
     public FitHeightImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-//        setScaleType(ScaleType.FIT_XY);
     }
 
     @Override
     public void setImageDrawable(@Nullable Drawable drawable) {
         super.setImageDrawable(drawable);
         if(drawable != null) {
+            float old = mRatio;
             mRatio = drawable.getIntrinsicWidth() * 1f / drawable.getIntrinsicHeight();
+            if(old != mRatio) {
+                requestLayout();
+            }
         }
     }
-
-//    @Override
-//    public void setLayoutParams(LayoutParams params) {
-//        params.width = LayoutParams.MATCH_PARENT;
-//        super.setLayoutParams(params);
-//    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int height = (int)(getMeasuredWidth() / mRatio);
-        setMeasuredDimension(getMeasuredWidth(),  height);
+        int height = (int) (getMeasuredWidth() / mRatio);
+        setMeasuredDimension(getMeasuredWidth(), height);
     }
 }

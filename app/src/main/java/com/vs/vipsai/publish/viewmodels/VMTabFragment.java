@@ -116,6 +116,10 @@ public abstract class VMTabFragment {
         layout.setTabMode(tabs.size() > 5 ? TabLayout.MODE_SCROLLABLE : TabLayout.MODE_FIXED);
         layout.setTabGravity(tabs.size() > 5 ? TabLayout.GRAVITY_CENTER : TabLayout.GRAVITY_FILL);
         layout.setupWithViewPager(viewPager);
+
+        if(viewPager.getAdapter() != null) {
+            viewPager.getAdapter().notifyDataSetChanged();
+        }
     }
 
     /**
