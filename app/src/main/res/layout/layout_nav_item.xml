@@ -50,9 +50,11 @@
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginTop="1dp"
         android:gravity="center"
-        android:textColor="@color/crop_image_text_press"
+        android:textColor="#8A98A5"
         android:textSize="12sp"
         tools:text="资讯" />
+
+    <!--android:textColor="@color/crop_image_text_press"-->
 
 
 </LinearLayout>

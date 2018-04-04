@@ -38,6 +38,7 @@ import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.util.TextUtil;
 import com.vs.vipsai.widget.PortraitView;
+import com.vs.vipsai.widget.countdown.CountDownTimerView;
 
 import org.w3c.dom.Text;
 
@@ -173,7 +174,14 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("H"), looptimeStr.indexOf("H") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("M"), looptimeStr.indexOf("M") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         looptimeSpa.setSpan(new AbsoluteSizeSpan(20), looptimeStr.indexOf("S"), looptimeStr.indexOf("S") + 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-            vh.loopTime.setText(looptimeSpa);
+//            vh.loopTime.setText(looptimeSpa);
+
+            // 设置倒计时的时、分、秒
+            vh.loopTime.setDateTime(1, 0, 0, 20);
+            // 开始倒计时
+            vh.loopTime.start();
+
+
 
 //        }
 
@@ -225,7 +233,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //        });
 
         if (position == 0) {
-            vh.imageView.setImageResource(R.mipmap.image_no_102);
+            vh.imageView.setImageResource(R.mipmap.image_no_1);
         } else if (position == 0) {
             vh.imageView.setImageResource(R.mipmap.image_no_103);
         } else {
@@ -247,7 +255,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         vh.shareLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimplexToast.show(AppContext.getContext(), "position:" + position);
+//                SimplexToast.show(AppContext.getContext(), "position:" + position);
                 showSharedDialog();
             }
         });
@@ -262,7 +270,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         ImageView imageView;
         LinearLayout shareLayout;
 
-        TextView loopTime;
+        CountDownTimerView loopTime;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -277,7 +285,7 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
             shareLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_attention_share_layout);
 
-            loopTime = (TextView) itemView.findViewById(R.id.item_list_sub_attention_loop_time);
+            loopTime = (CountDownTimerView) itemView.findViewById(R.id.item_list_sub_attention_loop_time);
         }
     }
 

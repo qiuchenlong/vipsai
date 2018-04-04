@@ -148,7 +148,7 @@ public class PastWonderfulSubAdapter extends BaseRecyclerAdapter<SubBean> implem
 //        } else {
             vh.tv_time.setText(StringUtils.formatSomeAgo(item.getPubDate()));
 
-            vh.tv_time.setText("2012-12-01 22:10");
+            vh.tv_time.setText("已结束");
 
 //        }
 

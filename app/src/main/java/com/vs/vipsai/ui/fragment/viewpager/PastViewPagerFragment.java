@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.ui.fragment.viewpager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,7 @@ import com.vs.vipsai.base.fragments.BaseGeneralRecyclerFragment;
 import com.vs.vipsai.base.fragments.BaseViewPagerFragment;
 import com.vs.vipsai.bean.SubTab;
 import com.vs.vipsai.main.SubFragment;
+import com.vs.vipsai.ui.fragment.PastFragment;
 
 /**
  * Author: cynid

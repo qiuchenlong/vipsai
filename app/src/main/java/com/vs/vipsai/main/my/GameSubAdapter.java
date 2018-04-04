@@ -44,11 +44,12 @@ public class GameSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
 //        vh.tv_title.setText("go go go ...");
 
         if (position == 0) {
-            vh.iv_winner.setImageResource(R.mipmap.image_no_100);
+            vh.iv_winner.setImageResource(R.mipmap.image_no_11);
         }else if (position == 1) {
-            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_5, 100, 100));
+            vh.iv_winner.setImageResource(R.mipmap.image_no_8);
+//            vh.iv_winner.setImageBitmap(ImageUtils.decodeSampledBitmapFromResource(mContext.getResources(), R.mipmap.image_no_5, 100, 100));
         } else {
-            vh.iv_winner.setImageResource(R.mipmap.image_no_102);
+            vh.iv_winner.setImageResource(R.mipmap.image_no_5);
         }
 
 

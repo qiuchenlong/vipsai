@@ -1,5 +1,6 @@
 package com.vs.vipsai.balance.fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputFilter;
@@ -37,6 +38,9 @@ public class BalanceWithDrawMoneyFragment extends BaseFragment implements Custom
     private PasswordEditText mPasswordEt;
 
 
+    private Dialog mDialog;
+
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_balance_withdraw_money;
@@ -65,7 +69,8 @@ public class BalanceWithDrawMoneyFragment extends BaseFragment implements Custom
     void onClickWithDrawMoney() {
         // 弹出dialog  从底部并且带动画
         CommonDialog.Builder builder = new CommonDialog.Builder(getActivity());
-        builder.setView(R.layout.dialog_customer_keyboard).fromBottom().fullWidth().create().show();
+        mDialog = builder.setView(R.layout.dialog_customer_keyboard).fromBottom().fullWidth().create();
+        mDialog.show();
         mPasswordEt =  builder.getView(R.id.password_edit_text);
         mCustomerKeyboard = builder.getView(R.id.custom_key_board);
         mCustomerKeyboard.setOnCustomerKeyboardClickListener(this);
@@ -87,5 +92,6 @@ public class BalanceWithDrawMoneyFragment extends BaseFragment implements Custom
     @Override
     public void passwordFull(String password) {
         SimplexToast.show(getContext(), "密码输入完毕->"+password);
+        mDialog.dismiss();
     }
 }

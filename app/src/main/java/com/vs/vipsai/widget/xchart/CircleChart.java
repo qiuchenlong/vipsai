@@ -140,7 +140,7 @@ public class CircleChart extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = getWidth();
         mHeight = getHeight();
-        oval = new RectF(0+20, 0, mWidth-20, mHeight);
+        oval = new RectF(0, 0, mWidth, mHeight);
 
     }
 

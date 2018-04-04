@@ -13,6 +13,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
+        android:paddingBottom="8dp"
         >
 
         <!--android:background="?attr/selectableItemBackgroundBorderless"-->
@@ -260,8 +261,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="1"
-                android:gravity="bottom|center">
+                android:layout_weight="4"
+                android:gravity="center_vertical|center">
 
                 <com.vs.vipsai.widget.PortraitView
                     android:layout_width="12dp"
@@ -281,6 +282,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:ellipsize="end"
                     android:text="等1314人观看"
                     android:layout_marginLeft="4dp"
                     android:gravity="bottom"
@@ -294,8 +297,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="1"
-                android:gravity="bottom|center">
+                android:layout_weight="3"
+                android:gravity="center_vertical|left">
 
                 <ImageView
                     android:layout_width="12dp"
@@ -318,12 +321,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="right">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
                     android:background="@drawable/shape_btn_view_blue"
                     android:text="上传作品"
                     android:textColor="#FFFFFF"

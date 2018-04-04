@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.ui.fragment.viewpager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
+import com.vs.vipsai.ui.fragment.ListPlayerBonusFragment;
+import com.vs.vipsai.ui.fragment.ListPlayerCommentFragment;
+import com.vs.vipsai.ui.fragment.ListPlayerDetailFragment;
 
 /**
  * Author: cynid
