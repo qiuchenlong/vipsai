@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="45dp"
     android:layout_alignParentTop="true"
-    android:background="@color/gray">
+    android:background="@color/white">
 
 
     <RelativeLayout
@@ -19,7 +19,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/video_back"
+            android:src="@mipmap/ic_back_gray"
             />
 
     </RelativeLayout>
@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="我的"
-        android:textColor="#FFFFFF"
+        android:text="详情"
+        android:textColor="#333333"
         android:textSize="18sp" >
     </TextView>
 
@@ -45,7 +45,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_login_3party_qq"
+            android:src="@mipmap/ic_me_more"
             />
 
     </RelativeLayout>

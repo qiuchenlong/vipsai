@@ -41,22 +41,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="56dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:orientation="horizontal">
 
-
-
-                    <com.vs.vipsai.widget.PortraitView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="16dp"
-                        android:layout_centerVertical="true"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_launcher"
-                        android:visibility="gone"/>
 
                     <FrameLayout
                         android:id="@+id/fragment_main_user_home_headerview_layout"
@@ -145,7 +134,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp"
+                            >
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -253,22 +244,12 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="40dp"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:text="关注我（微博@涩郎，微信公众号：非著名程序员），我与你闲扯技术大话，笑谈科技人生。以幽默诙谐的态度，面对乏味无聊的技术，用扯淡的方式，分享技术的内涵。谈的是技术，更是我们的人生。"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp"
-                    android:visibility="gone"/>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -287,7 +268,7 @@
                             android:layout_height="wrap_content"
                             android:text="160"
                             android:textColor="#323232"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -310,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:text="12K"
                             android:textColor="#323232"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -333,7 +314,7 @@
                             android:layout_height="wrap_content"
                             android:text="20 / 50"
                             android:textColor="#323232"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -359,7 +340,7 @@
                             android:layout_height="wrap_content"
                             android:text="# 20"
                             android:textColor="#323232"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="wrap_content"

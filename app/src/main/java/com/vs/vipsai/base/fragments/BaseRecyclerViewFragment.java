@@ -276,6 +276,54 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
                         "        \"order\": 3,\n" +
                         "        \"subtype\": 4,\n" +
                         "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 3\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"123\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 3\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"123\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 3\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"123\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"type\": 21\n" +
+                        "      },\n" +
+                        "      {\n" +
+                        "        \"fixed\": true,\n" +
+                        "        \"href\": \"https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9\",\n" +
+                        "        \"title\": \"hot\",\n" +
+                        "        \"body\": \"123\",\n" +
+                        "        \"needLogin\": false,\n" +
+                        "        \"isActived\": true,\n" +
+                        "        \"order\": 3,\n" +
+                        "        \"subtype\": 4,\n" +
+                        "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
                         "        \"type\": 21\n" +
                         "      },\n" +
                         "      {\n" +

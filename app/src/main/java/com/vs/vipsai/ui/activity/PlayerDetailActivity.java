@@ -3,21 +3,10 @@ package com.vs.vipsai.ui.activity;
 import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -26,16 +15,14 @@ import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.R;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.activities.BackActivity;
-import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.Tweet;
 import com.vs.vipsai.behavior.CommentBar;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
-import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
+import com.vs.vipsai.ui.fragment.viewpager.PlayerDetailViewPagerFragment;
 import com.vs.vipsai.ui.videoplayer.SampleVideo;
 import com.vs.vipsai.ui.videoplayer.SwitchVideoModel;
-import com.vs.vipsai.widget.ObservableScrollView;
 //import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
 
 import java.util.ArrayList;
@@ -227,7 +214,7 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
                     float scale = (float) verticalOffset / (-headLayout.getHeight() / 2);
                     float alpha = (255 * scale);
-                    int color = Color.argb((int) alpha, 33, 33, 33); //212, 58, 50
+                    int color = Color.argb((int) alpha, 255, 255, 255); //212, 58, 50  (int) alpha, 33, 33, 33
                     detail_header_layout.setBackgroundColor(color);
 //                    mPagerFrag.setTabLayoutBackgroundColor(color);
                 }

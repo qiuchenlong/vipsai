@@ -14,11 +14,45 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/tmp_bg"/>
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="20dp"
-        android:src="@mipmap/ic_label_originate"
-        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/item_list_sub_me_of_winner_bg_ranking"
+        android:layout_width="38dp"
+        android:layout_height="22dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:gravity="center|left"
+        android:background="@drawable/bg_winner_round_first"
+        >
+
+        <TextView
+            android:id="@+id/item_list_sub_me_of_winner_ic_ranking"
+            android:layout_width="16dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="4dp"
+            android:gravity="center|right"
+            android:textSize="12sp"
+            android:background="@mipmap/ic_winner_first"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/item_list_sub_me_of_winner_text_ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="1"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <!--<ImageView-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:src="@mipmap/ic_label_originate"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--/>-->
 
     <TextView
         android:id="@+id/item_list_sub_me_of_winner_money"

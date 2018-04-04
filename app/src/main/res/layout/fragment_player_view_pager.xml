@@ -14,8 +14,8 @@
         android:clickable="true"
         android:focusable="true"
         app:tabGravity="center"
-        app:tabIndicatorColor="#6A6A6A"
-        app:tabSelectedTextColor="#000000"
+        app:tabIndicatorColor="@color/mark_text_color"
+        app:tabSelectedTextColor="@color/mark_text_color"
         app:tabTextColor="#6A6A6A"/>
 
     <!--?attr/colorPrimary-->
