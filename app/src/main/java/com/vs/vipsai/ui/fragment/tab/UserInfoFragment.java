@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidkun.xtablayout.XTabLayout;
@@ -293,8 +294,22 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
         tabs = new ArrayList<>();
         tabs.addAll(sts);
         for (SubTab tab : tabs) {
-            mLayoutTab.addTab(mLayoutTab.newTab().setText(tab.getName()));
+
+            View view = View.inflate(getContext(), R.layout.layout_nav_item, null);
+
+            XTabLayout.Tab t = mLayoutTab.newTab().setCustomView(view);
+//            t.setIcon(R.drawable.video_backward_icon);
+
+            view.findViewById(R.id.nav_iv_icon).setVisibility(View.GONE);
+            ((TextView) view.findViewById(R.id.nav_tv_title)).setText(tab.getName());
+            view.findViewById(R.id.nav_tv_dot).setVisibility(View.VISIBLE);
+//            ((TextView) view.findViewById(R.id.nav_tv_dot)).setText("1");
+            ((TextView) view.findViewById(R.id.nav_tv_dot)).setBackgroundResource(R.drawable.ic_red_dot);
+
+
+            mLayoutTab.addTab(t); // mLayoutTab.newTab().setText(tab.getName())
         }
+
 
 //        SubTab st1 = new SubTab();
 //        st1.setName("关注");
@@ -345,10 +360,30 @@ public class UserInfoFragment extends BaseFragment implements View.OnClickListen
                 if (state == ViewPager.SCROLL_STATE_IDLE) {
                     mAdapter.commitUpdate();
                 }
+
+//                mLayoutTab.getTabAt(viewPager.getCurrentItem()).select();
+
+
             }
         });
         mLayoutTab.setupWithViewPager(viewPager);
         mLayoutTab.setSmoothScrollingEnabled(true);
+//        mLayoutTab.setOnTabSelectedListener(new XTabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(XTabLayout.Tab tab) {
+//                viewPager.setCurrentItem(tab.getPosition());
+//            }
+//
+//            @Override
+//            public void onTabUnselected(XTabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(XTabLayout.Tab tab) {
+//
+//            }
+//        });
 
 
         // set vertical divider

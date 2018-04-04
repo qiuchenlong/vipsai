@@ -1,6 +1,7 @@
 package com.vs.vipsai.ui.nav;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.RequiresApi;
@@ -93,6 +94,17 @@ public class NavigationButton extends FrameLayout {
 
     public String getTag() {
         return mTag;
+    }
+
+
+    public void setUnSelectedTitleColor() {
+        // 设置未选中nav的文字颜色
+        mTitleView.setTextColor(Color.argb(255, 138, 152, 165));
+    }
+
+    public void setSelectedTitleColor() {
+        // 设置选中nav的文字颜色
+        mTitleView.setTextColor(Color.argb(255, 72, 170, 251));
     }
 
 }

@@ -82,7 +82,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_marginRight="4dp"
                             android:contentDescription="@null"
-                            android:src="@mipmap/ic_male" />
+                            android:src="@mipmap/ic_me_verify" />
 
                         <ImageView
                             android:layout_width="24dp"
@@ -195,26 +195,23 @@
                         android:layout_width="72dp"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="center">
 
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:src="@mipmap/ic_login_3party_wechat"
-                            />
-
-                        <View
-                            android:layout_width="5dp"
-                            android:layout_height="match_parent"
-                            android:visibility="invisible"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/ic_wechat_square_"
                             />
 
                         <ImageView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
-                            android:src="@mipmap/ic_login_3party_qq"
+                            android:scaleType="fitCenter"
+                            android:layout_marginLeft="5dp"
+                            android:src="@mipmap/ic_qq_square"
                             />
 
                     </LinearLayout>
@@ -234,11 +231,21 @@
                             android:textColor="#FFFFFF"
                             android:background="@drawable/shape_btn_view_blue"/>
 
-                        <ImageView
+                        <FrameLayout
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:layout_marginLeft="15dp"
-                            android:src="@mipmap/ic_login_3party_weibo"/>
+                            android:background="@drawable/bg_ring_blue">
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_gravity="center"
+                                android:scaleType="fitCenter"
+                                android:src="@mipmap/ic_me_more"
+                                />
+
+                        </FrameLayout>
 
                     </LinearLayout>
 
@@ -343,7 +350,9 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:background="?attr/selectableItemBackground"
+                        >
 
                         <TextView
                             android:layout_width="wrap_content"

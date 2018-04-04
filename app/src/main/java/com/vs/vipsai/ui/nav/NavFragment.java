@@ -177,8 +177,12 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
                 return;
             }
             oldNavButton.setSelected(false);
+            oldNavButton.setUnSelectedTitleColor();
         }
         newNavButton.setSelected(true);
+        // 设置选中nav的文字颜色
+        newNavButton.setSelectedTitleColor();
+
         doTabChanged(oldNavButton, newNavButton);
         mCurrentNavButton = newNavButton;
     }
