@@ -11,25 +11,26 @@
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list_image_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_frame_select_transp_selector"
-        app:selectedState="@{VMImageItem.selected}"
-        android:padding="@dimen/divider">
+        android:padding="@dimen/divider"
+        app:backgroundSelector="@{VMImageItem.selected}">
 
         <com.vs.vipsai.widget.FitHeightImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             app:bindImage="@{VMImageItem.url}"
-            app:placeHolder="@{VMImageItem.placeHolder}"/>
+            android:src="@mipmap/ic_default_image"/>
 
-        <ImageView
+        <ImageView android:id="@+id/checkbox"
             style="@style/imageview_checkbox_small"
-            app:selectedState="@{VMImageItem.selected}"
             android:layout_gravity="right|top"
             android:layout_marginTop="@dimen/padding_8"
             android:layout_marginRight="@dimen/padding_8"
-            android:visibility="@{VMImageItem.selected.get() ? View.VISIBLE : View.GONE}"/>
+            android:visibility="@{VMImageItem.selected.get() ? View.VISIBLE : View.GONE}"
+            app:selected="@{VMImageItem.selected.get()}"/>
 
     </FrameLayout>
 </layout>

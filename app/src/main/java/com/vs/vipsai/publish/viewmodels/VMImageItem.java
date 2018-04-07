@@ -21,8 +21,12 @@ public class VMImageItem {
 
     public String url;
 
-    @BindingAdapter("selectedState")
+    @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {
-        view.setSelected(value.get());
+        if(value.get()) {
+            view.setBackgroundResource(R.drawable.bg_frame_green_shape);
+        }else {
+            view.setBackgroundResource(R.color.transparent);
+        }
     }
 }

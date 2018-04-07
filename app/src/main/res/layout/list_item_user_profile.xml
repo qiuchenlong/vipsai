@@ -39,7 +39,7 @@
                 app:type="circle"
                 android:layout_weight="0"
                 app:bindImage="@{user.portrait}"
-                app:placeHolder="@{user.iconPlaceHolder}"
+                android:src="@mipmap/ic_nav_my_normal"
                 android:layout_marginRight="@dimen/padding_12"/>
 
             <TextView

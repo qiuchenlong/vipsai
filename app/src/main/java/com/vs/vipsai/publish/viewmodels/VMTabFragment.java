@@ -58,14 +58,12 @@ public abstract class VMTabFragment {
         AppOperator.runOnThread(new Runnable() {
             @Override
             public void run() {
-                List<SubTab> tabs = getTabConfig();
-                if(tabs == null || tabs.isEmpty()) {
-                    requestTabConfigFromServer(mResponseHandler);
-                }else {
-                    tabList.addAll(tabs);
-                }
+                requestTabConfigFromServer(mResponseHandler);
             }
         });
+
+        List<SubTab> tabs = getTabConfig();
+        tabList.addAll(tabs);
 
         adapter.set(new FragmentPagerAdapter(fm) {
             @Override

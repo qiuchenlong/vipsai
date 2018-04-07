@@ -36,7 +36,7 @@ public class AwardListAdapter extends BaseRecyclerAdapter<AwardBean> {
             default:
                 ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                         R.layout.list_item_award_cash, parent, false);
-                vh = new VHDatabinding<VMAwardItem>(binding, binding.getRoot());
+                vh = new VHDatabinding(binding, binding.getRoot());
         }
         return vh;
     }
@@ -44,9 +44,7 @@ public class AwardListAdapter extends BaseRecyclerAdapter<AwardBean> {
     @Override
     protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, AwardBean item, int position) {
         VHDatabinding vh = (VHDatabinding)holder;
-        VMAwardItem model = new VMAwardItem(AppContext.getContext(), item);
-        vh.setModel(model);
-        vh.getBinding().setVariable(BR.VMAwardItem, model);
+        vh.getBinding().setVariable(BR.VMAwardItem, item);
         vh.getBinding().executePendingBindings();
 
     }
@@ -56,7 +54,10 @@ public class AwardListAdapter extends BaseRecyclerAdapter<AwardBean> {
         int type = super.getItemViewType(position);
         if(type == VIEW_TYPE_NORMAL) {
             AwardBean award = getItem(position);
-            type = award.getAwardType();
+            if(AwardBean.TYPE_CASH_STR.equals(award.awardType) ||
+                    AwardBean.TYPE_PRESENT_STR.equals(award.awardType)) {
+                type = AwardBean.TYPE_CASH;
+            }
         }
         return type;
     }

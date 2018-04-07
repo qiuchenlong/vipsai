@@ -24,8 +24,6 @@ import java.util.List;
  */
 public class VMUser extends User {
 
-    public int iconPlaceHolder = R.mipmap.ic_nav_my_normal;
-
     /**是否显示选择框*/
     public ObservableField<Boolean> picking = new ObservableField<>();
 

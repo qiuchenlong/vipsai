@@ -33,7 +33,7 @@ public abstract class BaseListAdapterController<T> extends ArrayDataController<T
         public View getView(int position, View convertView, ViewGroup parent) {
             T data = getItem(position);
             if(data != null) {
-                return onGetView(data, convertView, parent);
+                return onGetView(data, position, convertView, parent);
             }
             return null;
         }
@@ -43,7 +43,7 @@ public abstract class BaseListAdapterController<T> extends ArrayDataController<T
         return mAdapter;
     }
 
-    protected View onGetView(T data, View convertView, ViewGroup parent){
+    protected View onGetView(T data, int position, View convertView, ViewGroup parent){
         return null;
     }
 }

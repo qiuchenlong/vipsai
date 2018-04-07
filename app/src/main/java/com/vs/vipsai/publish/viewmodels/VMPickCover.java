@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.text.Html;
 
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.publish.layoutcontroller.ArrayDataController;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
+import com.vs.vipsai.util.TLog;
 import com.vs.vipsai.widget.FitHeightImageView;
 import com.vs.vipsai.widget.GlidImageView;
 
@@ -31,13 +34,13 @@ import java.util.List;
  */
 public class VMPickCover{
 
-    public int placeHolder = R.mipmap.ic_default_image;
-
     public ObservableField<String> cover = new ObservableField<>("");
 
     private CoverListController mCoverList;
 
     private VMImageItem mSelected;
+
+    public ObservableField<CharSequence> rule = new ObservableField<>();
 
     private void wrapGridView(GridView view) {
         mCoverList = new CoverListController().wrap(view);
@@ -60,35 +63,48 @@ public class VMPickCover{
             data.add(item);
         }
 
+        cover.set("http://img3.imgtn.bdimg.com/it/u=1998509219,3699571886&fm=27&gp=0.jpg");
+        data.get(0).selected.set(true);
+        mSelected = data.get(0);
+
         mCoverList.setData(data);
         view.setAdapter(mCoverList.getAdapter());
-        view.setOnItemClickListener(mOnItemClickListener);
 
+        rule.set(Html.fromHtml(view.getContext().getString(R.string.game_rule)));
     }
 
-    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+//    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+//
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            VMImageItem item = mCoverList.getData(position);
+//            item.selected.set(true);
+//            if(mSelected != null && mSelected != item) {
+//                mSelected.selected.set(false);
+//            }
+//            mSelected = item;
+//            cover.set(item.url);
+//        }
+//    };
 
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            VMImageItem item = mCoverList.getData(position);
-            item.selected.set(true);
-            if(mSelected != null && mSelected != item) {
-                mSelected.selected.set(false);
-            }
-            mSelected = item;
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        VMImageItem item = mCoverList.getData(position);
+        item.selected.set(true);
+        if(mSelected != null && mSelected != item) {
+            mSelected.selected.set(false);
         }
-    };
+        mSelected = item;
+        cover.set(item.url);
+    }
 
     private class CoverListController extends BaseListAdapterController<VMImageItem> {
         @Override
-        protected View onGetView(VMImageItem data, View convertView, ViewGroup parent) {
+        protected View onGetView(VMImageItem data, int position, View convertView, ViewGroup parent) {
             if(convertView == null) {
                 ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_image,
                                                 parent, false);
                 convertView = binding.getRoot();
-
                 convertView.setTag(binding);
-
             }
 
             ViewDataBinding binding = (ViewDataBinding)convertView.getTag();

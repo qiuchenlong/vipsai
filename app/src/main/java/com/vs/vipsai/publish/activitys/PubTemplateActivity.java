@@ -112,6 +112,8 @@ public class PubTemplateActivity extends ToolbarActivity {
         addFragment(container.getId(), fragment);
     }
 
+
+
     @Override
     protected void onMenuBtnClick(View view) {
         move2Step(Math.min(mStep + 1, STEP_LAST));

@@ -3,13 +3,16 @@ package com.vs.vipsai.widget;
 import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.vs.library.widget.RoundImageView;
 import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.util.ImageLoader;
@@ -35,7 +38,7 @@ public class GlidImageView extends RoundImageView {
         mGlide = Glide.with(getContext());
     }
 
-    public void setImageUrl(final String url, final int placeHolder) {
+    public void setImageUrl(String url) {
         if(TextUtils.isEmpty(url)) {
             setVisibility(View.INVISIBLE);
             return;
@@ -43,12 +46,16 @@ public class GlidImageView extends RoundImageView {
             setVisibility(View.VISIBLE);
         }
 
-        ImageLoader.loadImage(mGlide, GlidImageView.this, url, placeHolder);
-
+        mGlide.load(url).diskCacheStrategy(DiskCacheStrategy.ALL)
+                //和RoundImageView使用不能使用占位符,否则第一次无法显示，使用布局的src提供默认图片
+//                .placeholder(placeHolder)
+//                .error(placeHolder)
+                .crossFade()
+                .into(this);
     }
 
-    @BindingAdapter({"bindImage","placeHolder"})
-    public static void bindImageView(GlidImageView view, String url, int placeHolder) {
-        view.setImageUrl(url, placeHolder);
+    @BindingAdapter("bindImage")
+    public static void bindImageView(GlidImageView view, String url) {
+        view.setImageUrl(url);
     }
 }

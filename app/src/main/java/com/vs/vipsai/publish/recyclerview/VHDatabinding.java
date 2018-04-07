@@ -13,22 +13,13 @@ import java.lang.ref.SoftReference;
  *
  *  RecyclerView.ViewHolder 的Databinding 基类
  */
-public class VHDatabinding<T> extends RecyclerView.ViewHolder{
+public class VHDatabinding extends RecyclerView.ViewHolder{
 
     private ViewDataBinding mBinding;
-    private SoftReference<T> mModel;
 
     public VHDatabinding(ViewDataBinding binding, View itemView) {
         super(itemView);
         mBinding = binding;
-    }
-
-    public void setModel(T model) {
-        mModel = new SoftReference<>(model);
-    }
-
-    public T getModel() {
-        return mModel == null ? null : mModel.get();
     }
 
     public ViewDataBinding getBinding() {
