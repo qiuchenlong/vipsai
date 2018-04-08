@@ -36,7 +36,7 @@ public class PlayerBonusAdapter extends BaseRecyclerAdapter<PlayerComment> {
     protected void onBindDefaultViewHolder(RecyclerView.ViewHolder holder, PlayerComment item, int position) {
         PlayerCommentHolderView h = (PlayerCommentHolderView) holder;
 
-        h.tvName.setText("money : " + item.getContent());
+        h.tvName.setText(item.getContent());
     }
 
     public static final class PlayerCommentHolderView extends RecyclerView.ViewHolder {
@@ -46,8 +46,8 @@ public class PlayerBonusAdapter extends BaseRecyclerAdapter<PlayerComment> {
 //        public PortraitView ivPortrait;
         @BindView(R.id.tv_name)
         public TextView tvName;
-//        @BindView(R.id.tv_pub_date)
-//        public TextView tvTime;
+        @BindView(R.id.tv_pub_date)
+        public TextView tvTime;
 //        @BindView(R.id.btn_comment)
 //        public ImageView btnReply;
 //        @BindView(R.id.tv_content)
