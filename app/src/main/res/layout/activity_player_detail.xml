@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -14,6 +15,11 @@
         <!--android:layout_height="?attr/actionBarSize"-->
         <!--android:background="@color/white" />-->
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
 
 
 
@@ -183,5 +189,7 @@
         android:id="@+id/layoutHeader"
         layout="@layout/layout_detail_header" />
 
+    </RelativeLayout>
 
-</RelativeLayout>
+
+</FrameLayout>

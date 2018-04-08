@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:clickable="true"
     android:orientation="vertical">
@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="评论"
         android:textSize="@dimen/font18sp"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/list_item_play_comment_layout"
@@ -34,12 +35,12 @@
             android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
-            <!--<net.oschina.app.improve.widget.PortraitView-->
-                <!--android:id="@+id/iv_avatar"-->
-                <!--android:layout_width="36dp"-->
-                <!--android:layout_height="36dp"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:src="@mipmap/widget_default_face" />-->
+            <com.vs.vipsai.widget.PortraitView
+                android:id="@+id/iv_avatar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/widget_default_face" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -50,7 +51,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -63,8 +64,8 @@
                         android:layout_height="wrap_content"
                         android:lines="1"
                         android:singleLine="true"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
+                        android:textColor="@color/mark_text_color"
+                        android:textSize="12sp"
                         tools:text="年轻的小蜜蜂" />
 
                     <!--<net.oschina.app.improve.widget.IdentityView-->
@@ -73,15 +74,76 @@
                         <!--android:layout_height="wrap_content"-->
                         <!--android:layout_marginLeft="@dimen/lay_4" />-->
 
-                </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/list_item_player_comment_btn_bad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_toLeftOf="@+id/list_item_player_comment_btn_good"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center"
+                        >
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@mipmap/ic_bad_gray"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:text="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/list_item_player_comment_btn_good"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        >
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@mipmap/ic_good_red"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:text="1"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/list_item_player_comment_text_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6a6a6a"
+                    android:textSize="12sp"
+                    android:text="今天在项目开发中用到了一个计时器"
+                    tools:text="今天在项目开发中用到了一个计时器" />
 
                 <TextView
                     android:id="@+id/tv_pub_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:textColor="#6a6a6a"
                     android:textSize="12sp"
-                    tools:text="12楼  6分钟前" />
+                    android:text="6分钟前  回复"
+                    tools:text="6分钟前  回复" />
+
             </LinearLayout>
 
             <ImageView
@@ -94,8 +156,34 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="8dp"
                 android:paddingStart="8dp"
-                android:src="@mipmap/ic_comment_30" />
+                android:src="@mipmap/ic_comment_30"
+                android:visibility="gone"
+                />
+
+
         </LinearLayout>
+
+        <com.vs.vipsai.widget.comment.CommentsView
+            android:id="@+id/list_item_player_comment_view_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            />
+
+        <TextView
+            android:id="@+id/list_item_player_comment_btn_see_all_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="72dp"
+            android:text="查看全部"
+            android:textSize="12sp"
+            android:textColor="@color/mark_text_color"
+            android:visibility="gone"
+            />
+
 
         <!--<net.oschina.app.widget.TweetTextView-->
             <!--android:id="@+id/tv_content"-->
