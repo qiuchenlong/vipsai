@@ -7,7 +7,7 @@
 
         <variable
             name="VMAwardItem"
-            type="com.vs.vipsai.publish.viewmodels.VMAwardItem" />
+            type="com.vs.vipsai.bean.AwardBean" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/padding_12"
-        android:background="@drawable/bg_frame_green_selector"
+        android:background="@drawable/bg_frame_select_selector"
         app:selected="@{VMAwardItem.selected}">
 
         <!--标题-->
@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/font_normal"
-                android:text="@{VMAwardItem.getAwardTypeStr()}"/>
+                android:text="@{VMAwardItem.awardType}"/>
         </LinearLayout>
 
         <!--描述-->
@@ -88,7 +88,7 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 app:bindImage="@{VMAwardItem.getIconUrl(0)}"
-                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+                android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -100,7 +100,7 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 app:bindImage="@{VMAwardItem.getIconUrl(1)}"
-                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+                android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -112,7 +112,7 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 app:bindImage="@{VMAwardItem.getIconUrl(2)}"
-                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+                android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -124,7 +124,7 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 app:bindImage="@{VMAwardItem.getIconUrl(3)}"
-                app:placeHolder="@{VMAwardItem.iconPlaceHolder}"/>
+                android:src="@mipmap/ic_default_image"/>
 
         </LinearLayout>
 

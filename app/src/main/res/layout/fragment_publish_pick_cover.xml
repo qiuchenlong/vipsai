@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/padding_8"
                     app:bindImage="@{VMPickCover.cover}"
-                    app:placeHolder="@{VMPickCover.placeHolder}"/>
+                    android:src="@mipmap/ic_default_image"/>
 
                 <!--可选封面-->
                 <FrameLayout
@@ -67,20 +67,24 @@
 
                 </FrameLayout>
 
-                <GridView
+                <com.vs.library.widget.NestGridView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="true"
                     android:cacheColorHint="@color/transparent"
+                    android:stretchMode="columnWidth"
                     android:numColumns="4"
                     android:horizontalSpacing="@dimen/padding_8"
-                    android:verticalSpacing="@dimen/padding_8"/>
+                    android:verticalSpacing="@dimen/padding_8"
+                    android:listSelector="@color/transparent"
+                    app:bindModel="@{VMPickCover}"
+                    app:onItemClickListener="@{VMPickCover::onItemClick}"/>
 
                 <!--本地图片-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/padding_8"
+                    android:layout_marginTop="@dimen/padding_8"
                     android:textSize="@dimen/font_small"
                     android:layerType="software"
                     android:gravity="center"
@@ -106,21 +110,14 @@
                     android:text="@string/game_rule_title"
                     android:background="@drawable/bg_frame_bottom_white"/>
 
-                <ScrollView
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="156dp"
-                    android:nestedScrollingEnabled="true">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/font_normal"
-                        android:paddingVertical="@dimen/padding_8"
-                        android:text="@string/game_rule"
-                        android:background="@drawable/bg_frame_bottom_white"/>
-
-                </ScrollView>
-
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingVertical="@dimen/padding_8"
+                    android:text="@{VMPickCover.rule}"
+                    android:background="@drawable/bg_frame_bottom_white"/>
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -130,29 +127,6 @@
                     android:textColor="@color/gray"
                     android:text="@string/confirm_rule"/>
 
-                <!--<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/padding_12"
-                    android:gravity="center_vertical">
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="@dimen/padding_12"
-                        android:text="@string/confirm_rule"/>
-
-                    &lt;!&ndash;<ImageView
-                        style="@style/imageview_checkbox" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/padding_8"
-                        android:textSize="@dimen/font_normal"
-                        android:text="@string/confirm_rule"/>&ndash;&gt;
-
-                </LinearLayout>-->
 
             </LinearLayout>
 

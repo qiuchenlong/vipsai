@@ -120,6 +120,7 @@
     <dimen name="tab_height">36dp</dimen>
 
     <dimen name="check_box_size">@dimen/size_20</dimen>
+    <dimen name="check_box_size_small">@dimen/size_12</dimen>
     <dimen name="list_image_size">38dp</dimen>
 
     <dimen name="image_size_normal">24dp</dimen>

@@ -28,8 +28,8 @@ public class UserListFragment extends SearchFragment<VMUser, UserProfileListCont
 
     @Override
     protected void onCreateContent(ViewGroup parent) {
-        UserProfileListController viewController = new UserProfileListController();
-        viewController.attachTo(parent, true);
+        UserProfileListController viewController = new UserProfileListController()
+                                .attachTo(parent, true);
         viewController.setPicking(true);
         mViewController = viewController;
     }
@@ -58,6 +58,7 @@ public class UserListFragment extends SearchFragment<VMUser, UserProfileListCont
                         mViewController.setData(profiles, true);
                     }
                 });
+
             }
         });
 

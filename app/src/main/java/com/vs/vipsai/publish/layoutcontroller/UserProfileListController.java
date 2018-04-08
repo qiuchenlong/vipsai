@@ -32,8 +32,6 @@ public class UserProfileListController extends ExpandableListViewController<User
 
     private boolean mPicking;
 
-    private boolean[] mLetterIndexMark;
-
     @Override
     protected void init(Context context) {
         super.init(context);
@@ -58,10 +56,7 @@ public class UserProfileListController extends ExpandableListViewController<User
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-
-        UserProfile group = (UserProfile)getGroup(groupPosition);
-
+    protected View onGetGroupView(UserProfile group, boolean isExpanded, View convertView, ViewGroup parent) {
         if(convertView == null) {
             TextView textView = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.letter_item, parent, false);
             convertView = textView;
@@ -71,8 +66,9 @@ public class UserProfileListController extends ExpandableListViewController<User
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        VMUser user = (VMUser)getChild(groupPosition, childPosition);
+    protected View onGetChildView(Object child, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+
+        VMUser user = (VMUser)child;
         if(convertView == null) {
             ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                     R.layout.list_item_user_profile, parent, false);

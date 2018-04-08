@@ -58,14 +58,12 @@ public abstract class VMTabFragment {
         AppOperator.runOnThread(new Runnable() {
             @Override
             public void run() {
-                List<SubTab> tabs = getTabConfig();
-                if(tabs == null || tabs.isEmpty()) {
-                    requestTabConfigFromServer(mResponseHandler);
-                }else {
-                    tabList.addAll(tabs);
-                }
+                requestTabConfigFromServer(mResponseHandler);
             }
         });
+
+        List<SubTab> tabs = getTabConfig();
+        tabList.addAll(tabs);
 
         adapter.set(new FragmentPagerAdapter(fm) {
             @Override
@@ -116,6 +114,10 @@ public abstract class VMTabFragment {
         layout.setTabMode(tabs.size() > 5 ? TabLayout.MODE_SCROLLABLE : TabLayout.MODE_FIXED);
         layout.setTabGravity(tabs.size() > 5 ? TabLayout.GRAVITY_CENTER : TabLayout.GRAVITY_FILL);
         layout.setupWithViewPager(viewPager);
+
+        if(viewPager.getAdapter() != null) {
+            viewPager.getAdapter().notifyDataSetChanged();
+        }
     }
 
     /**
