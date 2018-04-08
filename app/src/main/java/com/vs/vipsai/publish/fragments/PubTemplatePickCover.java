@@ -3,16 +3,21 @@ package com.vs.vipsai.publish.fragments;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.publish.viewmodels.VMPickCover;
 import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
+import com.vs.vipsai.util.FileUtil;
+
+import java.io.File;
 
 /**
  * * Author: chends
@@ -23,7 +28,15 @@ import com.vs.vipsai.publish.viewmodels.VMPublishPickSubject;
  */
 public class PubTemplatePickCover extends BaseFragment {
 
-
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //本地封面裁剪暂存文件夹
+        File file = new File(getContext().getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
+        if(!file.exists()) {
+            file.mkdir();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +61,13 @@ public class PubTemplatePickCover extends BaseFragment {
             initData();
         }
         return mRoot;
+    }
+
+    @Override
+    public void onDestroy() {
+        //清空封面裁剪暂存文件夹
+        FileUtil.clearFileWithPath(getContext().getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
+        super.onDestroy();
     }
 
     @Override

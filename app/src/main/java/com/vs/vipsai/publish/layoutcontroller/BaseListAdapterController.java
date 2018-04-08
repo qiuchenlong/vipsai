@@ -4,6 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import java.util.List;
+
 /**
  * * Author: chends
  * Created on 3/28/18 5:33 PM
@@ -38,6 +40,24 @@ public abstract class BaseListAdapterController<T> extends ArrayDataController<T
             return null;
         }
     };
+
+    @Override
+    public void setData(List<T> datas) {
+        super.setData(datas);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void appendData(List<T> data, boolean top) {
+        super.appendData(data, top);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void appendData(T data, boolean top) {
+        super.appendData(data, top);
+        mAdapter.notifyDataSetChanged();
+    }
 
     public BaseAdapter getAdapter() {
         return mAdapter;

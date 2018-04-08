@@ -28,17 +28,18 @@
             <ImageView
                 android:id="@+id/checkbox"
                 style="@style/imageview_checkbox"
-                android:visibility="@{user.picking.get().booleanValue() ? View.VISIBLE : View.GONE}"
+                android:visibility="@{user.pickMode ? View.VISIBLE : View.GONE}"
                 android:layout_weight="0"
                 android:layout_marginRight="@dimen/padding_12"
-                android:onClick="@{user::onClick}"/>
+                android:onClick="@{user::onClick}"
+                app:selected="@{user.checked}"/>
 
             <com.vs.vipsai.widget.GlidImageView
                 android:layout_width="@dimen/list_image_size"
                 android:layout_height="@dimen/list_image_size"
                 app:type="circle"
                 android:layout_weight="0"
-                app:bindImage="@{user.portrait}"
+                app:imageUrl="@{user.portrait}"
                 android:src="@mipmap/ic_nav_my_normal"
                 android:layout_marginRight="@dimen/padding_12"/>
 

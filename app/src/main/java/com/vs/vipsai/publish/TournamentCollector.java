@@ -1,6 +1,11 @@
 package com.vs.vipsai.publish;
 
 import com.vs.vipsai.bean.TournamentBean;
+import com.vs.vipsai.bean.User;
+import com.vs.vipsai.publish.viewmodels.VMImageItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * * Author: chends
@@ -17,6 +22,12 @@ public class TournamentCollector {
 
     private TournamentBean mTournament;
 
+    private boolean mRuleChecked;
+
+    private VMImageItem mCover;
+
+    private List<Long> mUsers = new ArrayList<>();
+
     /**
      * 创建赛事收集器
      * @param tournament
@@ -29,6 +40,10 @@ public class TournamentCollector {
                 }
             }
         }
+    }
+
+    public void setCover(VMImageItem cover) {
+        mCover = cover;
     }
 
     /**
@@ -57,6 +72,20 @@ public class TournamentCollector {
         if(mTournament != null) {
             mTournament.appendAwardId(id);
         }
+    }
+
+    public void changedPlayer(User user, boolean append) {
+        if(append) {
+            mUsers.add(user.getId());
+        }else {
+            mUsers.remove(user.getId());
+        }
+    }
+
+    public int getUserCount() {return mUsers.size();}
+
+    public void setRuleChecked(boolean checked) {
+        mRuleChecked = checked;
     }
 
     private TournamentCollector(TournamentBean tournament){

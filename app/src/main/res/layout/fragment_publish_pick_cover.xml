@@ -39,7 +39,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/padding_8"
-                    app:bindImage="@{VMPickCover.cover}"
+                    app:imageUrl="@{VMPickCover.remoteCover.get()}"
+                    app:localPic="@{VMPickCover.localCover.get()}"
                     android:src="@mipmap/ic_default_image"/>
 
                 <!--可选封面-->
@@ -80,7 +81,7 @@
                     app:onItemClickListener="@{VMPickCover::onItemClick}"/>
 
                 <!--本地图片-->
-                <TextView
+                <TextView android:id="@+id/pick_local_pic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="@dimen/padding_8"
@@ -89,7 +90,8 @@
                     android:layerType="software"
                     android:gravity="center"
                     android:text="@string/local_cover"
-                    android:background="@drawable/bg_frame_dot_selector"/>
+                    android:background="@drawable/bg_frame_dot_selector"
+                    android:onClick="@{VMPickCover::onClick}"/>
 
             </LinearLayout>
 
@@ -125,7 +127,8 @@
                     android:paddingHorizontal="@dimen/padding_12"
                     android:textSize="@dimen/font_normal"
                     android:textColor="@color/gray"
-                    android:text="@string/confirm_rule"/>
+                    android:text="@string/confirm_rule"
+                    android:onCheckedChanged="@{VMPickCover::onRuleCheckChanged}"/>
 
 
             </LinearLayout>

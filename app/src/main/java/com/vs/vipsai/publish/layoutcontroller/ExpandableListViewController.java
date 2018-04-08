@@ -55,6 +55,16 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         }
     };
 
+    public int getTotalChildCount() {
+        int result = 0;
+        for(int i = 0; i < mAdapter.getGroupCount(); i++) {
+            ItemData group = (ItemData)mAdapter.getGroup(i);
+            result += group.getChildCount();
+        }
+
+        return result;
+    }
+
     /**
      * 可以运行在非主线程
      * @param datas
@@ -75,6 +85,8 @@ public class ExpandableListViewController<T extends ExpandableListViewController
         mAdapter.notifyDataSetChanged();
 
     }
+
+
 
     /**
      * 点击group是否可以收缩或展开

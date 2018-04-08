@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                app:bindImage="@{VMAwardItem.getIconUrl(0)}"
+                app:imageUrl="@{VMAwardItem.getIconUrl(0)}"
                 android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                app:bindImage="@{VMAwardItem.getIconUrl(1)}"
+                app:imageUrl="@{VMAwardItem.getIconUrl(1)}"
                 android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                app:bindImage="@{VMAwardItem.getIconUrl(2)}"
+                app:imageUrl="@{VMAwardItem.getIconUrl(2)}"
                 android:src="@mipmap/ic_default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
-                app:bindImage="@{VMAwardItem.getIconUrl(3)}"
+                app:imageUrl="@{VMAwardItem.getIconUrl(3)}"
                 android:src="@mipmap/ic_default_image"/>
 
         </LinearLayout>

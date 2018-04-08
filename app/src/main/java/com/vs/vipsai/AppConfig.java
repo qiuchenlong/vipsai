@@ -41,6 +41,8 @@ public class AppConfig {
             + "vsdsai"
             + File.separator + "download" + File.separator;
 
+    public final static String PUBLISH_LOCAL_COVERS_DIR = File.separator + "localcoves";
+
     private Context mContext;
     private static AppConfig appConfig;
 

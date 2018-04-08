@@ -15,11 +15,13 @@ import com.vs.vipsai.R;
  */
 public class VMImageItem {
 
-    public int placeHolder = R.mipmap.ic_default_image;
+//    public int placeHolder = R.mipmap.ic_default_image;
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
 
     public String url;
+
+    public String localPath;
 
     @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {

@@ -68,6 +68,16 @@ public abstract class ArrayDataController<T> {
         return index >= 0 && index < mData.size() ? mData.get(index) : null;
     }
 
+    public void appendData(List<T> data, boolean top) {
+        if(data != null) {
+            if(top) {
+                mData.addAll(0, data);
+            }else {
+                mData.addAll(data);
+            }
+        }
+    }
+
     public void appendData(T data, boolean top) {
         if(data != null) {
             if(top) {

@@ -4,23 +4,33 @@ import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
 import android.databinding.ViewDataBinding;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.GridView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.text.Html;
 
+import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PageBean;
+import com.vs.vipsai.media.SelectImageActivity;
+import com.vs.vipsai.media.config.SelectOptions;
+import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.publish.layoutcontroller.ArrayDataController;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
 import com.vs.vipsai.util.TLog;
+import com.vs.vipsai.util.TextUtil;
 import com.vs.vipsai.widget.FitHeightImageView;
 import com.vs.vipsai.widget.GlidImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,13 +44,16 @@ import java.util.List;
  */
 public class VMPickCover{
 
-    public ObservableField<String> cover = new ObservableField<>("");
+    public ObservableField<String> remoteCover = new ObservableField<>("");
+    public ObservableField<String> localCover = new ObservableField<>("");
 
     private CoverListController mCoverList;
 
     private VMImageItem mSelected;
 
     public ObservableField<CharSequence> rule = new ObservableField<>();
+
+    private File mLocalCoverCacheDir;
 
     private void wrapGridView(GridView view) {
         mCoverList = new CoverListController().wrap(view);
@@ -63,41 +76,109 @@ public class VMPickCover{
             data.add(item);
         }
 
-        cover.set("http://img3.imgtn.bdimg.com/it/u=1998509219,3699571886&fm=27&gp=0.jpg");
-        data.get(0).selected.set(true);
-        mSelected = data.get(0);
+        showSelectedCover(data.get(0));
 
         mCoverList.setData(data);
         view.setAdapter(mCoverList.getAdapter());
 
         rule.set(Html.fromHtml(view.getContext().getString(R.string.game_rule)));
+
+        mLocalCoverCacheDir = new File(view.getContext().getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
+
     }
 
-//    private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
-//
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            VMImageItem item = mCoverList.getData(position);
-//            item.selected.set(true);
-//            if(mSelected != null && mSelected != item) {
-//                mSelected.selected.set(false);
-//            }
-//            mSelected = item;
-//            cover.set(item.url);
-//        }
-//    };
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.pick_local_pic:       //pick local pics
+                SelectImageActivity.show(view.getContext(), new SelectOptions.Builder()
+                        .setHasCam(true)
+                        .setCrop(700, 350)
+                        .setCallback(new SelectOptions.Callback() {
+                            @Override
+                            public void doSelected(String[] images) {
+                                if(images != null && images.length > 0) {
+                                    try {
+                                        String[] files = mLocalCoverCacheDir.list();
+                                        int tmpCount = files == null ? 0 : files.length;
+                                        File tmpFile = new File(mLocalCoverCacheDir, "tmp" + tmpCount);
+
+                                        File file = new File(images[0]);
+                                        if (file.renameTo(tmpFile)) {
+                                            mCoverList.appendLocalPic(tmpFile.getAbsolutePath());
+                                        }
+
+                                    }catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            }
+                        }).build());
+                break;
+        }
+    }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         VMImageItem item = mCoverList.getData(position);
         item.selected.set(true);
-        if(mSelected != null && mSelected != item) {
-            mSelected.selected.set(false);
-        }
-        mSelected = item;
-        cover.set(item.url);
+        showSelectedCover(item);
     }
 
+    public void onRuleCheckChanged(CompoundButton buttonView, boolean isChecked) {
+        TournamentCollector c = TournamentCollector.get();
+        if(c != null) {
+            c.setRuleChecked(isChecked);
+        }
+    }
+
+    //显示选中封面
+    private void showSelectedCover(VMImageItem selected) {
+
+        if(mSelected != null && mSelected != selected) {
+            mSelected.selected.set(false);
+        }
+        mSelected = selected;
+        if(TextUtils.isEmpty(selected.url)) {
+            localCover.set(selected.localPath);
+            remoteCover.set("");
+        }else {
+            remoteCover.set(selected.url);
+            localCover.set("");
+        }
+
+        TournamentCollector c = TournamentCollector.get();
+        if(c != null) {
+            c.setCover(selected);
+        }
+    }
+
+    //可选封面列表
     private class CoverListController extends BaseListAdapterController<VMImageItem> {
+
+        private void appendLocalPic(String path) {
+            if(!TextUtils.isEmpty(path)) {
+                VMImageItem item = new VMImageItem();
+                item.localPath = path;
+                appendData(item, true);
+
+                item.selected.set(true);
+                showSelectedCover(item);
+//                List<VMImageItem> images = new ArrayList<>();
+//                for(int i = 0; i < paths.length; i++) {
+//                    VMImageItem item = new VMImageItem();
+//                    if(i == 0) {
+//                        item.selected.set(true);
+//                        showSelectedCover(item);
+//                    }
+//
+//                    item.localPath = paths[i];
+//                    images.add(item);
+//                }
+//
+//                appendData(images, true);
+            }
+        }
+
         @Override
         protected View onGetView(VMImageItem data, int position, View convertView, ViewGroup parent) {
             if(convertView == null) {

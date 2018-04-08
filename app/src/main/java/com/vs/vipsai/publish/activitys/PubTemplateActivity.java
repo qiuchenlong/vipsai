@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.TournamentBean;
@@ -58,6 +59,7 @@ public class PubTemplateActivity extends ToolbarActivity {
             tournament = new TournamentBean();
         }
 
+        //比赛信息收集器
         TournamentCollector.build(tournament);
         return true;
     }
@@ -76,6 +78,8 @@ public class PubTemplateActivity extends ToolbarActivity {
                     mFragments[nextStep] = fragment;
                 }
 
+                setTitle(R.string.actionbar_title_subject);
+
                 break;
             case STEP_PICK_AWARD:
 
@@ -83,6 +87,8 @@ public class PubTemplateActivity extends ToolbarActivity {
                     fragment = new PubTemplatePickAward();
                     mFragments[nextStep] = fragment;
                 }
+
+                setTitle(R.string.pick_award_title);
 
                 break;
             case STEP_PICK_PARTICIPANT:
@@ -92,13 +98,22 @@ public class PubTemplateActivity extends ToolbarActivity {
                     mFragments[nextStep] = fragment;
                 }
 
+                setTitle(R.string.invite_to_tournament);
+
                 break;
             case STEP_LAST:
+
+                if(TournamentCollector.get().getUserCount() <= 0) {
+                    Toast.makeText(this, R.string.pick_user_first, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (fragment == null) {
                     fragment = new PubTemplatePickCover();
                     mFragments[nextStep] = fragment;
                 }
+
+                setTitle(R.string.reset_pwd_submit);
 
                 break;
             default:throw new IndexOutOfBoundsException();
@@ -116,7 +131,15 @@ public class PubTemplateActivity extends ToolbarActivity {
 
     @Override
     protected void onMenuBtnClick(View view) {
-        move2Step(Math.min(mStep + 1, STEP_LAST));
+        if(mStep == STEP_LAST) {
+            submitTournament();
+        }else {
+            move2Step(Math.min(mStep + 1, STEP_LAST));
+        }
+    }
+
+    private void submitTournament() {
+        //TODO:submit tournament
     }
 
     @Override

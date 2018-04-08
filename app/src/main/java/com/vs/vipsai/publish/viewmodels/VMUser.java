@@ -5,15 +5,8 @@ import android.view.View;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.User;
-import com.vs.vipsai.publish.layoutcontroller.ExpandableListViewController;
-import com.vs.vipsai.publish.layoutcontroller.UserProfileListController;
-import com.vs.vipsai.util.PinYin;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.ref.SoftReference;
 
 /**
  * * Author: chends
@@ -25,14 +18,28 @@ import java.util.List;
 public class VMUser extends User {
 
     /**是否显示选择框*/
-    public ObservableField<Boolean> picking = new ObservableField<>();
+    public ObservableField<Boolean> pickMode = new ObservableField<>(false);
+    public ObservableField<Boolean> checked = new ObservableField<>(false);
+
+    private OnCheckedListener mListener;
 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.checkbox:
-                v.setSelected(!v.isSelected());
+                checked.set(!checked.get());
+                if(mListener != null) {
+                    mListener.onCheckedChange(VMUser.this, checked.get());
+                }
                 break;
         }
     }
 
+    public void setOnCheckedChangedLisener(OnCheckedListener listener) {
+        mListener = listener;
+    }
+
+    /**赋选框改变监听器*/
+    public interface OnCheckedListener {
+        public void onCheckedChange(VMUser user, boolean selected);
+    }
 }

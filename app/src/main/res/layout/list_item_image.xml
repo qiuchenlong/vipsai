@@ -21,16 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:bindImage="@{VMImageItem.url}"
-            android:src="@mipmap/ic_default_image"/>
+            app:imageUrl="@{VMImageItem.url}"
+            android:src="@mipmap/ic_default_image"
+            app:localPic="@{VMImageItem.localPath}"/>
 
         <ImageView android:id="@+id/checkbox"
             style="@style/imageview_checkbox_small"
             android:layout_gravity="right|top"
             android:layout_marginTop="@dimen/padding_8"
             android:layout_marginRight="@dimen/padding_8"
-            android:visibility="@{VMImageItem.selected.get() ? View.VISIBLE : View.GONE}"
-            app:selected="@{VMImageItem.selected.get()}"/>
+            android:visibility="@{VMImageItem.selected ? View.VISIBLE : View.GONE}"
+            app:selected="@{VMImageItem.selected}"/>
 
     </FrameLayout>
 </layout>

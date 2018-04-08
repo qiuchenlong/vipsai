@@ -235,4 +235,11 @@ USER refers to all users of the Service, including users who are also contributo
     ]]></Data></string>
 
     <string name="confirm_rule">我已阅读、理解并同意本合约所载条款</string>
+
+    <string name="pick_award_title">选择奖项</string>
+    <string name="invite_to_tournament">邀请参赛</string>
+    <string name="pick_user_first">请选择参赛人员</string>
+
+    <string name="num_percent">(%1$d/%2$d)</string>
+
 </resources>

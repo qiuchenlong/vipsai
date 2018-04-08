@@ -17,6 +17,8 @@ import com.vs.library.widget.RoundImageView;
 import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.util.ImageLoader;
 
+import java.io.File;
+
 /**
  * * Author: chends
  * Created on 3/28/18 5:33 PM
@@ -27,6 +29,8 @@ import com.vs.vipsai.util.ImageLoader;
 public class GlidImageView extends RoundImageView {
 
     private RequestManager mGlide;
+    private String mRemoteUrl;
+    private String mLocalPath;
 
     public GlidImageView(Context context) {
         super(context);
@@ -39,23 +43,32 @@ public class GlidImageView extends RoundImageView {
     }
 
     public void setImageUrl(String url) {
-        if(TextUtils.isEmpty(url)) {
-            setVisibility(View.INVISIBLE);
-            return;
-        }else {
+        mRemoteUrl = url;
+        if(!TextUtils.isEmpty(url)) {
             setVisibility(View.VISIBLE);
-        }
 
-        mGlide.load(url).diskCacheStrategy(DiskCacheStrategy.ALL)
-                //和RoundImageView使用不能使用占位符,否则第一次无法显示，使用布局的src提供默认图片
+            mGlide.load(url).diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //和RoundImageView使用不能使用占位符,否则第一次无法显示，使用布局的src提供默认图片
 //                .placeholder(placeHolder)
 //                .error(placeHolder)
-                .crossFade()
-                .into(this);
+                    .crossFade()
+                    .into(this);
+
+        }else if(TextUtils.isEmpty(mLocalPath)){
+            setVisibility(View.INVISIBLE);
+            return;
+        }
+
     }
 
-    @BindingAdapter("bindImage")
-    public static void bindImageView(GlidImageView view, String url) {
-        view.setImageUrl(url);
+    public void setLocalPic(String path) {
+        mLocalPath = path;
+        if(!TextUtils.isEmpty(path)) {
+            mGlide.load(new File(path)).skipMemoryCache(true).crossFade().into(this);
+            setVisibility(VISIBLE);
+        }else if(TextUtils.isEmpty(mRemoteUrl)){
+            setVisibility(INVISIBLE);
+        }
     }
+
 }

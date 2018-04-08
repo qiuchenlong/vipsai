@@ -10,15 +10,10 @@ import android.widget.TextView;
 
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
-import com.vs.vipsai.bean.User;
 import com.vs.vipsai.publish.viewmodels.VMUser;
-import com.vs.vipsai.util.PinYin;
 import com.vs.vipsai.util.TDevice;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.lang.ref.SoftReference;
 import java.util.List;
 
 /**
@@ -31,6 +26,8 @@ import java.util.List;
 public class UserProfileListController extends ExpandableListViewController<UserProfileListController.UserProfile>{
 
     private boolean mPicking;
+
+    private SoftReference<VMUser.OnCheckedListener> mListener;
 
     @Override
     protected void init(Context context) {
@@ -51,7 +48,10 @@ public class UserProfileListController extends ExpandableListViewController<User
         super.setData(datas, expandAll);
     }
 
-    public void setPicking(boolean picking) {
+    public void setPickMode(boolean picking, VMUser.OnCheckedListener listener) {
+        if(picking && listener != null) {
+            mListener = new SoftReference<>(listener);
+        }
         mPicking = picking;
     }
 
@@ -75,13 +75,26 @@ public class UserProfileListController extends ExpandableListViewController<User
             convertView = binding.getRoot();
             convertView.setTag(binding);
         }
-        user.picking.set(mPicking);
+
+        user.pickMode.set(mPicking);
+        user.setOnCheckedChangedLisener(mCheckedListener);
+
         ViewDataBinding binding = (ViewDataBinding)convertView.getTag();
         binding.setVariable(BR.user, user);
         binding.executePendingBindings();
 
         return convertView;
     }
+
+    private VMUser.OnCheckedListener mCheckedListener = new VMUser.OnCheckedListener() {
+        @Override
+        public void onCheckedChange(VMUser user, boolean selected) {
+            final VMUser.OnCheckedListener l = mListener.get();
+            if(l != null) {
+                l.onCheckedChange(user, selected);
+            }
+        }
+    };
 
     public static class UserProfile extends ExpandableListViewController.ItemData<VMUser> {
         private String mPinyin;
@@ -93,7 +106,6 @@ public class UserProfileListController extends ExpandableListViewController<User
         public String getPinyin() {
             return mPinyin;
         }
-
     }
 
     public static String testData() {
@@ -107,13 +119,14 @@ public class UserProfileListController extends ExpandableListViewController<User
                 "{\"id\":6,\"name\":\"冯紫英\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
                 "{\"id\":7,\"name\":\"航天飞机\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=893407299,3791776195&fm=200&gp=0.jpg\"},\n" +
                 "{\"id\":8,\"name\":\"恍恍惚惚\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
-                "{\"id\":8,\"name\":\"沐亦阳\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
-                "{\"id\":9,\"name\":\"邓家佳\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=893407299,3791776195&fm=200&gp=0.jpg\"},\n" +
-                "{\"id\":10,\"name\":\"张爱华\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
-                "{\"id\":11,\"name\":\"李维斯\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
-                "{\"id\":12,\"name\":\"锦相侯\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"}\n" +
+                "{\"id\":9,\"name\":\"沐亦阳\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
+                "{\"id\":10,\"name\":\"邓家佳\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=893407299,3791776195&fm=200&gp=0.jpg\"},\n" +
+                "{\"id\":11,\"name\":\"张爱华\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
+                "{\"id\":12,\"name\":\"李维斯\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"},\n" +
+                "{\"id\":13,\"name\":\"锦相侯\",\"portrait\":\"http://img0.imgtn.bdimg.com/it/u=52803214,3583596752&fm=27&gp=0.jpg\"}\n" +
                 "]},\n" +
                 " \"time\":\"2018-04-01 14:23:03\"\n" +
                 "}";
     }
+
 }
