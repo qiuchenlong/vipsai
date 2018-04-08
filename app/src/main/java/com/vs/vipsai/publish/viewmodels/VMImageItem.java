@@ -23,6 +23,8 @@ public class VMImageItem {
 
     public String localPath;
 
+    public String description = "";
+
     @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {
         if(value.get()) {
