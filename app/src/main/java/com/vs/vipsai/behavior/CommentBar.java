@@ -32,6 +32,7 @@ public class CommentBar {
     private TextView mCommentText;
     private BottomSheetBar mDelegation;
     private LinearLayout mCommentLayout;
+    private LinearLayout mRootLayout;
 
 
     private CommentBar(Context context) {
@@ -64,7 +65,14 @@ public class CommentBar {
 //                }
             }
         });
+        mRootLayout = (LinearLayout) mRootView.findViewById(R.id.layout_comment_bar_root_layout);
     }
+
+
+    public void setVisible(int visible) {
+        mRootLayout.setVisibility(visible);
+    }
+
 
     /**
      * share 2 three sdk

@@ -1,41 +1,18 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.detail.fragment;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
-import com.vs.vipsai.R;
-import com.vs.vipsai.adapter.PlayerDetailAdapter;
-import com.vs.vipsai.adapter.ViewHolder;
+import com.vs.vipsai.detail.adapter.PlayerDetailAdapter;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
-import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.base.fragments.BaseRecyclerViewFragment;
 import com.vs.vipsai.bean.PageBean;
-import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.TweetLike;
-import com.vs.vipsai.bean.User;
-import com.vs.vipsai.main.my.DividerItemDecoration;
-import com.vs.vipsai.tweet.contract.TweetDetailContract;
 
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Author: cynid

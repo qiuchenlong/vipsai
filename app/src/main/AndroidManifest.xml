@@ -183,7 +183,7 @@
             android:windowSoftInputMode="adjustResize"/>
 
 
-        <activity android:name="com.vs.vipsai.ui.activity.PlayerDetailActivity"
+        <activity android:name="com.vs.vipsai.detail.activity.PlayerDetailActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="比赛详情"
             android:screenOrientation="portrait"
