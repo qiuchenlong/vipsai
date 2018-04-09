@@ -15,10 +15,12 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.detail.activity.BasePlayerDetailActivity;
 import com.vs.vipsai.detail.activity.PlayerDetailActivity;
-import com.vs.vipsai.tweet.contract.TweetDetailContract;
+import com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity;
 import com.vs.vipsai.detail.fragment.ListPlayerBonusFragment;
 import com.vs.vipsai.detail.fragment.ListPlayerCommentFragment;
 import com.vs.vipsai.detail.fragment.ListPlayerDetailFragment;
+import com.vs.vipsai.detail.fragment.ListPlayerWorksFragment;
+import com.vs.vipsai.tweet.contract.TweetDetailContract;
 
 /**
  * Author: cynid
@@ -26,7 +28,7 @@ import com.vs.vipsai.detail.fragment.ListPlayerDetailFragment;
  * Description:
  */
 
-public class PlayerDetailViewPagerFragment extends Fragment implements TweetDetailContract.ICmnView, TweetDetailContract.IAgencyView, BasePlayerDetailActivity.onViewPagerSelectListener {
+public class PlayerDetailViewPagerCountOfFourFragment extends Fragment implements TweetDetailContract.ICmnView, TweetDetailContract.IAgencyView, BasePlayerDetailActivity.onViewPagerSelectListener {
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -40,8 +42,8 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
     private BasePlayerDetailActivity activity;
 
 
-    public static PlayerDetailViewPagerFragment instantiate() {
-        return new PlayerDetailViewPagerFragment();
+    public static PlayerDetailViewPagerCountOfFourFragment instantiate() {
+        return new PlayerDetailViewPagerCountOfFourFragment();
     }
 
     @Override
@@ -88,41 +90,49 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
             final ListPlayerBonusFragment bonusFragment;
             mCmnViewImp = bonusFragment = ListPlayerBonusFragment.instantiate(mOperator, this); //mOperator, this   mCmnViewImp =
 
+            final ListPlayerWorksFragment worksFragment;
+            mCmnViewImp = worksFragment = ListPlayerWorksFragment.instantiate(mOperator, this);
+
+
             mViewPager.setAdapter(mAdapter = new FragmentStatePagerAdapter(getChildFragmentManager()) {
                 /**
                  * @param position
                  * @return
                  */
                 @Override
-                public android.support.v4.app.Fragment getItem(int position) {
+                public Fragment getItem(int position) {
                     switch (position) {
                         case 0:
+                            // 作品
+                            return worksFragment;
+                        case 1:
                             // 评论
                             return mThumbupFrag;
-                        case 1:
+                        case 2:
                             // 详情
                             return mCmnFrag;
-                        case 2:
+                        case 3:
                             // 奖金
                             return bonusFragment;
-
                     }
                     return null;
                 }
 
                 @Override
                 public int getCount() {
-                    return 3;
+                    return 4;
                 }
 
                 @Override
                 public CharSequence getPageTitle(int position) {
                     switch (position) {
                         case 0:
-                            return String.format("评论(%s)", 10); //, mOperator.getTweetDetail().getLikeCount()
+                            return String.format("作品(%s)", 50);
                         case 1:
-                            return String.format("详情(%s)", 20); //, mOperator.getTweetDetail().getCommentCount()
+                            return String.format("评论(%s)", 10); //, mOperator.getTweetDetail().getLikeCount()
                         case 2:
+                            return String.format("详情(%s)", 20); //, mOperator.getTweetDetail().getCommentCount()
+                        case 3:
                             return String.format("奖金(%s)", 50);
                     }
                     return null;

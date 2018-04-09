@@ -190,6 +190,19 @@
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
 
+
+        <activity android:name="com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="比赛详情4"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+
+
+
+
+
         <activity android:name="com.vs.vipsai.publish.activitys.PubTemplateActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/actionbar_title_subject"

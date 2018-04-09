@@ -15,6 +15,7 @@ import com.vs.vipsai.base.adapter.BaseGeneralRecyclerAdapter;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
+import com.vs.vipsai.detail.adapter.PlayerWorksAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
 import com.vs.vipsai.main.my.DividerItemDecoration;
 import com.vs.vipsai.main.my.WinnerSubAdapter;
@@ -138,10 +139,11 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
 //        }
 
         // 默认线性布局
-        if (mAdapter instanceof ChampionWorkSubAdapter) {
+        if (mAdapter instanceof ChampionWorkSubAdapter ||
+                mAdapter instanceof PlayerWorksAdapter) {
             setRecyclerStaggeredGridLayoutStyle(2);
         } else if (mAdapter instanceof WinnerSubAdapter ||
-            mAdapter instanceof AllSubAdapter) {
+                mAdapter instanceof AllSubAdapter) {
             setRecyclerStaggeredGridLayoutStyle(3);
         } else {
             mRecyclerView.setLayoutManager(getLayoutManager());
@@ -273,7 +275,7 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
                         "        \"order\": 3,\n" +
                         "        \"subtype\": 4,\n" +
                         "        \"token\": \"df985be3c5d5449f8dfb47e06e098ef9\",\n" +
-                        "        \"type\": 3\n" +
+                        "        \"type\": 31\n" +
                         "      },\n" +
                         "      {\n" +
                         "        \"fixed\": true,\n" +

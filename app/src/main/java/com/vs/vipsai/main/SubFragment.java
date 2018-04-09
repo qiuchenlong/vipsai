@@ -15,6 +15,7 @@ import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.bean.SubTab;
+import com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity;
 import com.vs.vipsai.main.competition.OpenSubAdapter;
 import com.vs.vipsai.main.competition.QualifyingSubAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
@@ -93,24 +94,34 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             return;
         }
 
+        Intent intent;
+
         switch (sub.getType()) { // type的值 由请求来的数据决定，目前为模拟数据
             case News.TYPE_ATTENTION:
-                SimplexToast.show(getContext(), "position:" + position);
+//                SimplexToast.show(getContext(), "position:" + position);
 
 //                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                AppContext.getInstance().startActivity(intent);
 
 
-                Intent intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
+                intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getInstance().startActivity(intent);
 
 
                 break;
             case News.TYPE_NEWEST:
-                SimplexToast.show(getContext(), "21" + sub.getBody());
+//                SimplexToast.show(getContext(), "21" + sub.getBody());
                 break;
+
+            case News.TYPE_OPEN:
+                intent = new Intent(AppContext.getContext(), PlayerDetailCountOfFourActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+                break;
+
+
 //            case News.TYPE_SOFTWARE:
 //                //SoftwareDetailActivity.show(mContext, sub.getId());
 //                net.oschina.app.improve.detail.general.SoftwareDetailActivity.show(mContext, sub);
