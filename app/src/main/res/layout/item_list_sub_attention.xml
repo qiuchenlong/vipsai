@@ -46,11 +46,11 @@
 
             <com.vs.vipsai.widget.PortraitView
                 android:id="@+id/iv_portrait"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/tmp_head"
-                tools:src="@mipmap/tmp_head" />
+                tools:src="@mipmap/image_no_5" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -71,17 +71,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="薛之谦"
-                        android:textSize="@dimen/text_size_16"
+                        android:textSize="15sp"
                         android:textColor="@color/mark_text_color"/>
+
+                    <View
+                        android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@+id/item_list_sub_attention_name"
+                        android:layout_width="1dp"
+                        android:layout_height="9dp"
+                        android:layout_centerVertical="true"
+                        android:background="#404040"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/item_list_sub_attention_name"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="12dp"
                         android:text="创办人"
-                        android:textSize="@dimen/text_size_12"
+                        android:textSize="11sp"
                         android:textColor="#9D9D9D"/>
 
                     <RelativeLayout
@@ -109,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1分钟前"
-                    android:textSize="@dimen/text_size_12"
+                    android:textSize="11sp"
                     android:textColor="#9D9D9D"/>
 
             </LinearLayout>
@@ -120,14 +128,18 @@
             android:id="@+id/tv_title"
             style="@style/recycleview_title_style"
             android:layout_marginBottom="8dp"
+            android:lineSpacingExtra="4dp"
             android:text=""
+            android:textSize="13.3dp"
             tools:text="DOTA2国际邀请赛（英语：The International, DOTA2 Championships，简称TI）是由Dota 2开发商维尔福公司（Valve）举行的电子竞技比赛" />
 
 
 
         <FrameLayout
+            android:id="@+id/item_list_sub_attention_layout_single"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="176.2dp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/item_list_sub_me_imageview"
@@ -142,6 +154,146 @@
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_play_btn"/>
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/item_list_sub_attention_layout_bettle"
+            android:layout_width="match_parent"
+            android:layout_height="279.0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@mipmap/image_no_9"
+                    android:scaleType="centerCrop"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@mipmap/image_no_12"
+                    android:scaleType="centerCrop"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_play_btn"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="6dp"
+                    >
+
+                    <com.vs.vipsai.media.ImagePreviewView
+                        android:id="@+id/header1"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:src="@mipmap/image_no_4"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分辨率"
+                        android:textSize="11sp"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@+id/header1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="屏幕上显示的像素个数"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:layout_below="@+id/header1"
+                        android:lines="2"
+                        android:ellipsize="end"
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="6dp"
+                    >
+
+                    <com.vs.vipsai.media.ImagePreviewView
+                        android:id="@+id/header2"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:src="@mipmap/image_no_4"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分辨率"
+                        android:textSize="11sp"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@+id/header2"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="输出多套分辨率的切图，例如480p和720p，在设计的时候要注意好切图区域的大小能被2和1.5整除的大小，"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:layout_below="@+id/header2"
+                        android:lines="2"
+                        android:ellipsize="end"
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            
+
+            
 
         </FrameLayout>
 
@@ -163,13 +315,11 @@
                 android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:lineSpacingExtra="4dp"
-                android:maxLines="2"
                 android:minLines="1"
                 android:textColor="#333333"
-                android:textSize="@dimen/text_size_16"
-                android:layout_weight="8"
+                android:textSize="16.6sp"
+                android:layout_weight="7"
                 android:text="王者之争"
-                android:textStyle="bold"
                 tools:text="王者之争" />
 
             <TextView
@@ -180,14 +330,13 @@
                 android:layout_marginTop="4dp"
                 android:ellipsize="end"
                 android:lineSpacingExtra="4dp"
-                android:maxLines="2"
                 android:minLines="1"
                 android:textColor="#FF0010"
-                android:textSize="@dimen/text_size_16"
-                android:layout_weight="2"
+                android:textSize="15.6sp"
+                android:layout_weight="3"
                 android:gravity="right"
-                android:text="$180.00"
-                tools:text="$180.00" />
+                android:text="￥180.00"
+                tools:text="￥180.00" />
 
         </LinearLayout>
 
@@ -214,16 +363,14 @@
                     android:lines="1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#9D9D9D"
-                    android:textSize="@dimen/text_size_12"
+                    android:textSize="11sp"
                     android:text="资格赛"
                     tools:text="资格赛" />
 
                 <View
                     android:layout_gravity="center"
                     android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_height="9dp"
                     android:background="#404040"/>
 
                 <TextView
@@ -233,7 +380,7 @@
                     android:gravity="right"
                     android:text="萌娃"
                     android:textColor="@color/mark_text_color"
-                    android:textSize="@dimen/text_size_12"/>
+                    android:textSize="11sp"/>
 
                 <View
                     android:layout_gravity="end"
@@ -298,7 +445,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="16dp"
                     android:text="1,234"
-                    android:textSize="@dimen/text_size_12"
+                    android:textSize="10sp"
                     android:paddingLeft="6px"
                     />
             </LinearLayout>
@@ -320,7 +467,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="16dp"
                     android:text="10"
-                    android:textSize="@dimen/text_size_12"
+                    android:textSize="10sp"
                     android:paddingLeft="6px"
                     />
             </LinearLayout>

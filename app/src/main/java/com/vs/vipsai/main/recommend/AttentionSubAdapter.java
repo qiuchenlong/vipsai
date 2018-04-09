@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -30,6 +31,9 @@ import com.vs.vipsai.ui.videoplayer.PlayActivity;
 import com.vs.vipsai.util.TextUtil;
 import com.vs.vipsai.widget.PortraitView;
 import com.vs.vipsai.widget.countdown.CountDownTimerView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Author: cynid
@@ -239,8 +243,17 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //                .into(vh.imageView);
 
 
+        if (position % 2 == 0) {
+            vh.layoutSingle.setVisibility(View.VISIBLE);
+            vh.layoutBettle.setVisibility(View.GONE);
+        } else {
+            vh.layoutSingle.setVisibility(View.GONE);
+            vh.layoutBettle.setVisibility(View.VISIBLE);
+        }
+
+
         if (position == 0) {
-            vh.imageView.setImageResource(R.mipmap.image_no_1);
+            vh.imageView.setImageResource(R.mipmap.image_no_6);
         } else if (position == 0) {
             vh.imageView.setImageResource(R.mipmap.image_no_3);
         } else {
@@ -281,8 +294,19 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
         CountDownTimerView loopTime;
 
+
+//        @BindView(R.id.item_list_sub_attention_layout_single)
+        FrameLayout layoutSingle;
+
+//        @BindView(R.id.item_list_sub_attention_layout_bettle)
+        FrameLayout layoutBettle;
+
+
         BlogViewHolder(View itemView) {
             super(itemView);
+
+            ButterKnife.bind(this, itemView);
+
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
             tv_description = (TextView) itemView.findViewById(R.id.tv_description);
             tv_time = (TextView) itemView.findViewById(R.id.tv_time);
@@ -297,6 +321,9 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             username = (TextView) itemView.findViewById(R.id.item_list_sub_attention_name);
 
             loopTime = (CountDownTimerView) itemView.findViewById(R.id.item_list_sub_attention_loop_time);
+
+            layoutSingle = (FrameLayout) itemView.findViewById(R.id.item_list_sub_attention_layout_single);
+            layoutBettle = (FrameLayout) itemView.findViewById(R.id.item_list_sub_attention_layout_bettle);
         }
     }
 
