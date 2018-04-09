@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="ClickImp"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--热门主题活动推荐-->
+        <com.vs.library.widget.HeaderGridView android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"/>
+
+        <!--比赛范围-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_12"
+            android:paddingVertical="@dimen/padding_4"
+            android:background="@color/white">
+
+            <TextView android:id="@+id/select_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:paddingHorizontal="@dimen/padding_8"
+                android:paddingVertical="@dimen/padding_4"
+                android:textColor="@color/mark_text_color"
+                android:text="@string/tournament_range_public"
+                android:background="@drawable/btn_round_frame_white"
+                android:onClick="@{ClickImp}"/>
+
+        </FrameLayout>
+
+        <!--操作栏-->
+        <LinearLayout
+            android:paddingVertical="@dimen/padding_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/nav_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_frame_top_light_gray">
+
+            <ImageView android:id="@+id/upload_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_video_black"
+                android:scaleType="fitCenter"
+                android:onClick="@{ClickImp}"
+                android:clickable="true"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@mipmap/ic_tweet_mention_normal"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@mipmap/ic_ad_gray"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@mipmap/ic_tweet_expression_normal"
+                android:scaleType="fitCenter"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@mipmap/ic_set"
+                android:scaleType="fitCenter"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

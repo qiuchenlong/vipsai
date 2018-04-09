@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.activities.BaseActivity;
 import com.vs.vipsai.media.Util;
+import com.vs.vipsai.publish.activitys.PubCustomActivity;
 import com.vs.vipsai.publish.activitys.PubTemplateActivity;
 import com.vs.vipsai.util.SimplexToast;
 
@@ -104,7 +105,8 @@ public class PubActivity extends BaseActivity implements View.OnClickListener {
 //                TweetPublishActivity.show(this, mBtnPub);
 //                finish();
 //                dismiss();
-                SimplexToast.show(PubActivity.this, "private");
+//                SimplexToast.show(PubActivity.this, "private");
+                PubCustomActivity.open(v.getContext(), null);
                 break;
             case R.id.activity_pub_layout_ad:
 //                if(!AccountHelper.isLogin()){

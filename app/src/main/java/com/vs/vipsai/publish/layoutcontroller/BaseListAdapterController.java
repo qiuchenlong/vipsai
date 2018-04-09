@@ -1,7 +1,9 @@
 package com.vs.vipsai.publish.layoutcontroller;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 
 import java.util.List;
@@ -14,6 +16,14 @@ import java.util.List;
  *  布局控制器基类,提供BaseAdapter操作
  */
 public abstract class BaseListAdapterController<T> extends ArrayDataController<T> {
+
+    @Override
+    public <T1 extends ArrayDataController> T1 wrap(ViewGroup layout) {
+        if(!AbsListView.class.isAssignableFrom(layout.getClass())) {
+            throw new ClassCastException("wapped view must be subclass of AbsListView.");
+        }
+        return super.wrap(layout);
+    }
 
     private BaseAdapter mAdapter = new BaseAdapter() {
         @Override

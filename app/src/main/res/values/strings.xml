@@ -242,4 +242,8 @@ USER refers to all users of the Service, including users who are also contributo
 
     <string name="num_percent">(%1$d/%2$d)</string>
 
+    <string name="create_tournament">创建比赛</string>
+    <string name="tournament_range_public">公开+链接</string>
+    <string name="public_txt">发布</string>
+
 </resources>

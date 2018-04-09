@@ -205,7 +205,12 @@
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
 
-
+        <activity android:name=".publish.activitys.PubCustomActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/create_tournament"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Main"
+            android:windowSoftInputMode="adjustResize"/>
 
 
 

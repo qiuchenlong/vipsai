@@ -25,6 +25,13 @@
             android:src="@mipmap/ic_default_image"
             app:localPic="@{VMImageItem.localPath}"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_8"
+            android:textColor="@color/white"
+            android:text="@{VMImageItem.description}"/>
+
         <ImageView android:id="@+id/checkbox"
             style="@style/imageview_checkbox_small"
             android:layout_gravity="right|top"
