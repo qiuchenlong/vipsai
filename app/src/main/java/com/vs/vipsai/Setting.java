@@ -56,10 +56,12 @@ public final class Setting {
         if (TextUtils.isEmpty(url)) {
 //            String[] urls = BuildConfig.API_SERVER_URL.split(";");
             String[] urls = "https://www.oschina.net/;http://www.oschina.cc/".split(";");
+//            String[] urls = "http://192.168.3.115/;http://192.168.3.115/".split(";");
             if (urls.length > 0) {
                 url = urls[0];
             } else {
                 url = "https://www.oschina.net/";
+//                url = "http://192.168.3.115/";
             }
             updateServerUrl(context, url);
         }

@@ -106,7 +106,7 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
 
                         SubTab st = new SubTab();
                         st.setName("关注");
-                        st.setHref("https://www.oschina.net/action/apiv2/sub_list?token=d6112fa662bc4bf21084670a857fbd20");
+                        st.setHref("http://192.168.3.115/api-sileo/v2/home-tournaments/popular/filter/");
                         st.setSubtype(10);
                         st.setToken("d6112fa662bc4bf21084670a857fbd20"); // cache key
                         st.setType(News.TYPE_ATTENTION); //3
@@ -115,7 +115,7 @@ public class RecommendTabFragment extends BaseFragment implements OnTabReselectL
 
                         SubTab st1 = new SubTab();
                         st1.setName("热门");
-                        st1.setHref("https://www.oschina.net/action/apiv2/sub_list?token=df985be3c5d5449f8dfb47e06e098ef9");
+                        st1.setHref("");
                         st1.setSubtype(4);
                         st1.setToken("df985be3c5d5449f8dfb47e06e098ef9"); // cache key
                         st1.setType(News.TYPE_NEWS);

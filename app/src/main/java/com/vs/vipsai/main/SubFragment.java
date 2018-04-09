@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.google.gson.reflect.TypeToken;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppContext;
+import com.vs.vipsai.api.ApiHttpClient;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.base.fragments.BaseGeneralRecyclerFragment;
@@ -15,6 +16,7 @@ import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.bean.SubTab;
+import com.vs.vipsai.bean.popularData;
 import com.vs.vipsai.main.competition.OpenSubAdapter;
 import com.vs.vipsai.main.competition.QualifyingSubAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
@@ -154,13 +156,15 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
 
     @Override
     protected void requestData() {
-        VSApi.getSubscription(mTab.getHref(), isRefreshing ? null : mBean.getNextPageToken(), mHandler);
+//        String url = "api-sileo/v2/home-tournaments/popular/filter/";
+//        url = String.format(ApiHttpClient.API_URL, url);
+        VSApi.getSubscription(mTab.getHref(), isRefreshing ? null : mBean.getNextPageToken(), mHandler); //mTab.getHref()
     }
 
     @Override
     protected void setListData(ResultBean<PageBean<SubBean>> resultBean) {
         super.setListData(resultBean);
-        mAdapter.setSystemTime(resultBean.getTime());
+//        mAdapter.setSystemTime(resultBean.getTime());
     }
 
     @Override
@@ -172,7 +176,9 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             setRecyclerLinearLayoutStyle();
             return new AttentionSubAdapter(getActivity(), mode, getActivity());
         }
-//        else if (mTab.getType() == News.TYPE_EVENT)
+//        return new AttentionSubAdapter(getActivity(), mode, getActivity());
+
+//                else if (mTab.getType() == News.TYPE_EVENT)
 //            return new EventSubAdapter(this, mode);
 //        else if (mTab.getType() == News.TYPE_QUESTION)
 //            return new QuestionSubAdapter(this, mode);
