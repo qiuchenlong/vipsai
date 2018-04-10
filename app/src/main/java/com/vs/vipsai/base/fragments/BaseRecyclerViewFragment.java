@@ -15,6 +15,7 @@ import com.vs.vipsai.base.adapter.BaseGeneralRecyclerAdapter;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
+import com.vs.vipsai.detail.adapter.PlayerKnockoutAdapter;
 import com.vs.vipsai.detail.adapter.PlayerWorksAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
 import com.vs.vipsai.main.my.DividerItemDecoration;
@@ -140,7 +141,8 @@ public abstract class BaseRecyclerViewFragment<T> extends BaseFragment implement
 
         // 默认线性布局
         if (mAdapter instanceof ChampionWorkSubAdapter ||
-                mAdapter instanceof PlayerWorksAdapter) {
+                mAdapter instanceof PlayerWorksAdapter ||
+                mAdapter instanceof PlayerKnockoutAdapter) {
             setRecyclerStaggeredGridLayoutStyle(2);
         } else if (mAdapter instanceof WinnerSubAdapter ||
                 mAdapter instanceof AllSubAdapter) {

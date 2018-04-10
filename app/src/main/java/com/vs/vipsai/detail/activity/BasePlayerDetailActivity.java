@@ -78,7 +78,7 @@ public class BasePlayerDetailActivity extends BackActivity implements TweetDetai
     public TweetDetailContract.IAgencyView mAgencyViewImp;
 
 
-    private CommentBar mDelegation;
+    public CommentBar mDelegation;
 
 
 
@@ -457,16 +457,8 @@ public class BasePlayerDetailActivity extends BackActivity implements TweetDetai
     }
 
 
-    /**
-     * 设置 评论栏 是否可见
-     * @param position
-     */
-    public void setCommentBarVisible(int position) {
-        if (position == 0) {
-            mDelegation.setVisible(View.VISIBLE);
-        } else {
-            mDelegation.setVisible(View.GONE);
-        }
+    public void setCommentBarVisible(int position){
+
     }
 
 

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:layout_height="77dp"
     android:layout_alignParentBottom="true"
     android:orientation="horizontal"
     android:background="@color/white">
@@ -14,11 +12,13 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:gravity="right|center_vertical"
-        android:text="3"/>
+        android:text="3"
+        android:textSize="14.6sp"
+        />
 
     <com.vs.vipsai.widget.PortraitView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:gravity="center"
@@ -35,21 +35,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fff"/>
+            android:text="fff"
+            android:textSize="14.6sp"
+            android:textColor="#333333"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fff"/>
+            android:text="fff"
+            android:textSize="12.0sp"
+            android:textColor="#999999"
+            />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="fff"/>
 
 </LinearLayout>

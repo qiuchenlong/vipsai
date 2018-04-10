@@ -196,7 +196,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_play_btn"/>
+                android:src="@mipmap/ic_vs_gray"/>
 
 
             <LinearLayout

@@ -206,6 +206,8 @@ public class PlayerDetailCountOfFourActivity extends BasePlayerDetailActivity im
 
     @Override
     protected void initWidget() {
+        super.initWidget();
+
 //        setSwipeBackEnable(true);
 //
 //
@@ -336,6 +338,8 @@ public class PlayerDetailCountOfFourActivity extends BasePlayerDetailActivity im
 //        });
 //        mDelegation.setVisible(View.GONE);
 
+
+        mDelegation.setVisible(View.GONE);
 
 
         mTabLayout.addTab(mTabLayout.newTab().setText("作品"));
@@ -508,6 +512,20 @@ public class PlayerDetailCountOfFourActivity extends BasePlayerDetailActivity im
 //        return view;
 //    }
 
+
+
+    /**
+     * 设置 评论栏 是否可见
+     * @param position
+     */
+    @Override
+    public void setCommentBarVisible(int position) {
+        if (position == 1) {
+            mDelegation.setVisible(View.VISIBLE);
+        } else {
+            mDelegation.setVisible(View.GONE);
+        }
+    }
 
 
 }

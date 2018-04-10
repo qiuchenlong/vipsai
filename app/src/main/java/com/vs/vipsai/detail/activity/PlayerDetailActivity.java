@@ -71,4 +71,19 @@ public class PlayerDetailActivity extends BasePlayerDetailActivity implements Tw
 
 
 
+    /**
+     * 设置 评论栏 是否可见
+     * @param position
+     */
+    @Override
+    public void setCommentBarVisible(int position) {
+        if (position == 0) {
+            mDelegation.setVisible(View.VISIBLE);
+        } else {
+            mDelegation.setVisible(View.GONE);
+        }
+    }
+
+
+
 }

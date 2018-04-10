@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:background="@color/white"
     android:clickable="true"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/list_item_play_works_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="全部作品"
-        android:textSize="@dimen/font18sp"
-        android:layout_margin="16dp"
-        android:visibility="gone"/>
 
 
     <LinearLayout
@@ -34,7 +24,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="108dp"
+            android:layout_height="86dp"
             android:layout_gravity="center_vertical"
             android:src="@mipmap/image_no_6"
             android:scaleType="centerInside"
@@ -49,6 +39,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
             android:gravity="center_vertical"
+            android:visibility="gone"
             >
 
 

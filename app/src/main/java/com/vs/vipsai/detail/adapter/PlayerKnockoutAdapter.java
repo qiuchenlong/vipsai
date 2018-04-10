@@ -13,7 +13,6 @@ import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.PlayerComment;
-import com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity;
 import com.vs.vipsai.detail.activity.WorkDetailActivity;
 
 import butterknife.BindView;
@@ -25,15 +24,15 @@ import butterknife.ButterKnife;
  * Description:
  */
 
-public class PlayerWorksAdapter extends BaseRecyclerAdapter<PlayerComment> {
+public class PlayerKnockoutAdapter extends BaseRecyclerAdapter<PlayerComment> {
 
-    public PlayerWorksAdapter(Context context) {
+    public PlayerKnockoutAdapter(Context context) {
         super(context, ONLY_FOOTER);
     }
 
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        return new PlayerWorksHolderView(LayoutInflater.from(mContext).inflate(R.layout.list_item_player_works, parent, false));
+        return new PlayerWorksHolderView(LayoutInflater.from(mContext).inflate(R.layout.list_item_player_knockout, parent, false));
     }
 
     @Override
@@ -43,26 +42,26 @@ public class PlayerWorksAdapter extends BaseRecyclerAdapter<PlayerComment> {
 //        h.tvName.setText(item.getContent());
 
 
-        if (position == 0) {
-            h.titleWorks.setVisibility(View.VISIBLE);
-            h.layoutWorks.setVisibility(View.GONE);
-        } else if (position == 1) {
-            h.titleWorks.setVisibility(View.INVISIBLE);
-            h.layoutWorks.setVisibility(View.GONE);
-        } else {
-            h.titleWorks.setVisibility(View.GONE);
-            h.layoutWorks.setVisibility(View.VISIBLE);
-        }
+//        if (position == 0) {
+//            h.titleWorks.setVisibility(View.VISIBLE);
+//            h.layoutWorks.setVisibility(View.GONE);
+//        } else if (position == 1) {
+//            h.titleWorks.setVisibility(View.INVISIBLE);
+//            h.layoutWorks.setVisibility(View.GONE);
+//        } else {
+//            h.titleWorks.setVisibility(View.GONE);
+//            h.layoutWorks.setVisibility(View.VISIBLE);
+//        }
 
 
-        h.layoutWorks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppContext.getContext(), WorkDetailActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                AppContext.getInstance().startActivity(intent);
-            }
-        });
+//        h.layoutWorks.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AppContext.getContext(), WorkDetailActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                AppContext.getInstance().startActivity(intent);
+//            }
+//        });
 
     }
 
@@ -80,10 +79,10 @@ public class PlayerWorksAdapter extends BaseRecyclerAdapter<PlayerComment> {
 //        @BindView(R.id.tv_content)
 //        public TweetTextView tvContent;
 
-        @BindView(R.id.list_item_play_works_title)
-        TextView titleWorks;
-        @BindView(R.id.list_item_play_works_layout)
-        LinearLayout layoutWorks;
+//        @BindView(R.id.list_item_play_works_title)
+//        TextView titleWorks;
+//        @BindView(R.id.list_item_play_works_layout)
+//        LinearLayout layoutWorks;
 
 
 
