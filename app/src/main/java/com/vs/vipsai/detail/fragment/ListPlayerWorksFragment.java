@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.detail.fragment;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,13 +9,14 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppOperator;
-import com.vs.vipsai.adapter.PlayerBonusAdapter;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.base.fragments.BaseRecyclerViewFragment;
 import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.bean.ResultBean;
+import com.vs.vipsai.detail.adapter.PlayerBonusAdapter;
+import com.vs.vipsai.detail.adapter.PlayerWorksAdapter;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 import com.vs.vipsai.ui.empty.EmptyLayout;
 import com.vs.vipsai.util.SimplexToast;
@@ -29,18 +30,18 @@ import cz.msebera.android.httpclient.Header;
  * Created on 3/21/18 5:45 PM
  * Description:
  *
- * 奖金
+ * 作品
  */
 
-public class ListPlayerBonusFragment extends BaseRecyclerViewFragment<PlayerComment>
+public class ListPlayerWorksFragment extends BaseRecyclerViewFragment<PlayerComment>
         implements TweetDetailContract.ICmnView, BaseRecyclerAdapter.OnItemLongClickListener { //PlayerComment
 
     private TweetDetailContract.Operator mOperator;
     private TweetDetailContract.IAgencyView mAgencyView;
     private int mDeleteIndex = 0;
 
-    public static ListPlayerBonusFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
-        ListPlayerBonusFragment fragment = new ListPlayerBonusFragment();
+    public static ListPlayerWorksFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
+        ListPlayerWorksFragment fragment = new ListPlayerWorksFragment();
         fragment.mOperator = operator;
         fragment.mAgencyView = mAgencyView;
         return fragment;
@@ -68,7 +69,7 @@ public class ListPlayerBonusFragment extends BaseRecyclerViewFragment<PlayerComm
 
     @Override
     protected BaseRecyclerAdapter<PlayerComment> getRecyclerAdapter() { //PlayerComment
-        PlayerBonusAdapter adapter = new PlayerBonusAdapter(getContext());
+        PlayerWorksAdapter adapter = new PlayerWorksAdapter(getContext());
         adapter.setOnItemClickListener(this);
         adapter.setOnItemLongClickListener(this);
         return adapter;

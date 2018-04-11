@@ -183,12 +183,43 @@
             android:windowSoftInputMode="adjustResize"/>
 
 
-        <activity android:name="com.vs.vipsai.ui.activity.PlayerDetailActivity"
+
+
+
+
+        <activity android:name="com.vs.vipsai.detail.activity.PlayerDetailActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="比赛详情"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
+
+
+        <activity android:name="com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="比赛详情4"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name="com.vs.vipsai.detail.activity.WorkDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="作品详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name="com.vs.vipsai.detail.activity.KnockoutDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="淘汰赛详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+
+
+
+
 
         <activity android:name="com.vs.vipsai.publish.activitys.PubTemplateActivity"
             android:configChanges="keyboardHidden|orientation"

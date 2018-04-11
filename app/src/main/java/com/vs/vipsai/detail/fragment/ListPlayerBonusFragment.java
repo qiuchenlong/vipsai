@@ -1,25 +1,15 @@
-package com.vs.vipsai.ui.fragment;
+package com.vs.vipsai.detail.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.PointF;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
-import com.google.android.exoplayer2.Player;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppOperator;
-import com.vs.vipsai.R;
-import com.vs.vipsai.adapter.PlayerCommentAdapter;
+import com.vs.vipsai.detail.adapter.PlayerBonusAdapter;
 import com.vs.vipsai.api.remote.VSApi;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.base.fragments.BaseRecyclerViewFragment;
@@ -29,11 +19,8 @@ import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 import com.vs.vipsai.ui.empty.EmptyLayout;
 import com.vs.vipsai.util.SimplexToast;
-import com.vs.vipsai.util.TDevice;
-import com.vs.vipsai.widget.DivergeView;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -42,25 +29,18 @@ import cz.msebera.android.httpclient.Header;
  * Created on 3/21/18 5:45 PM
  * Description:
  *
- * 评论
+ * 奖金
  */
 
-public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerComment>
-        implements TweetDetailContract.ICmnView, BaseRecyclerAdapter.OnItemLongClickListener, PlayerCommentAdapter.OnGoodClickListener { //PlayerComment
+public class ListPlayerBonusFragment extends BaseRecyclerViewFragment<PlayerComment>
+        implements TweetDetailContract.ICmnView, BaseRecyclerAdapter.OnItemLongClickListener { //PlayerComment
 
     private TweetDetailContract.Operator mOperator;
     private TweetDetailContract.IAgencyView mAgencyView;
     private int mDeleteIndex = 0;
 
-    private DivergeView mDivergeView;
-    private ArrayList<Bitmap> mList;
-    private int mIndex = 0;
-
-    private FrameLayout container;
-
-
-    public static ListPlayerCommentFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
-        ListPlayerCommentFragment fragment = new ListPlayerCommentFragment();
+    public static ListPlayerBonusFragment instantiate(TweetDetailContract.Operator operator, TweetDetailContract.IAgencyView mAgencyView) { //
+        ListPlayerBonusFragment fragment = new ListPlayerBonusFragment();
         fragment.mOperator = operator;
         fragment.mAgencyView = mAgencyView;
         return fragment;
@@ -84,81 +64,13 @@ public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerCo
                 }
             }
         });
-
-
-        mList = new ArrayList<>();
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(), R.mipmap.ic_praise_sm1, null)).getBitmap());
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(),R.mipmap.ic_praise_sm2,null)).getBitmap());
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(),R.mipmap.ic_praise_sm3,null)).getBitmap());
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(),R.mipmap.ic_praise_sm4,null)).getBitmap());
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(),R.mipmap.ic_praise_sm5,null)).getBitmap());
-        mList.add(((BitmapDrawable) ResourcesCompat.getDrawable(mContext.getResources(), R.mipmap.ic_praise_sm6, null)).getBitmap());
-
-
-        mDivergeView = new DivergeView(mContext);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        mDivergeView.setLayoutParams(lp);
-
-
-        // 获取PlayerActivity的根布局
-        container = getActivity().findViewById(R.id.root_container); //root.findViewById(R.id.layout_list_container);
-        container.addView(mDivergeView);
-
-        mDivergeView.post(new Runnable() {
-            @Override
-            public void run() {
-//                mDivergeView.setEndPoint(new PointF(mDivergeView.getMeasuredWidth() / 2.0f, 0));
-                mDivergeView.setDivergeViewProvider(new Provider());
-            }
-        });
-
-
-
     }
-
-    @SuppressLint("Range")
-    @Override
-    public void OnGoodClickListener(View view, int position) {
-
-
-        int[] points = new int[2];
-        view.getLocationInWindow(points);
-
-        if(mIndex >= 5){
-            mIndex = 0 ;
-        }
-
-        mDivergeView.setStartPoint(new PointF(points[0], points[1] - TDevice.dp2px(20)));
-
-        mDivergeView.setEndPoint(new PointF(points[0], 0));
-
-        while (mIndex < 5) {
-            mDivergeView.startDiverges(mIndex);
-            mIndex++;
-        }
-
-
-    }
-
-
-    class Provider implements DivergeView.DivergeViewProvider{
-
-        @Override
-        public Bitmap getBitmap(Object obj) {
-            return mList == null ? null : (Bitmap) mList.get((int) obj);
-        }
-    }
-
-
-
 
     @Override
     protected BaseRecyclerAdapter<PlayerComment> getRecyclerAdapter() { //PlayerComment
-        PlayerCommentAdapter adapter = new PlayerCommentAdapter(getContext());
+        PlayerBonusAdapter adapter = new PlayerBonusAdapter(getContext());
         adapter.setOnItemClickListener(this);
         adapter.setOnItemLongClickListener(this);
-        // 注册点赞监听事件
-        adapter.setOnGoodClickListener(this);
         return adapter;
     }
 

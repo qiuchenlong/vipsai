@@ -1,4 +1,4 @@
-package com.vs.vipsai.ui.fragment.viewpager;
+package com.vs.vipsai.detail.viewpager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.PlayerComment;
+import com.vs.vipsai.detail.activity.BasePlayerDetailActivity;
+import com.vs.vipsai.detail.fragment.ListPlayerBonusFragment;
+import com.vs.vipsai.detail.fragment.ListPlayerCommentFragment;
+import com.vs.vipsai.detail.fragment.ListPlayerDetailFragment;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
-import com.vs.vipsai.ui.fragment.ListPlayerBonusFragment;
-import com.vs.vipsai.ui.fragment.ListPlayerCommentFragment;
-import com.vs.vipsai.ui.fragment.ListPlayerDetailFragment;
 
 /**
  * Author: cynid
@@ -24,7 +25,7 @@ import com.vs.vipsai.ui.fragment.ListPlayerDetailFragment;
  * Description:
  */
 
-public class PlayerDetailViewPagerFragment extends Fragment implements TweetDetailContract.ICmnView, TweetDetailContract.IAgencyView {
+public class WorkDetailViewPagerFragment extends Fragment implements TweetDetailContract.ICmnView, TweetDetailContract.IAgencyView, BasePlayerDetailActivity.onViewPagerSelectListener {
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -35,8 +36,11 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
     private TweetDetailContract.Operator mOperator;
 
 
-    public static PlayerDetailViewPagerFragment instantiate() {
-        return new PlayerDetailViewPagerFragment();
+    private BasePlayerDetailActivity activity;
+
+
+    public static WorkDetailViewPagerFragment instantiate() {
+        return new WorkDetailViewPagerFragment();
     }
 
     @Override
@@ -89,17 +93,17 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
                  * @return
                  */
                 @Override
-                public android.support.v4.app.Fragment getItem(int position) {
+                public Fragment getItem(int position) {
                     switch (position) {
                         case 0:
                             // 评论
                             return mThumbupFrag;
-                        case 1:
-                            // 详情
-                            return mCmnFrag;
-                        case 2:
-                            // 奖金
-                            return bonusFragment;
+//                        case 1:
+//                            // 详情
+//                            return mCmnFrag;
+//                        case 2:
+//                            // 奖金
+//                            return bonusFragment;
 
                     }
                     return null;
@@ -107,7 +111,7 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
 
                 @Override
                 public int getCount() {
-                    return 3;
+                    return 1;
                 }
 
                 @Override
@@ -115,10 +119,10 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
                     switch (position) {
                         case 0:
                             return String.format("评论(%s)", 10); //, mOperator.getTweetDetail().getLikeCount()
-                        case 1:
-                            return String.format("详情(%s)", 20); //, mOperator.getTweetDetail().getCommentCount()
-                        case 2:
-                            return String.format("奖金(%s)", 50);
+//                        case 1:
+//                            return String.format("详情(%s)", 20); //, mOperator.getTweetDetail().getCommentCount()
+//                        case 2:
+//                            return String.format("奖金(%s)", 50);
                     }
                     return null;
                 }
@@ -128,6 +132,34 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
         } else {
             mViewPager.setAdapter(mAdapter);
         }
+
+
+//        viewpager获取当前item index
+//        mViewPager.getCurrentItem();
+        activity = (BasePlayerDetailActivity) getActivity();
+
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                ((TabLayout) activity.findViewById(R.id.activity_player_detail_tab_nav)).getTabAt(position).select();
+                activity.setCommentBarVisible(position);
+//                mTabLayout.getTabAt(position).select();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+        activity.setOnViewPagerSelectListener(this);
+
     }
 
 
@@ -186,5 +218,24 @@ public class PlayerDetailViewPagerFragment extends Fragment implements TweetDeta
     public void setTabLaoutDisplay() {
         mTabLayout.setVisibility(View.INVISIBLE);
     }
+
+
+
+
+
+    @Override
+    public void SetViewPagerSelectListener(int index) {
+        mViewPager.setCurrentItem(index);
+    }
+
+
+//    public interface onTabLayoutItemSelectListener {
+//        void SetTabLayoutItemSelectListener(int index);
+//    }
+//
+//    public void setOnTabLayoutItemSelectListener(onTabLayoutItemSelectListener onTabLayoutItemSelectListener) {
+//        this.mListener = onTabLayoutItemSelectListener;
+//    }
+
 
 }

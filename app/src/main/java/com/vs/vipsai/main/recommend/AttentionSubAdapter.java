@@ -4,45 +4,36 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
-import com.vs.vipsai.detail.general.BlogDetailActivity;
-import com.vs.vipsai.notify.activity.NotifyActicity;
+import com.vs.vipsai.bean.popularData;
 import com.vs.vipsai.ui.PopupWindowDialog;
-import com.vs.vipsai.search.SearchActivity;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.ui.videoplayer.PlayActivity;
-import com.vs.vipsai.util.SimplexToast;
-import com.vs.vipsai.util.StringUtils;
-import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.util.TextUtil;
 import com.vs.vipsai.widget.PortraitView;
 import com.vs.vipsai.widget.countdown.CountDownTimerView;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Author: cynid
@@ -92,51 +83,51 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 
         Resources resources = mContext.getResources();
 
-        boolean isToday = StringUtils.isSameDay(mSystemTime, item.getPubDate());
-        if (isToday) {
-            spannable.append("[icon] ");
-            Drawable originate = resources.getDrawable(R.mipmap.ic_label_today);
-            if (originate != null) {
-                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
-            }
-            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
-            spannable.setSpan(imageSpan, 0, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        }
-
-        if (item.isOriginal()) {
-            spannable.append("[icon] ");
-            Drawable originate = resources.getDrawable(R.mipmap.ic_label_originate);
-            if (originate != null) {
-                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
-            }
-            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
-            spannable.setSpan(imageSpan, isToday ? 7 : 0, isToday ? 13 : 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        } else {
-            spannable.append("[icon] ");
-            Drawable originate = resources.getDrawable(R.mipmap.ic_label_reprint);
-            if (originate != null) {
-                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
-            }
-            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
-            spannable.setSpan(imageSpan, isToday ? 7 : 0, isToday ? 13 : 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        }
-
-        if (item.isRecommend()) {
-            spannable.append("[icon] ");
-            Drawable recommend = resources.getDrawable(R.mipmap.ic_label_recommend);
-            if (recommend != null) {
-                recommend.setBounds(0, 0, recommend.getIntrinsicWidth(), recommend.getIntrinsicHeight());
-            }
-            ImageSpan imageSpan = new ImageSpan(recommend, ImageSpan.ALIGN_BOTTOM);
-            spannable.setSpan(imageSpan, isToday ? 14 : 7, isToday ? 20 : 13, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        }
+//        boolean isToday = StringUtils.isSameDay(mSystemTime, item.getPubDate());
+//        if (isToday) {
+//            spannable.append("[icon] ");
+//            Drawable originate = resources.getDrawable(R.mipmap.ic_label_today);
+//            if (originate != null) {
+//                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
+//            }
+//            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
+//            spannable.setSpan(imageSpan, 0, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        }
+//
+//        if (item.isOriginal()) {
+//            spannable.append("[icon] ");
+//            Drawable originate = resources.getDrawable(R.mipmap.ic_label_originate);
+//            if (originate != null) {
+//                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
+//            }
+//            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
+//            spannable.setSpan(imageSpan, isToday ? 7 : 0, isToday ? 13 : 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        } else {
+//            spannable.append("[icon] ");
+//            Drawable originate = resources.getDrawable(R.mipmap.ic_label_reprint);
+//            if (originate != null) {
+//                originate.setBounds(0, 0, originate.getIntrinsicWidth(), originate.getIntrinsicHeight());
+//            }
+//            ImageSpan imageSpan = new ImageSpan(originate, ImageSpan.ALIGN_BOTTOM);
+//            spannable.setSpan(imageSpan, isToday ? 7 : 0, isToday ? 13 : 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        }
+//
+//        if (item.isRecommend()) {
+//            spannable.append("[icon] ");
+//            Drawable recommend = resources.getDrawable(R.mipmap.ic_label_recommend);
+//            if (recommend != null) {
+//                recommend.setBounds(0, 0, recommend.getIntrinsicWidth(), recommend.getIntrinsicHeight());
+//            }
+//            ImageSpan imageSpan = new ImageSpan(recommend, ImageSpan.ALIGN_BOTTOM);
+//            spannable.setSpan(imageSpan, isToday ? 14 : 7, isToday ? 20 : 13, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        }
 
 //        title.setText(spannable.append(item.getTitle()));
 
         title.setText(TextUtil.tf_keyword("#Android# @IOS #Nodejs 腾讯QQ，8亿人在用的即时通讯软件，你不仅可以在各类通讯终端上通过QQ聊天交友，还能进行免费的视频、语音通话，或者随时随地收发重要文件。欢迎访问QQ官方网站，下载体验最新版QQ，了解QQ最新功能。 "));
 
 
-        String body = item.getBody();
+//        String body = item.getBody();
 //        if (!TextUtils.isEmpty(body)) {
 //            body = body.trim();
 //            if (!TextUtils.isEmpty(body)) {
@@ -164,7 +155,9 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //                    (authorName.length() > 9 ? authorName.substring(0, 9) : authorName),
 //                    StringUtils.formatSomeAgo(item.getPubDate())));
 //        } else {
-            vh.tv_time.setText(StringUtils.formatSomeAgo(item.getPubDate()));
+//            vh.tv_time.setText(StringUtils.formatSomeAgo(item.getPubDate()));
+
+//            vh.tv_title.setText(item.getSlug());
 
             vh.tv_time.setText("2012-12-01 22:10");
 
@@ -197,6 +190,17 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
                 popdialog.showAtLocation(mActivity.findViewById(R.id.view_pager), Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0); // 设置layout在PopupWindow中显示的位置
             }
         });
+
+
+
+
+//        vh.username.setText(item.getOwner().getUsername());
+
+
+//        Author author = new Author();
+//        author.setPortrait(item.getOwner().getProfile().getAvatar_url());
+//        vh.portraitView.setup(author);
+
 
         vh.portraitView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -232,12 +236,28 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
 //            }
 //        });
 
-        if (position == 0) {
-            vh.imageView.setImageResource(R.mipmap.image_no_1);
-        } else if (position == 0) {
-            vh.imageView.setImageResource(R.mipmap.image_no_103);
+//        Log.d("attentionsubadapter", "aaa:" + item.getImage_urls());
+//        Glide.with(mContext).load(item.getImage_urls())
+//                .error(R.mipmap.widget_default_face)
+//                .placeholder(R.mipmap.widget_default_face)
+//                .into(vh.imageView);
+
+
+        if (position % 2 == 0) {
+            vh.layoutSingle.setVisibility(View.VISIBLE);
+            vh.layoutBettle.setVisibility(View.GONE);
         } else {
-            vh.imageView.setImageResource(R.mipmap.image_no_101);
+            vh.layoutSingle.setVisibility(View.GONE);
+            vh.layoutBettle.setVisibility(View.VISIBLE);
+        }
+
+
+        if (position == 0) {
+            vh.imageView.setImageResource(R.mipmap.image_no_6);
+        } else if (position == 0) {
+            vh.imageView.setImageResource(R.mipmap.image_no_3);
+        } else {
+            vh.imageView.setImageResource(R.mipmap.image_no_11);
         }
 
         vh.imageView.setOnClickListener(new View.OnClickListener() {
@@ -270,10 +290,23 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
         ImageView imageView;
         LinearLayout shareLayout;
 
+        TextView username;
+
         CountDownTimerView loopTime;
+
+
+//        @BindView(R.id.item_list_sub_attention_layout_single)
+        FrameLayout layoutSingle;
+
+//        @BindView(R.id.item_list_sub_attention_layout_bettle)
+        FrameLayout layoutBettle;
+
 
         BlogViewHolder(View itemView) {
             super(itemView);
+
+            ButterKnife.bind(this, itemView);
+
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
             tv_description = (TextView) itemView.findViewById(R.id.tv_description);
             tv_time = (TextView) itemView.findViewById(R.id.tv_time);
@@ -285,7 +318,12 @@ public class AttentionSubAdapter extends BaseRecyclerAdapter<SubBean> implements
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
             shareLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_attention_share_layout);
 
+            username = (TextView) itemView.findViewById(R.id.item_list_sub_attention_name);
+
             loopTime = (CountDownTimerView) itemView.findViewById(R.id.item_list_sub_attention_loop_time);
+
+            layoutSingle = (FrameLayout) itemView.findViewById(R.id.item_list_sub_attention_layout_single);
+            layoutBettle = (FrameLayout) itemView.findViewById(R.id.item_list_sub_attention_layout_bettle);
         }
     }
 

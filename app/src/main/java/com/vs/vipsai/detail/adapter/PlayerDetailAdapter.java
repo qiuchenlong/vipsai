@@ -1,4 +1,4 @@
-package com.vs.vipsai.adapter;
+package com.vs.vipsai.detail.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

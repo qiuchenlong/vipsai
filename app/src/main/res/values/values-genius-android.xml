@@ -285,6 +285,9 @@
     <color name="yellow_a200">#ffff00</color>
     <color name="yellow_a400">#ffea00</color>
     <color name="yellow_a700">#ffd600</color>
+
+
+    <!--尽量不要用这里的值-->
     <dimen name="font_10">10sp</dimen>
     <dimen name="font_112">112sp</dimen>
     <dimen name="font_12">12sp</dimen>

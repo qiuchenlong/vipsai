@@ -16,7 +16,8 @@
         app:tabGravity="center"
         app:tabIndicatorColor="@color/mark_text_color"
         app:tabSelectedTextColor="@color/mark_text_color"
-        app:tabTextColor="#6A6A6A"/>
+        app:tabTextColor="#6A6A6A"
+        android:visibility="gone"/>
 
     <!--?attr/colorPrimary-->
 

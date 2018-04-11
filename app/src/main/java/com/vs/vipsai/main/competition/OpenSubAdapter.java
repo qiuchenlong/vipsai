@@ -22,6 +22,8 @@ import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
+import com.vs.vipsai.detail.activity.KnockoutDetailActivity;
+import com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
 import com.vs.vipsai.ui.videoplayer.PlayActivity;
@@ -208,6 +210,16 @@ public class OpenSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
 
 
 
+        vh.mRootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppContext.getContext(), KnockoutDetailActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -216,6 +228,8 @@ public class OpenSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
         LinearLayout ll_title;
         PortraitView portraitView;
         ImageView imageView;
+
+        LinearLayout mRootLayout;
 
         BlogViewHolder(View itemView) {
             super(itemView);
@@ -227,6 +241,8 @@ public class OpenSubAdapter extends BaseRecyclerAdapter<SubBean> implements Base
             ll_title = (LinearLayout) itemView.findViewById(R.id.ll_title);
             portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
             imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
+
+            mRootLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_open_root_layout);
         }
     }
 

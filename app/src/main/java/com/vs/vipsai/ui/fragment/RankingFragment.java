@@ -51,7 +51,7 @@ public class RankingFragment extends BaseFragment {
         // 设置标题居中
         SimpleBackActivity activity = (SimpleBackActivity) getActivity();
         activity.setTitleCenter(this);
-        activity.setTitleColorByColorId(Color.argb(255, 255, 255, 255));
+        activity.setTitleColorByColorId(Color.argb(255, 51, 51, 51));
 
         activity.findViewById(R.id.toolbar).setBackgroundColor(Color.TRANSPARENT);
 
@@ -61,7 +61,7 @@ public class RankingFragment extends BaseFragment {
         }
 
         LinearLayout linearLayout = (LinearLayout) activity.findViewById(R.id.view_root);
-        linearLayout.setBackgroundResource(R.mipmap.image_no_2);
+//        linearLayout.setBackgroundResource(R.mipmap.image_no_2);
 
         activity.findViewById(R.id.container).setBackgroundColor(Color.TRANSPARENT);
 
@@ -128,7 +128,7 @@ public class RankingFragment extends BaseFragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem itemSave = menu.findItem(R.id.public_menu_shared);
-        itemSave.setTitle(Html.fromHtml("<font color='#FFFFFF'>规则</font>"));
+        itemSave.setTitle(Html.fromHtml("<font color='#999999'>规则</font>"));
         super.onPrepareOptionsMenu(menu);
     }
 

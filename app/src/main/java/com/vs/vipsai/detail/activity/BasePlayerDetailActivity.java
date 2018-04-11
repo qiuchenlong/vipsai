@@ -1,12 +1,16 @@
-package com.vs.vipsai.ui.activity;
+package com.vs.vipsai.detail.activity;
 
 import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.TabLayout;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -19,11 +23,10 @@ import com.vs.vipsai.bean.PlayerComment;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.Tweet;
 import com.vs.vipsai.behavior.CommentBar;
+import com.vs.vipsai.detail.viewpager.PlayerDetailViewPagerFragment;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
-import com.vs.vipsai.ui.fragment.viewpager.PlayerDetailViewPagerFragment;
 import com.vs.vipsai.ui.videoplayer.SampleVideo;
 import com.vs.vipsai.ui.videoplayer.SwitchVideoModel;
-//import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +34,17 @@ import java.util.List;
 import butterknife.BindView;
 import cz.msebera.android.httpclient.Header;
 
+//import com.vs.vipsai.ui.fragment.PlayerDetailViewPagerFragment;
+
 /**
  * Author: cynid
  * Created on 3/21/18 4:41 PM
  * Description:
  *
- * 比赛详情页面
+ * 比赛详情基类
  */
 
-public class PlayerDetailActivity extends BackActivity implements TweetDetailContract.Operator {
+public class BasePlayerDetailActivity extends BackActivity implements TweetDetailContract.Operator {
 
     public static final String BUNDLE_KEY_TWEET = "BUNDLE_KEY_TWEET";
 
@@ -69,18 +74,31 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
     private Tweet tweet;
 
 
-    private TweetDetailContract.ICmnView mCmnViewImp;
-    private TweetDetailContract.IAgencyView mAgencyViewImp;
+    public TweetDetailContract.ICmnView mCmnViewImp;
+    public TweetDetailContract.IAgencyView mAgencyViewImp;
 
 
-    private CommentBar mDelegation;
+    public CommentBar mDelegation;
 
-    PlayerDetailViewPagerFragment mPagerFrag;
+
 
 
 
     @BindView(R.id.video_player)
     SampleVideo videoPlayer;
+
+
+
+    @BindView(R.id.activity_player_detail_tab_nav)
+    TabLayout mTabLayout;
+
+
+
+    private onViewPagerSelectListener mListener;
+
+
+
+
 
 
     @Override
@@ -188,6 +206,7 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
         detail_header_layout.setBackgroundResource(R.color.transparent);
 //        mPagerFrag.setTabLayout(View.INVISIBLE);
         headerTitle.setVisibility(View.GONE);
+//        mTabLayout.setVisibility(View.GONE);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,21 +221,36 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (verticalOffset <= -headLayout.getHeight() / 2) {
-                    mPagerFrag.setTabLayout(View.VISIBLE);
+//                    mPagerFrag.setTabLayout(View.VISIBLE);
 //                    detail_header_layout.setBackgroundResource(R.color.gray);
                     headerTitle.setVisibility(View.VISIBLE);
-
+//                    mTabLayout.setVisibility(View.VISIBLE);
 
                 } else {
 //                    mPagerFrag.setTabLayout(View.INVISIBLE);
 //                    detail_header_layout.setBackgroundResource(R.color.transparent);
                     headerTitle.setVisibility(View.GONE);
+//                    mTabLayout.setVisibility(View.GONE);
 
                     float scale = (float) verticalOffset / (-headLayout.getHeight() / 2);
                     float alpha = (255 * scale);
                     int color = Color.argb((int) alpha, 255, 255, 255); //212, 58, 50  (int) alpha, 33, 33, 33
                     detail_header_layout.setBackgroundColor(color);
 //                    mPagerFrag.setTabLayoutBackgroundColor(color);
+
+
+                    mTabLayout.setBackgroundColor(color);
+
+
+                    int blackColor = Color.argb((int) alpha, 33, 33, 33); //212, 58, 50  (int) alpha, 33, 33, 33
+                    int mackColor = Color.argb((int) alpha, 72, 170, 251); //212, 58, 50  (int) alpha, 33, 33, 33
+                    mTabLayout.setSelectedTabIndicatorColor(mackColor);
+                    mTabLayout.setTabTextColors(blackColor, mackColor);
+
+
+
+
+
                 }
             }
         });
@@ -244,56 +278,55 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
 
 
-//        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
-//
-//        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
-////                    handleKeyDel();
-//                }
-//                return false;
-//            }
-//        });
-//
-//        mDelegation.hideShare();
-//        mDelegation.hideFav();
-//
-//        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                if (AccountHelper.isLogin()) {
-////                    UserSelectFriendsActivity.show(TweetDetailActivity.this, mDelegation.getBottomSheet().getEditText());
-////                } else
-////                    LoginActivity.show(TweetDetailActivity.this);
-//            }
-//        });
-//
-////        mDelegation.getBottomSheet().getEditText().setOnKeyArrivedListener(new OnKeyArrivedListenerAdapterV2(this));
-//        mDelegation.getBottomSheet().showEmoji();
-//        mDelegation.getBottomSheet().hideSyncAction();
-//        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
-//
-//                Toast.makeText(PlayerDetailActivity.this, "--->" + content, Toast.LENGTH_SHORT).show();
-//                mDelegation.getBottomSheet().dismiss();
-//
-//                if (TextUtils.isEmpty(content)) {
-//                    Toast.makeText(PlayerDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
+        mDelegation = CommentBar.delegation(this, mCoordinatorLayout);
+
+        mDelegation.getBottomSheet().getEditText().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
+//                    handleKeyDel();
+                }
+                return false;
+            }
+        });
+
+        mDelegation.hideShare();
+        mDelegation.hideFav();
+
+        mDelegation.getBottomSheet().setMentionListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                if (AccountHelper.isLogin()) {
+//                    UserSelectFriendsActivity.show(TweetDetailActivity.this, mDelegation.getBottomSheet().getEditText());
+//                } else
+//                    LoginActivity.show(TweetDetailActivity.this);
+            }
+        });
+
+//        mDelegation.getBottomSheet().getEditText().setOnKeyArrivedListener(new OnKeyArrivedListenerAdapterV2(this));
+        mDelegation.getBottomSheet().showEmoji();
+        mDelegation.getBottomSheet().hideSyncAction();
+        mDelegation.getBottomSheet().setCommitListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String content = mDelegation.getBottomSheet().getCommentText().replaceAll("[\\s\\n]+", " ");
+
+                Toast.makeText(BasePlayerDetailActivity.this, "--->" + content, Toast.LENGTH_SHORT).show();
+                mDelegation.getBottomSheet().dismiss();
+
+                if (TextUtils.isEmpty(content)) {
+                    Toast.makeText(BasePlayerDetailActivity.this, "请输入文字", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+//                if (!AccountHelper.isLogin()) {
+//                    UIHelper.showLoginActivity(TweetDetailActivity.this);
 //                    return;
 //                }
-////                if (!AccountHelper.isLogin()) {
-////                    UIHelper.showLoginActivity(TweetDetailActivity.this);
-////                    return;
-////                }
-////                if (replies.size() > 0)
-////                    content = mDelegation.getBottomSheet().getEditText().getHint() + ": " + content;
-////                OSChinaApi.pubTweetComment(tweet.getId(), content, 0, publishCommentHandler);
-//            }
-//        });
-
+//                if (replies.size() > 0)
+//                    content = mDelegation.getBottomSheet().getEditText().getHint() + ": " + content;
+//                OSChinaApi.pubTweetComment(tweet.getId(), content, 0, publishCommentHandler);
+            }
+        });
 
 
 
@@ -302,13 +335,13 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 
 
         // viewpager fragment
-        mPagerFrag = PlayerDetailViewPagerFragment.instantiate();
-        mCmnViewImp = mPagerFrag.getCommentViewHandler();
-//        mThumbupViewImp = mPagerFrag.getThumbupViewHandler();
-        mAgencyViewImp = mPagerFrag.getAgencyViewHandler();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, mPagerFrag)
-                .commit();
+//        mPagerFrag = PlayerDetailViewPagerFragment.instantiate();
+//        mCmnViewImp = mPagerFrag.getCommentViewHandler();
+////        mThumbupViewImp = mPagerFrag.getThumbupViewHandler();
+//        mAgencyViewImp = mPagerFrag.getAgencyViewHandler();
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.fragment_container, mPagerFrag)
+//                .commit();
 
 
 //        mToolbar.postDelayed(new Runnable() {
@@ -317,6 +350,29 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 //                mCmnViewImp.onCommentSuccess(null);
 //            }
 //        }, 2000);
+
+
+
+
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (mListener != null) {
+                    mListener.SetViewPagerSelectListener(tab.getPosition());
+                    setCommentBarVisible(tab.getPosition());
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
     }
@@ -398,6 +454,21 @@ public class PlayerDetailActivity extends BackActivity implements TweetDetailCon
 //        } else {
 //            mLayoutRef.setVisibility(View.GONE);
 //        }
+    }
+
+
+    public void setCommentBarVisible(int position){
+
+    }
+
+
+
+    public interface onViewPagerSelectListener {
+        void SetViewPagerSelectListener(int index);
+    }
+
+    public void setOnViewPagerSelectListener(onViewPagerSelectListener onViewPagerSelectListener) {
+        this.mListener = onViewPagerSelectListener;
     }
 
 

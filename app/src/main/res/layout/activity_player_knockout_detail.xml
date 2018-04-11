@@ -62,50 +62,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:background="@color/white">
+                    android:background="@color/white"
+                    >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="中国有嘻哈"
-                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/activity_player_detail_money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toLeftOf="@+id/activity_player_detail_divide_icon"
-                        android:layout_marginRight="15dp"
-                        android:text="$180.00"
-                        android:textColor="#FF0000"/>
-
-                    <View
-                        android:id="@+id/activity_player_detail_divide_icon"
-                        android:layout_width="1dp"
-                        android:layout_height="15dp"
-                        android:background="@color/gray"
+                        android:layout_toRightOf="@+id/activity_player_works_detail_header"
+                        android:layout_marginLeft="5dp"
+                        android:text="异世大陆"
+                        android:textSize="@dimen/text_size_18"
+                        android:textColor="#333333"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_toLeftOf="@+id/activity_player_detail_matchs_icon"
                         />
 
-                    <ImageView
-                        android:id="@+id/activity_player_detail_matchs_icon"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_toLeftOf="@+id/activity_player_detail_matchs"
-                        android:layout_marginRight="5dp"
-                        android:layout_centerVertical="true"
-                        android:src="@mipmap/ic_video_black"/>
-
                     <TextView
-                        android:id="@+id/activity_player_detail_matchs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="4dp"
+                        android:minLines="1"
+                        android:textColor="#FF0010"
+                        android:textSize="14.6sp"
                         android:layout_alignParentRight="true"
-                        android:text="30(100)"/>
+                        android:text="￥180.00"
+                        tools:text="￥180.00" />
+
 
                 </RelativeLayout>
 
@@ -119,41 +106,66 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="6"
                         android:gravity="left"
-                        android:text="开放 ／ 音乐 ／ 439人观看"/>
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="淘汰赛 / 萌妹子 / 800人观看"
+                        android:textColor="#333333"
+                        />
 
-                    <TextView
+
+                    <com.vs.vipsai.widget.countdown.CountDownTimerView
+                        android:id="@+id/item_list_sub_attention_loop_time"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="4"
                         android:gravity="right"
-                        android:text="开始日期：2018.02.30"/>
+                        />
 
                 </LinearLayout>
+
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:lines="3"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="7"
+                    android:gravity="left"
+                    android:maxLines="3"
                     android:ellipsize="end"
-                    android:lineSpacingExtra="5dp"
-                    android:text="农业，插上互联网+的翅膀，让广元青川女孩儿王淑娟飞了起来。科米的故事可以说包罗一切热卖要素，从白宫阴谋到潜在的贪赃枉法，他的爆炸性故事令《白宫风云》、《纸牌屋》等大热剧集相形见绌。"
-                    android:textSize="@dimen/text_size_12"
-                    />
+                    android:text="1登陆爱奇艺账号，普通用户每天拥有一次投票机会，每次最多可投1人，不可对同一练习生重复投票"/>
 
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/shape_btn_view_blue"
-                    android:text="上传作品"
-                    android:textSize="@dimen/font15sp"
-                    android:textColor="#FFFFFF"/>
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="30dp"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:gravity="left"-->
+                    <!--android:maxLines="2"-->
+                    <!--android:ellipsize="end"-->
+                    <!--android:text="1对1视频"-->
+                    <!--android:textColor="#333333"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:gravity="left"-->
+                    <!--android:maxLines="2"-->
+                    <!--android:ellipsize="end"-->
+                    <!--android:text="8进4 (当前轮次)"-->
+                    <!--android:textColor="#333333"-->
+                    <!--/>-->
 
 
             </LinearLayout>
@@ -172,7 +184,6 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="@dimen/lay_44"
             android:background="@color/white"
             android:focusable="true"

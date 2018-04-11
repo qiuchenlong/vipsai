@@ -1,4 +1,4 @@
-package com.vs.vipsai.adapter;
+package com.vs.vipsai.detail.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

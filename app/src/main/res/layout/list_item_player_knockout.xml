@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@color/white"
+    android:clickable="true"
+    android:orientation="vertical">
+
+
+
+    <FrameLayout
+        android:id="@+id/item_list_sub_attention_layout_bettle"
+        android:layout_width="match_parent"
+        android:layout_height="156.0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/image_no_9"
+                android:scaleType="centerCrop"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/image_no_12"
+                android:scaleType="centerCrop"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_vs_gray"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="6dp"
+                >
+
+                <com.vs.vipsai.media.ImagePreviewView
+                    android:id="@+id/header1"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@mipmap/image_no_4"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="分辨率"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"
+                    android:layout_toRightOf="@+id/header1"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="屏幕上显示的像素个数"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/header1"
+                    android:lines="2"
+                    android:ellipsize="end"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="6dp"
+                >
+
+                <com.vs.vipsai.media.ImagePreviewView
+                    android:id="@+id/header2"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@mipmap/image_no_4"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="分辨率"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"
+                    android:layout_toRightOf="@+id/header2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输出多套分辨率的切图，例如480p和720p，在设计的时候要注意好切图区域的大小能被2和1.5整除的大小，"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/header2"
+                    android:lines="2"
+                    android:ellipsize="end"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

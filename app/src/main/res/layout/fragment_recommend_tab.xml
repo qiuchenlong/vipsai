@@ -63,7 +63,8 @@
                     app:tabMode="fixed"
                     app:tabIndicatorColor="@color/transparent"
                     app:tabSelectedTextColor="?attr/textColor"
-                    app:tabTextColor="@color/project_listitem_someinfo"/>
+                    app:tabTextColor="@color/project_listitem_someinfo"
+                    app:tabTextAppearance="@style/TabLayoutTextStyle"/>
 
                 <!--<View-->
                     <!--android:layout_gravity="end"-->

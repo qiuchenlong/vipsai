@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class TextUtil {
 
-    private static final String KeyWordPattern = "(^|)@(.*?)($|\\s)|#(\\w*?)#";
+    private static final String KeyWordPattern = "(^|)@(.*?)($|\\s)|#(\\w*?)#|(^|)#(.*?)($|\\s)";
 
 
     /**

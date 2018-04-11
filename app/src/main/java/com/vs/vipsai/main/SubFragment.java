@@ -15,6 +15,7 @@ import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.bean.ResultBean;
 import com.vs.vipsai.bean.SubBean;
 import com.vs.vipsai.bean.SubTab;
+import com.vs.vipsai.detail.activity.PlayerDetailCountOfFourActivity;
 import com.vs.vipsai.main.competition.OpenSubAdapter;
 import com.vs.vipsai.main.competition.QualifyingSubAdapter;
 import com.vs.vipsai.main.my.AllSubAdapter;
@@ -26,7 +27,7 @@ import com.vs.vipsai.main.past.PastWonderfulSubAdapter;
 import com.vs.vipsai.main.recommend.AttentionSubAdapter;
 import com.vs.vipsai.main.recommend.PopularSubAdapter;
 import com.vs.vipsai.publish.TournamentCollector;
-import com.vs.vipsai.ui.activity.PlayerDetailActivity;
+import com.vs.vipsai.detail.activity.PlayerDetailActivity;
 import com.vs.vipsai.util.SimplexToast;
 import com.vs.vipsai.util.TDevice;
 
@@ -93,24 +94,34 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             return;
         }
 
+        Intent intent;
+
         switch (sub.getType()) { // type的值 由请求来的数据决定，目前为模拟数据
             case News.TYPE_ATTENTION:
-                SimplexToast.show(getContext(), "position:" + position);
+//                SimplexToast.show(getContext(), "position:" + position);
 
 //                Intent intent = new Intent(AppContext.getContext(), CityListActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                AppContext.getInstance().startActivity(intent);
 
 
-                Intent intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
+                intent = new Intent(AppContext.getContext(), PlayerDetailActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 AppContext.getInstance().startActivity(intent);
 
 
                 break;
             case News.TYPE_NEWEST:
-                SimplexToast.show(getContext(), "21" + sub.getBody());
+//                SimplexToast.show(getContext(), "21" + sub.getBody());
                 break;
+
+            case News.TYPE_OPEN:
+                intent = new Intent(AppContext.getContext(), PlayerDetailCountOfFourActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+                break;
+
+
 //            case News.TYPE_SOFTWARE:
 //                //SoftwareDetailActivity.show(mContext, sub.getId());
 //                net.oschina.app.improve.detail.general.SoftwareDetailActivity.show(mContext, sub);
@@ -154,13 +165,15 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
 
     @Override
     protected void requestData() {
-        VSApi.getSubscription(mTab.getHref(), isRefreshing ? null : mBean.getNextPageToken(), mHandler);
+//        String url = "api-sileo/v2/home-tournaments/popular/filter/";
+//        url = String.format(ApiHttpClient.API_URL, url);
+        VSApi.getSubscription(mTab.getHref(), isRefreshing ? null : mBean.getNextPageToken(), mHandler); //mTab.getHref()
     }
 
     @Override
     protected void setListData(ResultBean<PageBean<SubBean>> resultBean) {
         super.setListData(resultBean);
-        mAdapter.setSystemTime(resultBean.getTime());
+//        mAdapter.setSystemTime(resultBean.getTime());
     }
 
     @Override
@@ -172,7 +185,9 @@ public class SubFragment extends BaseGeneralRecyclerFragment<SubBean> {
             setRecyclerLinearLayoutStyle();
             return new AttentionSubAdapter(getActivity(), mode, getActivity());
         }
-//        else if (mTab.getType() == News.TYPE_EVENT)
+//        return new AttentionSubAdapter(getActivity(), mode, getActivity());
+
+//                else if (mTab.getType() == News.TYPE_EVENT)
 //            return new EventSubAdapter(this, mode);
 //        else if (mTab.getType() == News.TYPE_QUESTION)
 //            return new QuestionSubAdapter(this, mode);
