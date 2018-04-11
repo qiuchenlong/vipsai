@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.vs.vipsai.messages.ui.ChatView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/title_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:gravity="center">-->
+
+        <!--&lt;!&ndash;android:background="@color/chat_title_bg"&ndash;&gt;-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/title_tv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="#333333"-->
+             <!--/>-->
+
+        <!--&lt;!&ndash;android:textSize="@dimen/chat_title_bar_txt_size"&ndash;&gt;-->
+
+    <!--</LinearLayout>-->
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:titleTextColor="@color/white"
+        app:popupTheme="@style/ToolbarPopupTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:paddingEnd="0dp"
+        app:paddingStart="0dp"
+        app:titleMarginStart="0dp"
+
+        app:layout_collapseMode="pin"
+        android:background="@color/white"
+
+        tools:ignore="UnusedAttribute" >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="title"
+            android:textColor="#333333"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textSize="18sp"
+            />
+
+        <!--android:layout_marginRight="?attr/actionBarSize"-->
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="#CCCCCC"
+        />
+
+
+    <com.vipsai.imui.messages.ptr.PullToRefreshLayout
+        android:id="@+id/pull_to_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:PtrCloseDuration="300"
+        app:PtrCloseHeaderDuration="2000"
+        app:PtrKeepHeaderWhenRefresh="true"
+        app:PtrPullToRefresh="true"
+        app:PtrRatioHeightToRefresh="1.2"
+        app:PtrResistance="1.2"
+        android:layout_above="@+id/chat_input"
+        android:layout_below="@+id/title_container">
+
+        <com.vipsai.imui.messages.MessageList
+            android:id="@+id/msg_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:avatarHeight="48dp"
+            app:avatarWidth="48dp"
+            app:showReceiverDisplayName="true"
+            app:showSenderDisplayName="false"
+            app:avatarRadius="5dp"
+            app:bubbleMaxWidth="0.70"
+            app:dateTextSize="14sp"
+            app:receiveBubblePaddingLeft="16dp"
+            app:receiveBubblePaddingRight="8dp"
+            app:receiveTextColor="#ffffff"
+            app:receiveTextSize="16sp"
+            app:sendBubblePaddingLeft="8dp"
+            app:sendBubblePaddingRight="16dp"
+            app:sendTextColor="#7587A8"
+            app:sendTextSize="16sp" />
+
+    </com.vipsai.imui.messages.ptr.PullToRefreshLayout>
+
+
+    <com.vipsai.imui.chatinput.ChatInputView
+        android:id="@+id/chat_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:showSelectAlbum="true"/>
+
+
+</com.vs.vipsai.messages.ui.ChatView>

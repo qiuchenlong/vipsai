@@ -8,3 +8,6 @@
 **Copyright(c) __DMCA__. All rights reserved.**
 
 
+
+- 执行多渠道打包脚本 : ./gradlew assembleRelease
+

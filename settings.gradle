@@ -1,1 +1,19 @@
-include ':app', ':mvp', ':library' ,':open'
+rootProject.name = 'vipsai'
+
+include ':app', ':mvp', ':library' ,':open', ':messagelist', ':chatinput'
+
+
+// 设计模式
+project(':mvp').projectDir = new File(rootProject.projectDir, '/mvp')
+
+// 3th libs
+project(':library').projectDir = new File(rootProject.projectDir, '/library')
+
+// 社会化分享
+project(':open').projectDir = new File(rootProject.projectDir, '/open')
+
+// 聊天列表
+project(':messagelist').projectDir = new File(rootProject.projectDir, '/messagelist')
+
+// 聊天输入框
+project(':chatinput').projectDir = new File(rootProject.projectDir, '/chatinput')

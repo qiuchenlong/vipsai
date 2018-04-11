@@ -141,7 +141,7 @@ public class NotifyActicity extends BackActivity implements ViewPager.OnPageChan
         // 在所有子控件的中间显示分割线（还可能只显示顶部、尾部和不显示分割线）
         mLinearLayout.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         // 设置分割线的距离本身（LinearLayout）的内间距
-        mLinearLayout.setDividerPadding(20);
+        mLinearLayout.setDividerPadding((int) TDevice.dp2px(16));
         // 设置分割线的样式
         mLinearLayout.setDividerDrawable(ContextCompat.getDrawable(this, R.drawable.divider_vertical));
 

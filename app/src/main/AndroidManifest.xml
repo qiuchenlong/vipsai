@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.vs.vipsai">
 
+
+    <meta-data android:name="UMENG_CHANNEL" android:value="${UMENG_CHANNEL_VALUE}" />
+
+
     <!--该权限group,用于访问网络，或者基于网络的lbs定位服务,以及微信,微博,QQ分享和登陆功能，判断或改变网络状态等功能-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -212,6 +216,17 @@
         <activity android:name="com.vs.vipsai.detail.activity.KnockoutDetailActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="淘汰赛详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Tweet.Main"
+            android:windowSoftInputMode="adjustResize"/>
+
+
+
+
+
+        <activity android:name="com.vs.vipsai.messages.MessageListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="聊天界面"
             android:screenOrientation="portrait"
             android:theme="@style/App.Theme.Tweet.Main"
             android:windowSoftInputMode="adjustResize"/>
