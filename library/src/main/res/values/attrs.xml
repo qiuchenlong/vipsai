@@ -28,4 +28,14 @@
         </attr>
         <attr name="circleBorder" format="dimension"></attr>
     </declare-styleable>
+
+    <declare-styleable name="FunctionBar">
+        <attr name="functionTitleColor" format="color"/>
+        <attr name="functionTitleSize" format="dimension"/>
+        <attr name="functionEditStyle" format="reference"/>
+        <attr name="clearImageRes" format="reference"/>
+        <attr name="clearImageSize" format="dimension"/>
+        <attr name="arrowImageRes" format="reference"/>
+        <attr name="arrowImageSize" format="dimension"/>
+    </declare-styleable>
 </resources>
