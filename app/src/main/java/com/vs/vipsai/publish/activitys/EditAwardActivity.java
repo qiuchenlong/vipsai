@@ -129,123 +129,20 @@ public class EditAwardActivity extends ToolbarActivity {
 
     private class Holder implements View.OnClickListener {
         ViewDataBinding mBinding;
-        InputBarController mReward;
         FunctionBar mType;
-        AwardBean mData;
-
-//        boolean mSaveDate;
 
         public Holder(Context context, ViewDataBinding binding){
-            int padding = context.getResources().getDimensionPixelSize(R.dimen.padding_horizontal);
-            int paddingDiv = context.getResources().getDimensionPixelSize(R.dimen.divider);
-            //名次
-//            mRanking= new InputBarController()
-//                    .wrapper((ViewGroup)binding.getRoot().findViewById(R.id.inputbar_ranking))
-//                    .setBarBackground(R.drawable.bg_frame_bottom_white)
-//                    .setBarPadding(0,0,padding, paddingDiv)
-//                    .enableClearBtn(false);
-//
-//            mRanking.rightArrowVisible.set(true);
-//            mRanking.inputTitle = context.getString(R.string.ranking);
-//            mRanking.inputHint.set(R.string.input_ranking_hint);
-//            mRanking.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-//            mRanking.rightIndicator.set(R.mipmap.ic_brows_forward);
-//            mRanking.inputContent.addOnPropertyChangedCallback(mRankingCallback);
-
             //类别
             mType = (FunctionBar) binding.getRoot().findViewById(R.id.inputbar_type);
             mType.setOnClickListener(this);
-//            mType = new InputBarController()
-//                    .wrapper(view)
-//                    .setBarBackground(R.drawable.bg_frame_bottom_white)
-//                    .setBarPadding(0,0,padding, paddingDiv)
-//                    .setEditable(false);
-//
-//            mType.rightArrowVisible.set(true);
-//            mType.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-//            mType.inputTitle = context.getString(R.string.type);
-//            mType.inputHint.set(R.string.select_hint);
-//            mType.rightIndicator.set(R.mipmap.ic_brows_forward);
-//            mType.inputContent.addOnPropertyChangedCallback(mTypeCallback);
-
-            //奖金
-            mReward = new InputBarController()
-                    .wrapper((ViewGroup)binding.getRoot().findViewById(R.id.inputbar_reward))
-                    .setBarBackground(R.drawable.bg_frame_bottom_white)
-                    .setBarPadding(0,0,padding, paddingDiv)
-                    .setType(InputBarController.Type.FLOAT)
-                    .setNumericPrecision(2)
-                    .enableClearBtn(false);
-
-            mReward.rightArrowVisible.set(true);
-            mReward.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-            mReward.inputTitle = context.getString(R.string.reward_option);
-            mReward.inputHint.set(R.string.input_hint1);
-            mReward.rightIndicator.set(R.mipmap.ic_brows_forward);
-            mReward.inputContent.addOnPropertyChangedCallback(mRewardCallback);
 
             mBinding = binding;
-
-//            mBinding.setVariable(BR.ranking, mRanking);
-//            mBinding.setVariable(BR.type, mType);
-            mBinding.setVariable(BR.reward, mReward);
         }
 
         public void bind(AwardBean award) {
-            //初始化或绑定同个数据可以回写数据
-//            mSaveDate = mData == null || mData == award;
-
-            mData = award;
-
-            //界面绑定新数据
-//            mRanking.inputContent.set(award.getRankings());
-//            mType.inputContent.set(award.awardType);
-            if(award.getReward() > 0) {
-                mReward.inputContent.set(String.valueOf(award.getReward()));
-            }else {
-                mReward.inputContent.set("");
-            }
-
             mBinding.setVariable(BR.VMAwardItem, award);
-
             mBinding.executePendingBindings();
-
-            //绑定期间可以回写
-//            mSaveDate = true;
         }
-
-//        private Observable.OnPropertyChangedCallback mRankingCallback = new Observable.OnPropertyChangedCallback() {
-//            @Override
-//            public void onPropertyChanged(Observable sender, int propertyId) {
-//                if(mData != null) {
-//                    mData.setRankings(((ObservableField<String>)sender).get());
-//                }
-//            }
-//        };
-
-//        private Observable.OnPropertyChangedCallback mTypeCallback = new Observable.OnPropertyChangedCallback() {
-//            @Override
-//            public void onPropertyChanged(Observable sender, int propertyId) {
-//                if(mData != null) {
-//                    mData.awardType = ((ObservableField<String>)sender).get();
-//                }
-//            }
-//        };
-
-        private Observable.OnPropertyChangedCallback mRewardCallback = new Observable.OnPropertyChangedCallback() {
-            @Override
-            public void onPropertyChanged(Observable sender, int propertyId) {
-                if(mData != null) {
-                    try {
-                        float reward = Float.parseFloat(((ObservableField<String>)sender).get());
-                        if(reward > 0) {
-                            mData.setReward(reward);
-                        }
-
-                    }catch (NumberFormatException e){}
-                }
-            }
-        };
 
         @Override
         public void onClick(View v) {

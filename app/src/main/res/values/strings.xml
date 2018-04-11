@@ -239,10 +239,7 @@
     <string name="search">搜索</string>
 
     <string name="please_input">请输入%1$s</string>
-    <string name="min_length_hint">不少于%1$s个字</string>
-    <string name="format_error">%1$s格式错误</string>
 
-    <string name="select_cover">更改封面</string>
     <string name="available_cover">可选封面</string>
     <string name="local_cover">+使用本地图片</string>
     <string name="game_rule_title">比赛规则</string>
@@ -281,6 +278,7 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="num_percent">(%1$d/%2$d)</string>
 
     <string name="create_tournament">创建比赛</string>
+    <string name="select_cover">更改封面</string>
     <string name="tournament_range_public">公开+链接</string>
     <string name="public_txt">发布</string>
     <string name="title_hint">添加标题</string>

@@ -43,5 +43,15 @@
         <attr name="showArrow" format="boolean"/>
         <attr name="functionEditable" format="boolean"/>
         <attr name="showClearBtn" format="boolean"/>
+        <attr name="functionInputType">
+            <enum name="TEXT" value="0" />
+            <enum name="NAME_CHINA" value="1" />
+            <enum name="PASSWORD" value="2" />
+            <enum name="EMAIL" value="3" />
+            <enum name="PHONE" value="4" />
+            <enum name="NUMBER" value="5" />
+            <enum name="FLOAT" value="6" />
+        </attr>
+        <attr name="numericPrecision" format="integer"/>
     </declare-styleable>
 </resources>
