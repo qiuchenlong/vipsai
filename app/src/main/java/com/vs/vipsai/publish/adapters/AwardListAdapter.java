@@ -31,7 +31,7 @@ public class AwardListAdapter extends BaseRecyclerAdapter<AwardBean> {
 
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        VHDatabinding vh = null;
+        VHDatabinding vh;
         switch (type) {
             default:
                 ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),

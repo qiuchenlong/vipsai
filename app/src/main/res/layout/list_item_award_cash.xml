@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/padding_12"
+        android:padding="@dimen/padding_horizontal"
         android:background="@drawable/bg_frame_select_selector"
         app:selected="@{VMAwardItem.selected}">
 
@@ -87,8 +87,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
+                android:visibility="invisible"
                 app:imageUrl="@{VMAwardItem.getIconUrl(0)}"
-                android:src="@mipmap/ic_default_image"/>
+                android:src="@drawable/default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -99,8 +100,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
+                android:visibility="invisible"
                 app:imageUrl="@{VMAwardItem.getIconUrl(1)}"
-                android:src="@mipmap/ic_default_image"/>
+                android:src="@drawable/default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -111,8 +113,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
+                android:visibility="invisible"
                 app:imageUrl="@{VMAwardItem.getIconUrl(2)}"
-                android:src="@mipmap/ic_default_image"/>
+                android:src="@drawable/default_image"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
@@ -123,8 +126,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="false"
+                android:visibility="invisible"
                 app:imageUrl="@{VMAwardItem.getIconUrl(3)}"
-                android:src="@mipmap/ic_default_image"/>
+                android:src="@drawable/default_image"/>
 
         </LinearLayout>
 

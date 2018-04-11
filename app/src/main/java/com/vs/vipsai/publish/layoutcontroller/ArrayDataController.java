@@ -53,6 +53,7 @@ public abstract class ArrayDataController<T> {
 
     protected void init(Context context) {}
 
+    /**要绑定的布局*/
     protected abstract int getLayoutId();
 
     public void setData(List<T> datas) {

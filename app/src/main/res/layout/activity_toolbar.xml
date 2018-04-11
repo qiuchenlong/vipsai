@@ -16,7 +16,8 @@
         app:contentInsetLeft="0dp"
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
-        android:paddingRight="@dimen/padding_12"
+        android:paddingRight="@dimen/padding_horizontal"
+        android:paddingBottom="@dimen/divider"
         android:background="@drawable/bg_frame_bottom_white">
 
         <TextView

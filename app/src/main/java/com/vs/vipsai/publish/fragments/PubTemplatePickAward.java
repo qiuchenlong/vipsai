@@ -111,7 +111,7 @@ public class PubTemplatePickAward extends BaseGeneralRecyclerFragment<AwardBean>
 
     @Override
     protected BaseRecyclerAdapter<AwardBean> getRecyclerAdapter() {
-        int padding = getContext().getResources().getDimensionPixelSize(R.dimen.padding_12);
+        int padding = getContext().getResources().getDimensionPixelSize(R.dimen.padding_horizontal);
         mRecyclerView.addItemDecoration(new PaddingItemDecoration(padding, padding, padding, padding));
         return new AwardListAdapter(getContext(), BaseRecyclerAdapter.ONLY_FOOTER);
     }

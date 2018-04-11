@@ -21,12 +21,12 @@ import com.vs.vipsai.widget.GlidImageView;
 public abstract class VMAwardItem {
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
-    private Context mAppContext;
 
     /**布局绑定， 图片数量*/
     public abstract int getIconSize();
 
     /**布局绑定， 图片地址*/
     public abstract String getIconUrl(int index);
+
 
 }

@@ -21,10 +21,13 @@ public class AwardBean extends VMAwardItem implements Serializable{
     public static final String TYPE_PRESENT_STR = "礼品";
 
     protected long id;
-    public String title;
-    public String awardType;
-    public String description;
+    public String title = "";
+    public String awardType = "";
+    public String description = "";
     protected String[] icons;
+
+    private String mRankings = "";
+    private float mReward;
 
     public String[] getIcons() {
         return icons;
@@ -35,6 +38,22 @@ public class AwardBean extends VMAwardItem implements Serializable{
     }
 
     public long getId() {return id;}
+
+    public String getRankings() {
+        return mRankings;
+    }
+
+    public void setRankings(String rankings) {
+        mRankings = rankings;
+    }
+
+    public float getReward() {
+        return mReward;
+    }
+
+    public void setReward(float reward) {
+        mReward = reward;
+    }
 
     /**
      * 测试数据

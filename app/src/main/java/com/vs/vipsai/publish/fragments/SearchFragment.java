@@ -4,12 +4,14 @@ import com.vs.vipsai.R;
 import com.vs.vipsai.base.fragments.BaseFragment;
 import com.vs.vipsai.publish.layoutcontroller.InputBarController;
 import com.vs.vipsai.search.SearchListener;
+import com.vs.vipsai.util.TDevice;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.Filter;
 
 /**
@@ -28,10 +30,11 @@ public abstract class SearchFragment<T,Result> extends BaseFragment implements S
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
-        mInputBarController = InputBarController.wrapper((ViewGroup)root.findViewById(R.id.search_bar_input));
+        mInputBarController = new InputBarController().wrapper((ViewGroup)root.findViewById(R.id.search_bar_input));
         mInputBarController.setHint(R.string.search);
         mInputBarController.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         mInputBarController.addTextWatcher(mTextWatcher);
+        mInputBarController.setCloseKeyboardOnLostFocus(true);
     }
 
     private TextWatcher mTextWatcher = new TextWatcher() {
@@ -49,6 +52,14 @@ public abstract class SearchFragment<T,Result> extends BaseFragment implements S
             }
         }
     };
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(!isVisibleToUser) {
+            TDevice.closeKeyboard((EditText)findView(R.id.editor));
+        }
+    }
 
     /**
      * 设置搜索过滤器

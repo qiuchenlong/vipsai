@@ -1,5 +1,7 @@
 package com.vs.vipsai.publish;
 
+import android.databinding.ObservableField;
+
 import com.vs.vipsai.bean.TournamentBean;
 import com.vs.vipsai.bean.User;
 import com.vs.vipsai.publish.viewmodels.VMImageItem;
@@ -18,13 +20,21 @@ import java.util.List;
  */
 public class TournamentCollector {
 
+    //布局绑定
+    public String title;
+    public ObservableField<String> time = new ObservableField<>();
+    public ObservableField<String> description = new ObservableField<>();
+    public ObservableField<String> rule = new ObservableField<>();
+    public ObservableField<String> localCover = new ObservableField<>("");
+    public ObservableField<String> type = new ObservableField<>("");
+
     private static TournamentCollector mInstance;
 
     private TournamentBean mTournament;
 
     private boolean mRuleChecked;
 
-    private VMImageItem mCover;
+    public VMImageItem cover;
 
     private List<Long> mUsers = new ArrayList<>();
 
@@ -42,8 +52,8 @@ public class TournamentCollector {
         }
     }
 
-    public void setCover(VMImageItem cover) {
-        mCover = cover;
+    public void setCoverData(VMImageItem cover) {
+        this.cover = cover;
     }
 
     /**

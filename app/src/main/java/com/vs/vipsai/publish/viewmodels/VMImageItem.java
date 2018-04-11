@@ -21,9 +21,7 @@ public class VMImageItem {
 
     public String url;
 
-    public String localPath;
-
-    public String description = "";
+    public ObservableField<String> localPath = new ObservableField<>();
 
     @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {

@@ -5,6 +5,7 @@ import android.support.v7.content.res.AppCompatResources;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -15,16 +16,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
+import com.vs.vipsai.publish.viewmodels.VMInputBar;
 import com.vs.vipsai.util.StringUtils;
 import com.vs.vipsai.util.TDevice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * * Author: chends
@@ -34,10 +39,10 @@ import java.util.List;
  *  绑定布局R.layout.input_bar
  *  输入框控制器
  */
-public class InputBarController implements TextWatcher{
+public class InputBarController extends VMInputBar implements TextWatcher{
 
     public enum Type {
-        TEXT,NAME_CHINA,PASSWORD,EMAIL,PHONE,NUMBER
+        TEXT,NAME_CHINA,PASSWORD,EMAIL,PHONE,NUMBER,FLOAT
     }
 
     private ViewGroup mRoot;
@@ -50,16 +55,13 @@ public class InputBarController implements TextWatcher{
 
     private List<InputFilter> mInputFilter;
 
-    public static InputBarController wrapper(ViewGroup inputLay) {
-        return new InputBarController(inputLay);
+    public InputBarController wrapper(ViewGroup inputLay) {
+        mRoot = inputLay;
+        init(mRoot);
+        return this;
     }
 
     public InputBarController() {}
-
-    private InputBarController(ViewGroup inputbar) {
-        mRoot = inputbar;
-        init(mRoot);
-    }
 
     public View attachTo(ViewGroup parent, boolean attach) {
 
@@ -74,6 +76,13 @@ public class InputBarController implements TextWatcher{
         }
 
         return mRoot;
+    }
+
+    private void setRightArrow(int resId) {
+        if(mRoot != null) {
+            ImageView arrow = mRoot.findViewById(R.id.inputbar_rightarrow);
+            arrow.setImageResource(resId);
+        }
     }
 
     public InputBarController setImeOptions(int imeOptions) {
@@ -105,9 +114,17 @@ public class InputBarController implements TextWatcher{
 
     public InputBarController setGravity(int gravity) {
         if(mRoot != null) {
-            EditText editText = (EditText)mRoot.findViewById(R.id.editor);
+            EditText editText = mRoot.findViewById(R.id.editor);
             editText.setGravity(gravity);
         }
+        return this;
+    }
+
+    public InputBarController setBarPadding(int left, int top, int right, int bottom) {
+        if(mRoot != null) {
+            mRoot.setPadding(left,top,right,bottom);
+        }
+
         return this;
     }
 
@@ -156,6 +173,53 @@ public class InputBarController implements TextWatcher{
         return this;
     }
 
+    /**限制小数位数
+     * @param length
+     * @return
+     */
+    public InputBarController setNumericPrecision(int length) {
+        if(mRoot != null && length > 0 && Type.FLOAT == mType) {
+
+            EditText edit = (EditText)mRoot.findViewById(R.id.editor);
+            if(mInputFilter == null) {
+                mInputFilter = new ArrayList<>();
+            }else for (InputFilter filter : mInputFilter) {
+                if(filter instanceof PrecisionLimit) {
+                    return this;
+                }
+            }
+            mInputFilter.add(new PrecisionLimit(length));
+            edit.setFilters(mInputFilter.toArray(new InputFilter[0]));
+        }
+        return this;
+    }
+
+    private class PrecisionLimit implements InputFilter {
+
+        int mLength;
+
+        public PrecisionLimit(int length) {
+            mLength = length;
+        }
+
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            if (TextUtils.isEmpty(source)) {
+                return null;
+            }
+            String dValue = dest.toString();
+            String[] splitArray = dValue.split("\\.");
+            if (splitArray.length > 1) {
+                String dotValue = splitArray[1];
+                int diff = dotValue.length() + 1 - mLength;
+                if (diff > 0) {
+                    return source.subSequence(start, end - diff);
+                }
+            }
+            return null;
+        }
+    }
+
     public InputBarController setMinLength(int length) {
         mMinLength = length;
         return this;
@@ -199,11 +263,13 @@ public class InputBarController implements TextWatcher{
             setInputType(InputType.TYPE_CLASS_PHONE);
         }else if(Type.NUMBER == mType) {
             setInputType(InputType.TYPE_CLASS_NUMBER);
+        }else if(Type.FLOAT == mType) {
+            setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_VARIATION_NORMAL);
         }
         return this;
     }
 
-    public InputBarController setInputType(int type) {
+    private InputBarController setInputType(int type) {
         if(mRoot != null) {
             EditText editText = (EditText)mRoot.findViewById(R.id.editor);
             editText.setInputType(type);
@@ -241,20 +307,43 @@ public class InputBarController implements TextWatcher{
         return this;
     }
 
-    private void init(View root) {
-        EditText edit = (EditText)mRoot.findViewById(R.id.editor);
-        edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus && v instanceof EditText) {
-                    TDevice.closeKeyboard((EditText)v);
-                }
+    public void setCloseKeyboardOnLostFocus(boolean value) {
+        if(mRoot != null) {
+            EditText edit = (EditText)mRoot.findViewById(R.id.editor);
+            if (value) {
+                edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                     @Override
+                    public void onFocusChange(View v, boolean hasFocus) {
+                         if(!hasFocus && v instanceof EditText) {
+                            TDevice.closeKeyboard((EditText)v);
+                        }
+                    }
+                });
+            }else {
+                edit.setOnFocusChangeListener(null);
             }
-        });
+        }
+    }
+
+    private void init(View root) {
+//        EditText edit = (EditText)mRoot.findViewById(R.id.editor);
+//        edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(!hasFocus && v instanceof EditText) {
+//                    TDevice.closeKeyboard((EditText)v);
+//                }
+//            }
+//        });
 
         addTextWatcher(this);
 //        setGravity(Gravity.CENTER);
         root.findViewById(R.id.clear_btn).setOnClickListener(mClearClick);
+
+        setRightArrow(R.mipmap.ic_arrow_right);
+
+        ImageView clear = mRoot.findViewById(R.id.clear_btn);
+        clear.setImageResource(R.mipmap.ic_unsubscribe);
     }
 
     private View.OnClickListener mClearClick = new View.OnClickListener() {
@@ -278,12 +367,30 @@ public class InputBarController implements TextWatcher{
         return null;
     }
 
-    public void setEditable(boolean editable) {
+    public InputBarController enableClearBtn(boolean value) {
+        mShowDelBtn = value;
+        return this;
+    }
+
+    public InputBarController setEditable(boolean editable) {
         if(mRoot != null) {
             EditText editText = (EditText)mRoot.findViewById(R.id.editor);
             editText.setEnabled(editable);
             mShowDelBtn = editable;
+            if(editable) {
+//                editText.setFocusable(true);
+//                editText.setFocusableInTouchMode(true);
+                editText.setClickable(true);
+                editText.setLongClickable(true);
+            }else {
+//                editText.setFocusable(false);
+//                editText.setFocusableInTouchMode(false);
+                editText.setClickable(false);
+                editText.setLongClickable(false);
+            }
         }
+
+        return this;
     }
 
     @Override
@@ -297,6 +404,21 @@ public class InputBarController implements TextWatcher{
     @Override
     public void afterTextChanged(Editable s) {
         mRoot.findViewById(R.id.clear_btn).setVisibility(s.length() > 0 && mShowDelBtn ? View.VISIBLE : View.GONE);
+//        if(Type.FLOAT == mType && s.length() > 0) { //限制两位小数
+//            EditText editText = (EditText)mRoot.findViewById(R.id.editor);
+//            int selectionStart = editText.getSelectionStart();
+//            int selectionEnd = editText.getSelectionEnd();
+//
+//            Pattern pattern = Pattern.compile("^\\d+\\.?\\d{0,2}$");
+//            Matcher matcher = pattern.matcher(s.toString());
+//
+//            if (!matcher.matches()){
+//                //删除多余输入的字（不会显示出来）
+//                s.delete(selectionStart - 1, selectionEnd);
+//                editText.setText(s);
+//            }
+//
+//        }
     }
 
     public boolean checkValidateAndToast(boolean toast) {

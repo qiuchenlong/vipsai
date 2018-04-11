@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
 import java.util.List;
@@ -16,6 +17,24 @@ import java.util.List;
  *  布局控制器基类,提供BaseAdapter操作
  */
 public abstract class BaseListAdapterController<T> extends ArrayDataController<T> {
+
+    protected AbsListView mAbsListView;
+
+    @Override
+    protected void init(Context context) {
+        super.init(context);
+        mAbsListView = getAbsListView();
+        if(mAbsListView != null) {
+            mAbsListView.setAdapter(mAdapter);
+        }
+    }
+
+    public void setOnItemClick(AdapterView.OnItemClickListener listener) {
+        AbsListView listView = getAbsListView();
+        if(listView != null) {
+            listView.setOnItemClickListener(listener);
+        }
+    }
 
     @Override
     public <T1 extends ArrayDataController> T1 wrap(ViewGroup layout) {
@@ -51,9 +70,16 @@ public abstract class BaseListAdapterController<T> extends ArrayDataController<T
         }
     };
 
+    /**布局里的列表*/
+    protected AbsListView getAbsListView() {return null;}
+
     @Override
     public void setData(List<T> datas) {
         super.setData(datas);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void notifyDataChanged(){
         mAdapter.notifyDataSetChanged();
     }
 

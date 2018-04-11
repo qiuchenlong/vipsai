@@ -113,7 +113,7 @@
     <dimen name="corner_radius_big">15dp</dimen>
 
     <dimen name="padding_16">16dp</dimen>
-    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_horizontal">12dp</dimen>
     <dimen name="padding_8">8dp</dimen>
     <dimen name="padding_4">4dp</dimen>
 
@@ -125,6 +125,8 @@
 
     <dimen name="image_size_normal">24dp</dimen>
     <dimen name="image_size_small">18dp</dimen>
+    <dimen name="image_size_mini">14dp</dimen>
+    <dimen name="image_size_tiny">12dp</dimen>
 
     <dimen name="font_normal">13dp</dimen>
     <dimen name="font_big">14dp</dimen>

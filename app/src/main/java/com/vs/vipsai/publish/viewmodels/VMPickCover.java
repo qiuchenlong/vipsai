@@ -8,31 +8,22 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.text.Html;
 
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
-import com.vs.vipsai.bean.PageBean;
 import com.vs.vipsai.media.SelectImageActivity;
 import com.vs.vipsai.media.config.SelectOptions;
 import com.vs.vipsai.publish.TournamentCollector;
-import com.vs.vipsai.publish.layoutcontroller.ArrayDataController;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
-import com.vs.vipsai.util.TLog;
-import com.vs.vipsai.util.TextUtil;
-import com.vs.vipsai.widget.FitHeightImageView;
-import com.vs.vipsai.widget.GlidImageView;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -76,10 +67,10 @@ public class VMPickCover{
             data.add(item);
         }
 
+        data.get(0).selected.set(true);
         showSelectedCover(data.get(0));
 
         mCoverList.setData(data);
-        view.setAdapter(mCoverList.getAdapter());
 
         rule.set(Html.fromHtml(view.getContext().getString(R.string.game_rule)));
 
@@ -139,7 +130,7 @@ public class VMPickCover{
         }
         mSelected = selected;
         if(TextUtils.isEmpty(selected.url)) {
-            localCover.set(selected.localPath);
+            localCover.set(selected.localPath.get());
             remoteCover.set("");
         }else {
             remoteCover.set(selected.url);
@@ -148,7 +139,7 @@ public class VMPickCover{
 
         TournamentCollector c = TournamentCollector.get();
         if(c != null) {
-            c.setCover(selected);
+            c.setCoverData(selected);
         }
     }
 
@@ -158,7 +149,7 @@ public class VMPickCover{
         private void appendLocalPic(String path) {
             if(!TextUtils.isEmpty(path)) {
                 VMImageItem item = new VMImageItem();
-                item.localPath = path;
+                item.localPath.set(path);
                 appendData(item, true);
 
                 item.selected.set(true);
@@ -177,6 +168,11 @@ public class VMPickCover{
 //
 //                appendData(images, true);
             }
+        }
+
+        @Override
+        protected AbsListView getAbsListView() {
+            return (GridView)mRoot;
         }
 
         @Override

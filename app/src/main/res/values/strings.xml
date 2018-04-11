@@ -245,5 +245,28 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="create_tournament">创建比赛</string>
     <string name="tournament_range_public">公开+链接</string>
     <string name="public_txt">发布</string>
+    <string name="title_hint">添加标题</string>
+    <string name="time_set_hint">设置时间</string>
+    <string name="description_hint">点击添加简介</string>
+    <string name="add_cover_hint">添加封面</string>
+    <string name="add_category_hint">添加类别</string>
+    <string name="set_award_hint">设置奖项</string>
+    <string name="rule_hint">点击添加比赛要求、规则</string>
+    <string name="recommend_subject_title">热门主题活动推荐</string>
+    <string name="lable_pick_type">选择类别</string>
+    <string name="award_agreement">我同意奖品全权由本人发放</string>
+
+    <string name="add_award_btn">+添加奖项</string>
+    <string name="award_method_hint">请输入领奖方法</string>
+    <string name="way_to_accept_award">领奖方法</string>
+
+    <string name="type">类别</string>
+    <string name="ranking">名次</string>
+    <string name="input_ranking_hint">请输入名次</string>
+    <string name="add_award_title_hint">添加奖项名称</string>
+    <string name="add_description_hint">添加描述</string>
+    <string name="select_hint">请选择</string>
+    <string name="reward_option">奖金(选填)</string>
+    <string name="input_hint">请输入</string>
 
 </resources>

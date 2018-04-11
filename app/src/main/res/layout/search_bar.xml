@@ -12,8 +12,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="8dp"
-        android:paddingLeft="@dimen/padding_12"
-        android:paddingRight="@dimen/padding_12"
+        android:paddingLeft="@dimen/padding_horizontal"
+        android:paddingRight="@dimen/padding_horizontal"
         android:visibility="gone"
         android:text="@string/search"/>
 

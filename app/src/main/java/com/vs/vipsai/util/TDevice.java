@@ -156,6 +156,20 @@ public class TDevice {
         inputMethodManager.showSoftInput(view, 0);
     }
 
+    /**
+     * 关闭输入法
+     */
+    public static void hideSoftInputFromWindow(Activity ctx) {
+        try {
+            View view = ctx.getWindow().peekDecorView();
+            if (view != null) {
+                InputMethodManager inputmanger = (InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputmanger.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+        }
+    }
+
     public static void gotoMarket(Context context, String pck) {
         if (!isHaveMarket(context)) {
             AppContext.showToast("你手机中没有安装应用市场！");

@@ -121,5 +121,8 @@
     <color name="quality_score_color">#00D3DE</color>
     <color name="people_score_color">#FC6A6A</color>
 
+    <color name="text_primary">@color/black</color>
+    <color name="text_hint">@color/gray</color>
 
+    <color name="divider">@color/color_ececec</color>
 </resources>

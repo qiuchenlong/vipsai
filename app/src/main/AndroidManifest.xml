@@ -212,10 +212,19 @@
             android:theme="@style/App.Theme.Main"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity android:name=".publish.activitys.TournamentTypeListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/lable_pick_type"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Main"
+            android:windowSoftInputMode="adjustResize"/>
 
-
-
-
+        <activity android:name=".publish.activitys.EditAwardActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/set_award_hint"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Theme.Main"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
 
 
 

@@ -9,12 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.vs.library.widget.HeaderGridView;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
 import com.vs.vipsai.bean.SubjectBean;
 import com.vs.vipsai.bean.TournamentBean;
+import com.vs.vipsai.media.SelectImageActivity;
+import com.vs.vipsai.media.config.SelectOptions;
+import com.vs.vipsai.publish.RequestCode;
 import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
 
@@ -25,7 +29,7 @@ import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
  *
  *  创建私人比赛
  */
-public class PubCustomActivity extends ToolbarActivity implements View.OnClickListener{
+public class PubCustomActivity extends ToolbarActivity{
 
     private static final String EXTRA_PRESET_TOURNAMENT = "EXTRA_PRESET_TOURNAMENT";
 
@@ -48,10 +52,18 @@ public class PubCustomActivity extends ToolbarActivity implements View.OnClickLi
     protected void bindContent(ViewGroup parent) {
         ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(this),
                 R.layout.activity_pub_custom, parent, true);
-        binding.setVariable(BR.ClickImp, this);
+        binding.setVariable(BR.PubCustomActivity, this);
 
-        mRecommendSubjects = new RecommendedSubjectList().wrap((GridView)binding.getRoot().findViewById(R.id.grid_view));
+        GridView gridView = binding.getRoot().findViewById(R.id.grid_view);
+        mRecommendSubjects = new RecommendedSubjectList().wrap(gridView);
 
+        ViewDataBinding headBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.activity_pub_custom_header,
+                                    null, false);
+        headBinding.setVariable(BR.TournamentCollector, TournamentCollector.get());
+        headBinding.setVariable(BR.PubCustomActivity, this);
+        mRecommendSubjects.addHeaderView(headBinding.getRoot(), null, false);
+
+        gridView.setAdapter(mRecommendSubjects.getAdapter());
 
         setMenuButton(R.string.public_txt);
     }
@@ -73,14 +85,60 @@ public class PubCustomActivity extends ToolbarActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(RequestCode.REQUEST_PICK_TOURNAMENT_TYPE == requestCode && RESULT_OK == resultCode && data != null) {
+            SubjectBean subject = (SubjectBean)data.getSerializableExtra(TournamentTypeListActivity.EXTRA_SUBJECT);
+            TournamentCollector c = TournamentCollector.get();
+            if(subject != null && c != null) {
+                c.type.set(subject.title);
+            }
+        }
+    }
 
+    /**设置时间*/
+    public void setTime(View view){
+        Toast.makeText(this, TournamentCollector.get().title, Toast.LENGTH_SHORT).show();
+    }
+
+    public void pickCover(View view) {
+        SelectImageActivity.show(view.getContext(), new SelectOptions.Builder()
+                .setHasCam(true)
+                .setCrop(700, 350)
+                .setCallback(new SelectOptions.Callback() {
+                    @Override
+                    public void doSelected(String[] images) {
+                        TournamentCollector c = TournamentCollector.get();
+                        if(c != null && images != null && images.length > 0) {
+                            c.localCover.set(images[0]);
+                        }else {
+                            c.localCover.set("");
+                        }
+
+                        mRecommendSubjects.notifyDataChanged();
+                    }
+                }).build());
+    }
+
+    public void removeCover(View view) {
+        TournamentCollector c = TournamentCollector.get();
+        if(c != null) {
+            c.localCover.set("");
+        }
+    }
+
+    public void pickType(View view) {
+        TournamentTypeListActivity.openForResult(this, RequestCode.REQUEST_PICK_TOURNAMENT_TYPE);
+    }
+
+    public void setAward(View view) {
+        EditAwardActivity.open(this, null);
     }
 
     private class RecommendedSubjectList extends BaseListAdapterController<SubjectBean> {
 
-        public void addHeaderView(View view){
-            ((HeaderGridView)mRoot).addHeaderView(view);
+        public void addHeaderView(View view, Object data, boolean selectable){
+            ((HeaderGridView)mRoot).addHeaderView(view, data, selectable);
         }
 
         @Override
@@ -95,7 +153,4 @@ public class PubCustomActivity extends ToolbarActivity implements View.OnClickLi
         super.onDestroy();
     }
 
-    public interface Actions {
-
-    }
 }

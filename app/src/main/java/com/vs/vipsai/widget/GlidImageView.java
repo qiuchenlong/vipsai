@@ -32,14 +32,18 @@ public class GlidImageView extends RoundImageView {
     private String mRemoteUrl;
     private String mLocalPath;
 
+    private int mEmptyVisiable = View.GONE;
+
     public GlidImageView(Context context) {
         super(context);
         mGlide = Glide.with(getContext());
+        mEmptyVisiable = getVisibility();
     }
 
     public GlidImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mGlide = Glide.with(getContext());
+        mEmptyVisiable = getVisibility();
     }
 
     public void setImageUrl(String url) {
@@ -55,7 +59,7 @@ public class GlidImageView extends RoundImageView {
                     .into(this);
 
         }else if(TextUtils.isEmpty(mLocalPath)){
-            setVisibility(View.INVISIBLE);
+            setVisibility(mEmptyVisiable);
             return;
         }
 
@@ -66,8 +70,9 @@ public class GlidImageView extends RoundImageView {
         if(!TextUtils.isEmpty(path)) {
             mGlide.load(new File(path)).skipMemoryCache(true).crossFade().into(this);
             setVisibility(VISIBLE);
+
         }else if(TextUtils.isEmpty(mRemoteUrl)){
-            setVisibility(INVISIBLE);
+            setVisibility(mEmptyVisiable);
         }
     }
 

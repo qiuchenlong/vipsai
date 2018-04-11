@@ -1,40 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-                android:minHeight="@dimen/bar_height"
-    android:paddingLeft="@dimen/padding_12"
-    android:paddingRight="@dimen/padding_12"
-    android:paddingTop="@dimen/padding_4"
-    android:paddingBottom="@dimen/padding_4"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-              android:focusable="true"
-              android:focusableInTouchMode="true">
+<layout>
 
-    <TextView android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-              android:layout_weight="0"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/font_normal"
-        android:layout_marginRight="@dimen/padding_8"/>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="inputBar"
+            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />
+    </data>
 
-    <EditText android:id="@+id/editor"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-              android:layout_weight="1"
-        style="@style/editor_style"/>
-
-    <ImageView
-        android:id="@+id/clear_btn"
-        android:layout_width="@dimen/image_size_normal"
-        android:layout_height="@dimen/image_size_normal"
-        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/bar_height"
+        android:paddingLeft="@dimen/padding_horizontal"
+        android:paddingRight="@dimen/padding_horizontal"
         android:paddingTop="@dimen/padding_4"
         android:paddingBottom="@dimen/padding_4"
-        android:layout_marginLeft="@dimen/padding_8"
-        android:visibility="gone"
-        android:src="@mipmap/ic_unsubscribe"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-</LinearLayout>
+        <TextView android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginRight="@dimen/padding_8"
+            android:text="@{inputBar.inputTitle}"/>
+
+        <EditText android:id="@+id/editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/editor_style"
+            android:hint="@{inputBar.inputHint}"
+            android:gravity="@{inputBar.gravity}"
+            android:text="@={inputBar.inputContent}"/>
+
+        <ImageView
+            android:id="@+id/clear_btn"
+            android:layout_width="@dimen/image_size_normal"
+            android:layout_height="@dimen/image_size_normal"
+            android:layout_weight="0"
+            android:paddingTop="@dimen/padding_4"
+            android:paddingBottom="@dimen/padding_4"
+            android:layout_marginLeft="@dimen/padding_8"
+            android:visibility="gone"/>
+
+        <ImageView android:id="@+id/inputbar_rightarrow"
+            android:layout_width="@dimen/image_size_tiny"
+            android:layout_height="@dimen/image_size_tiny"
+            android:layout_weight="0"
+            android:layout_marginLeft="@dimen/padding_8"
+            android:visibility="@{inputBar.rightArrowVisible ? View.VISIBLE : View.GONE}"/>
+
+    </LinearLayout>
+</layout>
+
