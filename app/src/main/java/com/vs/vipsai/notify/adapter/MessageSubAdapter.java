@@ -3,15 +3,8 @@ package com.vs.vipsai.notify.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.ImageSpan;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,16 +16,9 @@ import com.vs.vipsai.AppContext;
 import com.vs.vipsai.R;
 import com.vs.vipsai.base.adapter.BaseRecyclerAdapter;
 import com.vs.vipsai.bean.SubBean;
-import com.vs.vipsai.detail.general.BlogDetailActivity;
-import com.vs.vipsai.main.recommend.AttentionSubAdapter;
-import com.vs.vipsai.notify.activity.NotifyActicity;
-import com.vs.vipsai.search.SearchActivity;
+import com.vs.vipsai.messages.MessageListActivity;
 import com.vs.vipsai.ui.PopupWindowDialog;
 import com.vs.vipsai.ui.dialog.ShareDialogBuilder;
-import com.vs.vipsai.ui.videoplayer.PlayActivity;
-import com.vs.vipsai.util.SimplexToast;
-import com.vs.vipsai.util.StringUtils;
-import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.PortraitView;
 
 /**
@@ -44,6 +30,14 @@ import com.vs.vipsai.widget.PortraitView;
  */
 
 public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements BaseRecyclerAdapter.OnLoadingHeaderCallBack {
+
+    // 客服消息或通知消息
+    private static final int TYPE_NOTIFY = 0x0000;
+    // 投票消息
+    private static final int TYPE_VOTE = 0x0001;
+    // 关注消息
+    private static final int TYPE_LIKE = 0x0002;
+
 
     public MessageSubAdapter(Context context, int mode, Activity activity) {
         super(context, mode);
@@ -62,9 +56,33 @@ public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements B
     public void onBindHeaderHolder(RecyclerView.ViewHolder holder, int position) {
     }
 
+//    @Override
+//    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        switch (viewType) {
+//            case TYPE_NOTIFY:
+//                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message, parent, false));
+//            case TYPE_VOTE:
+//                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message_vote, parent, false));
+//            case TYPE_LIKE:
+//                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message, parent, false));
+//            default:
+//                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message, parent, false));
+//        }
+//    }
+
     @Override
     protected RecyclerView.ViewHolder onCreateDefaultViewHolder(ViewGroup parent, int type) {
-        return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message, parent, false));
+        switch (type) {
+            case TYPE_NOTIFY:
+                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message_notify, parent, false));
+            case TYPE_VOTE:
+                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message_vote, parent, false));
+            case TYPE_LIKE:
+                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message_like, parent, false));
+            default:
+                return new MessageSubAdapter.MessageViewHolder(mInflater.inflate(R.layout.item_list_sub_message_notify, parent, false));
+        }
+
     }
 
     @Override
@@ -218,6 +236,31 @@ public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements B
 //        });
 
 
+
+        vh.mRootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AppContext.getContext(), MessageListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                AppContext.getInstance().startActivity(intent);
+            }
+        });
+
+    }
+
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            return TYPE_NOTIFY;
+        }
+        if (position == 1 || position == 2 || position == 4) {
+            return TYPE_VOTE;
+        }
+        if (position == 3 || position == 6) {
+            return TYPE_LIKE;
+        }
+        return super.getItemViewType(position);
     }
 
     private static class MessageViewHolder extends RecyclerView.ViewHolder {
@@ -226,6 +269,8 @@ public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements B
         Button btn_pull;
         PortraitView portraitView;
         ImageView imageView;
+
+        LinearLayout mRootLayout;
 
         MessageViewHolder(View itemView) {
             super(itemView);
@@ -238,6 +283,8 @@ public class MessageSubAdapter extends BaseRecyclerAdapter<SubBean> implements B
 //            btn_pull = (Button) itemView.findViewById(R.id.btn_pull);
 //            portraitView = (PortraitView) itemView.findViewById(R.id.iv_portrait);
 //            imageView = (ImageView) itemView.findViewById(R.id.item_list_sub_me_imageview);
+
+            mRootLayout = (LinearLayout) itemView.findViewById(R.id.item_list_sub_message_root_layout);
         }
     }
 

@@ -278,9 +278,9 @@
     <!--notify activity style-->
 
     <style name="notify_item_layout">
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
@@ -331,6 +331,9 @@
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+
+
 
     <!--勾选框样式-->
     <style name="imageview_checkbox">

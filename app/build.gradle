@@ -1,6 +1,27 @@
 apply plugin: 'com.android.application'
 
 android {
+    // 签名密钥配置
+    signingConfigs {
+        vipsai_sign_config {
+            // 签名证书 别名
+            keyAlias 'vipsai_key'
+            // 签名证书 密码
+            keyPassword 'vipsai666'
+            // 签名证书 文件地址
+            storeFile file('/home/cynid/Desktop/vipsai.jks')
+            // store 密码
+            storePassword 'vipsai123'
+            // V2版签名模式
+            // 同时满足下面两个条件才需要此配置
+            // 1. Gradle版本 >= 2.14.1
+            // 2. Android Gradle Plugin 版本 >= 2.2.0
+            // 作用是只使用旧版签名，禁用V2版签名模式
+            // 兼容7.0版本的Android系统才需要,否则不需要
+            v2SigningEnabled true
+        }
+    }
+
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.vs.vipsai"
@@ -13,11 +34,73 @@ android {
         // Enabling multidex support.
         multiDexEnabled true
     }
+
+    // 执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
     buildTypes {
-        release {
+
+        debug {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        // 线上环境
+        release {
+            // 混淆
+            minifyEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            // Zipalign优化
+            zipAlignEnabled true
+            // 签名
+            signingConfig signingConfigs.vipsai_sign_config
+            // 前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // 自定义输出配置
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为wooyun_v1.0_wandoujia.apk
+//                        def fileName = "vipsai_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+
+
+                        def project = "vipsai"
+                        def separator = "_"
+                        def buildType = variant.variantData.variantConfiguration.buildType.name
+                        def versionName = variant.versionName
+                        def versionCode = variant.versionCode
+                        def date = new Date()
+                        def formattedDate = date.format('yyyyMMdd')
+
+                        def apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + flavor.name + ".apk"
+                        if (buildType == "release") {
+                            // variant.productFlavors[0].name 渠道名称
+                            apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + variant.productFlavors[0].name + separator + formattedDate + ".apk"
+                        }
+
+                        output.outputFileName = apkName
+
+                    }
+                }
+            }
+//            android.applicationVariants.all { variant ->
+//                variant.outputs.all {
+//                    outputFileName = "vipsai_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk" //${releaseTime()}_
+//                }
+//            }
+
+        }
+
+
     }
 
     dataBinding {
@@ -25,6 +108,36 @@ android {
     }
 
     buildToolsVersion '26.0.2'
+
+
+    flavorDimensions "default"
+    productFlavors {
+        kuan {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "kuan"]
+        }
+        xiaomi {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+        qh360 {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+        }
+        baidu {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        wandoujia {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+    }
+
+//    productFlavors.all {
+//        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//    }
+
 }
 
 dependencies {
@@ -55,5 +168,9 @@ dependencies {
     implementation 'com.shuyu:gsyVideoPlayer-x86:4.1.0'
 
 
-    compile project(path: ':open')
+    implementation project(':messagelist')
+    implementation project(':chatinput')
+
+
+    implementation project(path: ':open')
 }
