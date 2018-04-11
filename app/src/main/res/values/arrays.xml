@@ -1025,5 +1025,13 @@
 
     </string-array>
 
+    <string-array name="publish_grade">
+        <item>特等奖</item>
+        <item>一等奖</item>
+        <item>二等奖</item>
+        <item>三等奖</item>
+        <item>优秀奖</item>
+        <item>参与奖</item>
+    </string-array>
 
 </resources>

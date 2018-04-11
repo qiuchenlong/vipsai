@@ -104,7 +104,7 @@ public class EditAwardActivity extends ToolbarActivity {
                 ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                                     R.layout.list_item_award_setting, parent, false);
 
-                Holder holder = new Holder(parent.getContext(), binding);
+                Holder holder = new Holder(binding);
 
                 convertView = binding.getRoot();
                 convertView.setTag(holder);
@@ -128,14 +128,17 @@ public class EditAwardActivity extends ToolbarActivity {
         }
     }
 
-    private class Holder implements View.OnClickListener {
+    private class Holder {
         ViewDataBinding mBinding;
-        FunctionBar mType;
+        FunctionBar mType, mRandings;
 
-        public Holder(Context context, ViewDataBinding binding){
+        public Holder(ViewDataBinding binding){
             //类别
-            mType = (FunctionBar) binding.getRoot().findViewById(R.id.inputbar_type);
-            mType.setOnClickListener(this);
+            mType = binding.getRoot().findViewById(R.id.inputbar_type);
+            mType.setOnClickListener(mPickType);
+            //名次
+            mRandings = binding.getRoot().findViewById(R.id.inputbar_rankings);
+            mRandings.setOnClickListener(mPickRankings);
 
             mBinding = binding;
         }
@@ -145,24 +148,39 @@ public class EditAwardActivity extends ToolbarActivity {
             mBinding.executePendingBindings();
         }
 
-        @Override
-        public void onClick(View v) {
+        private View.OnClickListener mPickType = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TDevice.hideSoftInputFromWindow((Activity)v.getContext());
 
-            TDevice.hideSoftInputFromWindow((Activity)v.getContext());
+                final ArrayList<String> mList = new ArrayList<String>();
+                // 单项选择
+                mList.add(v.getContext().getString(R.string.cash));
+                mList.add(v.getContext().getString(R.string.present));
 
-            final ArrayList<String> mList = new ArrayList<String>();
-            // 单项选择
-            mList.add(v.getContext().getString(R.string.cash));
-            mList.add(v.getContext().getString(R.string.present));
+                AlertWheelDialog.alertBottomWheelOption(v.getContext(), mList, new SettingsFragment.OnWheelViewClick() {
+                    @Override
+                    public void onClick(View view, int postion) {
+                        String emailNotifyStr = mList.get(postion);
+                        mType.setText(emailNotifyStr);
+                    }
+                });
+            }
+        };
 
-            AlertWheelDialog.alertBottomWheelOption(v.getContext(), mList, new SettingsFragment.OnWheelViewClick() {
-                @Override
-                public void onClick(View view, int postion) {
-                    String emailNotifyStr = mList.get(postion);
-                    mType.setText(emailNotifyStr);
-                }
-            });
-        }
+        private View.OnClickListener mPickRankings = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TDevice.hideSoftInputFromWindow((Activity)v.getContext());
+
+                AlertWheelDialog.showRankingsWheel(v.getContext(), new AlertWheelDialog.OnWheelPickListener() {
+                    @Override
+                    public void onWheelPick(String data) {
+                        mRandings.setText(data);
+                    }
+                });
+            }
+        };
     }
 
     @Override

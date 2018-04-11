@@ -94,7 +94,6 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         addView(mEditView, lp);
 
         setContentBackground(android.R.color.transparent);
-        setEditable(a.getBoolean(R.styleable.FunctionBar_functionEditable, true));
         if(a.hasValue(R.styleable.FunctionBar_android_hint)) {
             setHint(a.getString(R.styleable.FunctionBar_android_hint));
         }
@@ -139,6 +138,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
 
         setInputType(a.getInteger(R.styleable.FunctionBar_functionInputType, Type.TEXT.ordinal()));
         setNumericPrecision(a.getInt(R.styleable.FunctionBar_numericPrecision, 2));
+        setEditable(a.getBoolean(R.styleable.FunctionBar_functionEditable, true));
 
         a.recycle();
 
@@ -255,7 +255,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
 
     public void setEditable(boolean enable) {
         mEditView.setEnabled(enable);
-//        mShowDelBtn = editable;
+        mShowDelBtn = enable;
         if(enable) {
             mEditView.setClickable(true);
             mEditView.setLongClickable(true);

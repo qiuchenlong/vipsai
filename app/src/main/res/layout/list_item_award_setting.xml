@@ -20,13 +20,13 @@
 
         <!--名次-->
         <com.vs.library.widget.FunctionBar
+            android:id="@+id/inputbar_rankings"
             style="@style/Function_bar_style"
             android:paddingLeft="0dp"
             android:background="@drawable/bg_frame_bottom_white"
             app:functionTitle="@string/ranking"
             android:hint="@string/select_hint"
-            app:functionEditable="true"
-            app:showClearBtn="false"
+            app:functionEditable="false"
             app:text="@={VMAwardItem.rankings}"/>
 
         <!--奖项类型-->
@@ -38,7 +38,6 @@
             app:functionTitle="@string/type"
             android:hint="@string/select_hint"
             app:functionEditable="false"
-            app:showClearBtn="false"
             app:text="@={VMAwardItem.awardType}"/>
 
         <!--奖金-->
