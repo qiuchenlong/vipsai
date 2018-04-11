@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import com.vs.library.widget.FunctionBar;
 import com.vs.vipsai.AppOperator;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.BaseApplication;
@@ -128,7 +129,8 @@ public class EditAwardActivity extends ToolbarActivity {
 
     private class Holder implements View.OnClickListener {
         ViewDataBinding mBinding;
-        InputBarController mType, mReward;
+        InputBarController mReward;
+        FunctionBar mType;
         AwardBean mData;
 
 //        boolean mSaveDate;
@@ -151,20 +153,20 @@ public class EditAwardActivity extends ToolbarActivity {
 //            mRanking.inputContent.addOnPropertyChangedCallback(mRankingCallback);
 
             //类别
-            ViewGroup view = (ViewGroup)binding.getRoot().findViewById(R.id.inputbar_type);
-            view.setOnClickListener(this);
-            mType = new InputBarController()
-                    .wrapper(view)
-                    .setBarBackground(R.drawable.bg_frame_bottom_white)
-                    .setBarPadding(0,0,padding, paddingDiv)
-                    .setEditable(false);
-
-            mType.rightArrowVisible.set(true);
-            mType.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-            mType.inputTitle = context.getString(R.string.type);
-            mType.inputHint.set(R.string.select_hint);
-            mType.rightIndicator.set(R.mipmap.ic_brows_forward);
-            mType.inputContent.addOnPropertyChangedCallback(mTypeCallback);
+            mType = (FunctionBar) binding.getRoot().findViewById(R.id.inputbar_type);
+            mType.setOnClickListener(this);
+//            mType = new InputBarController()
+//                    .wrapper(view)
+//                    .setBarBackground(R.drawable.bg_frame_bottom_white)
+//                    .setBarPadding(0,0,padding, paddingDiv)
+//                    .setEditable(false);
+//
+//            mType.rightArrowVisible.set(true);
+//            mType.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+//            mType.inputTitle = context.getString(R.string.type);
+//            mType.inputHint.set(R.string.select_hint);
+//            mType.rightIndicator.set(R.mipmap.ic_brows_forward);
+//            mType.inputContent.addOnPropertyChangedCallback(mTypeCallback);
 
             //奖金
             mReward = new InputBarController()
@@ -178,14 +180,14 @@ public class EditAwardActivity extends ToolbarActivity {
             mReward.rightArrowVisible.set(true);
             mReward.gravity.set(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
             mReward.inputTitle = context.getString(R.string.reward_option);
-            mReward.inputHint.set(R.string.input_hint);
+            mReward.inputHint.set(R.string.input_hint1);
             mReward.rightIndicator.set(R.mipmap.ic_brows_forward);
             mReward.inputContent.addOnPropertyChangedCallback(mRewardCallback);
 
             mBinding = binding;
 
 //            mBinding.setVariable(BR.ranking, mRanking);
-            mBinding.setVariable(BR.type, mType);
+//            mBinding.setVariable(BR.type, mType);
             mBinding.setVariable(BR.reward, mReward);
         }
 
@@ -197,7 +199,7 @@ public class EditAwardActivity extends ToolbarActivity {
 
             //界面绑定新数据
 //            mRanking.inputContent.set(award.getRankings());
-            mType.inputContent.set(award.awardType);
+//            mType.inputContent.set(award.awardType);
             if(award.getReward() > 0) {
                 mReward.inputContent.set(String.valueOf(award.getReward()));
             }else {
@@ -221,14 +223,14 @@ public class EditAwardActivity extends ToolbarActivity {
 //            }
 //        };
 
-        private Observable.OnPropertyChangedCallback mTypeCallback = new Observable.OnPropertyChangedCallback() {
-            @Override
-            public void onPropertyChanged(Observable sender, int propertyId) {
-                if(mData != null) {
-                    mData.awardType = ((ObservableField<String>)sender).get();
-                }
-            }
-        };
+//        private Observable.OnPropertyChangedCallback mTypeCallback = new Observable.OnPropertyChangedCallback() {
+//            @Override
+//            public void onPropertyChanged(Observable sender, int propertyId) {
+//                if(mData != null) {
+//                    mData.awardType = ((ObservableField<String>)sender).get();
+//                }
+//            }
+//        };
 
         private Observable.OnPropertyChangedCallback mRewardCallback = new Observable.OnPropertyChangedCallback() {
             @Override
@@ -245,23 +247,6 @@ public class EditAwardActivity extends ToolbarActivity {
             }
         };
 
-//        @Override
-//        public void onPropertyChanged(Observable sender, int propertyId) {
-//            //界面数据回写
-//            if(mData != null && mSaveDate) {
-//                mData.setRankings(mRanking.inputContent.get());
-//                try {
-//                    float reward = Float.parseFloat(mReward.inputContent.get());
-//                    if(reward > 0) {
-//                        mData.setReward(reward);
-//                    }
-//
-//                }catch (NumberFormatException e){}
-//
-//                mData.awardType = mType.inputContent.get();
-//            }
-//        }
-
         @Override
         public void onClick(View v) {
 
@@ -276,7 +261,7 @@ public class EditAwardActivity extends ToolbarActivity {
                 @Override
                 public void onClick(View view, int postion) {
                     String emailNotifyStr = mList.get(postion);
-                    mType.inputContent.set(emailNotifyStr);
+                    mType.setText(emailNotifyStr);
                 }
             });
         }

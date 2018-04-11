@@ -26,7 +26,7 @@ public class AwardBean extends VMAwardItem implements Serializable{
     public String description = "";
     protected String[] icons;
 
-    private String mRankings = "";
+    public String rankings = "";
     private float mReward;
 
     public String[] getIcons() {
@@ -38,14 +38,6 @@ public class AwardBean extends VMAwardItem implements Serializable{
     }
 
     public long getId() {return id;}
-
-    public String getRankings() {
-        return mRankings;
-    }
-
-    public void setRankings(String rankings) {
-        mRankings = rankings;
-    }
 
     public float getReward() {
         return mReward;

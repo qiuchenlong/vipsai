@@ -9,9 +9,9 @@
             name="ranking"
             type="com.vs.vipsai.publish.viewmodels.VMInputBar" />-->
 
-        <variable
+        <!--<variable
             name="type"
-            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />
+            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />-->
 
         <variable
             name="reward"
@@ -37,12 +37,27 @@
         <com.vs.library.widget.FunctionBar
             style="@style/Function_bar_style"
             android:paddingLeft="0dp"
-            android:background="@drawable/bg_frame_bottom_white"/>
+            android:background="@drawable/bg_frame_bottom_white"
+            app:functionTitle="@string/ranking"
+            android:hint="@string/select_hint"
+            app:functionEditable="true"
+            app:showClearBtn="false"
+            app:text="@{VMAwardItem.rankings}"/>
 
         <!--奖项类型-->
-        <include android:id="@+id/inputbar_type"
-            layout="@layout/input_bar"
-            app:inputBar="@{type}"/>
+        <!--<include android:id="@+id/inputbar_type"-->
+            <!--layout="@layout/input_bar"-->
+            <!--app:inputBar="@{type}"/>-->
+        <com.vs.library.widget.FunctionBar
+            android:id="@+id/inputbar_type"
+            style="@style/Function_bar_style"
+            android:paddingLeft="0dp"
+            android:background="@drawable/bg_frame_bottom_white"
+            app:functionTitle="@string/type"
+            android:hint="@string/select_hint"
+            app:functionEditable="false"
+            app:showClearBtn="false"
+            app:text="@{VMAwardItem.awardType}"/>
 
         <!--奖金-->
         <include android:id="@+id/inputbar_reward"

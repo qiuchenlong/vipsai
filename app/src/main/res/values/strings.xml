@@ -305,6 +305,6 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="add_description_hint">添加描述</string>
     <string name="select_hint">请选择</string>
     <string name="reward_option">奖金(选填)</string>
-    <string name="input_hint">请输入</string>
+    <string name="input_hint1">请输入</string>
 
 </resources>

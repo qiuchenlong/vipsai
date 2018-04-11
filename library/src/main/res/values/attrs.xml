@@ -30,6 +30,9 @@
     </declare-styleable>
 
     <declare-styleable name="FunctionBar">
+        <attr name="android:hint"/>
+        <attr name="android:gravity"/>
+        <attr name="functionTitle" format="string"/>
         <attr name="functionTitleColor" format="color"/>
         <attr name="functionTitleSize" format="dimension"/>
         <attr name="functionEditStyle" format="reference"/>
@@ -37,5 +40,8 @@
         <attr name="clearImageSize" format="dimension"/>
         <attr name="arrowImageRes" format="reference"/>
         <attr name="arrowImageSize" format="dimension"/>
+        <attr name="showArrow" format="boolean"/>
+        <attr name="functionEditable" format="boolean"/>
+        <attr name="showClearBtn" format="boolean"/>
     </declare-styleable>
 </resources>
