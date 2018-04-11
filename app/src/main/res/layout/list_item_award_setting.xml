@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <!--<variable
+            name="ranking"
+            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />-->
+
+        <variable
+            name="type"
+            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />
+
+        <variable
+            name="reward"
+            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />
+
+        <variable
+            name="VMAwardItem"
+            type="com.vs.vipsai.bean.AwardBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingVertical="@dimen/divider"
+        android:background="@drawable/bg_frame_top_bottom_white">
+
+        <!--名次-->
+        <!--<include android:id="@+id/inputbar_ranking"
+            layout="@layout/input_bar"
+            app:inputBar="@{ranking}"/>-->
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_style"
+            android:paddingLeft="0dp"
+            android:background="@drawable/bg_frame_bottom_white"/>
+
+        <!--奖项类型-->
+        <include android:id="@+id/inputbar_type"
+            layout="@layout/input_bar"
+            app:inputBar="@{type}"/>
+
+        <!--奖金-->
+        <include android:id="@+id/inputbar_reward"
+            layout="@layout/input_bar"
+            app:inputBar="@{reward}"/>
+
+        <!--奖项名称-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_normal"
+            android:textColor="@color/text_primary"
+            android:text="@={VMAwardItem.title}"
+            android:hint="@string/add_award_title_hint"
+            android:paddingHorizontal="0dp"
+            android:layout_marginTop="@dimen/padding_8"
+            android:background="@color/transparent"/>
+
+        <!--描述-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_small"
+            android:paddingVertical="@dimen/padding_4"
+            android:textColor="@color/gray"
+            android:text="@={VMAwardItem.description}"
+            android:hint="@string/add_description_hint"
+            android:layout_marginTop="@dimen/padding_8"
+            android:layout_marginBottom="@dimen/padding_8"
+            android:background="@color/transparent"/>
+
+        <!--图片-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_8"
+            android:visibility="@{VMAwardItem.getIconSize() == 0 ? View.GONE : View.VISIBLE}"
+            android:background="@drawable/bg_frame_top_white">
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:visibility="invisible"
+                app:imageUrl="@{VMAwardItem.getIconUrl(0)}"
+                android:src="@drawable/default_image"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:visibility="invisible"
+                app:imageUrl="@{VMAwardItem.getIconUrl(1)}"
+                android:src="@drawable/default_image"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:visibility="invisible"
+                app:imageUrl="@{VMAwardItem.getIconUrl(2)}"
+                android:src="@drawable/default_image"/>
+
+            <View android:layout_width="@dimen/padding_8"
+                android:layout_height="1px"
+                android:layout_weight="0"/>
+
+            <com.vs.vipsai.widget.FitHeightImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="false"
+                android:visibility="invisible"
+                app:imageUrl="@{VMAwardItem.getIconUrl(3)}"
+                android:src="@drawable/default_image"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

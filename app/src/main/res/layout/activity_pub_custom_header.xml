@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="PubCustomActivity"
+            type="com.vs.vipsai.publish.activitys.PubCustomActivity" />
+
+        <variable
+            name="TournamentCollector"
+            type="com.vs.vipsai.publish.TournamentCollector" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_16">
+
+        <!--标题-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/padding_8"
+            android:textSize="@dimen/font_normal"
+            android:hint="@string/title_hint"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_primary"
+            android:background="@drawable/bg_frame_bottom_white"
+            android:text="@={TournamentCollector.title}"/>
+
+        <!--开始时间-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/padding_8"
+            android:background="@drawable/bg_frame_bottom_white"
+            android:onClick="@{PubCustomActivity::setTime}">
+
+            <ImageView
+                android:layout_width="@dimen/image_size_mini"
+                android:layout_height="@dimen/image_size_mini"
+                android:layout_weight="0"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_date_blue"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_small"
+                android:paddingHorizontal="@dimen/padding_4"
+                android:layout_weight="0"
+                android:text="|"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_small"
+                android:hint="@string/time_set_hint"
+                android:text="@{TournamentCollector.time}"/>
+
+        </LinearLayout>
+
+        <!--简介-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/padding_8"
+            android:textSize="@dimen/font_normal"
+            android:hint="@string/description_hint"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_primary"
+            android:background="@drawable/bg_frame_bottom_white"
+            android:text="@{TournamentCollector.description}"/>
+
+        <!--规则-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_small"
+            android:layout_marginTop="@dimen/padding_4"
+            android:paddingVertical="@dimen/padding_8"
+            android:textColor="@color/gray"
+            android:hint="@string/rule_hint"
+            android:background="@drawable/bg_frame_bottom_white"
+            android:text="@{TournamentCollector.rule}"/>
+
+        <!--视频-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:paddingVertical="50dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_nav_past_normal"
+                android:background="@color/divider"/>
+
+        </FrameLayout>
+
+        <!--添加封面-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_8"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_frame_dot_white"
+                android:visibility="@{TextUtils.isEmpty(TournamentCollector.localCover) == true ? View.VISIBLE : View.GONE}"
+                android:onClick="@{PubCustomActivity::pickCover}">
+
+                <ImageView
+                    android:layout_width="@dimen/image_size_small"
+                    android:layout_height="@dimen/image_size_mini"
+                    android:layout_weight="0"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_default_image"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_8"
+                    android:textSize="@dimen/font_small"
+                    android:text="@string/add_cover_hint"/>
+
+            </LinearLayout>
+
+            <!--封面-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{TextUtils.isEmpty(TournamentCollector.localCover) == true ? View.GONE : View.VISIBLE}">
+
+                <com.vs.vipsai.widget.FitHeightImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:src="@mipmap/ic_nav_past_normal"
+                    app:localPic="@{TournamentCollector.localCover}"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:layout_width="@dimen/image_size_normal"
+                    android:layout_height="@dimen/image_size_normal"
+                    android:layout_marginRight="@dimen/padding_8"
+                    android:layout_marginTop="@dimen/padding_8"
+                    android:layout_gravity="right|top"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_unsubscribe"
+                    android:onClick="@{PubCustomActivity::removeCover}"/>
+
+            </FrameLayout>
+
+
+        </FrameLayout>
+
+        <!--类别-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_8"
+            android:background="@color/divider"
+            android:onClick="@{PubCustomActivity::pickType}">
+
+            <ImageView
+                android:layout_width="@dimen/image_size_mini"
+                android:layout_height="@dimen/image_size_mini"
+                android:layout_weight="0"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_ad_gray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_8"
+                android:textSize="@dimen/font_small"
+                android:hint="@string/add_category_hint"
+                android:text="@{TournamentCollector.type}"/>
+
+        </LinearLayout>
+
+        <!--设置奖项-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_8"
+            android:background="@drawable/bg_frame_dot_white"
+            android:onClick="@{PubCustomActivity::setAward}">
+
+            <ImageView
+                android:layout_width="@dimen/image_size_mini"
+                android:layout_height="@dimen/image_size_mini"
+                android:layout_weight="0"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_ad_gray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_8"
+                android:textSize="@dimen/font_small"
+                android:text="@string/set_award_hint"/>
+
+        </LinearLayout>
+
+        <!--主题推荐-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/padding_16">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider"
+                android:layout_gravity="center_vertical"
+                android:background="@color/color_ececec"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="@dimen/padding_8"
+                android:background="@color/white"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/font_small"
+                android:text="@string/recommend_subject_title"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</layout>
+

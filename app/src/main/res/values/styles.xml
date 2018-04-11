@@ -380,7 +380,7 @@
         <item name="android:textSize">@dimen/font_small</item>
         <item name="android:paddingTop">@dimen/padding_4</item>
         <item name="android:paddingBottom">@dimen/padding_4</item>
-        <item name="android:paddingLeft">@dimen/padding_12</item>
+        <item name="android:paddingLeft">@dimen/padding_horizontal</item>
 
     </style>
 
@@ -428,5 +428,14 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="Function_bar_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/bar_height</item>
+        <item name="android:paddingLeft">@dimen/padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/padding_4</item>
+        <item name="android:paddingBottom">@dimen/padding_4</item>
+    </style>
 
 </resources>
