@@ -384,7 +384,7 @@ public class ShareDialogBuilder extends AlertDialog.Builder implements
             share.setBitmapResID(bitmapResID);
             share.setImageUrl(imageUrl);
 
-            share.setAppName("开源中国");
+            share.setAppName("微赛小视频");
             share.setAppShareIcon(R.mipmap.ic_share);
 
             ShareDialogBuilder builder = new ShareDialogBuilder(activity, themeResId);

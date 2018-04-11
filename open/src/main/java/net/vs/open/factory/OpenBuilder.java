@@ -51,11 +51,11 @@ public class OpenBuilder {
         String url = null;
         try {
             File file = new File(url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                    .getAbsolutePath() + File.separator + "开源中国/share/");
+                    .getAbsolutePath() + File.separator + "微赛小视频/share/");
             if (!file.exists())
                 file.mkdirs();
             url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                    .getAbsolutePath() + File.separator + "开源中国/share/" +
+                    .getAbsolutePath() + File.separator + "微赛小视频/share/" +
                     System.currentTimeMillis() + ".jpg";
             os = new FileOutputStream(url);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
@@ -214,7 +214,7 @@ public class OpenBuilder {
             // 设置 Bitmap 类型的图片到视频对象里         最好设置缩略图。 注意：最终压缩过的缩略图大小不得超过 32kb。
             webpageObject.setThumbImage(bitmap);
             webpageObject.actionUrl = share.getUrl();
-            webpageObject.defaultText = " - 开源中国";
+            webpageObject.defaultText = " - 微赛小视频";
 
             WeiboMultiMessage weiboMessage = new WeiboMultiMessage();
 

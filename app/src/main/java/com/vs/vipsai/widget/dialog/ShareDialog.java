@@ -79,7 +79,7 @@ public class ShareDialog{ // extends BottomDialog implements OpenBuilder.Callbac
 //        setOnCancelListener(this);
 //        setOnDismissListener(this);
 //        mShare = new Share();
-//        mShare.setAppName("开源中国");
+//        mShare.setAppName("微赛小视频");
 //    }
 //
 //    public ShareDialog(@NonNull Activity activity, boolean isShareTweet) {
@@ -104,7 +104,7 @@ public class ShareDialog{ // extends BottomDialog implements OpenBuilder.Callbac
 //        setOnCancelListener(this);
 //        setOnDismissListener(this);
 //        mShare = new Share();
-//        mShare.setAppName("开源中国");
+//        mShare.setAppName("微赛小视频");
 //    }
 //
 //    public ShareDialog(@NonNull Activity activity, long id, boolean isShareDetail) {
@@ -133,7 +133,7 @@ public class ShareDialog{ // extends BottomDialog implements OpenBuilder.Callbac
 //        setOnCancelListener(this);
 //        setOnDismissListener(this);
 //        mShare = new Share();
-//        mShare.setAppName("开源中国");
+//        mShare.setAppName("微赛小视频");
 //    }
 //
 //    public void setBean(SubBean mBean) {
@@ -432,11 +432,11 @@ public class ShareDialog{ // extends BottomDialog implements OpenBuilder.Callbac
 //        String url = null;
 //        try {
 //            File file = new File(url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-//                    .getAbsolutePath() + File.separator + "开源中国/");
+//                    .getAbsolutePath() + File.separator + "微赛小视频/");
 //            if (!file.exists())
 //                file.mkdirs();
 //            url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-//                    .getAbsolutePath() + File.separator + "开源中国/" +
+//                    .getAbsolutePath() + File.separator + "微赛小视频/" +
 //                    System.currentTimeMillis() + ".jpg";
 //            os = new FileOutputStream(url);
 //            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);

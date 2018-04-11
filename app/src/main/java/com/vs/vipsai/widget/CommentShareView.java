@@ -132,7 +132,7 @@ public class CommentShareView { // extends NestedScrollView implements Runnable 
 //    public static void clearShareImage() {
 //        try {
 //            String url = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-//                    .getAbsolutePath() + File.separator + "开源中国/share/";
+//                    .getAbsolutePath() + File.separator + "微赛小视频/share/";
 //            File file = new File(url);
 //            for (File f : file.listFiles()) {
 //                f.delete();
