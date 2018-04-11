@@ -29,6 +29,7 @@ import com.vs.vipsai.publish.viewmodels.VMInputBar;
 import com.vs.vipsai.settings.SettingsFragment;
 import com.vs.vipsai.util.JsonUtil;
 import com.vs.vipsai.util.TDevice;
+import com.vs.vipsai.widget.dialog.AlertWheelDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +155,7 @@ public class EditAwardActivity extends ToolbarActivity {
             mList.add(v.getContext().getString(R.string.cash));
             mList.add(v.getContext().getString(R.string.present));
 
-            SettingsFragment.alertBottomWheelOption(v.getContext(), mList, new SettingsFragment.OnWheelViewClick() {
+            AlertWheelDialog.alertBottomWheelOption(v.getContext(), mList, new SettingsFragment.OnWheelViewClick() {
                 @Override
                 public void onClick(View view, int postion) {
                     String emailNotifyStr = mList.get(postion);

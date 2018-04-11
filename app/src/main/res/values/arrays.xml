@@ -1,73 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
-    <string-array name="tweets_viewpage_arrays">
-        <item>好友动弹</item>
-        <item>推荐话题</item>
-        <item>热门动弹</item>
-        <item>最新动弹</item>
-    </string-array>
 
-    <string-array name="choose_picture">
-        <item>相册</item>
-        <item>相机</item>
-    </string-array>
-
-    <string-array name="opensourcesoftware">
-        <item>分类</item>
-        <item>推荐</item>
-        <item>最新</item>
-        <item>热门</item>
-        <item>国产</item>
-    </string-array>
-
-    <string-array name="report_reason">
-        <item>广告</item>
-        <item>色情</item>
-        <item>翻墙</item>
-        <item>非IT话题</item>
-    </string-array>
-
-    <string-array name="report">
-        <item>其它原因</item>
-        <item>广告</item>
-        <item>色情</item>
-        <item>翻墙</item>
-        <item>非IT话题</item>
-    </string-array>
-
-    <string-array name="gender">
-        <item>男</item>
-        <item>女</item>
-    </string-array>
-
-    <string-array name="events">
-        <item>近期活动</item>
-        <item>我的活动</item>
-    </string-array>
 
     <string-array name="avatar_option">
         <item>更换头像</item>
         <item>查看大头像</item>
     </string-array>
 
-    <string-array name="font_size">
-        <item>特大号字</item>
-        <item>大号字</item>
-        <item>中号字</item>
-        <item>小号字</item>
-    </string-array>
 
-    <!--created by fei 20160524-->
-    <string-array name="near_friends_action_hint">
-        <item>清除位置并退出</item>
-    </string-array>
 
-    <string-array name="topic_list">
-        <item>码云</item>
-        <item>毎日の歌</item>
-        <item>开源中国</item>
-        <item>开源中国客户端</item>
+    <string-array name="email_notify_options">
+        <item>从不提醒</item>
+        <item>每日一次提醒</item>
+        <item>全部提醒</item>
+    </string-array>
+    
+    
+    <string-array name="time_zone_options">
+        <item>(UTC-12:00)国际日期变更线西</item>
+        <item>(UTC-11:00)萨摩亚群岛</item>
+        <item>(UTC-11:00)协调世界时-11</item>
+        <item>(UTC-10:00)夏威夷</item>
+        <item>(UTC-09:00)阿拉斯加 </item>
+        <item>(UTC-08:00)太平洋时间 (美国和加拿大)</item>
+        <item>(UTC-08:00)下加利福尼亚州 </item>
+        <item>(UTC-07:00)奇瓦瓦、拉巴斯、马萨特兰</item>
+        <item>(UTC-07:00)山地时间 (美国和加拿大)</item>
+        <item>(UTC-07:00)亚利桑那 </item>
+        <item>(UTC-06:00)瓜达拉哈拉、墨西哥城、蒙特雷</item>
+        <item>(UTC-06:00)萨斯喀彻温 </item>
+        <item>(UTC-06:00)中部时间 (美国和加拿大)</item>
+        <item>(UTC-06:00)中美洲 </item>
+        <item>(UTC-05:00)波哥大、利马、基多</item>
+        <item>(UTC-05:00)东部时间 (美国和加拿大)</item>
+        <item>(UTC-05:00)印第安那州(东部)</item>
+        <item>(UTC-04:30)加拉加斯 </item>
+        <item>(UTC-04:00)大西洋时间(加拿大)</item>
+        <item>(UTC-04:00)库亚巴 </item>
+        <item>(UTC-04:00)乔治敦、拉巴斯、马瑙斯、圣胡安</item>
+        <item>(UTC-04:00)圣地亚哥</item>
+        <item>(UTC-04:00)亚松森</item>
+        <item>(UTC-03:30)纽芬兰</item>
+        <item>(UTC-03:00)巴西利亚</item>
+        <item>(UTC-03:00)布宜诺斯艾利斯</item>
+        <item>(UTC-03:00)格陵兰</item>
+        <item>(UTC-03:00)卡宴、福塔雷萨</item>
+        <item>(UTC-03:00)蒙得维的亚</item>
+        <item>(UTC-02:00)协调世界时-02</item>
+        <item>(UTC-02:00)中大西洋</item>
+        <item>(UTC-01:00)佛得角群岛</item>
+        <item>(UTC-01:00)亚速尔群岛 </item>
+        <item>(UTC)都柏林、爱丁堡、里斯本、伦敦</item>
+        <item>(UTC)卡萨布兰卡 </item>
+        <item>(UTC)蒙罗维亚、雷克雅未克</item>
+        <item>(UTC)协调世界时 </item>
+        <item>(UTC+01:00)阿姆斯特丹、柏林、伯尔尼、罗马、斯德哥尔摩、维也纳</item>
+        <item>(UTC+01:00)贝尔格莱德、布拉迪斯拉发、布达佩斯、卢布尔雅那、布拉格</item>
+        <item>(UTC+01:00)布鲁塞尔、哥本哈根、马德里、巴黎</item>
+        <item>(UTC+01:00)萨拉热窝、斯科普里、华沙、萨格勒布</item>
+        <item>(UTC+01:00)温得和克</item>
+        <item>(UTC+01:00)中非西部</item>
+        <item>(UTC+02:00)安曼</item>
+        <item>(UTC+02:00)贝鲁特</item>
+        <item>(UTC+02:00)大马士革 </item>
+        <item>(UTC+02:00)哈拉雷、比勒陀利亚 </item>
+        <item>(UTC+02:00)赫尔辛基、基辅、里加、索非亚、塔林、维尔纽斯</item>
+        <item>(UTC+02:00)开罗</item>
+        <item>(UTC+02:00)明斯克 </item>
+        <item>(UTC+02:00)雅典、布加勒斯特、伊斯坦布尔</item>
+        <item>(UTC+02:00)耶路撒冷</item>
+        <item>(UTC+03:00)巴格达</item>
+        <item>(UTC+03:00)科威特、利雅得 </item>
+        <item>(UTC+03:00)莫斯科、圣彼得堡、伏尔加格勒</item>
+        <item>(UTC+03:00)内罗毕</item>
+        <item>(UTC+03:30)德黑兰 </item>
+        <item>(UTC+04:00)阿布扎比、马斯喀特</item>
+        <item>(UTC+04:00)埃里温</item>
+        <item>(UTC+04:00)巴库</item>
+        <item>(UTC+04:00)第比利斯</item>
+        <item>(UTC+04:00)路易港</item>
+        <item>(UTC+04:30)喀布尔</item>
+        <item>(UTC+05:00)塔什干</item>
+        <item>(UTC+05:00)叶卡捷琳堡</item>
+        <item>(UTC+05:00)伊斯兰堡、卡拉奇 </item>
+        <item>(UTC+05:30)钦奈、加尔各答、孟买、新德里</item>
+        <item>(UTC+05:30)斯里加亚渥登普拉</item>
+        <item>(UTC+05:45)加德满都</item>
+        <item>(UTC+06:00)阿斯塔纳</item>
+        <item>(UTC+06:00)达卡</item>
+        <item>(UTC+06:00)新西伯利亚</item>
+        <item>(UTC+06:30)仰光 </item>
+        <item>(UTC+07:00)克拉斯诺亚尔斯克</item>
+        <item>(UTC+07:00)曼谷、河内、雅加达 </item>
+        <item>(UTC+08:00)北京、重庆、香港特别行政区、乌鲁木齐</item>
+        <item>(UTC+08:00)吉隆坡、新加坡</item>
+        <item>(UTC+08:00)珀斯</item>
+        <item>(UTC+08:00)台北</item>
+        <item>(UTC+08:00)乌兰巴托</item>
+        <item>(UTC+08:00)伊尔库茨克</item>
+        <item>(UTC+09:00)大阪、札幌、东京</item>
+        <item>(UTC+09:00)首尔</item>
+        <item>(UTC+09:00)雅库茨克</item>
+        <item>(UTC+09:30)阿德莱德</item>
+        <item>(UTC+09:30)达尔文</item>
+        <item>(UTC+10:00)布里斯班</item>
+        <item>(UTC+10:00)符拉迪沃斯托克</item>
+        <item>(UTC+10:00)关岛、莫尔兹比港</item>
+        <item>(UTC+10:00)霍巴特 </item>
+        <item>(UTC+10:00)堪培拉、墨尔本、悉尼</item>
+        <item>(UTC+11:00)马加丹 </item>
+        <item>(UTC+11:00)所罗门群岛、新喀里多尼亚</item>
+        <item>(UTC+12:00)奥克兰、惠灵顿</item>
+        <item>(UTC+12:00)斐济 </item>
+        <item>(UTC+12:00)协调世界时+12</item>
+        <item>(UTC+13:00)努库阿洛法"</item>
     </string-array>
 
 

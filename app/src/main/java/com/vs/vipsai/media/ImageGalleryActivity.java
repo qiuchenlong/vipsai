@@ -226,7 +226,7 @@ public class ImageGalleryActivity extends BaseActivity implements ViewPager.OnPa
                         return;
                     String extension = BitmapUtil.getExtension(sourceFile.getAbsolutePath());
                     String extDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                            .getAbsolutePath() + File.separator + "开源中国";
+                            .getAbsolutePath() + File.separator + "微赛小视频";
                     File extDirFile = new File(extDir);
                     if (!extDirFile.exists()) {
                         if (!extDirFile.mkdirs()) {
