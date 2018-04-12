@@ -16,7 +16,7 @@ import com.vs.vipsai.util.SimplexToast;
  * Description:
  */
 
-public class BaseApplication extends MultiDexApplication{
+public class BaseApplication extends MultiDexApplication {
     private static final String TAG = BaseApplication.class.getName();
     private static final String PREF_NAME = "creativelocker.pref";
     private static Context _context;

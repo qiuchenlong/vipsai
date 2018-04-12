@@ -23,6 +23,9 @@
     <!--该权限用于挂载或者解挂载手机的文件系统，比如挂载外置sd卡，百度地图等第三方服务需要设置缓存时-->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
     <application
         android:name="com.vs.vipsai.VSApplication"
         android:allowBackup="true"

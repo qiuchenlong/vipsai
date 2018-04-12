@@ -73,7 +73,7 @@
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
                             android:text="全国"
-                            android:textColor="#d43a32" />
+                            android:textColor="@color/mark_text_color" />
                     </RelativeLayout>
                     
     
@@ -136,11 +136,12 @@
             android:layout_height="80.0dip"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="#ffffffff"
+            android:textColor="#FFFFFF"
             android:textSize="30.0dip"
-            android:visibility="invisible" />
+            android:background="@drawable/show_head_toast_bg9"
+            android:visibility="invisible"
+            />
 
-        <!--android:background="@drawable/show_head_toast_bg9"-->
 
 
         <com.vs.vipsai.city.SideBar

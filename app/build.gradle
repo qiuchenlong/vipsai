@@ -33,7 +33,18 @@ android {
 
         // Enabling multidex support.
         multiDexEnabled true
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', "armeabi-v7a","armeabi-v7a","x86"
+        }
     }
+
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+    }
+
 
     // 执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
     lintOptions {
