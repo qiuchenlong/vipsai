@@ -36,7 +36,7 @@ android {
 
         ndk {
             //选择要添加的对应cpu类型的.so库。
-            abiFilters 'armeabi', "armeabi-v7a","armeabi-v7a","x86"
+            abiFilters "armeabi-v7a", "x86"
         }
     }
 
@@ -184,4 +184,7 @@ dependencies {
 
 
     implementation project(path: ':open')
+
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+//    implementation 'com.github.hudl:react-native-android-fragment:v0.43.2'
 }

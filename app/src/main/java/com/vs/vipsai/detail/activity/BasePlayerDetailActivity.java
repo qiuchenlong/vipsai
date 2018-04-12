@@ -1,5 +1,6 @@
 package com.vs.vipsai.detail.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -25,6 +26,7 @@ import com.vs.vipsai.bean.Tweet;
 import com.vs.vipsai.behavior.CommentBar;
 import com.vs.vipsai.detail.viewpager.PlayerDetailViewPagerFragment;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
+import com.vs.vipsai.ui.activity.ReactNativeContainerActivity;
 import com.vs.vipsai.ui.videoplayer.SampleVideo;
 import com.vs.vipsai.ui.videoplayer.SwitchVideoModel;
 
@@ -201,6 +203,8 @@ public class BasePlayerDetailActivity extends BackActivity implements TweetDetai
     protected void initWidget() {
         setSwipeBackEnable(true);
 
+
+//        startActivity(new Intent(this, ReactNativeContainerActivity.class));
 
 
         detail_header_layout.setBackgroundResource(R.color.transparent);

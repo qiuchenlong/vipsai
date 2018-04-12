@@ -24,6 +24,13 @@ allprojects {
         maven { url "https://jitpack.io" }
         maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" } //个推maven库 URL地址
 //        maven { url 'https://dl.bintray.com/oschinaapp/maven/' }
+
+
+        mavenLocal()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/node_modules/react-native/android"
+        }
     }
 }
 

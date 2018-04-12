@@ -11,7 +11,7 @@
 ## Table of Contents
  
   * [Multi-channel deployment](#deploy)
-
+  * [React Native](#react native)
 
 
 ## Deploy 执行多渠道打包脚本 : 
@@ -29,6 +29,15 @@
       ```shell
         ./gradlew assembleRelease
       ``` 
+      
+     
+## React Native
+
+  - exec
+  
+    ```shell
+        react-native bundle --entry-file index.js --bundle-output ./app/src/main/assets/index.android.bundle --platform android --assets-dest ./app/src/main/res/ --dev false
+    ```
   
   
 

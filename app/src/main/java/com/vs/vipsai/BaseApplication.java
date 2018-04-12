@@ -8,7 +8,15 @@ import android.support.v4.content.SharedPreferencesCompat;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactNativeHost;
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.facebook.soloader.SoLoader;
 import com.vs.vipsai.util.SimplexToast;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Author: cynid
@@ -16,7 +24,7 @@ import com.vs.vipsai.util.SimplexToast;
  * Description:
  */
 
-public class BaseApplication extends MultiDexApplication {
+public class BaseApplication extends MultiDexApplication implements ReactApplication {
     private static final String TAG = BaseApplication.class.getName();
     private static final String PREF_NAME = "creativelocker.pref";
     private static Context _context;
@@ -26,6 +34,7 @@ public class BaseApplication extends MultiDexApplication {
         super.onCreate();
         _context = getApplicationContext();
 
+        SoLoader.init(this, /* native exopackage */ false);
         // init 3th packages
 
     }
@@ -136,4 +145,32 @@ public class BaseApplication extends MultiDexApplication {
             SimplexToast.show(context, message, gravity, duration);
     }
 
+
+
+
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+        @Override
+        public boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                    new MainReactPackage()
+            );
+        }
+
+        @Override
+        protected String getJSMainModuleName() {
+            return "index";
+        }
+    };
+
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
+    }
 }

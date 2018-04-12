@@ -19,6 +19,7 @@ import com.vs.vipsai.detail.DetailFragment;
 import com.vs.vipsai.detail.adapter.PlayerWorksAdapter;
 import com.vs.vipsai.tweet.contract.TweetDetailContract;
 import com.vs.vipsai.ui.empty.EmptyLayout;
+import com.vs.vipsai.ui.fragment.ReactFragment;
 import com.vs.vipsai.util.SimplexToast;
 
 import java.lang.reflect.Type;
@@ -46,11 +47,22 @@ public class ListPlayerFixturesFragment extends DetailFragment { //PlayerComment
         return fragment;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mOperator = (TweetDetailContract.Operator) context;
-    }
+//    @Override
+//    public String getMainComponentName() {
+//        return "App";
+//    }
+
+//    @Override
+//    public String getMainComponentName() {
+//        return "ReactNativeProject";
+//    }
+
+
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        mOperator = (TweetDetailContract.Operator) context;
+//    }
 
 
     @Override
