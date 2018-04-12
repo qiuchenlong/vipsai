@@ -50,13 +50,10 @@ public class SocialPlatformFragment extends BaseFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_payment_modify_password:
-                UIHelper.showPaymentModifyPassword(getContext());
                 break;
             case R.id.rl_payment_forgot_password:
-                UIHelper.showPaymentForgotPassword(getContext());
                 break;
             case R.id.rl_payment_open_fingerprint:
-                UIHelper.showPaymentOpenFingerprint(getContext());
                 break;
             default:
                 break;

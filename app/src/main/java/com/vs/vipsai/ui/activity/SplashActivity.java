@@ -1,5 +1,6 @@
 package com.vs.vipsai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 

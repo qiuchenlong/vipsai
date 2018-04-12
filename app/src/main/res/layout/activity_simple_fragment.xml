@@ -43,6 +43,12 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
