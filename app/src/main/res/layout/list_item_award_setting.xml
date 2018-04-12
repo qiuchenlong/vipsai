@@ -5,18 +5,6 @@
 
         <import type="android.view.View"/>
 
-        <!--<variable
-            name="ranking"
-            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />-->
-
-        <!--<variable
-            name="type"
-            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />-->
-
-        <variable
-            name="reward"
-            type="com.vs.vipsai.publish.viewmodels.VMInputBar" />
-
         <variable
             name="VMAwardItem"
             type="com.vs.vipsai.bean.AwardBean" />
@@ -31,23 +19,17 @@
         android:background="@drawable/bg_frame_top_bottom_white">
 
         <!--名次-->
-        <!--<include android:id="@+id/inputbar_ranking"
-            layout="@layout/input_bar"
-            app:inputBar="@{ranking}"/>-->
         <com.vs.library.widget.FunctionBar
+            android:id="@+id/inputbar_rankings"
             style="@style/Function_bar_style"
             android:paddingLeft="0dp"
             android:background="@drawable/bg_frame_bottom_white"
             app:functionTitle="@string/ranking"
             android:hint="@string/select_hint"
-            app:functionEditable="true"
-            app:showClearBtn="false"
-            app:text="@{VMAwardItem.rankings}"/>
+            app:functionEditable="false"
+            app:text="@={VMAwardItem.rankings}"/>
 
         <!--奖项类型-->
-        <!--<include android:id="@+id/inputbar_type"-->
-            <!--layout="@layout/input_bar"-->
-            <!--app:inputBar="@{type}"/>-->
         <com.vs.library.widget.FunctionBar
             android:id="@+id/inputbar_type"
             style="@style/Function_bar_style"
@@ -56,13 +38,18 @@
             app:functionTitle="@string/type"
             android:hint="@string/select_hint"
             app:functionEditable="false"
-            app:showClearBtn="false"
-            app:text="@{VMAwardItem.awardType}"/>
+            app:text="@={VMAwardItem.awardType}"/>
 
         <!--奖金-->
-        <include android:id="@+id/inputbar_reward"
-            layout="@layout/input_bar"
-            app:inputBar="@{reward}"/>
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_style"
+            android:paddingLeft="0dp"
+            android:background="@drawable/bg_frame_bottom_white"
+            app:functionTitle="@string/reward_option"
+            android:hint="@string/input_hint1"
+            app:functionEditable="true"
+            app:text="@={VMAwardItem.reward}"
+            app:functionInputType="FLOAT"/>
 
         <!--奖项名称-->
         <EditText

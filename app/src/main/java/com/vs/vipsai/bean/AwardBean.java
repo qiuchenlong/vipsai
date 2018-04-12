@@ -1,5 +1,7 @@
 package com.vs.vipsai.bean;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 
 import com.vs.vipsai.publish.viewmodels.VMAwardItem;
@@ -27,7 +29,7 @@ public class AwardBean extends VMAwardItem implements Serializable{
     protected String[] icons;
 
     public String rankings = "";
-    private float mReward;
+    public String reward;
 
     public String[] getIcons() {
         return icons;
@@ -39,12 +41,14 @@ public class AwardBean extends VMAwardItem implements Serializable{
 
     public long getId() {return id;}
 
-    public float getReward() {
-        return mReward;
-    }
+    public float getRewardValue() {
+        if(!TextUtils.isEmpty(reward)) {
+            try {
+                return Float.valueOf(reward);
+            }catch (NumberFormatException e){}
+        }
 
-    public void setReward(float reward) {
-        mReward = reward;
+        return 0;
     }
 
     /**
