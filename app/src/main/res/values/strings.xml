@@ -306,4 +306,6 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="input_hint1">请输入</string>
     <string name="grade">等级</string>
 
+    <string name="agree_continue">同意协议后继续</string>
+
 </resources>

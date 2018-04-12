@@ -79,6 +79,10 @@ public abstract class ArrayDataController<T> {
         }
     }
 
+    public List<T> getData() {
+        return mData;
+    }
+
     public void appendData(T data, boolean top) {
         if(data != null) {
             if(top) {

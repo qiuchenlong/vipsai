@@ -452,4 +452,17 @@
         <item name="numericPrecision">2</item>
     </style>
 
+    <style name="Function_bar_as_editor_style" parent="Function_bar_style">
+        <item name="functionEditStyle">@style/editor_multi_line_style</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="showArrow">false</item>
+    </style>
+
+    <style name="editor_multi_line_style" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">@color/edittext_hint_color</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
 </resources>

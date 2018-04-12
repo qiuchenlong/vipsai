@@ -35,6 +35,9 @@ public class PubTemplatePickCover extends BaseFragment {
         File file = new File(getContext().getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
         if(!file.exists()) {
             file.mkdir();
+        }else {
+            //清空封面裁剪暂存文件夹
+            FileUtil.clearFileWithPath(file.getAbsolutePath());
         }
     }
 
@@ -65,8 +68,7 @@ public class PubTemplatePickCover extends BaseFragment {
 
     @Override
     public void onDestroy() {
-        //清空封面裁剪暂存文件夹
-        FileUtil.clearFileWithPath(getContext().getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
+
         super.onDestroy();
     }
 

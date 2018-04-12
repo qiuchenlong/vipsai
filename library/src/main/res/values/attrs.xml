@@ -43,6 +43,7 @@
         <attr name="showArrow" format="boolean"/>
         <attr name="functionEditable" format="boolean"/>
         <attr name="showClearBtn" format="boolean"/>
+        <attr name="isRequestField" format="boolean"/>
         <attr name="functionInputType">
             <enum name="TEXT" value="0" />
             <enum name="NAME_CHINA" value="1" />

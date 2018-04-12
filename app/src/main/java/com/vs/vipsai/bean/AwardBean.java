@@ -1,10 +1,12 @@
 package com.vs.vipsai.bean;
 
 import android.text.TextUtils;
+import android.view.View;
 
 import java.io.Serializable;
 
 import com.vs.vipsai.publish.viewmodels.VMAwardItem;
+import com.vs.vipsai.publish.viewmodels.VMImageItem;
 
 /**
  * * Author: chends
@@ -30,6 +32,18 @@ public class AwardBean extends VMAwardItem implements Serializable{
 
     public String rankings = "";
     public String reward;
+    private String[] mLocalPics;
+
+    @Override
+    protected void onBuildImage(int index, VMImageItem imageItem) {
+        super.onBuildImage(index, imageItem);
+        if(mLocalPics != null && index < mLocalPics.length) {
+            imageItem.localPath.set(mLocalPics[index]);
+        }
+        if(icons != null && index < icons.length) {
+            imageItem.url = icons[index];
+        }
+    }
 
     public String[] getIcons() {
         return icons;
@@ -49,6 +63,45 @@ public class AwardBean extends VMAwardItem implements Serializable{
         }
 
         return 0;
+    }
+
+    public void addLocalPath(String path) {
+        if(mLocalPics != null) {
+            String[] tmp = new String[mLocalPics.length + 1];
+            System.arraycopy(mLocalPics, 0, tmp, 0, mLocalPics.length);
+            tmp[mLocalPics.length] = path;
+            setLocalImage(tmp.length - 1, path);
+            mLocalPics = tmp;
+
+        }else {
+            mLocalPics = new String[]{path};
+            setLocalImage(0, path);
+        }
+    }
+
+    /**
+     * 数据是否有效，齐全
+     * @return true 有效 or false 无效
+     */
+    public boolean isDataValid() {
+
+        if(TextUtils.isEmpty(rankings)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(awardType)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(title)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(description)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -75,10 +128,24 @@ public class AwardBean extends VMAwardItem implements Serializable{
     }
 
     @Override
+    public int getLocalPicSize() {
+        return mLocalPics == null ? 0 : mLocalPics.length;
+    }
+
+    @Override
+    public String getLocalPath(int index) {
+        if(mLocalPics != null && index >= 0 && index < mLocalPics.length) {
+            return mLocalPics[index];
+        }
+        return "";
+    }
+
+    @Override
     public String getIconUrl(int index) {
         if(icons != null && index >= 0 && index < icons.length) {
             return icons[index];
         }
         return "";
     }
+
 }

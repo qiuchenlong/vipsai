@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@mipmap/ic_add_gray"
+        android:top="28dp"
+        android:left="28dp"
+        android:right="28dp"
+        android:bottom="28dp"/>
+
+    <item>
+        <shape>
+            <stroke android:width="@dimen/divider"
+                android:color="@color/gray"
+                android:dashWidth="4dp"
+                android:dashGap="5dp"/>
+        </shape>
+    </item>
+
+</layer-list>

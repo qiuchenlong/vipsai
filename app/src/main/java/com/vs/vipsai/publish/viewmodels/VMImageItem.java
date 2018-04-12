@@ -15,13 +15,24 @@ import com.vs.vipsai.R;
  */
 public class VMImageItem {
 
-//    public int placeHolder = R.mipmap.ic_default_image;
+    public int defaultImageRes = R.drawable.default_image;
+    /**无图片时可视状态*/
+    public int nullVisiable = View.INVISIBLE;
+
+    public View.OnClickListener onClick;
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
 
     public String url;
 
     public ObservableField<String> localPath = new ObservableField<>();
+
+    /**外部指定*/
+    private boolean mClickable = true;
+
+    public void setClickable(boolean clickable) {
+        mClickable = clickable;
+    }
 
     @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {
@@ -30,5 +41,9 @@ public class VMImageItem {
         }else {
             view.setBackgroundResource(R.color.transparent);
         }
+    }
+
+    public boolean isClickable() {
+        return nullVisiable == View.VISIBLE && onClick != null && mClickable;
     }
 }

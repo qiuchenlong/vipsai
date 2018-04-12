@@ -91,7 +91,7 @@ public class VMPickCover{
                                     try {
                                         String[] files = mLocalCoverCacheDir.list();
                                         int tmpCount = files == null ? 0 : files.length;
-                                        File tmpFile = new File(mLocalCoverCacheDir, "tmp" + tmpCount);
+                                        File tmpFile = new File(mLocalCoverCacheDir, "tmp" + tmpCount + ".jpg");
 
                                         File file = new File(images[0]);
                                         if (file.renameTo(tmpFile)) {

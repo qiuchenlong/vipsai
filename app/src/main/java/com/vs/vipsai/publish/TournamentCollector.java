@@ -2,6 +2,7 @@ package com.vs.vipsai.publish;
 
 import android.databinding.ObservableField;
 
+import com.vs.vipsai.bean.AwardBean;
 import com.vs.vipsai.bean.TournamentBean;
 import com.vs.vipsai.bean.User;
 import com.vs.vipsai.publish.viewmodels.VMImageItem;
@@ -38,6 +39,9 @@ public class TournamentCollector {
 
     private List<Long> mUsers = new ArrayList<>();
 
+    private List<AwardBean> mAwards;
+    private String mAwardMethod = "";
+
     /**
      * 创建赛事收集器
      * @param tournament
@@ -50,6 +54,29 @@ public class TournamentCollector {
                 }
             }
         }
+    }
+
+    public List<AwardBean> getAwards() {
+        return mAwards;
+    }
+
+    public void setAwards(List<AwardBean> awards) {
+        if(mAwards == null) {
+            mAwards = new ArrayList<>();
+        }else {
+            mAwards.clear();
+        }
+        if(awards != null) {
+            mAwards.addAll(awards);
+        }
+    }
+
+    public String getAwardMethod() {
+        return mAwardMethod;
+    }
+
+    public void setAwardMethod(String awardMethod) {
+        mAwardMethod = awardMethod;
     }
 
     public void setCoverData(VMImageItem cover) {

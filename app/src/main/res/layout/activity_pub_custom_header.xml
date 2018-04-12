@@ -189,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/padding_8"
                 android:textSize="@dimen/font_small"
+                android:textColor="@color/text_primary"
                 android:hint="@string/add_category_hint"
                 android:text="@{TournamentCollector.type}"/>
 
@@ -216,7 +217,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/padding_8"
                 android:textSize="@dimen/font_small"
-                android:text="@string/set_award_hint"/>
+                android:textColor="@color/text_primary"
+                android:hint="@string/set_award_hint"
+                android:text="@{PubCustomActivity.awards}"/>
 
         </LinearLayout>
 

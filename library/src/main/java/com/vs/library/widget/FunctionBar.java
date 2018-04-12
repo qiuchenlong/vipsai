@@ -139,6 +139,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         setInputType(a.getInteger(R.styleable.FunctionBar_functionInputType, Type.TEXT.ordinal()));
         setNumericPrecision(a.getInt(R.styleable.FunctionBar_numericPrecision, 2));
         setEditable(a.getBoolean(R.styleable.FunctionBar_functionEditable, true));
+        setRequestField(a.getBoolean(R.styleable.FunctionBar_isRequestField, false));
 
         a.recycle();
 
@@ -211,8 +212,8 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
     /**
      * 必填字段
      */
-    public void requestField() {
-        mRequest = true;
+    public void setRequestField(boolean request) {
+        mRequest = request;
     }
 
     /**

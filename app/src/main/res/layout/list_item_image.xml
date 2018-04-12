@@ -15,14 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/divider"
-        app:backgroundSelector="@{VMImageItem.selected}">
+        app:backgroundSelector="@{VMImageItem.selected}"
+        android:onClick="@{VMImageItem.onClick}"
+        android:clickable="@{VMImageItem.isClickable}"
+        android:longClickable="@{VMImageItem.isClickable}">
 
         <com.vs.vipsai.widget.FitHeightImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            app:nullVisiable="@{VMImageItem.nullVisiable}"
+            app:imageResource="@{VMImageItem.defaultImageRes}"
             app:imageUrl="@{VMImageItem.url}"
-            android:src="@drawable/default_image"
             app:localPic="@{VMImageItem.localPath}"/>
 
         <ImageView android:id="@+id/checkbox"

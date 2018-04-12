@@ -65,6 +65,10 @@ public class GlidImageView extends RoundImageView {
 
     }
 
+    public void setNullVisiable(int visiable) {
+        mEmptyVisiable = visiable;
+    }
+
     public void setLocalPic(String path) {
         mLocalPath = path;
         if(!TextUtils.isEmpty(path)) {
