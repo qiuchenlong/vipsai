@@ -65,18 +65,57 @@ public class AwardBean extends VMAwardItem implements Serializable{
         return 0;
     }
 
-    public void addLocalPath(String path) {
-        if(mLocalPics != null) {
-            String[] tmp = new String[mLocalPics.length + 1];
-            System.arraycopy(mLocalPics, 0, tmp, 0, mLocalPics.length);
-            tmp[mLocalPics.length] = path;
-            setLocalImage(tmp.length - 1, path);
+    @Override
+    protected void onDelClick(View v, int index) {
+        if(icons != null && index >= 0 && index < icons.length) {
+            String[] tmp = null;
+            if(icons.length > 1) {
+                //移除删除项
+                tmp = new String[icons.length - 1];
+                int j = 0;
+                for (int i = 0; i < icons.length; i++) {
+                    if (i != index) {
+                        tmp[j++] = icons[i];
+                    }
+                }
+
+            }
+            icons = tmp;
+        }
+
+        if(mLocalPics != null && index >= 0 && index < mLocalPics.length) {
+            String[] tmp = null;
+            if(mLocalPics.length > 1) {
+                tmp = new String[mLocalPics.length - 1];
+                int j = 0;
+                for (int i = 0; i < mLocalPics.length; i++) {
+                    if (i != index) {
+                        tmp[j++] = mLocalPics[i];
+                    }
+                }
+            }
             mLocalPics = tmp;
+        }
+    }
+
+    public void addLocalPath(int index, String path) {
+        int inputPosition = 0;
+        if(mLocalPics != null) {
+            if(index >= mLocalPics.length) {
+                String[] tmp = new String[mLocalPics.length + 1];
+                System.arraycopy(mLocalPics, 0, tmp, 0, mLocalPics.length);
+                tmp[mLocalPics.length] = path;
+                inputPosition = mLocalPics.length;
+                mLocalPics = tmp;
+            }else {
+                inputPosition = index;
+            }
 
         }else {
             mLocalPics = new String[]{path};
-            setLocalImage(0, path);
         }
+
+        setLocalImage(inputPosition, path);
     }
 
     /**

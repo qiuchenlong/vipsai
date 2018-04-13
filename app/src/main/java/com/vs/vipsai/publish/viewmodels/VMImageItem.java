@@ -2,6 +2,7 @@ package com.vs.vipsai.publish.viewmodels;
 
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.vs.vipsai.R;
@@ -21,18 +22,13 @@ public class VMImageItem {
 
     public View.OnClickListener onClick;
 
+    public View.OnClickListener onDelClick;
+
     public ObservableField<Boolean> selected = new ObservableField<>(false);
 
     public String url;
 
     public ObservableField<String> localPath = new ObservableField<>();
-
-    /**外部指定*/
-    private boolean mClickable = true;
-
-    public void setClickable(boolean clickable) {
-        mClickable = clickable;
-    }
 
     @BindingAdapter("backgroundSelector")
     public static void bindSelected(View view, ObservableField<Boolean> value) {
@@ -43,7 +39,12 @@ public class VMImageItem {
         }
     }
 
-    public boolean isClickable() {
-        return nullVisiable == View.VISIBLE && onClick != null && mClickable;
+    /**
+     * 布局绑定，删除按钮是否可见
+     * @return
+     */
+    public int delBtnVisiable() {
+        return !TextUtils.isEmpty(url) || !TextUtils.isEmpty(localPath.get()) ?
+                View.VISIBLE : View.GONE;
     }
 }

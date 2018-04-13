@@ -17,8 +17,7 @@
         android:padding="@dimen/divider"
         app:backgroundSelector="@{VMImageItem.selected}"
         android:onClick="@{VMImageItem.onClick}"
-        android:clickable="@{VMImageItem.isClickable}"
-        android:longClickable="@{VMImageItem.isClickable}">
+        android:visibility="@{VMImageItem.nullVisiable}">
 
         <com.vs.vipsai.widget.FitHeightImageView
             android:layout_width="match_parent"
@@ -29,13 +28,21 @@
             app:imageUrl="@{VMImageItem.url}"
             app:localPic="@{VMImageItem.localPath}"/>
 
-        <ImageView android:id="@+id/checkbox"
+        <ImageView android:id="@+id/image_checkbox"
             style="@style/imageview_checkbox_small"
             android:layout_gravity="right|top"
             android:layout_marginTop="@dimen/padding_8"
             android:layout_marginRight="@dimen/padding_8"
             android:visibility="@{VMImageItem.selected ? View.VISIBLE : View.GONE}"
             app:selected="@{VMImageItem.selected}"/>
+        
+        <ImageView
+            android:layout_width="@dimen/image_size_normal"
+            android:layout_height="@dimen/image_size_normal"
+            android:layout_gravity="right|top"
+            android:src="@drawable/bg_close_btn"
+            android:visibility="@{VMImageItem.delBtnVisiable}"
+            android:onClick="@{VMImageItem.onDelClick}"/>
 
     </FrameLayout>
 </layout>

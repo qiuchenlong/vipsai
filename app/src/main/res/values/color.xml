@@ -125,4 +125,6 @@
     <color name="text_hint">@color/gray</color>
 
     <color name="divider">@color/color_ececec</color>
+
+    <color name="translucent">#80000000</color>
 </resources>

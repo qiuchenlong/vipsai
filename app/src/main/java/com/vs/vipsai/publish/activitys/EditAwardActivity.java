@@ -91,10 +91,14 @@ public class EditAwardActivity extends ToolbarActivity {
         if(data == null || data.size() <= 0) {
             data = new ArrayList<>();
             AwardBean first = new AwardBean();
-            first.setImageNullVisiable(0, View.VISIBLE);
             first.setDefaultImage(R.drawable.bg_add_btn);
-            first.setOnImageItemClick(mList);
+
             data.add(first);
+        }
+
+        for (AwardBean award : data) {
+            setAwardImageVisiable(award);
+            award.setOnImageItemClick(mList);
         }
 
         mList.setData(data);
@@ -113,6 +117,13 @@ public class EditAwardActivity extends ToolbarActivity {
 
         mList.appendData(item, true);
         mList.getAbsListView().setSelection(0);
+    }
+
+    private void setAwardImageVisiable(AwardBean award) {
+        int length = Math.max(award.getIconSize(), award.getLocalPicSize());
+        for(int i = 0; i <= length; i++) {
+            award.setImageNullVisiable(i, View.VISIBLE);
+        }
     }
 
     private class AwardList extends BaseListAdapterController<AwardBean> implements
@@ -173,6 +184,12 @@ public class EditAwardActivity extends ToolbarActivity {
                     .setCrop(360, 360)
                     .setCallback(callback).build());
         }
+
+        @Override
+        public void onItemDelClick(View view, int index, Object data) {
+            setAwardImageVisiable((AwardBean)data);
+            notifyDataChanged();
+        }
     }
 
     private class SelectAwardPic implements SelectOptions.Callback {
@@ -194,9 +211,8 @@ public class EditAwardActivity extends ToolbarActivity {
                 File tmp = new File(mLocalDir, String.valueOf(System.currentTimeMillis()) + ".jpg");
 
                 if(new File(images[0]).renameTo(tmp)) {
-                    mData.addLocalPath(tmp.getAbsolutePath());
+                    mData.addLocalPath(mImageIndex,tmp.getAbsolutePath());
                     mData.setImageNullVisiable(mImageIndex + 1, View.VISIBLE);
-                    mData.setImageClickable(mImageIndex, false);
                     mList.notifyDataChanged();
                 }
 
@@ -277,8 +293,13 @@ public class EditAwardActivity extends ToolbarActivity {
             checkBox.requestFocus();
             return;
         }
+        //记得移除
+        List<AwardBean> data = mList.getData();
+        for (AwardBean award : data) {
+            award.setOnImageItemClick(null);
+        }
 
-        TournamentCollector.get().setAwards(mList.getData());
+        TournamentCollector.get().setAwards(data);
         TournamentCollector.get().setAwardMethod(mRules.getText());
         setResult(RESULT_OK);
         finish();
