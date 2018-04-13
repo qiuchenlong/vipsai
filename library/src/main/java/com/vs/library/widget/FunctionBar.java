@@ -1,6 +1,7 @@
 package com.vs.library.widget;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
@@ -53,6 +54,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
     private boolean mPwdVisiable;
     private int mMinLength;
     private boolean mRequest;
+    private boolean mEditable = true;
 
     private List<InputFilter> mInputFilter;
 
@@ -68,9 +70,12 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.FunctionBar, 0, 0);
         int padding_8 = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8,
                 getResources().getDisplayMetrics());
+
         //title
+        LinearLayout titleLay = new LinearLayout(context);
+        titleLay.setOrientation(VERTICAL);
         mTitle = new TextView(context);
-        mTitle.setTextColor(a.getColor(R.styleable.FunctionBar_functionTitleColor, Color.BLACK));
+        mTitle.setTextColor(a.getColorStateList(R.styleable.FunctionBar_functionTitleColor));
         mTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimension(R.styleable.FunctionBar_functionTitleSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 13,
                 getResources().getDisplayMetrics())));
         if(a.hasValue(R.styleable.FunctionBar_functionTitle)){
@@ -78,9 +83,24 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         }else {
             mTitle.setVisibility(View.GONE);
         }
-        LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
+        LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        titleLay.addView(mTitle, lp);
+
+        TextView subTitle = new TextView(context);
+        subTitle.setTextColor(a.getColorStateList(R.styleable.FunctionBar_functionSubTitleColor));
+        subTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimension(R.styleable.FunctionBar_functionSubTitleSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 13,
+                getResources().getDisplayMetrics())));
+        if(a.hasValue(R.styleable.FunctionBar_functionSubTitle)){
+            subTitle.setText(a.getText(R.styleable.FunctionBar_functionSubTitle));
+        }else {
+            subTitle.setVisibility(View.GONE);
+        }
+        lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        titleLay.addView(subTitle, lp);
+
+        lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         lp.rightMargin = padding_8;
-        addView(mTitle, lp);
+        addView(titleLay, lp);
 
         //content
         if(a.hasValue(R.styleable.FunctionBar_functionEditStyle)) {
@@ -99,6 +119,13 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         }
         if( a.hasValue(R.styleable.FunctionBar_android_gravity)) {
             setGravity(a.getInt(R.styleable.FunctionBar_android_gravity, Gravity.LEFT));
+        }
+        if(a.hasValue(R.styleable.FunctionBar_android_textColorHint)) {
+            mEditView.setHintTextColor(a.getColorStateList(R.styleable.FunctionBar_android_textColorHint));
+        }
+        if(a.hasValue(R.styleable.FunctionBar_android_textSize)) {
+            mEditView.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimension(R.styleable.FunctionBar_android_textSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 13,
+                    getResources().getDisplayMetrics())));
         }
 
         float defaultSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
@@ -140,6 +167,9 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         setNumericPrecision(a.getInt(R.styleable.FunctionBar_numericPrecision, 2));
         setEditable(a.getBoolean(R.styleable.FunctionBar_functionEditable, true));
         setRequestField(a.getBoolean(R.styleable.FunctionBar_isRequestField, false));
+        if(a.hasValue(R.styleable.FunctionBar_android_maxLength)) {
+            setMaxLength(a.getInt(R.styleable.FunctionBar_android_maxLength, Integer.MAX_VALUE));
+        }
 
         a.recycle();
 
@@ -165,6 +195,19 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
      */
     public void setMinLength(int length) {
         mMinLength = length;
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if(mTitle != null) {
+            mTitle.setEnabled(enabled);
+        }
+        if(mEditView != null) {
+            if(mEditable) {
+                mEditView.setEnabled(enabled);
+            }
+        }
     }
 
     /**限制小数位数
@@ -255,6 +298,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
     }
 
     public void setEditable(boolean enable) {
+        mEditable = enable;
         mEditView.setEnabled(enable);
         mShowDelBtn = enable;
         if(enable) {

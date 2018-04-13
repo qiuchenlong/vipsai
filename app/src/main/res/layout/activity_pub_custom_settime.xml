@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="PubCustomSetTime"
+            type="com.vs.vipsai.publish.activitys.PubCustomSetTimeActivity" />
+
+        <variable
+            name="tournament"
+            type="com.vs.vipsai.bean.TournamentBean" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_horizontal"
+                android:paddingVertical="@dimen/padding_8"
+                android:background="@drawable/bg_frame_bottom_white">
+                <!--立即开始-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="@dimen/bar_height"
+                    android:paddingRight="@dimen/padding_horizontal"
+                    android:paddingVertical="@dimen/padding_4"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_frame_bottom_white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/font_normal"
+                            android:text="@string/start_immediately"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary_color"
+                            android:textSize="@dimen/font_small"
+                            android:text="@string/start_immediately_hint"/>
+
+                    </LinearLayout>
+
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:checked="true"
+                        android:onCheckedChanged="@{PubCustomSetTime::onCheckedChanged}"/>
+
+                </LinearLayout>
+
+                <!--开始时间-->
+                <com.vs.library.widget.FunctionBar
+                    style="@style/Function_bar_style"
+                    android:paddingLeft="0dp"
+                    app:functionTitle="@string/start_time"
+                    app:functionTitleColor="@color/text_primary_enable_selector"
+                    android:hint="@string/select_hint"
+                    app:functionEditable="false"
+                    app:functionSubTitle="@string/start_time_hint"
+                    android:background="@drawable/bg_frame_bottom_white"
+                    android:onClick="@{PubCustomSetTime::selectTime}"
+                    app:enabled="@{PubCustomSetTime.immediate ? false : true}"
+                    app:text="@={tournament.startTime}"/>
+
+                <!--开始作品数量-->
+                <com.vs.library.widget.FunctionBar
+                    style="@style/Function_bar_style"
+                    android:paddingLeft="0dp"
+                    app:functionTitle="@string/start_entries"
+                    app:functionTitleColor="@color/text_primary_enable_selector"
+                    android:hint="@string/input_hint1"
+                    app:functionInputType="NUMBER"
+                    app:functionSubTitle="@string/start_entries_hint"
+                    android:maxLength="7"
+                    app:enabled="@{PubCustomSetTime.immediate ? false : true}"
+                    app:text="@={tournament.startEntries}"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding_horizontal"
+                android:paddingVertical="@dimen/padding_8"
+                android:textSize="@dimen/font_normal"
+                android:textColor="@color/text_secondary_color"
+                android:text="@string/time_of_stage_hint"/>
+
+            <!--开放阶段-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_horizontal"
+                android:paddingVertical="@dimen/divider"
+                android:background="@drawable/bg_frame_top_bottom_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/padding_8"
+                    android:textSize="@dimen/font_normal"
+                    android:textColor="@color/text_primary"
+                    android:text="@string/stage_open"
+                    android:background="@drawable/bg_frame_bottom_white"
+                    android:paddingBottom="@dimen/divider"/>
+
+                <com.vs.library.widget.FunctionBar
+                    style="@style/Function_bar_style"
+                    android:paddingLeft="0dp"
+                    app:functionTitle="@string/stage_open_duration"
+                    android:hint="@string/input_hint1"
+                    app:functionEditable="false"/>
+
+            </LinearLayout>
+
+            <!--资格赛阶段-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/padding_8"
+                android:paddingVertical="@dimen/divider"
+                android:background="@drawable/bg_frame_top_bottom_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/padding_horizontal"
+                    android:paddingVertical="@dimen/padding_8"
+                    android:textSize="@dimen/font_normal"
+                    android:textColor="@color/text_primary"
+                    android:text="@string/stage_qualify"
+                    android:background="@drawable/bg_frame_bottom_white"
+                    android:paddingBottom="@dimen/divider"/>
+                <!--持续时长-->
+                <com.vs.library.widget.FunctionBar
+                    style="@style/Function_bar_style"
+                    android:paddingLeft="0dp"
+                    android:layout_marginLeft="@dimen/padding_horizontal"
+                    app:functionTitle="@string/duration"
+                    android:hint="@string/input_hint1"
+                    app:functionEditable="false"
+                    android:background="@drawable/bg_frame_bottom_white"/>
+
+                <com.vs.library.widget.FunctionBar
+                    style="@style/Function_bar_style"
+                    android:paddingLeft="0dp"
+                    android:layout_marginLeft="@dimen/padding_horizontal"
+                    app:functionTitle="@string/capability_upload_entry"
+                    android:hint="@string/select_hint"
+                    app:functionEditable="false"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
+
+

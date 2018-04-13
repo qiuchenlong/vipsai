@@ -6,4 +6,6 @@ public class RequestCode {
     public static final int REQUEST_PICK_TOURNAMENT_TYPE = 0;
     /**创建个人比赛，编辑奖项*/
     public static final int REQUEST_EDIT_AWARD = REQUEST_PICK_TOURNAMENT_TYPE + 1;
+    /**创建个人比赛，设置时间*/
+    public static final int REQUEST_SET_TIME = REQUEST_EDIT_AWARD + 1;
 }

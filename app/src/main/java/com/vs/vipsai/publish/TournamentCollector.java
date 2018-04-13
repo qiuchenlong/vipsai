@@ -23,9 +23,10 @@ public class TournamentCollector {
 
     //布局绑定
     public String title;
-    public ObservableField<String> time = new ObservableField<>();
-    public ObservableField<String> description = new ObservableField<>();
-    public ObservableField<String> rule = new ObservableField<>();
+    public ObservableField<String> time = new ObservableField<>("");
+    private boolean mImmediate = true;
+    public String description = "";
+    public String rule = "";
     public ObservableField<String> localCover = new ObservableField<>("");
     public ObservableField<String> type = new ObservableField<>("");
 

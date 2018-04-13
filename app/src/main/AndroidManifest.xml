@@ -319,7 +319,13 @@
 
         <!-- ############ QQ空间和QQ  wechat SSO授权的Activity注册完 ############ -->
 
-
+        <activity
+            android:name=".publish.activitys.PubCustomSetTimeActivity"
+            android:theme="@style/App.Theme.Main"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:label="@string/time_set_hint"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
     </application>
 

@@ -21,24 +21,22 @@
         android:paddingHorizontal="@dimen/padding_16">
 
         <!--标题-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/padding_8"
-            android:textSize="@dimen/font_normal"
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_as_editor_style"
             android:hint="@string/title_hint"
-            android:textColor="@color/text_primary"
             android:textColorHint="@color/text_primary"
             android:background="@drawable/bg_frame_bottom_white"
-            android:text="@={TournamentCollector.title}"/>
+            app:text="@={TournamentCollector.title}"
+            android:paddingHorizontal="0dp"/>
 
         <!--开始时间-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/bar_height"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingVertical="@dimen/padding_8"
+            android:paddingVertical="@dimen/padding_4"
             android:background="@drawable/bg_frame_bottom_white"
             android:onClick="@{PubCustomActivity::setTime}">
 
@@ -67,28 +65,24 @@
         </LinearLayout>
 
         <!--简介-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/padding_8"
-            android:textSize="@dimen/font_normal"
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_as_editor_style"
             android:hint="@string/description_hint"
-            android:textColor="@color/text_primary"
             android:textColorHint="@color/text_primary"
-            android:background="@drawable/bg_frame_bottom_white"
-            android:text="@{TournamentCollector.description}"/>
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/padding_4"
+            app:text="@={TournamentCollector.description}"
+            android:paddingHorizontal="0dp"/>
 
         <!--规则-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/font_small"
-            android:layout_marginTop="@dimen/padding_4"
-            android:paddingVertical="@dimen/padding_8"
-            android:textColor="@color/gray"
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_as_editor_style"
             android:hint="@string/rule_hint"
-            android:background="@drawable/bg_frame_bottom_white"
-            android:text="@{TournamentCollector.rule}"/>
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/padding_horizontal"
+            app:text="@={TournamentCollector.rule}"
+            android:paddingHorizontal="0dp"
+            android:textSize="@dimen/font_small"/>
 
         <!--视频-->
         <FrameLayout
@@ -101,8 +95,8 @@
                 android:minHeight="150dp"
                 android:paddingVertical="50dp"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/ic_nav_past_normal"
-                android:background="@color/divider"/>
+                android:src="@mipmap/ic_video"
+                android:background="@color/main_touch"/>
 
         </FrameLayout>
 

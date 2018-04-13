@@ -122,12 +122,21 @@ public class PubCustomActivity extends ToolbarActivity{
                 }
             }
             awards.set(sb.toString());
+        }else if(RequestCode.REQUEST_SET_TIME == requestCode && RESULT_OK == resultCode && data != null) {
+            TournamentBean tournament = data.getParcelableExtra(PubCustomSetTimeActivity.EXTRA_RESULT);
+            if(tournament != null) {
+                if(tournament.startImmediate) {
+                    TournamentCollector.get().time.set(getString(R.string.start_immediately_default));
+                }else {
+                    TournamentCollector.get().time.set(tournament.startTime);
+                }
+            }
         }
     }
 
     /**设置时间*/
     public void setTime(View view){
-        Toast.makeText(this, TournamentCollector.get().title, Toast.LENGTH_SHORT).show();
+        PubCustomSetTimeActivity.openForResult(this, RequestCode.REQUEST_SET_TIME);
     }
 
     public void pickCover(View view) {
