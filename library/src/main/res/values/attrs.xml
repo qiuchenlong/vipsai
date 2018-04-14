@@ -61,4 +61,19 @@
         <attr name="numericPrecision" format="integer"/>
         <attr name="android:maxLength"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomDialog">
+        <attr name="dialogTitlebarHeight" format="dimension"/>
+        <attr name="dialogTitleTextAppearance" format="reference"/>
+        <attr name="dialogContentTextAppearance" format="reference"/>
+        <attr name="dialogBackground" format="reference|color"/>
+        <attr name="dialogPaddingHorizontal" format="dimension"/>
+        <attr name="dialogPaddingVertical" format="dimension"/>
+        <attr name="dialogContentPaddingVertical" format="dimension"/>
+        <attr name="dialogContentPaddingHorizontal" format="dimension"/>
+        <attr name="dialogPositiveBtnStyle" format="reference"/>
+        <attr name="dialogNegativeBtnStyle" format="reference"/>
+        <attr name="dividerHeight" format="dimension"/>
+        <attr name="dividerBackground" format="reference|color"/>
+    </declare-styleable>
 </resources>

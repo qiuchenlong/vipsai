@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.vs.library.widget.FunctionBar
+        android:id="@+id/function_bar"
+        style="@style/Function_bar_as_editor_style"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/padding_8"
+        android:gravity="right"
+        android:layout_weight="1"
+        android:background="@drawable/bg_frame_white"
+        android:hint="@string/input_duration_hint"
+        app:showClearBtn="false"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:entries="@array/time_unit"
+        android:layout_toRightOf="@id/function_bar"
+        android:layout_alignTop="@id/function_bar"
+        android:layout_alignBottom="@id/function_bar"/>
+
+</RelativeLayout>

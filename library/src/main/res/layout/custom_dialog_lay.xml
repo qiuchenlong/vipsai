@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/dialogBackground"
+    android:paddingLeft="?attr/dialogPaddingHorizontal"
+    android:paddingRight="?attr/dialogPaddingHorizontal"
+    android:paddingTop="?attr/dialogPaddingVertical"
+    android:paddingBottom="?attr/dialogPaddingVertical"
+	android:elevation="10dp">
+    
+    <!-- 标题栏 -->
+    <FrameLayout android:id="@+id/title_lay"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/dialogTitlebarHeight"
+        android:paddingLeft="?attr/dialogContentPaddingHorizontal"
+    	android:paddingRight="?attr/dialogContentPaddingHorizontal"
+        android:visibility="gone">
+        
+	    <TextView android:id="@+id/dialog_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:gravity="center"
+	        android:layout_gravity="center"
+	        style="?attr/dialogTitleTextAppearance"/>
+	
+	    <View android:id="@+id/dialog_title_divider"
+			android:layout_width="match_parent"
+        	android:layout_height="?attr/dividerHeight"
+        	android:layout_gravity="bottom"
+        	android:background="?attr/dividerBackground"/>
+	    
+	    <TextView android:id="@+id/close_btn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical|right"
+	        style="?attr/dialogTitleTextAppearance"
+	        android:text="X"
+				  android:paddingLeft="16dp"
+				  android:paddingRight="16dp"
+	        android:visibility="gone"/>
+	    
+	</FrameLayout>
+    
+    <FrameLayout android:id="@+id/simple_lay" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?attr/dialogContentPaddingHorizontal"
+    	android:paddingRight="?attr/dialogContentPaddingHorizontal"
+    	android:paddingTop="?attr/dialogContentPaddingVertical"
+    	android:paddingBottom="?attr/dialogContentPaddingVertical"
+    	android:visibility="gone">
+	    
+        <TextView android:id="@+id/simple_text" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="?attr/dialogContentTextAppearance"/>
+        
+    </FrameLayout>
+    
+    <FrameLayout android:id="@+id/content_container" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?attr/dialogContentPaddingHorizontal"
+    	android:paddingRight="?attr/dialogContentPaddingHorizontal"
+    	android:paddingTop="?attr/dialogContentPaddingVertical"
+    	android:paddingBottom="?attr/dialogContentPaddingVertical"
+    	android:visibility="gone"/>
+    
+    <!--  按钮栏 -->
+    <LinearLayout  android:id="@+id/dialog_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+    
+         <View android:id="@+id/dialog_button_divider"
+			 android:layout_width="match_parent"
+        	android:layout_height="?attr/dividerHeight"
+        	android:layout_gravity="bottom"
+        	android:background="?attr/dividerBackground"/>
+        
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	    	android:paddingTop="?attr/dialogContentPaddingVertical"
+	    	android:paddingBottom="?attr/dialogContentPaddingVertical"
+			android:layout_marginBottom="8dp"
+	    	android:orientation="horizontal"
+	    	android:layout_gravity="center_vertical">
+	        
+	        <!-- 确定按钮 -->
+	        <TextView android:id="@+id/positive_btn"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            style="?attr/dialogPositiveBtnStyle"
+				android:layout_marginLeft="?attr/dialogContentPaddingHorizontal"
+					  android:layout_marginRight="?attr/dialogContentPaddingHorizontal"/>
+	    	
+	        <!--<View android:id="@+id/btn_separator"
+	            android:layout_width="8dp"
+	            android:layout_height="1px"
+	            android:background="@android:color/transparent"
+	            android:layout_weight="0"/>-->
+	        
+	        <!-- 取消按钮 -->
+	        <TextView android:id="@+id/negative_btn"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            style="?attr/dialogNegativeBtnStyle"
+					  android:layout_marginLeft="?attr/dialogContentPaddingHorizontal"
+					  android:layout_marginRight="?attr/dialogContentPaddingHorizontal"/>
+	        
+	    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

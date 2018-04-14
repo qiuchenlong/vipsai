@@ -1034,4 +1034,12 @@
         <item>参与奖</item>
     </string-array>
 
+    <string-array name="time_unit">
+        <item>分钟</item>
+        <item>小时</item>
+        <item>天</item>
+        <item>星期</item>
+        <item>月</item>
+    </string-array>
+
 </resources>

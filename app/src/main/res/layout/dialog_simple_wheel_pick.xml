@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/padding_horizontal"
+        android:paddingVertical="@dimen/padding_4"
+        android:background="@drawable/bg_frame_bottom_white">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/mark_text_color"
+            android:text="@string/pickerview_cancel"
+            android:textSize="@dimen/font_big"/>
+
+        <TextView
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:textColor="@color/mark_text_color"
+            android:text="@string/pickerview_submit"
+            android:textSize="@dimen/font_big"/>
+
+    </LinearLayout>
+
+    <NumberPicker android:id="@+id/number_picker"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"/>
+
+</LinearLayout>

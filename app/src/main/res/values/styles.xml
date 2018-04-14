@@ -476,4 +476,49 @@
         <item name="android:contentDescription">""</item>
     </style>
 
+    <!--///////////////////////////////// 自定义对话框样式 ////////////////////////////////-->
+
+    <style name="dialog_title_text_style">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="text_button" >
+        <item name="android:background">@drawable/btn_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingTop">@dimen/padding_8</item>
+        <item name="android:paddingBottom">@dimen/padding_8</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!--自定义对话框样式-->
+    <style name="common_dialog_theme" parent="@style/custom_dialog_theme" >
+        <item name="dialogPaddingHorizontal">@dimen/padding_8</item>
+        <item name="dialogPaddingVertical">@dimen/divider</item>
+        <item name="dialogBackground">@drawable/bg_frame_white</item>
+        <item name="dialogPositiveBtnStyle">@style/text_button</item>
+        <item name="dialogNegativeBtnStyle">@style/text_button</item>
+        <item name="dialogContentPaddingVertical">@dimen/padding_8</item>
+        <item name="dialogContentPaddingHorizontal">@dimen/padding_16</item>
+        <item name="dialogTitleTextAppearance">@style/dialog_title_text_style</item>
+        <item name="dialogContentTextAppearance">@style/dialog_title_text_style</item>
+        <item name="dividerHeight">@dimen/divider</item>
+        <item name="dividerBackground">@color/transparent</item>
+        <item name="dialogTitlebarHeight">42dp</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="dialog_flip_bottom_theme" parent="@style/common_dialog_theme" >
+        <item name="dialogBackground">@drawable/bg_frame_top_white</item>
+        <item name="dialogContentPaddingVertical">0dp</item>
+        <item name="dialogContentPaddingHorizontal">0dp</item>
+    </style>
+
+    <style name="anim_dialog_flip_bottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_bottom_in_fast</item>
+        <item name="android:windowExitAnimation">@anim/anim_bottom_out_fast</item>
+    </style>
+
+    <!--///////////////////////////////// 自定义对话框样式 ////////////////////////////////-->
+
 </resources>

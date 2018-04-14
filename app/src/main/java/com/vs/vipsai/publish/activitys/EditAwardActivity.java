@@ -18,6 +18,8 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.vs.library.OnViewClickListener;
+import com.vs.library.utils.SystemUtil;
 import com.vs.library.widget.FunctionBar;
 import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.AppOperator;
@@ -34,6 +36,7 @@ import com.vs.vipsai.publish.layoutcontroller.InputBarController;
 import com.vs.vipsai.publish.viewmodels.VMAwardItem;
 import com.vs.vipsai.publish.viewmodels.VMInputBar;
 import com.vs.vipsai.settings.SettingsFragment;
+import com.vs.vipsai.ui.dialog.DialogFactory;
 import com.vs.vipsai.util.JsonUtil;
 import com.vs.vipsai.util.TDevice;
 import com.vs.vipsai.widget.dialog.AlertWheelDialog;
@@ -243,18 +246,13 @@ public class EditAwardActivity extends ToolbarActivity {
         private View.OnClickListener mPickType = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TDevice.hideSoftInputFromWindow((Activity)v.getContext());
+                SystemUtil.setSoftInputVisibility((Activity)v.getContext(), false);
 
-                final ArrayList<String> mList = new ArrayList<String>();
-                // 单项选择
-                mList.add(v.getContext().getString(R.string.cash));
-                mList.add(v.getContext().getString(R.string.present));
-
-                AlertWheelDialog.alertBottomWheelOption(v.getContext(), mList, new SettingsFragment.OnWheelViewClick() {
+                DialogFactory.showSimpleWheel(v.getContext(), new String[]{v.getContext().getString(R.string.cash),
+                        v.getContext().getString(R.string.present)}, new OnViewClickListener<String>() {
                     @Override
-                    public void onClick(View view, int postion) {
-                        String emailNotifyStr = mList.get(postion);
-                        mType.setText(emailNotifyStr);
+                    public void onViewClick(View view, String entity) {
+                        mType.setText(entity);
                     }
                 });
             }
@@ -263,14 +261,15 @@ public class EditAwardActivity extends ToolbarActivity {
         private View.OnClickListener mPickRankings = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TDevice.hideSoftInputFromWindow((Activity)v.getContext());
+                SystemUtil.setSoftInputVisibility((Activity)v.getContext(), false);
 
-                AlertWheelDialog.showRankingsWheel(v.getContext(), new AlertWheelDialog.OnWheelPickListener() {
+                DialogFactory.showRankingsWheel(v.getContext(), new OnViewClickListener<String>() {
                     @Override
-                    public void onWheelPick(String data) {
-                        mRandings.setText(data);
+                    public void onViewClick(View view, String entity) {
+                        mRandings.setText(entity);
                     }
                 });
+
             }
         };
     }
