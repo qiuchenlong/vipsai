@@ -31,10 +31,15 @@
 
     <declare-styleable name="FunctionBar">
         <attr name="android:hint"/>
+        <attr name="android:textColorHint"/>
+        <attr name="android:textSize"/>
         <attr name="android:gravity"/>
         <attr name="functionTitle" format="string"/>
         <attr name="functionTitleColor" format="color"/>
         <attr name="functionTitleSize" format="dimension"/>
+        <attr name="functionSubTitle" format="string"/>
+        <attr name="functionSubTitleColor" format="color"/>
+        <attr name="functionSubTitleSize" format="dimension"/>
         <attr name="functionEditStyle" format="reference"/>
         <attr name="clearImageRes" format="reference"/>
         <attr name="clearImageSize" format="dimension"/>
@@ -43,6 +48,7 @@
         <attr name="showArrow" format="boolean"/>
         <attr name="functionEditable" format="boolean"/>
         <attr name="showClearBtn" format="boolean"/>
+        <attr name="isRequestField" format="boolean"/>
         <attr name="functionInputType">
             <enum name="TEXT" value="0" />
             <enum name="NAME_CHINA" value="1" />
@@ -53,5 +59,6 @@
             <enum name="FLOAT" value="6" />
         </attr>
         <attr name="numericPrecision" format="integer"/>
+        <attr name="android:maxLength"/>
     </declare-styleable>
 </resources>

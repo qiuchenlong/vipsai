@@ -1,10 +1,12 @@
 package com.vs.vipsai.bean;
 
 import android.text.TextUtils;
+import android.view.View;
 
 import java.io.Serializable;
 
 import com.vs.vipsai.publish.viewmodels.VMAwardItem;
+import com.vs.vipsai.publish.viewmodels.VMImageItem;
 
 /**
  * * Author: chends
@@ -30,6 +32,18 @@ public class AwardBean extends VMAwardItem implements Serializable{
 
     public String rankings = "";
     public String reward;
+    private String[] mLocalPics;
+
+    @Override
+    protected void onBuildImage(int index, VMImageItem imageItem) {
+        super.onBuildImage(index, imageItem);
+        if(mLocalPics != null && index < mLocalPics.length) {
+            imageItem.localPath.set(mLocalPics[index]);
+        }
+        if(icons != null && index < icons.length) {
+            imageItem.url = icons[index];
+        }
+    }
 
     public String[] getIcons() {
         return icons;
@@ -49,6 +63,84 @@ public class AwardBean extends VMAwardItem implements Serializable{
         }
 
         return 0;
+    }
+
+    @Override
+    protected void onDelClick(View v, int index) {
+        if(icons != null && index >= 0 && index < icons.length) {
+            String[] tmp = null;
+            if(icons.length > 1) {
+                //移除删除项
+                tmp = new String[icons.length - 1];
+                int j = 0;
+                for (int i = 0; i < icons.length; i++) {
+                    if (i != index) {
+                        tmp[j++] = icons[i];
+                    }
+                }
+
+            }
+            icons = tmp;
+        }
+
+        if(mLocalPics != null && index >= 0 && index < mLocalPics.length) {
+            String[] tmp = null;
+            if(mLocalPics.length > 1) {
+                tmp = new String[mLocalPics.length - 1];
+                int j = 0;
+                for (int i = 0; i < mLocalPics.length; i++) {
+                    if (i != index) {
+                        tmp[j++] = mLocalPics[i];
+                    }
+                }
+            }
+            mLocalPics = tmp;
+        }
+    }
+
+    public void addLocalPath(int index, String path) {
+        int inputPosition = 0;
+        if(mLocalPics != null) {
+            if(index >= mLocalPics.length) {
+                String[] tmp = new String[mLocalPics.length + 1];
+                System.arraycopy(mLocalPics, 0, tmp, 0, mLocalPics.length);
+                tmp[mLocalPics.length] = path;
+                inputPosition = mLocalPics.length;
+                mLocalPics = tmp;
+            }else {
+                inputPosition = index;
+            }
+
+        }else {
+            mLocalPics = new String[]{path};
+        }
+
+        setLocalImage(inputPosition, path);
+    }
+
+    /**
+     * 数据是否有效，齐全
+     * @return true 有效 or false 无效
+     */
+    public boolean isDataValid() {
+
+        if(TextUtils.isEmpty(rankings)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(awardType)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(title)) {
+            return false;
+        }
+
+        if(TextUtils.isEmpty(description)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -75,10 +167,24 @@ public class AwardBean extends VMAwardItem implements Serializable{
     }
 
     @Override
+    public int getLocalPicSize() {
+        return mLocalPics == null ? 0 : mLocalPics.length;
+    }
+
+    @Override
+    public String getLocalPath(int index) {
+        if(mLocalPics != null && index >= 0 && index < mLocalPics.length) {
+            return mLocalPics[index];
+        }
+        return "";
+    }
+
+    @Override
     public String getIconUrl(int index) {
         if(icons != null && index >= 0 && index < icons.length) {
             return icons[index];
         }
         return "";
     }
+
 }

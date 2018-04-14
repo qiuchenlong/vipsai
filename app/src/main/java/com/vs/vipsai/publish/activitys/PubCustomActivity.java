@@ -3,6 +3,7 @@ package com.vs.vipsai.publish.activitys;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableField;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,8 +13,10 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.vs.library.widget.HeaderGridView;
+import com.vs.vipsai.AppConfig;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.R;
+import com.vs.vipsai.bean.AwardBean;
 import com.vs.vipsai.bean.SubjectBean;
 import com.vs.vipsai.bean.TournamentBean;
 import com.vs.vipsai.media.SelectImageActivity;
@@ -21,6 +24,9 @@ import com.vs.vipsai.media.config.SelectOptions;
 import com.vs.vipsai.publish.RequestCode;
 import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
+
+import java.io.File;
+import java.util.List;
 
 /**
  * * Author: chends
@@ -34,6 +40,10 @@ public class PubCustomActivity extends ToolbarActivity{
     private static final String EXTRA_PRESET_TOURNAMENT = "EXTRA_PRESET_TOURNAMENT";
 
     private RecommendedSubjectList mRecommendSubjects;
+
+    public ObservableField<String> awards = new ObservableField<>("");
+
+    private File mLocalDir;
 
     /**
      * 打开赛事编辑器
@@ -66,6 +76,11 @@ public class PubCustomActivity extends ToolbarActivity{
         gridView.setAdapter(mRecommendSubjects.getAdapter());
 
         setMenuButton(R.string.public_txt);
+
+        mLocalDir = new File(getFilesDir() + AppConfig.PUBLISH_LOCAL_COVERS_DIR);
+        if(!mLocalDir.exists()) {
+            mLocalDir.mkdir();
+        }
     }
 
     @Override
@@ -93,29 +108,56 @@ public class PubCustomActivity extends ToolbarActivity{
             if(subject != null && c != null) {
                 c.type.set(subject.title);
             }
+        }else if(RequestCode.REQUEST_EDIT_AWARD == requestCode && RESULT_OK == resultCode) {
+            List<AwardBean> result = TournamentCollector.get().getAwards();
+            StringBuilder sb = new StringBuilder();
+            if(result != null) {
+                final int count = result.size();
+                for (int i = count - 1; i >= 0; i--) {
+                    if(sb.length() > 0) {
+                        sb.append(" ; ");
+                    }
+                    sb.append(result.get(i).rankings).append("：")
+                            .append(result.get(i).title);
+                }
+            }
+            awards.set(sb.toString());
+        }else if(RequestCode.REQUEST_SET_TIME == requestCode && RESULT_OK == resultCode && data != null) {
+            TournamentBean tournament = data.getParcelableExtra(PubCustomSetTimeActivity.EXTRA_RESULT);
+            if(tournament != null) {
+                if(tournament.startImmediate) {
+                    TournamentCollector.get().time.set(getString(R.string.start_immediately_default));
+                }else {
+                    TournamentCollector.get().time.set(tournament.startTime);
+                }
+            }
         }
     }
 
     /**设置时间*/
     public void setTime(View view){
-        Toast.makeText(this, TournamentCollector.get().title, Toast.LENGTH_SHORT).show();
+        PubCustomSetTimeActivity.openForResult(this, RequestCode.REQUEST_SET_TIME);
     }
 
     public void pickCover(View view) {
         SelectImageActivity.show(view.getContext(), new SelectOptions.Builder()
                 .setHasCam(true)
-                .setCrop(700, 350)
+                .setCrop(700, 400)
                 .setCallback(new SelectOptions.Callback() {
                     @Override
                     public void doSelected(String[] images) {
                         TournamentCollector c = TournamentCollector.get();
                         if(c != null && images != null && images.length > 0) {
-                            c.localCover.set(images[0]);
+                            File tmp = new File(mLocalDir, String.valueOf(System.currentTimeMillis()) + ".jpg");
+                            if(new File(images[0]).renameTo(tmp)) {
+                                c.localCover.set(tmp.getAbsolutePath());
+                            }
                         }else {
                             c.localCover.set("");
                         }
 
                         mRecommendSubjects.notifyDataChanged();
+
                     }
                 }).build());
     }
@@ -132,7 +174,7 @@ public class PubCustomActivity extends ToolbarActivity{
     }
 
     public void setAward(View view) {
-        EditAwardActivity.open(this, null);
+        EditAwardActivity.openForResult(this, RequestCode.REQUEST_EDIT_AWARD);
     }
 
     private class RecommendedSubjectList extends BaseListAdapterController<SubjectBean> {

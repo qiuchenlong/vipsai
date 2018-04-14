@@ -18,17 +18,18 @@
         android:contentInsetLeft="0dp"
         android:paddingRight="@dimen/padding_horizontal"
         android:paddingBottom="@dimen/divider"
+        app:titleTextAppearance="@style/tool_bar_titleAppearance"
         android:background="@drawable/bg_frame_bottom_white">
 
         <TextView
+            style="@style/tool_bar_titleAppearance"
             android:id="@+id/tv_center_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:singleLine="true"
             android:lines="1"
-            android:ellipsize="end"
-            android:theme="?attr/titleTextAppearance"/>
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/tv_menu_btn"

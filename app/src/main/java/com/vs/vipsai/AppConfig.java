@@ -42,6 +42,7 @@ public class AppConfig {
             + File.separator + "download" + File.separator;
 
     public final static String PUBLISH_LOCAL_COVERS_DIR = File.separator + "localcoves";
+    public final static String PUBLISH_AWARD_PIC_DIR = File.separator + "awardpic";
 
     private Context mContext;
     private static AppConfig appConfig;

@@ -20,22 +20,40 @@ public class TournamentBean implements Parcelable{
     private long mSubjectId;
     private List<Long> mAwardId = new ArrayList<>();
 
+    public boolean startImmediate;
+    public String startTime;
+    public String startEntries;
+    public String openDuration;
+    public String qualifyDuration;
+    public boolean enableUpload;
+    public String entryDuration;
+
     protected TournamentBean(Parcel in) {
         mSubjectId = in.readLong();
-        int idCount = in.readInt();
-        long[] awardId = new long[idCount];
-        in.readLongArray(awardId);
         mAwardId = new ArrayList<>();
-        for (long item : awardId) {
-            mAwardId.add(item);
+        int idCount = in.readInt();
+        if(idCount > 0) {
+            long[] awardId = new long[idCount];
+            in.readLongArray(awardId);
+            for (long item : awardId) {
+                mAwardId.add(item);
+            }
         }
+
+        startImmediate = in.readInt() == 1 ? true : false;
+        startTime = in.readString();
+        startEntries = in.readString();
+        openDuration = in.readString();
+        qualifyDuration = in.readString();
+        enableUpload = in.readInt() == 1 ? true : false;
+        entryDuration = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(mSubjectId);
         dest.writeInt(mAwardId.size());
-        if(mAwardId. size() > 0) {
+        if(mAwardId.size() > 0) {
             long[] ids = new long[mAwardId.size()];
             for(int i = 0; i < mAwardId.size();i++) {
                 ids[i] = mAwardId.get(i);
@@ -43,6 +61,13 @@ public class TournamentBean implements Parcelable{
 
             dest.writeLongArray(ids);
         }
+        dest.writeInt(startImmediate ? 1 : 0);
+        dest.writeString(startTime);
+        dest.writeString(startEntries);
+        dest.writeString(openDuration);
+        dest.writeString(qualifyDuration);
+        dest.writeInt(enableUpload ? 1 : 0);
+        dest.writeString(entryDuration);
     }
 
     public long getSubjectId() {

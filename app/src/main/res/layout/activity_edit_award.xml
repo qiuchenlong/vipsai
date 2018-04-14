@@ -18,6 +18,7 @@
         android:background="@drawable/bg_frame_top_white">
 
         <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bar_height"
             android:gravity="center_vertical"

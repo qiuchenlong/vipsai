@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--base theme light-->
     <style name="Base.App.Theme.Light" parent="@style/Theme.AppCompat.Light">
@@ -119,6 +119,11 @@
     <style name="App.Theme.Tweet.Main" parent="Base.App.Theme.NoTitle" />
 
     <style name="App.Theme.Main" parent="Base.App.Theme.NoTitle" />
+
+    <style name="tool_bar_titleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/font_big</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
     <!--button-->
     <style name="App.Widget.Button" parent="Widget.AppCompat.Button">

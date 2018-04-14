@@ -306,4 +306,20 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="input_hint1">请输入</string>
     <string name="grade">等级</string>
 
+    <string name="agree_continue">同意协议后继续</string>
+
+    <string name="start_immediately">立即开始</string>
+    <string name="start_immediately_hint">比赛创建完成，即刻开启</string>
+    <string name="start_time_hint">到达预设时间，比赛立即开始</string>
+    <string name="start_time">开始时间</string>
+    <string name="start_entries_hint">在预设开始时间前，作品数量\n达到预设数量，比赛立即开始</string>
+    <string name="start_entries">开始作品数量</string>
+    <string name="time_of_stage_hint">各阶段持续时间设置</string>
+    <string name="stage_open">开放阶段</string>
+    <string name="stage_open_duration">开放阶段时长</string>
+    <string name="stage_qualify">资格赛阶段</string>
+    <string name="duration">持续时长</string>
+    <string name="capability_upload_entry">是否允许上传作品</string>
+    <string name="start_immediately_default">立即开始（默认）</string>
+
 </resources>

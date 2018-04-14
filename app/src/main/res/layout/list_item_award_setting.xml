@@ -6,6 +6,10 @@
         <import type="android.view.View"/>
 
         <variable
+            name="images"
+            type="com.vs.vipsai.publish.viewmodels.VMImageItem[]" />
+
+        <variable
             name="VMAwardItem"
             type="com.vs.vipsai.bean.AwardBean" />
     </data>
@@ -27,7 +31,8 @@
             app:functionTitle="@string/ranking"
             android:hint="@string/select_hint"
             app:functionEditable="false"
-            app:text="@={VMAwardItem.rankings}"/>
+            app:text="@={VMAwardItem.rankings}"
+            app:isRequestField="true"/>
 
         <!--奖项类型-->
         <com.vs.library.widget.FunctionBar
@@ -38,7 +43,8 @@
             app:functionTitle="@string/type"
             android:hint="@string/select_hint"
             app:functionEditable="false"
-            app:text="@={VMAwardItem.awardType}"/>
+            app:text="@={VMAwardItem.awardType}"
+            app:isRequestField="true"/>
 
         <!--奖金-->
         <com.vs.library.widget.FunctionBar
@@ -64,75 +70,58 @@
             android:background="@color/transparent"/>
 
         <!--描述-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <com.vs.library.widget.FunctionBar
+            style="@style/Function_bar_as_editor_style"
             android:textSize="@dimen/font_small"
-            android:paddingVertical="@dimen/padding_4"
             android:textColor="@color/gray"
-            android:text="@={VMAwardItem.description}"
+            app:text="@={VMAwardItem.description}"
             android:hint="@string/add_description_hint"
-            android:layout_marginTop="@dimen/padding_8"
-            android:layout_marginBottom="@dimen/padding_8"
-            android:background="@color/transparent"/>
+            android:paddingLeft="0dp"/>
 
         <!--图片-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/padding_8"
-            android:paddingTop="@dimen/padding_8"
-            android:visibility="@{VMAwardItem.getIconSize() == 0 ? View.GONE : View.VISIBLE}"
-            android:background="@drawable/bg_frame_top_white">
+            android:paddingRight="@dimen/padding_horizontal"
+            android:paddingBottom="@dimen/padding_8">
 
-            <com.vs.vipsai.widget.FitHeightImageView
-                android:layout_width="match_parent"
+            <include layout="@layout/list_item_image"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:clickable="false"
-                android:visibility="invisible"
-                app:imageUrl="@{VMAwardItem.getIconUrl(0)}"
-                android:src="@drawable/default_image"/>
+                app:VMImageItem="@{VMAwardItem.images[0]}"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
                 android:layout_weight="0"/>
 
-            <com.vs.vipsai.widget.FitHeightImageView
-                android:layout_width="match_parent"
+            <include layout="@layout/list_item_image"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:clickable="false"
-                android:visibility="invisible"
-                app:imageUrl="@{VMAwardItem.getIconUrl(1)}"
-                android:src="@drawable/default_image"/>
+                app:VMImageItem="@{VMAwardItem.images[1]}"/>
+
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
                 android:layout_weight="0"/>
 
-            <com.vs.vipsai.widget.FitHeightImageView
-                android:layout_width="match_parent"
+            <include layout="@layout/list_item_image"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:clickable="false"
-                android:visibility="invisible"
-                app:imageUrl="@{VMAwardItem.getIconUrl(2)}"
-                android:src="@drawable/default_image"/>
+                app:VMImageItem="@{VMAwardItem.images[2]}"/>
 
             <View android:layout_width="@dimen/padding_8"
                 android:layout_height="1px"
                 android:layout_weight="0"/>
 
-            <com.vs.vipsai.widget.FitHeightImageView
-                android:layout_width="match_parent"
+            <include layout="@layout/list_item_image"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:clickable="false"
-                android:visibility="invisible"
-                app:imageUrl="@{VMAwardItem.getIconUrl(3)}"
-                android:src="@drawable/default_image"/>
+                app:VMImageItem="@{VMAwardItem.images[3]}"/>
 
         </LinearLayout>
 

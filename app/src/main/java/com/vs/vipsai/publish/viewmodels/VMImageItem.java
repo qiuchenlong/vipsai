@@ -2,6 +2,7 @@ package com.vs.vipsai.publish.viewmodels;
 
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.vs.vipsai.R;
@@ -15,7 +16,13 @@ import com.vs.vipsai.R;
  */
 public class VMImageItem {
 
-//    public int placeHolder = R.mipmap.ic_default_image;
+    public int defaultImageRes = R.drawable.default_image;
+    /**无图片时可视状态*/
+    public int nullVisiable = View.INVISIBLE;
+
+    public View.OnClickListener onClick;
+
+    public View.OnClickListener onDelClick;
 
     public ObservableField<Boolean> selected = new ObservableField<>(false);
 
@@ -30,5 +37,14 @@ public class VMImageItem {
         }else {
             view.setBackgroundResource(R.color.transparent);
         }
+    }
+
+    /**
+     * 布局绑定，删除按钮是否可见
+     * @return
+     */
+    public int delBtnVisiable() {
+        return !TextUtils.isEmpty(url) || !TextUtils.isEmpty(localPath.get()) ?
+                View.VISIBLE : View.GONE;
     }
 }
