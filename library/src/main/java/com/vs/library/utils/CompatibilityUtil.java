@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
+import android.widget.TimePicker;
 
 /**
  * Created by chends on 2017/7/26.
@@ -38,6 +39,22 @@ public class CompatibilityUtil {
             return context.getColorStateList(resId);
         }else {
             return context.getResources().getColorStateList(resId);
+        }
+    }
+
+    public static int getHour(TimePicker picker) {
+        if(Build.VERSION.SDK_INT >= 23) {
+            return picker.getHour();
+        }else {
+            return picker.getCurrentHour();
+        }
+    }
+
+    public static int getMinute(TimePicker picker) {
+        if(Build.VERSION.SDK_INT >= 23) {
+            return picker.getMinute();
+        }else {
+            return picker.getCurrentMinute();
         }
     }
 }

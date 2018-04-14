@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#7f000000">
+    android:layout_height="match_parent">
 
     <LinearLayout android:id="@+id/ll_container"
         android:layout_width="match_parent"
@@ -49,11 +48,11 @@
 
         </LinearLayout>
 
-        <com.vs.vipsai.widget.wheel.WheelView
-            android:id="@+id/wv_option"
+        <NumberPicker android:id="@+id/number_picker"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"/>
+            android:descendantFocusability="blocksDescendants"/>
 
     </LinearLayout>
 

@@ -82,7 +82,7 @@
                     android:background="@drawable/bg_frame_bottom_white"
                     android:onClick="@{PubCustomSetTime::selectTime}"
                     app:enabled="@{PubCustomSetTime.immediate ? false : true}"
-                    app:text="@={tournament.startTime}"/>
+                    app:text="@{tournament.startTime}"/>
 
                 <!--开始作品数量-->
                 <com.vs.library.widget.FunctionBar
@@ -132,7 +132,9 @@
                     android:paddingLeft="0dp"
                     app:functionTitle="@string/stage_open_duration"
                     android:hint="@string/input_hint1"
-                    app:functionEditable="false"/>
+                    app:functionEditable="false"
+                    android:onClick="@{PubCustomSetTime::setOpenDuration}"
+                    app:text="@={tournament.openDuration}"/>
 
             </LinearLayout>
 

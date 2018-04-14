@@ -321,5 +321,6 @@ USER refers to all users of the Service, including users who are also contributo
     <string name="duration">持续时长</string>
     <string name="capability_upload_entry">是否允许上传作品</string>
     <string name="start_immediately_default">立即开始（默认）</string>
+    <string name="input_duration_hint">请输入时长</string>
 
 </resources>

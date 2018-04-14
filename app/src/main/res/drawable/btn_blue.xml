@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true" >
+        <layer-list>
+            <item>
+                <shape >
+                    <solid android:color="@color/mark_text_color" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/main_touch" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:drawable="@color/color_c7c7cc" android:state_enabled="false"/>
+    <item android:drawable="@color/mark_text_color"/>
+
+</selector>

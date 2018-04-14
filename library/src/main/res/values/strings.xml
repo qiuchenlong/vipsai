@@ -3,4 +3,12 @@
 
     <string name="min_length_hint">不少于%1$s个字</string>
     <string name="format_error">%1$s格式错误</string>
+
+    <string name="today">今天</string>
+    <string name="yesterday">今天</string>
+    <string name="the_day_before_yesterday">前天</string>
+    <string name="daybreak">凌晨</string>
+    <string name="morning">上午</string>
+    <string name="afternoon">下午</string>
+    <string name="evening">晚上</string>
 </resources>

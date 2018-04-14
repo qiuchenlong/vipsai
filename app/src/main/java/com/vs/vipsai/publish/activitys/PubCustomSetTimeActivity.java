@@ -5,15 +5,21 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
 import android.databinding.ViewDataBinding;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.vs.library.OnViewClickListener;
+import com.vs.library.utils.DateUtil;
 import com.vs.vipsai.R;
 import com.vs.vipsai.BR;
 import com.vs.vipsai.bean.TournamentBean;
+import com.vs.vipsai.ui.dialog.DialogFactory;
 
 /**
  * * Author: chends
@@ -29,6 +35,7 @@ public class PubCustomSetTimeActivity extends ToolbarActivity {
     public ObservableField<Boolean> immediate = new ObservableField<>(true);
 
     private TournamentBean mData = new TournamentBean();
+    private ViewDataBinding mBinding;
 
     public static void openForResult(Activity context, int requestCode) {
         Intent intent = new Intent(context, PubCustomSetTimeActivity.class);
@@ -49,9 +56,9 @@ public class PubCustomSetTimeActivity extends ToolbarActivity {
 
     @Override
     protected void bindContent(ViewGroup parent) {
-        ViewDataBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.activity_pub_custom_settime, parent, true);
-        binding.setVariable(BR.PubCustomSetTime, this);
-        binding.setVariable(BR.tournament, mData);
+        mBinding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.activity_pub_custom_settime, parent, true);
+        mBinding.setVariable(BR.PubCustomSetTime, this);
+        mBinding.setVariable(BR.tournament, mData);
     }
 
     //布局绑定，是否立即开始
@@ -61,7 +68,23 @@ public class PubCustomSetTimeActivity extends ToolbarActivity {
 
     //布局绑定，选择时间
     public void selectTime(View view) {
-        Toast.makeText(this, "asdasd", Toast.LENGTH_SHORT).show();
+        DialogFactory.showDateTimePicker(view.getContext(), new OnViewClickListener<Long>() {
+            @Override
+            public void onViewClick(View view, Long entity) {
+                mData.startTime = DateUtil.format(entity, DateUtil.DEFAULT_FORMAT);
+                mBinding.setVariable(BR.tournament, mData);
+            }
+        });
+    }
+
+    //布局绑定，输入开放阶段时长
+    public void setOpenDuration(View view) {
+        DialogFactory.showTimeDurationDialog(view.getContext(), R.string.stage_open, new OnViewClickListener<String>() {
+            @Override
+            public void onViewClick(View view, String entity) {
+
+            }
+        });
     }
 
     @Override
