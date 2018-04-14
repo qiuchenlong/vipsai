@@ -28,7 +28,7 @@ import butterknife.OnClick;
  * Created on 3/16/18 4:15 PM
  * Description:
  *
- * 发布界面
+ * (创建)发布比赛界面
  */
 
 public class PubActivity extends BaseActivity implements View.OnClickListener {
