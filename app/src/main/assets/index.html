@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            .title {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                font-size: 36px;
+            }
+            .absoluteCenter{
+                width:600px;
+                height:400px;
+                position:absolute;
+                left:50%;
+                top:50%;
+                margin-left: -300px;
+                margin-top: -200px;
+            }
+            .sub {
+                font-size: 28px;
+                color: #3ea6fb;
+            }
+            .item {
+                float: left;
+            }
+            .right {
+                float: right;
+                margin-right: 38px;
+            }
+            li {
+                margin: 15px;
+                list-style-type:none
+            }
+        </style>
+    </head>
+    <body>
+        <div class="master title">4 / 8</div>
+        <div class="sub title">(current)</div>
+
+        <canvas class="absoluteCenter" id="myCanvas" width="400px" height="300px" style="border: 1px solid red;">
+            您的浏览器不支持canvas标签。
+        </canvas>
+
+        <div class="absoluteCenter">
+            <ul class="item left">
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+            </ul>
+            <ul class="item right">
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+                <li>
+                    <img src="./face.png" alt="">
+                </li>
+            </ul>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+    //获取Canvas对象(画布)
+    var canvas = document.getElementById("myCanvas");
+    //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+    if(canvas.getContext){
+        //获取对应的CanvasRenderingContext2D对象(画笔)
+        var ctx = canvas.getContext("2d");
+
+        //注意，Canvas的坐标系是：Canvas画布的左上角为原点(0,0)，向右为横坐标，向下为纵坐标，单位是像素(px)。
+
+        ctx.beginPath();
+        ctx.moveTo(70-10, 130);
+        ctx.lineTo(70+20, 130);
+        ctx.lineTo(70+20, 50);
+        ctx.lineTo(70-10, 50);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.moveTo(70-10, 250-70);
+        ctx.lineTo(70+20, 250-70);
+        ctx.lineTo(70+20, 250);
+        ctx.lineTo(70-10, 250);
+        ctx.stroke();
+        ctx.closePath();
+
+
+
+
+        ctx.beginPath();
+        ctx.moveTo(100-10, 90);
+        ctx.lineTo(100+20, 90);
+        ctx.lineTo(100+20, 100+60);
+        ctx.lineTo(100+80, 100+60);
+
+        ctx.lineTo(200+80, 100+60);
+        ctx.lineTo(200+80, 90);
+        ctx.lineTo(200+110, 90);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.moveTo(100-10, 250-30);
+        ctx.lineTo(100+20, 250-30);
+        <!--ctx.lineTo(280, 100+60);-->
+        <!--ctx.lineTo(280, 100+60);-->
+
+        <!--ctx.lineTo(200+80, 250-70);-->
+        <!--ctx.lineTo(200+80, 250-70);-->
+        <!--ctx.lineTo(200+110, 250);-->
+        ctx.stroke();
+        ctx.closePath();
+
+
+
+
+        ctx.beginPath();
+        ctx.moveTo(280+50, 130);
+        ctx.lineTo(280+30, 130);
+        ctx.lineTo(280+30, 50);
+        ctx.lineTo(280+50, 50);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.moveTo(280+50, 250-70);
+        ctx.lineTo(280+30, 250-70);
+        ctx.lineTo(280+30, 250);
+        ctx.lineTo(280+50, 250);
+        ctx.stroke();
+        ctx.closePath();
+
+
+
+
+
+        var segments = [5, 10]
+        ctx.setLineDash(segments);
+
+        ctx.strokeStyle = "#3ea6fb";
+
+        ctx.beginPath();
+        ctx.moveTo(0, 150);
+        ctx.lineTo(20, 150);
+        ctx.lineTo(20, 50);
+        ctx.lineTo(40, 50);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(0, 150);
+        ctx.lineTo(20, 150);
+        ctx.lineTo(20, 250);
+        ctx.lineTo(40, 250);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.moveTo(400-0, 150);
+        ctx.lineTo(400-20, 150);
+        ctx.lineTo(400-20, 50);
+        ctx.lineTo(400-40, 50);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(400-0, 150);
+        ctx.lineTo(400-20, 150);
+        ctx.lineTo(400-20, 250);
+        ctx.lineTo(400-40, 250);
+        ctx.stroke();
+        ctx.closePath();
+
+    }
+    </script>
+</html>

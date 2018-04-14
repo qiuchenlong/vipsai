@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/fragment_player_fixtures_root_layout"
+
+    android:fillViewport="true"
+    android:scrollbars="none"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.vs.vipsai.widget.MatchView
+        android:id="@+id/fragment_player_fixtures_match_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    </LinearLayout>
+    
+    <!--<LinearLayout-->
+        <!--android:id="@+id/fragment_player_fixtures_linear_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="111"&ndash;&gt;-->
+            <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+        <!--<android.support.v4.widget.NestedScrollView-->
+            <!--android:id="@+id/fragment_player_fixtures_mested_scroll_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2000dp"-->
+            <!--android:fillViewport="true"-->
+            <!--android:scrollbars="none"-->
+            <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+
+
+            <!--<com.vs.vipsai.widget.MatchView-->
+            <!--android:id="@+id/fragment_player_fixtures_match_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2000dp"-->
+            <!--/>-->
+
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--&gt;-->
+            <!--</android.support.v7.widget.RecyclerView>-->
+
+
+
+        <!--</android.support.v4.widget.NestedScrollView>-->
+
+    <!--</LinearLayout>-->
+
+</android.support.v4.widget.NestedScrollView>

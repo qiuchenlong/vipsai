@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
 import com.google.gson.reflect.TypeToken;
@@ -118,6 +120,9 @@ public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerCo
     @Override
     public void OnGoodClickListener(View view, int position) {
 
+        Animation mAnimation = AnimationUtils.loadAnimation(mContext, R.anim.anim_small);
+        view.startAnimation(mAnimation);
+
 
         int[] points = new int[2];
         view.getLocationInWindow(points);
@@ -126,9 +131,9 @@ public class ListPlayerCommentFragment extends BaseRecyclerViewFragment<PlayerCo
             mIndex = 0 ;
         }
 
-        mDivergeView.setStartPoint(new PointF(points[0], points[1] - TDevice.dp2px(20)));
+        mDivergeView.setStartPoint(new PointF(points[0], points[1]));
 
-        mDivergeView.setEndPoint(new PointF(points[0], 0));
+        mDivergeView.setEndPoint(new PointF(points[0], - TDevice.getScreenHeight() * 3));
 
         while (mIndex < 5) {
             mDivergeView.startDiverges(mIndex);

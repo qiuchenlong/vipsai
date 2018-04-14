@@ -389,7 +389,7 @@ public class BasePlayerDetailActivity extends BackActivity implements TweetDetai
 
     @Override
     public void onScroll() {
-
+        if (mDelegation != null) mDelegation.getBottomSheet().dismiss();
     }
 
     private void setupDetailView() {
@@ -472,5 +472,22 @@ public class BasePlayerDetailActivity extends BackActivity implements TweetDetai
     }
 
 
-
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        Log.d("TAG1", "onTouchEvent...");
+//        return super.onTouchEvent(event);
+//    }
+//
+//
+//
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        Log.d("TAG1", "dispatchTouchEvent...");
+//        return super.dispatchTouchEvent(ev);
+//
+////        return false;
+//
+////        return ;//true：消费事件，终止。false:交给父onTouchEvent处理。并不再往下传递当前事件。
+//
+//    }
 }

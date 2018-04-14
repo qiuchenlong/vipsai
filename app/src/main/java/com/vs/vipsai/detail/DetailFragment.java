@@ -182,7 +182,7 @@ public abstract class DetailFragment extends BaseFragment implements View.OnClic
 //            ReadedIndexCacheManager.saveIndex(getContext(), mBean.getId(), CACHE_CATALOG,
 //                    (mScreenView != null && mScreenView.isViewInScreen()) ? 0 : mViewScroller.getScrollY());
 //        }
-        mWebView.destroy();
+//        mWebView.destroy();
         super.onDestroy();
     }
 
