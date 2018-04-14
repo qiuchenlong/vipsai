@@ -243,12 +243,12 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--<android.support.v4.widget.NestedScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:fillViewport="true"-->
+            <!--android:scrollbars="none"-->
+            <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -257,10 +257,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="@dimen/lay_44"
             android:background="@color/white"
-            android:focusable="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        </android.support.v4.widget.NestedScrollView>
+        <!--</android.support.v4.widget.NestedScrollView>-->
 
     </android.support.design.widget.CoordinatorLayout>
 

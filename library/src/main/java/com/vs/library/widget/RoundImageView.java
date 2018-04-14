@@ -16,9 +16,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.widget.AppCompatImageView;
+//import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.widget.ImageView;
 
 import com.vs.library.R;
 
@@ -28,7 +29,7 @@ import com.vs.library.R;
  * @author chends
  *
  */
-public class RoundImageView extends AppCompatImageView {
+public class RoundImageView extends ImageView {
 
 	private int type;
 	public static final int TYPE_CIRCLE = 0;
@@ -90,25 +91,25 @@ public class RoundImageView extends AppCompatImageView {
 		mShaderMatrix = null;
 		super.setImageDrawable(drawable);
 	}
-	
+
 	@Override
 	public void setImageBitmap(Bitmap bm) {
 		mShaderMatrix = null;
 		super.setImageBitmap(bm);
 	}
-	
+
 	@Override
 	public void setImageResource(int resId) {
 		mShaderMatrix = null;
 		super.setImageResource(resId);
 	}
-	
+
 	@Override
 	public void setImageURI(Uri uri) {
 		mShaderMatrix = null;
 		super.setImageURI(uri);
 	}
-	
+
 	private void setUpShader() {
 //		Drawable drawable = getDrawable();
 //		if (drawable == null || mMatrix != null) {
@@ -118,33 +119,33 @@ public class RoundImageView extends AppCompatImageView {
 		if (mShaderMatrix != null) {
 			return;
 		}
-		
+
 		mShaderMatrix = new Matrix();
 //		mShaderMatrix.reset();
-		
+
 		Bitmap bmp = drawableToBitamp(getDrawable());
 		if(bmp == null) {
 			return;
 		}
 		mBitmapShader = new BitmapShader(bmp, TileMode.REPEAT, TileMode.REPEAT);
 //		float scale = 1.0f;
-		
+
 		float scaleY = 1.0f;
 		float scaleX = 1.0f;
 //		if(getScaleType() == ScaleType.FIT_XY) {
 //			scaleY = getHeight() * 1.0f / bmp.getHeight();
 //			scaleX = getWidth() * 1.0f / bmp.getWidth();
 //			mMatrix.setScale(scaleX, scaleY, bmp.getWidth() / 2, bmp.getHeight() / 2);
-//			
+//
 //		}else if(getScaleType() == ScaleType.CENTER_CROP) {
-//			
+//
 //			int bSize = Math.min(bmp.getWidth(), bmp.getHeight());
 //			scaleX = mWidth * 1.0f / bSize;
 //			scaleY = mWidth * 1.0f / bSize;
-//			
+//
 //			mMatrix.setScale(scaleX, scaleY, bmp.getWidth() / 2, bmp.getHeight() / 2);
-//		} 
-		
+//		}
+
 		if (type == TYPE_CIRCLE) {
 //			int bSize = Math.min(bmp.getWidth(), bmp.getHeight());
 //			scale = mWidth * 1.0f / bSize;
@@ -161,14 +162,14 @@ public class RoundImageView extends AppCompatImageView {
 			}
 
 		}
-		
+
 //		mMatrix.setScale(scaleX, scaleY, getWidth() / 2, getHeight() / 2);
 		mShaderMatrix.setScale(scaleX, scaleY);
-		
+
 		int tx = (int)((bmp.getWidth() * scaleX - getWidth()) / 2f);
 		int ty = (int)((bmp.getHeight() * scaleY - getHeight()) / 2f);
 		mShaderMatrix.postTranslate(0 - tx, 0 - ty);
-		
+
 		mBitmapShader.setLocalMatrix(mShaderMatrix);
 		mBitmapPaint.setShader(mBitmapShader);
 	}
@@ -181,13 +182,13 @@ public class RoundImageView extends AppCompatImageView {
 		setUpShader();
 
 		if (type == TYPE_ROUND_TOP) {
-		
+
 			canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
 					mBitmapPaint);
-		
+
 			mTmpRect.set(mRoundRect.left, mRoundRect.bottom - mBorderRadius, mRoundRect.right, mRoundRect.bottom);
 			canvas.drawRect(mTmpRect, mBitmapPaint);
-			
+
 		}if (type == TYPE_ROUND) {
 			canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
 					mBitmapPaint);
@@ -221,7 +222,7 @@ public class RoundImageView extends AppCompatImageView {
 
 	/**
 	 * drawableתbitmap
-	 * 
+	 *
 	 * @param drawable
 	 * @return
 	 */

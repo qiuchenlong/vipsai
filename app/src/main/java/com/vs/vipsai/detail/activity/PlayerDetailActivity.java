@@ -44,7 +44,7 @@ import cz.msebera.android.httpclient.Header;
  * 比赛详情页面
  */
 
-public class PlayerDetailActivity extends BasePlayerDetailActivity implements TweetDetailContract.Operator {
+public class PlayerDetailActivity extends BasePlayerDetailActivity {
 
     PlayerDetailViewPagerFragment mPagerFrag;
 

@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -112,6 +113,13 @@ public class DivergeView extends View implements Runnable {
     }
 
     private void dealDiverge(){
+        Log.d("TAG", "mPtStart.y=" + mPtStart.y);
+        Log.d("TAG", "mPtEnd.y=" + mPtEnd.y);
+
+        int prevPt = 0;
+
+//        Log.d("TAG", "mDivergeInfos.size()=" + mDivergeInfos.size());
+
         for (int i = 0; i < mDivergeInfos.size(); i++) {
             DivergeInfo divergeInfo = mDivergeInfos.get(i);
 
@@ -135,7 +143,12 @@ public class DivergeView extends View implements Runnable {
                     + time2 * (divergeInfo.mBreakPoint.y)
                     + time3 * (divergeInfo.mEndPoint.y);
 
+            // 防止撒花效果向下移动
+            // ???
+
             divergeInfo.mY = y;
+
+//            Log.d("TAG", "divergeInfo.mY=" + divergeInfo.mY);
 
             if (divergeInfo.mY <= divergeInfo.mEndPoint.y) {
                 mDivergeInfos.remove(i);
@@ -295,7 +308,7 @@ public class DivergeView extends View implements Runnable {
         return new DivergeInfo(
                 mPtStart.x,
                 mPtStart.y,
-                getBreakPointF(2, 3),
+                getBreakPointF(2, 3), // 2
                 endPoint,
                 type);
     }
