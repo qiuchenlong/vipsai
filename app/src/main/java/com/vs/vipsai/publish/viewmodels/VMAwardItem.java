@@ -44,6 +44,7 @@ public abstract class VMAwardItem {
             onBuildImage(i, images[i]);
             images[i].onClick = clicks[i];
             images[i].onDelClick = delClicks[i];
+            images[i].setShowDelBtn(true);
         }
 
         if(mDefaultImageRes != 0) {

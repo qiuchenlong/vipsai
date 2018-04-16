@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="PubCustomSetTime"
             type="com.vs.vipsai.publish.activitys.PubCustomSetTimeActivity" />
@@ -65,37 +67,44 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:checked="true"
+                        android:checked="@={tournament.startImmediate}"
                         android:onCheckedChanged="@{PubCustomSetTime::onCheckedChanged}"/>
 
                 </LinearLayout>
 
                 <!--开始时间-->
                 <com.vs.library.widget.FunctionBar
+                    android:id="@+id/start_time"
                     style="@style/Function_bar_style"
                     android:paddingLeft="0dp"
                     app:functionTitle="@string/start_time"
                     app:functionTitleColor="@color/text_primary_enable_selector"
+                    android:textColor="@color/text_primary_enable_selector"
                     android:hint="@string/select_hint"
                     app:functionEditable="false"
                     app:functionSubTitle="@string/start_time_hint"
                     android:background="@drawable/bg_frame_bottom_white"
                     android:onClick="@{PubCustomSetTime::selectTime}"
                     app:enabled="@{PubCustomSetTime.immediate ? false : true}"
-                    app:text="@{tournament.startTime}"/>
+                    app:text="@{tournament.startTime}"
+                    app:isRequestField="true"
+                    app:showClearBtn="false"/>
 
                 <!--开始作品数量-->
                 <com.vs.library.widget.FunctionBar
+                    android:id="@+id/start_entry_num"
                     style="@style/Function_bar_style"
                     android:paddingLeft="0dp"
                     app:functionTitle="@string/start_entries"
                     app:functionTitleColor="@color/text_primary_enable_selector"
+                    android:textColor="@color/text_primary_enable_selector"
                     android:hint="@string/input_hint1"
                     app:functionInputType="NUMBER"
                     app:functionSubTitle="@string/start_entries_hint"
                     android:maxLength="7"
                     app:enabled="@{PubCustomSetTime.immediate ? false : true}"
-                    app:text="@={tournament.startEntries}"/>
+                    app:text="@={tournament.startEntries}"
+                    app:isRequestField="true"/>
 
             </LinearLayout>
 
@@ -128,13 +137,16 @@
                     android:paddingBottom="@dimen/divider"/>
 
                 <com.vs.library.widget.FunctionBar
+                    android:id="@+id/open_duration"
                     style="@style/Function_bar_style"
                     android:paddingLeft="0dp"
                     app:functionTitle="@string/stage_open_duration"
                     android:hint="@string/input_hint1"
                     app:functionEditable="false"
                     android:onClick="@{PubCustomSetTime::setOpenDuration}"
-                    app:text="@={tournament.openDuration}"/>
+                    app:text="@{tournament.openDuration}"
+                    app:showClearBtn="false"
+                    app:isRequestField="true"/>
 
             </LinearLayout>
 
@@ -165,15 +177,53 @@
                     app:functionTitle="@string/duration"
                     android:hint="@string/input_hint1"
                     app:functionEditable="false"
-                    android:background="@drawable/bg_frame_bottom_white"/>
+                    android:background="@drawable/bg_frame_bottom_white"
+                    app:showClearBtn="false"
+                    app:text="@{tournament.qualifyDuration}"
+                    android:onClick="@{PubCustomSetTime::setQualifyDuration}"/>
 
+                <!--是否允许上传作品-->
                 <com.vs.library.widget.FunctionBar
+                    android:id="@+id/upload_entry"
                     style="@style/Function_bar_style"
                     android:paddingLeft="0dp"
                     android:layout_marginLeft="@dimen/padding_horizontal"
                     app:functionTitle="@string/capability_upload_entry"
                     android:hint="@string/select_hint"
-                    app:functionEditable="false"/>
+                    app:functionEditable="false"
+                    app:showClearBtn="false"
+                    android:onClick="@{PubCustomSetTime::setUploadEntry}"/>
+
+                <!--上传作品时长-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/bar_height"
+                    android:layout_marginLeft="@dimen/padding_horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_frame_top_white"
+                    android:visibility="@{tournament.enableUpload ? View.VISIBLE : View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/font_normal"
+                        android:text="@string/entry_duration_title"/>
+
+                    <com.vs.library.widget.FunctionBar
+                        style="@style/Function_bar_style"
+                        android:paddingLeft="0dp"
+                        android:layout_marginLeft="@dimen/padding_horizontal"
+                        app:functionTitle="@string/entry_duration_hint"
+                        android:hint="@string/input_hint1"
+                        app:functionEditable="false"
+                        app:showClearBtn="false"
+                        app:text="@{tournament.entryDuration}"
+                        android:onClick="@{PubCustomSetTime::setEntryDuration}"/>
+
+                </LinearLayout>
+
 
             </LinearLayout>
 

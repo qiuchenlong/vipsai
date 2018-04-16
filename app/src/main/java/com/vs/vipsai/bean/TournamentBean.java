@@ -6,6 +6,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseLongArray;
 
+import com.vs.vipsai.publish.TournamentCollector;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +24,7 @@ public class TournamentBean implements Parcelable{
     private long mSubjectId;
     private List<Long> mAwardId = new ArrayList<>();
 
-    public boolean startImmediate;
+    public boolean startImmediate = true;
     public String startTime;
     public String startEntries;
     public String openDuration;
@@ -30,7 +32,7 @@ public class TournamentBean implements Parcelable{
     public boolean enableUpload;
     public String entryDuration;
 
-    protected TournamentBean(Parcel in) {
+    public TournamentBean(Parcel in) {
         mSubjectId = in.readLong();
         mAwardId = new ArrayList<>();
         int idCount = in.readInt();
@@ -70,6 +72,72 @@ public class TournamentBean implements Parcelable{
         dest.writeString(qualifyDuration);
         dest.writeInt(enableUpload ? 1 : 0);
         dest.writeString(entryDuration);
+    }
+
+    public void setTimeTheme(TournamentBean in) {
+        setStartImmediate(in.isStartImmediate());
+        setStartTime(in.getStartTime());
+        setStartEntries(in.getStartEntries());
+        setOpenDuration(in.getOpenDuration());
+        setQualifyDuration(in.getQualifyDuration());
+        setEnableUpload(in.isEnableUpload());
+        setEntryDuration(in.getEntryDuration());
+    }
+
+    public boolean isStartImmediate() {
+        return startImmediate;
+    }
+
+    public void setStartImmediate(boolean startImmediate) {
+        this.startImmediate = startImmediate;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getStartEntries() {
+        return startEntries;
+    }
+
+    public void setStartEntries(String startEntries) {
+        this.startEntries = startEntries;
+    }
+
+    public String getOpenDuration() {
+        return openDuration;
+    }
+
+    public void setOpenDuration(String openDuration) {
+        this.openDuration = openDuration;
+    }
+
+    public String getQualifyDuration() {
+        return qualifyDuration;
+    }
+
+    public void setQualifyDuration(String qualifyDuration) {
+        this.qualifyDuration = qualifyDuration;
+    }
+
+    public boolean isEnableUpload() {
+        return enableUpload;
+    }
+
+    public void setEnableUpload(boolean enableUpload) {
+        this.enableUpload = enableUpload;
+    }
+
+    public String getEntryDuration() {
+        return entryDuration;
+    }
+
+    public void setEntryDuration(String entryDuration) {
+        this.entryDuration = entryDuration;
     }
 
     public long getSubjectId() {
