@@ -1,6 +1,7 @@
 package com.vs.library.widget;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.databinding.BindingAdapter;
@@ -127,8 +128,12 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
             mEditView.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimension(R.styleable.FunctionBar_android_textSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 13,
                     getResources().getDisplayMetrics())));
         }
+        if(a.hasValue(R.styleable.FunctionBar_android_textColor)) {
+            setTextColor(a.getColorStateList(R.styleable.FunctionBar_android_textColor));
+        }
 
         float defaultSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+
         //clearButton
         ImageView imageView = new ImageView(context);
         if(a.hasValue(R.styleable.FunctionBar_clearImageRes)) {
@@ -144,7 +149,6 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         imageView.setVisibility(View.GONE);
         addView(imageView, lp);
         imageView.setOnClickListener(mClearClick);
-        setShowClearBtn(a.getBoolean(R.styleable.FunctionBar_showClearBtn, true));
         mClearBtn = imageView;
 
         //rightArrow
@@ -170,6 +174,8 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         if(a.hasValue(R.styleable.FunctionBar_android_maxLength)) {
             setMaxLength(a.getInt(R.styleable.FunctionBar_android_maxLength, Integer.MAX_VALUE));
         }
+
+        setShowClearBtn(a.getBoolean(R.styleable.FunctionBar_showClearBtn, true));
 
         a.recycle();
 
@@ -206,6 +212,8 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         if(mEditView != null) {
             if(mEditable) {
                 mEditView.setEnabled(enabled);
+            }else {
+                mEditView.setActivated(enabled);
             }
         }
     }
@@ -285,8 +293,7 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
         if((Type.EMAIL.ordinal() == mType && text.length() > 0 && !StringUtil.isEmail(text.toString().trim())) ||
                 (Type.PASSWORD.ordinal() == mType && !StringUtil.isNumText(text.toString().trim())) ||
                 (Type.NAME_CHINA.ordinal() == mType && !StringUtil.onlyChinese(text.toString().trim())) ||
-                (Type.PHONE.ordinal() == mType && text.length() > 0 && !StringUtil.isPhoneNum(text.toString().trim())) ||
-                (Type.TEXT.ordinal() == mType && !StringUtil.isNumTextSimplified(text.toString().trim(),0,0))) {
+                (Type.PHONE.ordinal() == mType && text.length() > 0 && !StringUtil.isPhoneNum(text.toString().trim()))) {
             if(toastString != 0) {
                 Toast.makeText(getContext(), getContext().getString(R.string.format_error, mTitle.getText()), Toast.LENGTH_SHORT).show();
             }
@@ -387,6 +394,10 @@ public class FunctionBar extends LinearLayout implements TextWatcher{
 
     public interface OnTextChangeListener{
         void onTextChanged(FunctionBar bar, String text);
+    }
+
+    public void setTextColor(ColorStateList color) {
+        mEditView.setTextColor(color);
     }
 
     public void setContentBackground(int resId) {

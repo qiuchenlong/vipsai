@@ -63,6 +63,7 @@ public class VMPickCover{
         List<VMImageItem> data = new ArrayList<>();
         for (String url : test) {
             VMImageItem item = new VMImageItem();
+            item.nullVisiable = View.VISIBLE;
             item.url = url;
             data.add(item);
         }

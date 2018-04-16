@@ -17,6 +17,8 @@
         android:padding="@dimen/divider"
         app:backgroundSelector="@{VMImageItem.selected}"
         android:onClick="@{VMImageItem.onClick}"
+        android:clickable="@{VMImageItem.onClick == null ? false : true}"
+        android:longClickable="@{VMImageItem.onClick == null ? false : true}"
         android:visibility="@{VMImageItem.nullVisiable}">
 
         <com.vs.vipsai.widget.FitHeightImageView

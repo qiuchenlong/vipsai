@@ -1,7 +1,9 @@
 package com.vs.vipsai.ui.dialog;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.os.Looper;
@@ -63,10 +65,9 @@ public class DialogFactory {
         return npList;
     }
 
-    public static void showTimeDurationDialog(Context context, int titleRes, OnViewClickListener<String> callback) {
+    public static CustomDialog showTimeDurationDialog(Context context, int titleRes, OnViewClickListener<String> callback) {
         final CustomDialog dialog = new CustomDialog(context, R.style.common_dialog_theme, CustomDialog.WidthType.AUTO);
         final SoftReference<OnViewClickListener<String>> soft = new SoftReference<>(callback);
-
         dialog.setTitle(titleRes);
 
         dialog.setContentView(R.layout.dialog_time_duration_input);
@@ -75,11 +76,21 @@ public class DialogFactory {
             @Override
             public void onClick(View v) {
                 OnViewClickListener<String> callback = soft.get();
+
+
                 if(callback != null) {
                     FunctionBar f = dialog.findViewById(R.id.function_bar);
-                    Spinner spinner = dialog.findViewById(R.id.spinner);
-                    callback.onViewClick(v, new StringBuilder().append(f.getText())
-                            .append((String)spinner.getSelectedItem()).toString());
+                    int duration = 0;
+                    try {
+                        duration = Integer.parseInt(f.getText());
+                        if(duration > 0) {
+                            Spinner spinner = dialog.findViewById(R.id.spinner);
+                            callback.onViewClick(v, new StringBuilder().append(f.getText())
+                                    .append((String) spinner.getSelectedItem()).toString());
+                        }
+
+                    }catch(NumberFormatException e){}
+
                 }
             }
         });
@@ -87,6 +98,7 @@ public class DialogFactory {
         dialog.setNegativeClickListener(context.getString(R.string.pickerview_cancel), null);
 
         dialog.show();
+        return dialog;
     }
 
     /**
@@ -279,6 +291,25 @@ public class DialogFactory {
         dialog.show();
 
         return dialog;
+    }
+
+    public static void showYesOrNoDialog(Context context, OnViewClickListener<Boolean> callback) {
+        final SoftReference<OnViewClickListener<Boolean>> soft = new SoftReference<>(callback);
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setSingleChoiceItems(new String[]{context.getString(R.string.yes),
+                        context.getString(R.string.no)}, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface d, int which) {
+                        OnViewClickListener<Boolean> callback = soft.get();
+                        if(callback != null) {
+                            callback.onViewClick(null, ((AlertDialog)d).getListView().getCheckedItemPosition() == 0 ?
+                                        true : false);
+                        }
+                        d.dismiss();
+                    }
+                }).create();
+
+        dialog.show();
     }
 
 //    public static CustomDialog showSingleBtnTip(Context context, String content, String btnText, View.OnClickListener clickListener) {

@@ -26,6 +26,7 @@ import com.vs.vipsai.publish.TournamentCollector;
 import com.vs.vipsai.publish.layoutcontroller.BaseListAdapterController;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -67,6 +68,7 @@ public class PubCustomActivity extends ToolbarActivity{
         GridView gridView = binding.getRoot().findViewById(R.id.grid_view);
         mRecommendSubjects = new RecommendedSubjectList().wrap(gridView);
 
+
         ViewDataBinding headBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.activity_pub_custom_header,
                                     null, false);
         headBinding.setVariable(BR.TournamentCollector, TournamentCollector.get());
@@ -81,6 +83,32 @@ public class PubCustomActivity extends ToolbarActivity{
         if(!mLocalDir.exists()) {
             mLocalDir.mkdir();
         }
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+
+        //测试
+        String[] urls = new String[]{"http://img3.imgtn.bdimg.com/it/u=1998509219,3699571886&fm=27&gp=0.jpg",
+                "http://img5.imgtn.bdimg.com/it/u=3053360598,3934153851&fm=200&gp=0.jpg",
+                "http://img0.imgtn.bdimg.com/it/u=818473686,553939944&fm=27&gp=0.jpg",
+                "http://img4.imgtn.bdimg.com/it/u=1046180996,258140096&fm=27&gp=0.jpg",
+                "http://img3.imgtn.bdimg.com/it/u=2715483356,1903544801&fm=27&gp=0.jpg"};
+        String[] title = new String[]{"美食", "聚会", "爱情", "音乐", "旅行"};
+        String[] desc = new String[]{"唯有爱与美食不可辜负", "孤单，被热闹的夜赶出来", "乌云弊月烟波长，谁肯解思量", "在音乐里彰显态度，肆意地放浪形骸",
+                "生活不止眼前的苟且，还有诗和远方"};
+        //测试
+        List<SubjectBean> datas = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
+            SubjectBean item = new SubjectBean();
+            item.url = urls[i];
+            item.title = title[i];
+            item.description = desc[i];
+            datas.add(item);
+        }
+
+        mRecommendSubjects.setData(datas);
     }
 
     @Override
@@ -130,13 +158,16 @@ public class PubCustomActivity extends ToolbarActivity{
                 }else {
                     TournamentCollector.get().time.set(tournament.startTime);
                 }
+                TournamentCollector.get().getTournament().setTimeTheme(tournament);
             }
         }
     }
 
     /**设置时间*/
     public void setTime(View view){
-        PubCustomSetTimeActivity.openForResult(this, RequestCode.REQUEST_SET_TIME);
+        TournamentBean tmp = new TournamentBean();
+        tmp.setTimeTheme(TournamentCollector.get().getTournament());
+        PubCustomSetTimeActivity.openForResult(this, RequestCode.REQUEST_SET_TIME, tmp);
     }
 
     public void pickCover(View view) {
@@ -181,6 +212,11 @@ public class PubCustomActivity extends ToolbarActivity{
 
         public void addHeaderView(View view, Object data, boolean selectable){
             ((HeaderGridView)mRoot).addHeaderView(view, data, selectable);
+        }
+
+        @Override
+        protected View onGetView(SubjectBean data, int position, View convertView, ViewGroup parent) {
+            return super.onGetView(data, position, convertView, parent);
         }
 
         @Override

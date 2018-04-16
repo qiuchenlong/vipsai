@@ -112,6 +112,10 @@ public class TournamentCollector {
         }
     }
 
+    public TournamentBean getTournament() {
+        return mTournament;
+    }
+
     public void changedPlayer(User user, boolean append) {
         if(append) {
             mUsers.add(user.getId());

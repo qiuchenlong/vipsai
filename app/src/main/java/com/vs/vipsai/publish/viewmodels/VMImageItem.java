@@ -28,6 +28,8 @@ public class VMImageItem {
 
     public String url;
 
+    private boolean mShowDelBtn = false;
+
     public ObservableField<String> localPath = new ObservableField<>();
 
     @BindingAdapter("backgroundSelector")
@@ -39,12 +41,16 @@ public class VMImageItem {
         }
     }
 
+    public void setShowDelBtn(boolean show) {
+        mShowDelBtn = show;
+    }
+
     /**
      * 布局绑定，删除按钮是否可见
      * @return
      */
     public int delBtnVisiable() {
-        return !TextUtils.isEmpty(url) || !TextUtils.isEmpty(localPath.get()) ?
+        return (!TextUtils.isEmpty(url) || !TextUtils.isEmpty(localPath.get())) && mShowDelBtn ?
                 View.VISIBLE : View.GONE;
     }
 }

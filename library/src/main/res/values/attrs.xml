@@ -30,6 +30,8 @@
     </declare-styleable>
 
     <declare-styleable name="FunctionBar">
+        <attr name="android:maxLength"/>
+        <attr name="android:textColor"/>
         <attr name="android:hint"/>
         <attr name="android:textColorHint"/>
         <attr name="android:textSize"/>
@@ -59,7 +61,7 @@
             <enum name="FLOAT" value="6" />
         </attr>
         <attr name="numericPrecision" format="integer"/>
-        <attr name="android:maxLength"/>
+
     </declare-styleable>
 
     <declare-styleable name="CustomDialog">

@@ -270,6 +270,23 @@ public class SystemUtil {
         }
     }
 
+    public static void hidSoftInput(View view) {
+        if (view == null) return;
+        View mFocusView = view.findFocus();
+
+        Context context = view.getContext();
+        if (context != null && context instanceof Activity) {
+            Activity activity = ((Activity) context);
+            mFocusView = activity.getCurrentFocus();
+        }
+
+        if (mFocusView == null) return;
+        mFocusView.clearFocus();
+        InputMethodManager manager = (InputMethodManager) mFocusView.getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(mFocusView.getWindowToken(), 0);
+    }
+
     public static void openFileAs(Context context, File file, String extend) {
         if(file != null && file.exists()) {
             Intent intent = new Intent();
