@@ -31,6 +31,8 @@
       ``` 
 
 
+adb shell monkey -p com.vs.vipsai -v 1000
+
 ./emulator -avd Nexus_5X_API_24 -use-system-libs
       
   
