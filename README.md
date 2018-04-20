@@ -29,6 +29,9 @@
       ```shell
         ./gradlew assembleRelease
       ``` 
+
+
+./emulator -avd Nexus_5X_API_24 -use-system-libs
       
   
   
